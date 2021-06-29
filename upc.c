@@ -1,4 +1,5 @@
 /* UPC의 확인자릿수를 계산함 */
+
 #include <stdio.h>
 
 int main(void)

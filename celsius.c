@@ -1,4 +1,5 @@
 /* Converts a Fahrenheit temperature to Celsius */
+
 #include <stdio.h>
 
 #define FREEZING_PT (32.0f)

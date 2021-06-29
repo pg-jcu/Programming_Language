@@ -1,4 +1,5 @@
 /* 두 분수를 더해준다 */
+
 #include <stdio.h>
 
 int main(void)
