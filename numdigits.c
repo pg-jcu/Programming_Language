@@ -10,7 +10,8 @@ int main(void)
     printf("음수가 아닌 정수를 입력하시오: ");
     scanf("%d", &n);
 
-    do {
+    do 
+    {
         n /= 10;
         ++digits;
     } while (n > 0);

@@ -12,11 +12,13 @@ void initialize_number_generator(void);
 void choose_new_secret_number(void);
 void read_guesses(void);
 
-int main(void) {
+int main(void) 
+{
     char command = '\0';
     printf("1과 100 사이의 난수를 맞춰보세요!!\n\n", MAX_NUMBER);
     initialize_number_generator();
-    do {
+    do 
+    {
         choose_new_secret_number();
         printf("컴퓨터가 난수를 정했습니다, 맞춰보세요!.\n");
         read_guesses();
@@ -32,7 +34,8 @@ int main(void) {
  * initialize_number_generator: 단일 시간을 바탕으로      *
  *                              난수 생성기를 초기화한다.  *
  *********************************************************/
-void initialize_number_generator(void) {
+void initialize_number_generator(void) 
+{
     srand((unsigned) time(NULL));
 }
 
@@ -41,7 +44,8 @@ void initialize_number_generator(void) {
  *                           구하고 g_secret_number에     *
  *                           저장해준다.                  *
  *********************************************************/
-void choose_new_secret_number(void) {
+void choose_new_secret_number(void) 
+{
     g_secret_number = rand() % MAX_NUMBER + 1;
 }
 
@@ -51,20 +55,27 @@ void choose_new_secret_number(void) {
  *               같은지를 알려준다. 만약 같다면 사용자가   *
  *               총 몇 번 찍었는지를 알려주고 변환한다.    *
  *********************************************************/
-void read_guesses(void) {
+void read_guesses(void) 
+{
     int guess = 0;
     int num_guesses = 0;
 
-    for (;;) {
+    for (;;) 
+    {
         ++num_guesses;
         printf("정답은?: ");
         scanf("%d", &guess);
-        if (guess == g_secret_number) {
+        if (guess == g_secret_number) 
+        {
             printf("%d번째 시도만에 맞췄네요!\n\n", num_guesses);
             return;
-        } else if (guess < g_secret_number) {
+        } 
+        else if (guess < g_secret_number) 
+        {
             printf("너무 작네요; 다시해보세요.\n");
-        } else {
+        } 
+        else
+        {
             printf("너무 크네요; 다시해보세요.\n");
         }
     }

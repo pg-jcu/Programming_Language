@@ -9,7 +9,8 @@ int main(void)
 
     printf("Enter a message: ");
     ch = getchar();
-    while (ch != '\n') {
+    while (ch != '\n') 
+    {
         ++message_length;
         ch = getchar();
     }
