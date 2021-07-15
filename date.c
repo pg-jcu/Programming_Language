@@ -13,7 +13,8 @@ int main(void)
     scanf("%d /%d /%d", &month, &day, &year);
 
     printf("Dated this %d", day);
-    switch (day) {
+    switch (day) 
+    {
     case 1:
         /* intentional fallthrough */
     case 21:
@@ -37,7 +38,8 @@ int main(void)
     }
     printf(" day of ");
 
-    switch (month) {
+    switch (month) 
+    {
     case 1:
         printf("January");
         break;

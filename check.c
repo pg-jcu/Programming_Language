@@ -12,11 +12,13 @@ int main(void)
     printf("*** ACME checkbook-balancing program ***\n");
     printf("Commands: 0=clear, 1=credit, 2=debit, 3=balance, 4=exist\n\n");
 
-    for (;;) {
+    for (;;) 
+    {
         printf("Enter command: ");
         scanf("%d", &cmd);
 
-        switch (cmd) {
+        switch (cmd) 
+        {
             case 0:
                 balance = 0.0f;
                 break;

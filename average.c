@@ -2,11 +2,13 @@
 
 #include <stdio.h>
 
-double get_average(double left, double right) {
+double get_average(double left, double right) 
+{
     return (left + right) / 2;
 }
 
-int main(void) {
+int main(void) 
+{
     double x;
     double y;
     double z;
