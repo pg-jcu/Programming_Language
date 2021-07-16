@@ -11,7 +11,8 @@ int main(void)
     printf("정수 여러 개를 입력하십시오 (수열을 끝내려면 0을 입력하십시오): ");
 
     scanf("%ld", &n);
-    while (n != 0){
+    while (n != 0)
+    {
         sum += n;
         scanf("%ld", &n);
     }

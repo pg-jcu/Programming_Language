@@ -8,7 +8,8 @@
 
 int read_line(char str[], int size);
 
-int main(void) {
+int main(void) 
+{
     char reminder[MAX_REMIND][MSG_LEN + 3];
     char day_str[3];
     char msg_str[MSG_LEN + 1];
@@ -17,26 +18,32 @@ int main(void) {
     int j;
     int num_remind = 0;
 
-    for (;;) {
-        if (num_remind == MAX_REMIND) {
+    for (;;) 
+    {
+        if (num_remind == MAX_REMIND) 
+        {
             printf("-- No space left --\n");
             break;
         }
 
         printf("Enter day and reminder: ");
         scanf("%2d", &day);
-        if (day == 0) {
+        if (day == 0) 
+        {
             break;
         }
         sprintf(day_str, "%2d", day);
         read_line(msg_str, MSG_LEN);
 
-        for (i = 0; i < num_remind; ++i) {
-            if (strcmp(day_str, reminder[i]) < 0) {
+        for (i = 0; i < num_remind; ++i) 
+        {
+            if (strcmp(day_str, reminder[i]) < 0) 
+            {
                 break;
             }
         }
-        for (j = num_remind; j > i; --j) {
+        for (j = num_remind; j > i; --j) 
+        {
             strcpy(reminder[j], reminder[j - 1]);
         }
 
@@ -47,19 +54,23 @@ int main(void) {
     }
 
     printf("\nDay Reminder\n");
-    for (i = 0; i < num_remind; ++i) {
+    for (i = 0; i < num_remind; ++i) 
+    {
         printf(" %s\n", reminder[i]);
     }
 
     return 0;
 }
 
-int read_line(char str[], int size) {
+int read_line(char str[], int size) 
+{
     int ch;
     int i = 0;
     
-    while ((ch = getchar()) != '\n'){
-        if (i < size) {
+    while ((ch = getchar()) != '\n')
+    {
+        if (i < size) 
+        {
             str[i++] = ch;
         }
     }

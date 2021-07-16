@@ -2,7 +2,8 @@
 
 #include <stdio.h>
 
-int main(void) {
+int main(void) 
+{
     int i;
     int reverse_count;
 
@@ -12,12 +13,14 @@ int main(void) {
     int numbers[reverse_count];
 
     printf("Enter %d numbers: ", reverse_count);
-    for (i = 0; i < reverse_count; ++i) {
+    for (i = 0; i < reverse_count; ++i) 
+    {
         scanf("%d", &numbers[i]);
     }
 
     printf("In reverse order:");
-    for (i = reverse_count - 1; i >= 0; --i) {
+    for (i = reverse_count - 1; i >= 0; --i) 
+    {
         printf(" %d", numbers[i]);
     }
     printf("\n");

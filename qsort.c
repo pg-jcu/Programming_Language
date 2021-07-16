@@ -7,19 +7,22 @@
 void quicksort_recursive(int arr[], int low, int high);
 int split(int arr[], int low, int high);
 
-int main(void) {
+int main(void) 
+{
     int arr[N] = {0, };
     int i = 0;
 
     printf("정렬할 숫자 %d개를 입력하세요: ", N);
-    for (i = 0; i < N; ++i) {
+    for (i = 0; i < N; ++i) 
+    {
         scanf("%d", &arr[i]);
     }
 
     quicksort_recursive(arr, 0, N - 1);
 
     printf("정렬 이후: ");
-    for (i = 0; i < N; ++i) {
+    for (i = 0; i < N; ++i) 
+    {
         printf("%d ", arr[i]);
     }
     printf("\n");
@@ -27,10 +30,12 @@ int main(void) {
     return 0;
 }
 
-void quicksort_recursive(int arr[], int low, int high) {
+void quicksort_recursive(int arr[], int low, int high) 
+{
     int middle = 0;
 
-    if (low >= high) {
+    if (low >= high) 
+    {
         return;
     }
 
@@ -40,25 +45,31 @@ void quicksort_recursive(int arr[], int low, int high) {
 
 }
 
-int split(int arr[], int low, int high) {
+int split(int arr[], int low, int high)
+{
     int part_element = arr[low];
 
-    for (;;) {
-        while (low < high && part_element <= arr[high]) {
+    for (;;) 
+    {
+        while (low < high && part_element <= arr[high]) 
+        {
             --high;
         }
 
-        if (low >= high) {
+        if (low >= high) 
+        {
             break;
         }
 
         arr[low++] = arr[high];
 
-        while (low < high && arr[low] <= part_element) {
+        while (low < high && arr[low] <= part_element) 
+        {
             ++low;
         }
 
-        if (low >= high) {
+        if (low >= high) 
+        {
             break;
         }
 
