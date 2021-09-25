@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Type</title>
+</head>
+<body>
+    <h1>숫자</h1>
+    <p id="num"></p>
+
+    <script>
+        var firstNum = 10;
+        var secondNum = 10.00;
+        var thirdNum = 10e6;
+        var fourthNum = 10e-6;
+
+        document.getElementById("num").innerHTML =
+            firstNum + "<br>" + secondNum + "<br>" + thirdNum + "<br>" + fourthNum + "<br>";
+    </script>
+
+    <h1>문자열</h1>
+    <p id="str"></p>
+    <p id="result"></p>
+
+    <script>
+        var firstStr = "큰따옴표";
+        var secondStr = '작은따옴표';
+        var thirdStr = "큰따옴표 '작은따옴표'";
+        var fourthStr = '작은따옴표 "큰따옴표"';
+
+        document.getElementById("str").innerHTML = 
+            firstStr + "<br>" + secondStr + "<br>" + thirdStr + "<br>" + fourthStr + "<br>";
+
+        var num = 10;
+        var str = "JavaScript";
+
+        document.getElementById("result").innerHTML = (num + str);
+    </script>
+
+    <h1>불리언</h1>
+    <p id="result1"></p>
+
+    <script>
+        var firstNum = 10;
+        var secondNum = 11;
+
+        document.getElementById("result1").innerHTML = (firstNum == secondNum);
+    </script>
+
+    <h1>심볼</h1>
+    <p id="result2"></p>
+
+    <script>
+        var sym = Symbol("javascript");
+        var symObj = Object(sym);
+
+        document.getElementById("result2").innerHTML = 
+            (typeof sym) + "<br>" + (typeof symObj) + "<br>";
+    </script>
+
+    <h1>typeof 연산자</h1>
+    <p id="result3"></p>
+
+    <script>
+        document.getElementById("result3").innerHTML = (typeof 10) + "<br>";
+		document.getElementById("result3").innerHTML += (typeof "문자열") + "<br>";
+		document.getElementById("result3").innerHTML += (typeof true) + "<br>";
+		document.getElementById("result3").innerHTML += (typeof undefined) + "<br>";
+		document.getElementById("result3").innerHTML += (typeof null);
+    </script>
+
+    <h1>null과 undefined</h1>
+    <p id="result4"></p>
+    <p>null == undefined : <span id="check"></span></p>
+    <p>null === undefined : <span id="check1"></span></p>
+
+    <script>
+        var num;
+        var str = null;
+
+        document.getElementById("result4").innerHTML = (typeof num) + "<br>";
+        document.getElementById("result4").innerHTML += (typeof str) + "<br>";
+        document.getElementById("result4").innerHTML += (typeof undefinedVar) + "<br>";
+        
+        document.getElementById("check").innerHTML = (null == undefined) + "<br>";
+        document.getElementById("check1").innerHTML = (null === undefined) + "<br>";
+    </script>
+
+    <h1>객체</h1>
+    <p id="result5"></p>
+
+    <script>
+        var dog = {name:"해피", age:3};
+
+        document.getElementById("result5").innerHTML = 
+            "강아지의 이름 : " + dog.name + "<br>" + "강아지의 나이 : " + dog.age + "<br>"; 
+    </script>
+</body>
+</html>
