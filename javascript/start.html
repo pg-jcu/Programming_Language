@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+</head>
+<body>
+    <h1>Window 객체의 alert() 메소드</h1>
+    <button onclick="alertDialogBox()">alert 대화 상자</button>
+
+    <script>
+        function alertDialogBox() {
+            alert("확인을 누를 때까지 다른 작업을 할 수 없어요!");
+        }
+    </script>
+
+    <h1>HTML DOM 요소를 이용한 innerHTML 프로퍼티</h1>
+    <p id="text">전 문장</p>
+
+    <script>
+        var str = document.getElementById("text");
+        str.innerHTML = "후 문장";
+    </script>
+
+    <h1>Document 객체의 write() 메소드</h1>
+    <button onclick="document.write(4 * 5)">write(4 * 5)</button><br><br>
+
+    <script>
+        document.write(4 * 5);
+    </script>
+
+    <h1>F12를 눌러서 콘솔 화면에서 확인</h1>
+    <p>console.log(4 * 5)</p>
+
+    <script>
+        console.log(4 * 5);
+    </script>
+
+    <h1>현재 날짜와 시간 정보</h1>
+    <button onclick="printDate()">현재 날짜와 시간 표시</button>
+    <p id="data"></p>
+
+    <script>
+        function printDate() {
+            document.getElementById("data").innerHTML = Date();
+        }
+    </script>
+</body>
+</html>
