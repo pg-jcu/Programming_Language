@@ -94,5 +94,88 @@
         document.getElementById("result5").innerHTML = 
             "강아지의 이름 : " + dog.name + "<br>" + "강아지의 나이 : " + dog.age + "<br>"; 
     </script>
+
+    <h1>타입 변환</h1>
+    <p id="result6"></p>
+
+    <script>
+        var num = 20;
+        document.getElementById("result6").innerHTML = (typeof num) + "&nbsp;" + num + "<br>";
+        num = "이십";
+        document.getElementById("result6").innerHTML += (typeof num) + "&nbsp;" + num + "<br>";
+        var num;
+        document.getElementById("result6").innerHTML += (typeof num) + "&nbsp;" + num + "<br>";
+    </script>
+
+    <h1>묵시적 타입 변환</h1>
+    <p id="result7"></p>
+
+    <script>
+        document.getElementById("result7").innerHTML = 10 + "문자열" + "<br>";
+        document.getElementById("result7").innerHTML += "3" * "5" + "<br>";
+        document.getElementById("result7").innerHTML += 1 - "문자열" + "<br>";
+    </script>
+
+    <h1>명시적 타입 변환</h1>
+    <p id="result8"></p>
+
+    <script>
+        document.getElementById("result8").innerHTML = Number("10") + "<br>";
+        document.getElementById("result8").innerHTML += String(true) + "<br>";
+        document.getElementById("result8").innerHTML += Boolean(0) + "<br>";
+        document.getElementById("result8").innerHTML += Object(3) + "<br>";
+    </script>
+
+    <h1>숫자를 문자열로 변환</h1>
+    <p id="result9"></p>
+
+    <script>
+        var num = 1.23456;
+
+        document.getElementById("result9").innerHTML = num.toExponential() + "<br>";
+        document.getElementById("result9").innerHTML += num.toFixed() + "<br>";
+        document.getElementById("result9").innerHTML += num.toPrecision() + "<br>";
+    </script>
+
+    <h1>불리언 값을 문자열로 변환</h1>
+    <p id="result10"></p>
+
+    <script>
+        document.getElementById("result10").innerHTML = String(true) + "<br>";
+        document.getElementById("result10").innerHTML += false.toString() + "<br>";
+    </script>
+
+    <h1>날짜를 숫자로 변환</h1>
+    <p id="result11"></p>
+
+    <script>
+        var date = new Date();
+
+        document.getElementById("result11").innerHTML = date.getDate() + "<br>";
+        document.getElementById("result11").innerHTML += date.getDay() + "<br>";
+        document.getElementById("result11").innerHTML += date.getFullYear() + "<br>";
+        document.getElementById("result11").innerHTML += date.getMonth() + "<br>";
+        document.getElementById("result11").innerHTML += date.getTime() + "<br>";
+        document.getElementById("result11").innerHTML += date.getHours() + "<br>";
+        document.getElementById("result11").innerHTML += date.getMinutes() + "<br>";
+        document.getElementById("result11").innerHTML += date.getSeconds() + "<br>";
+        document.getElementById("result11").innerHTML += date.getMilliseconds() + "<br>";
+    </script>
+
+    <h1>문자열을 숫자로 변환</h1>
+    <p id="result12"></p>
+
+    <script>
+        document.getElementById("result12").innerHTML = parseInt(12.34) + "<br>";
+        document.getElementById("result12").innerHTML += parseFloat(12.34) + "<br>";
+    </script>
+
+    <h1>불리언 값을 숫자로 변환</h1>
+    <p id="result13"></p>
+
+    <script>
+        document.getElementById("result13").innerHTML = Number(true) + "<br>";
+        document.getElementById("result13").innerHTML += Number(false) + "<br>";
+    </script>
 </body>
 </html>
