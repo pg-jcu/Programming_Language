@@ -10,3 +10,8 @@ const circle2 = new Circle(10);
 
 console.log(circle1.getDiameter());
 console.log(circle2.getDiameter());
+
+const circle3 = Circle(15);
+
+console.log(circle3);
+console.log(radius);
