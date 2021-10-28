@@ -18,3 +18,15 @@ console.log([...array]);
 
 const [a, ...rest] = array;
 console.log(a, rest);
+
+const obj = { a: 1, b: 2 };
+
+console.log(Symbol.iterator in obj);
+
+// for (const item of obj) {
+//     console.log(item);
+// }
+
+// const [a, b] = obj;
+
+console.log({ ...obj });
