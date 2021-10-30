@@ -19,5 +19,5 @@ const set3 = new Set([1, 2, 3]);
 
 console.log(Object.getOwnPropertyDescriptor(Set.prototype, 'size'));
 
-set3.size = 10; // 무시됨
+set3.size = 10; // ignore
 console.log(set3.size);
