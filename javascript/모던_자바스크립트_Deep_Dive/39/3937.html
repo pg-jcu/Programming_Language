@@ -12,8 +12,10 @@
 
         console.log(document.getElementById('foo').innerHTML);
 
+        // HTML 마크업이 파싱X
         document.getElementById('foo').textContent = 'Hi <span>there!</span>';
 
+        // HTML 마크업이 파싱O
         document.getElementById('foo').innerHTML = 'Hi <span>there!</span>';
     </script>
 </html>
