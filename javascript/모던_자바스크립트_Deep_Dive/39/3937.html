@@ -10,6 +10,10 @@
         console.log(document.getElementById('foo').firstChild.nodeValue);
         console.log(document.getElementById('foo').lastChild.firstChild.nodeValue);
 
+        console.log(document.getElementById('foo').innerHTML);
+
         document.getElementById('foo').textContent = 'Hi <span>there!</span>';
+
+        document.getElementById('foo').innerHTML = 'Hi <span>there!</span>';
     </script>
 </html>
