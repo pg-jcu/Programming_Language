@@ -1,4 +1,4 @@
-import { pi, power, Foo } from './lib';
+import { pi, power, Foo } from './4907.js';
 
 console.log(pi);
 console.log(power(pi, pi));
