@@ -23,17 +23,17 @@ const App = () => {
   const nextId = useRef(2501);
 
   const onInsert = useCallback(text => {
-      const todo = {
-        id: nextId.current,
-        text,
-        checked: false,
-      };
-      setTodos(todos => todos.concat(todo));
-      nextId.current += 1;
+    const todo = {
+    id: nextId.current,
+    text,
+    checked: false,
+    };
+    setTodos(todos => todos.concat(todo));
+    nextId.current += 1;
   }, []);
 
   const onRemove = useCallback(id => {
-      setTodos(todos => todos.filter(todo => todo.id !== id));
+    setTodos(todos => todos.filter(todo => todo.id !== id));
   }, []);
 
   const onToggle = useCallback(id => {
