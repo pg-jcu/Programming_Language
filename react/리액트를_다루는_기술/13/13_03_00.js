@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import About from './About';
 import Home from './Home';
 
@@ -15,12 +15,10 @@ const App = () => {
         </li>
       </ul>
       <hr />
-      <Routes>
         <Route path="/" component={Home} exact={true} />
         <Route path="/about" component={About} />
         <Route path="/info" component={About} />
         {/* <Route path={['/about', '/info']} component={About} /> */}
-      </Routes>
     </div>
   );
 };
