@@ -61,3 +61,11 @@ export default HistorySample;
 //         </div>
 //     );
 // };
+
+
+// ComponentWillUnmount 2021
+// useLayoutEffect(() => {
+//     return () => {
+//         // Your code here.
+//     }
+// }, [])
