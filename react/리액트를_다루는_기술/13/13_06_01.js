@@ -30,3 +30,34 @@ class HistorySample extends Component {
 }
 
 export default HistorySample;
+
+// const HistorySample = ({ history }) => {
+//     const unblock = useRef();
+    
+//     const handleGoBack = () => {
+//         history.goBack();
+//     };
+
+//     const handleGoHome = () => {
+//         history.push('/');
+//     };
+
+//     useEffect(() => {
+//        unblock.current = history.block('정말 떠나실 건가요?');
+//     });
+
+//     useEffect(() => {
+//         return () => {
+//             if (unblock.current) {
+//                 unblock.current();
+//             }
+//         };
+//     }, []);
+
+//     return (
+//         <div>
+//             <button onClick={handleGoBack}>뒤로</button>
+//             <button onClick={handleGoHome}>홈으로</button>
+//         </div>
+//     );
+// };
