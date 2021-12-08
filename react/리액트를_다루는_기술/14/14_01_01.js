@@ -4,7 +4,7 @@ function increase(number, callback) {
         if (callback) {
             callback(result);
         }
-    }, 1000)
+    }, 1000);
 }
 
 increase(0, result => {
