@@ -25,3 +25,15 @@ const SelectColors = () => {
 };
 
 export default SelectColors;
+
+// App.js
+// const App = () => {
+//     return (
+//       <ColorProvider>
+//         <div>
+//           <SelectColors />
+//           <ColorBox />
+//         </div>
+//       </ColorProvider>
+//     );
+// };
