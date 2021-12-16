@@ -10,5 +10,5 @@ const DECREASE = 'DECREASE';
 
 // 액션 생성 함수
 const toggleSwitch = () => ({ type: TOGGLE_SWITCH });
-const increase = () => ({ type: INCREASE });
+const increase = difference => ({ type: INCREASE, difference });
 const decrease = () => ({ type: DECREASE });
