@@ -62,6 +62,7 @@ const render = () => {
 // 구독하기
 store.subscribe(render);
 
+// 액션 발생시키기
 divToggle.onclick = () => {
     store.dispatch(toggleSwitch());
 };
