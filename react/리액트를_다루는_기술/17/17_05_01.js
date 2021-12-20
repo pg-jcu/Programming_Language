@@ -25,4 +25,23 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
+    // 익명 함수 형태로 선언할 경우
+    // state => ({
+    //     number: state.counter.number
+    // }),
+    // dispatch => ({
+    //     increase: () => dispatch(increase()),
+    //     decrease: () => dispatch(decrease())
+    // })
 )(CounterContainer);
+
+// App.js
+// const App = () => {
+//     return (
+//       <div>
+//         <CounterContainer />
+//         <hr />
+//         <Todos />
+//       </div>
+//     );
+// };
