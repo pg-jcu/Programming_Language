@@ -36,20 +36,36 @@ const initialState = {
 
 const todos = handleActions(
     {
-        [CHANGE_INPUT]: (state, action) => ({ ...state, input: action.payload }),
-        [INSERT]: (state, action) => ({
+        // [CHANGE_INPUT]: (state, action) => ({ ...state, input: action.payload }),
+        // [INSERT]: (state, action) => ({
+        //     ...state,
+        //     todos: state.todos.concat(action.payload)
+        // }),
+        // [TOGGLE]: (state, action) => ({
+        //     ...state,
+        //     todos: state.todos.map(todo =>
+        //         todo.id === action.payload ? { ...todo, done: !todo.done } : todo    
+        //     )
+        // }),
+        // [REMOVE]: (state, action) => ({
+        //     ...state,
+        //     todos: state.todos.filter(todo => todo.id !== action.payload)
+        // })
+
+        [CHANGE_INPUT]: (state, { payload: input }) => ({ ...state, input }),
+        [INSERT]: (state, { payload: todo }) => ({
             ...state,
-            todos: state.todos.concat(action.payload)
+            todos: state.todos.concat(todo)
         }),
-        [TOGGLE]: (state, action) => ({
+        [TOGGLE]: (state, { payload: id }) => ({
             ...state,
             todos: state.todos.map(todo =>
-                todo.id === action.payload ? { ...todo, done: !todo.done } : todo    
+                todo.id === id ? { ...todo, done: !todo.done } : todo    
             )
         }),
-        [REMOVE]: (state, action) => ({
+        [REMOVE]: (state, { payload: id }) => ({
             ...state,
-            todos: state.todos.filter(todo => todo.id !== action.payload)
+            todos: state.todos.filter(todo => todo.id !== id)
         })
     },
     initialState
