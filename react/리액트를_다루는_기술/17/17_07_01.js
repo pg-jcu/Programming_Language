@@ -4,6 +4,7 @@ import Counter from '../components/Counter';
 
 const CounterContainer = () => {
     const number = useSelector(state => state.counter.number);
+    
     return (
         <Counter number={number} />
     );
