@@ -1,3 +1,5 @@
+// Show an alert with an external script
+
 /*
 ...
 <script src="alert.js"></script>
