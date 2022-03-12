@@ -1,3 +1,5 @@
+// Type conversions
+
 console.log("" + 1 + 0);
 console.log("" - 1 + 0);
 console.log(true + false);
