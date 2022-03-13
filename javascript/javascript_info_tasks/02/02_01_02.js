@@ -7,4 +7,5 @@
 */
 
 // alert.js
-alert("I'm JavaScript!");
+// alert("I'm JavaScript!");
+console.log("I'm JavaScript!");

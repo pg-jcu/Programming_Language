@@ -4,4 +4,3 @@
 const BIRTHDAY = '24.05.1995';
 
 const age = someCode(BIRTHDAY);
-
