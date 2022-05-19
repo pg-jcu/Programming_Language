@@ -7,11 +7,11 @@ function getSecondsToday() {
     return Math.round((now - today.setHours(0, 0, 0, 0)) / 1000);
 }
 
-function getSecondsToday() {
-    let now = new Date();
+// function getSecondsToday() {
+//     let now = new Date();
   
-    let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+//     let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   
-    let diff = now - today;
-    return Math.round(diff / 1000);
-}
+//     let diff = now - today;
+//     return Math.round(diff / 1000);
+// }
