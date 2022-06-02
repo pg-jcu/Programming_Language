@@ -1,7 +1,9 @@
 // Bound function as a method
 
+"use strict";
+
 function f() {
-    console.log(String(this)); 
+    console.log(this); // null
 }
 
 let user = {
