@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM children</title>
+</head>
+<body>
+  <div>Users:</div>
+  <ul>
+    <li>John</li>
+    <li>Pete</li>
+  </ul>
+</body>
+<script>
+  alert(`The <div> DOM node: ${document.body.firstElementChild}`);
+  alert(`The <div> DOM node: ${document.body.children[0]}`);
+  alert(`The <ul> DOM node: ${document.body.firstElementChild.nextElementSibling}`);
+  alert(`The <ul> DOM node: ${document.body.children[1]}`);
+  alert(`The second <li>: ${document.body.firstElementChild.nextElementSibling.lastElementChild}`);
+</script>
+</html>
