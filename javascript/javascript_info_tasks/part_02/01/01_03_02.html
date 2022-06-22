@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The sibling questiong</title>
+</head>
+<body>
+  <div>
+    <ul id="ul1">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <ul>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+    </ul>
+  </div>
+
+  <script>
+    const elem = document.getElementById('ul1');
+
+    alert(`• ${elem.lastChild.nextSibling}`);
+    alert(`• ${elem.children[0].previousSibling}`);
+  </script>
+</body>
+</html>
