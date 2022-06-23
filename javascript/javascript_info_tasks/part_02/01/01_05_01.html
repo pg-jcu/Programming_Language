@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Count descendants</title>
+</head>
+<body>
+  <ul>
+    <li>Animals
+      <ul>
+        <li>Mammals
+          <ul>
+            <li>Cows</li>
+            <li>Donkeys</li>
+            <li>Dogs</li>
+            <li>Tigers</li>
+          </ul>
+        </li>
+        <li>Other
+          <ul>
+            <li>Snakes</li>
+            <li>Birds</li>
+            <li>Lizards</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Fishes
+      <ul>
+        <li>Aquarium
+          <ul>
+            <li>Guppy</li>
+            <li>Angelfish</li>
+          </ul>
+        </li>
+        <li>Sea
+          <ul>
+            <li>Sea trout</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <script>
+    let $li = document.querySelectorAll('li');
+
+    for (let i = 0; i < $li.length; i++) {
+      alert(`${$li[i].firstChild.data.trim()}: ${$li[i].querySelectorAll('li').length}`);
+    }
+
+    // solution
+    // for (let li of document.querySelectorAll('li')) {
+    //   let title = li.firstChild.data;
+
+    //   title = title.trim();
+
+    //   let count = li.getElementsByTagName('li').length;
+
+    //   alert(title + ': ' + count);
+    // }
+  </script>
+</body>
+</html>
