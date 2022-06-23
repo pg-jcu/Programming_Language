@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Where's the "document" in the hierarchy?</title>
+</head>
+<body>
+  <script>
+    alert(document.constructor.name);
+    alert(HTMLDocument.prototype.constructor.name);
+    alert(HTMLDocument.prototype.__proto__.constructor.name);
+    alert(HTMLDocument.prototype.__proto__.__proto__.constructor.name);
+    console.dir(document);
+  </script>
+</body>
+</html>

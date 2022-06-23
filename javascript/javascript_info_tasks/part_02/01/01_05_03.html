@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tag in commnet</title>
+</head>
+<body>
+  <script>
+    let body = document.body;
+
+    body.innerHTML = "<!--" + body.tagName + "-->";
+
+    alert(body.firstChild.data);
+  </script>
+</body>
+</html>
