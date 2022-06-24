@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clear the element</title>
+</head>
+<body>
+  <ol id="elem">
+    <li>Hello</li>
+    <li>World</li>
+  </ol>
+
+  <script>
+    function clear(elem) {
+      while (elem.firstChild) {
+        elem.firstChild.remove();
+      }
+
+      // elem.innerHTML = '';
+    }
+
+    clear(elem);
+  </script>
+</body>
+</html>
