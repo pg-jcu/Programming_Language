@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Make external links orange</title>
+</head>
+<body>
+  <a name="list">the list</a>
+  <ul>
+    <li><a href="http://google.com">http://google.com</a></li>
+    <li><a href="/tutorial">/tutorial.html</a></li>
+    <li><a href="local/path">local/path</a></li>
+    <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+    <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+    <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+  </ul>
+
+  <script>
+    let links = document.querySelectorAll('a');
+
+    for (let link of links) {
+      if (!link.getAttribute('href')) continue;
+
+      if (!link.getAttribute('href').includes('http://internal.com') && link.getAttribute('href').includes('://')) {
+        link.style.color = 'orange';
+      }
+    }
+
+    // solution
+    // let links = document.querySelectorAll('a');
+
+    // for (let link of links) {
+    //   let href = link.getAttribute('href');
+    //   if (!herf) continue;
+
+    //   if (!herf.includes('://')) continue;
+
+    //   if (href.startsWith('http://internal.com')) continue;
+
+    //   link.style.color = 'orange';
+    // }
+    
+    // another
+    // let selector = 'a[href*="://"]:not([href^="http://internal.com"])';
+    // let links = documnet.querySelectorAll(selector);
+
+    // links.forEach(link => link.style.color = 'orange');
+  </script>
+</body>
+</html>
