@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create a calendar</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    td, th {
+      border: 1px solid black;
+      padding: 3px;
+      text-align: center;
+    }
+
+    th {
+      font-weight: bold;
+      background-color: #E6E6E6;
+    }
+  </style>
+</head>
+<body>
+  <div id="calendar"></div>
+
+  <script>
+    function createCalendar(elem, year, month) {
+      let d = new Date(year, month - 1);
+      let table = document.createElement('table');
+      elem.append(table);
+
+      const weekday = ["MO", "TU", "WE", "TH", "FR", "SA", "SU"];
+
+      for (let i = 0; i < weekday.length; i++) {
+        let th = document.createElement('th');
+        th.textContent = weekday[i];
+        table.append(th);
+      }
+      
+      createTr(table);
+
+      for (let i = 0; i < getDay(d); i++) {
+        createTd(table);
+      }
+
+      while (d.getMonth() === month - 1) {
+        let td = document.createElement('td');
+        td.textContent = d.getDate();
+        table.append(td);
+
+        if (getDay(d) % 7 === 6) {
+          createTr(table);
+        }
+
+        d.setDate(d.getDate() + 1);
+      }
+
+      if (getDay(d) !== 0) {
+        for (let i = getDay(d); i < 7; i++) {
+          createTd(table);
+        }
+      }
+    }
+
+    function createTr(table) {
+      let tr = document.createElement('tr');
+      table.append(tr);
+    }
+
+    function createTd(table) {
+      let td = document.createElement('td');
+      table.append(td);
+    }
+
+    // solution
+    // function createCalendar(elem, year, month) {
+
+    //   let mon = month - 1; // months in JS are 0..11, not 1..12
+    //   let d = new Date(year, mon);
+
+    //   let table = '<table><tr><th>MO</th><th>TU</th><th>WE</th><th>TH</th><th>FR</th><th>SA</th><th>SU</th></tr><tr>';
+
+    //   // spaces for the first row
+    //   // from Monday till the first day of the month
+    //   // * * * 1  2  3  4
+    //   for (let i = 0; i < getDay(d); i++) {
+    //     table += '<td></td>';
+    //   }
+
+    //   // <td> with actual dates
+    //   while (d.getMonth() == mon) {
+    //     table += '<td>' + d.getDate() + '</td>';
+
+    //     if (getDay(d) % 7 == 6) { // sunday, last day of week - newline
+    //       table += '</tr><tr>';
+    //     }
+
+    //     d.setDate(d.getDate() + 1);
+    //   }
+
+    //   // add spaces after last days of month for the last row
+    //   // 29 30 31 * * * *
+    //   if (getDay(d) != 0) {
+    //     for (let i = getDay(d); i < 7; i++) {
+    //       table += '<td></td>';
+    //     }
+    //   }
+
+    //   // close the table
+    //   table += '</tr></table>';
+
+    //   elem.innerHTML = table;
+    // }
+
+    function getDay(date) {
+      let day = date.getDay();
+
+      if (day === 0) day = 7;
+
+      return day - 1;
+    }
+
+    createCalendar(calendar, 2012, 9);
+  </script>
+</body>
+</html>
