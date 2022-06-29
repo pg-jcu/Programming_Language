@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>What's the scroll from the bottom?</title>
+</head>
+<body>
+  <div id="elem"></div>
+  <script>
+    let elem = document.getElementById('elem');
+    let scrollBottom = elem.scrollHeight - elem.clientHeight - elem.scrollTop;
+    
+    console.log(scrollBottom);
+  </script>
+</body>
+</html>
