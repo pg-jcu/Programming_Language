@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The difference: CSS width versus clientWidth</title>
+  <style>
+    #elem {
+      width: 50px;
+      padding: 10px;
+      overflow: scroll;
+    }
+  </style>
+</head>
+<div id="elem">123456789</div>
+<span id="test"></span>
+<body>
+  <script>
+    let elem = document.getElementById('elem');
+    let test = document.getElementById('test');
+
+    console.log(`elem.clientWidth: ${elem.clientWidth}`);
+    console.log(`getComputedStyle(elem).width: ${getComputedStyle(elem).width}`);
+    console.log(`elem.clientHeight: ${elem.clientHeight}`);
+    console.log(`getComputedStyle(elem).height: ${getComputedStyle(elem).height}`);
+    console.log('getComputedStyle(test).width: ' + getComputedStyle(test).width);
+    console.log('test.clientWidth: ' + test.clientWidth);
+  </script>
+</body>
+</html>
