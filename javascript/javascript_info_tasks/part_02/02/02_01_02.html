@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Which handlers run?</title>
+</head>
+<body>
+  <input type="button" id="button" value="click" />
+  <script>
+    let button = document.getElementById('button');
+
+    button.addEventListener("click", () => alert("1"));
+    button.removeEventListener("click", () => alert("1"));
+    button.onclick = () => alert(2);
+  </script>
+</body>
+</html>

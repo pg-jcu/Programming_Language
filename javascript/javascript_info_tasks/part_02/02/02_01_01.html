@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hide on click</title>
+</head>
+<body>
+  <input type="button" id="hider" value="Click to hide the text" />
+  <div id="text">Text</div>
+  <script>
+    let hider = document.getElementById('hider');
+    let text = document.getElementById('text');
+
+    hider.onclick = function() {
+      text.style.display = 'none';
+      
+      // solution
+      // text.hidden = true;
+    }
+  </script>
+</body>
+</html>
