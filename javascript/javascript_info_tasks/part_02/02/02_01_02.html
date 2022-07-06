@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hide self</title>
+</head>
+<body>
+  <input type="button" id="button" value="Click to hide" />
+  <script>
+    let button = document.getElementById('button');
+
+    button.onclick = function() {
+      this.style.display = 'none';
+      // this.hidden = true;
+    }
+  </script>
+</body>
+</html>
