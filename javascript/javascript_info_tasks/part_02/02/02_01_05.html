@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Create a sliding menu</title>
+  <style>
+    .menu ul {
+      margin: 0;
+      list-style: none;
+      padding-left: 20px;
+      display: none;
+    }
+
+    .menu .title {
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .menu .title::before {
+      content: '▶ ';
+      font-size: 80%;
+      color: green;
+    }
+
+    .menu.open .title::before {
+      content: '▼ ';
+    }
+
+    .menu.open ul {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- my solution 
+  <span id="menu">▶ Sweeties (click me)!</span>
+  <ul>
+    <li>Cake</li>
+    <li>Donut</li>
+    <li>Honey</li>
+  </ul>
+
+  <script>
+    let ul = document.querySelector('ul');
+    let menu = document.getElementById('menu');
+    let flag = true;
+
+    menu.onclick = function() {
+      if (flag) {
+        this.textContent = '▶ Sweeties (click me)!'
+        ul.style.display = 'none';
+        flag = false;
+      } else {
+        this.textContent = '▼ Sweeties (click me)!'
+        ul.style.display = '';
+        flag = true;
+      }
+    }
+  </script>
+  --> 
+
+  <div id="sweeties" class="menu">
+    <span class="title">Sweeties (click me)!</span>
+    <ul>
+      <li>Cake</li>
+      <li>Donut</li>
+      <li>Honey</li>
+    </ul>
+  </div>
+
+  <script>
+    let menuElem = document.getElementById('sweeties');
+    let titleElem = menuElem.querySelector('.title');
+
+    titleElem.onclick = function() {
+      menuElem.classList.toggle('open');
+    };
+  </script>
+</body>
+</html>
