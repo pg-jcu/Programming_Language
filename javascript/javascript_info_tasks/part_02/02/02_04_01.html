@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Why "return false" doesn't work?</title>
+</head>
+<body>
+  <script>
+    function handler1() {
+      alert('...');
+    }
+  </script>
+
+  <a href="https://w3.org" onclick="handler1(); return false">the browser will go to w3.org</a>
+
+  <script>
+    function handler2() {
+      alert('...');
+      return false;
+    }
+  </script>
+  
+  <p>
+  <a href="https://w3.org" onclick="return handler2();">the browser will go to w3.org</a>
+  </p>
+
+  <script>
+    function handler3(event) {
+      alert('...');
+      event.preventDefault();
+    }
+  </script>
+
+  <a href="https://w3.org" onclick="handler3(event); return false">the browser will go to w3.org</a>
+</body>
+</html>
