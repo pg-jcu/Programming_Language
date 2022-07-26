@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Up/down button</title>
+  <style>
+    body,
+    html {
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    #matrix {
+      width: 400px;
+      margin: auto;
+      overflow: auto;
+      text-align: justify;
+    }
+
+    #arrowTop {
+      height: 9px;
+      width: 14px;
+      color: green;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      cursor: pointer;
+    }
+
+    #arrowTop::before {
+      content: '▲';
+    }
+  </style>
+</head>
+<body>
+  <div id="matrix">
+    <script>
+      for (let i = 0; i < 2000; i++) document.writeln(i)
+    </script>
+  </div>
+
+  <div id="arrowTop"></div>
+
+  <script>
+    let button = document.getElementById('arrowTop');
+
+    if (document.documentElement.clientHeight > window.pageYOffset) {
+      button.hidden = true;
+    }
+
+    button.onclick = function() {
+      window.scrollTo(0, 0);
+    }
+
+    window.onscroll = function() {
+      button.hidden = (window.pageYOffset < document.documentElement.clientHeight);
+    }
+  </script>
+</body>
+</html>
