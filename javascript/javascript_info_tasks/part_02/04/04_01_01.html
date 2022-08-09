@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add an option to select</title>
+</head>
+<body>
+  <select id="genres">
+    <option value="rock">Rock</option>
+    <option value="blues" selected>Blues</option>
+  </select>
+
+  <script>
+    let genres = document.getElementById('genres');
+
+    let selectedOption = genres.options[genres.selectedIndex];
+    alert(selectedOption.value);
+
+    let newOption = new Option('Classic', 'classic');
+    genres.append(newOption);
+
+    newOption.selected = true;
+  </script>
+</body>
+</html>
