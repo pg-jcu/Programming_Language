@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    p.thick {
+      border-style: solid;
+      border-width: thick;
+    }
+
+    p.medium {
+      border-style: solid;
+      border-width: medium;
+    }
+
+    p.thin {
+      border-style: solid;
+      border-width: 1px;
+    }
+
+    p.green {
+      border-style: solid;
+      border-color: green;
+    }
+
+    p.radius {
+      border: 2px solid red;
+      padding: 10px 20px;
+      border-radius: 25px;
+    }
+
+    p.shadow {
+      width: 300px;
+      height: 50px;
+      background-color: green;
+      box-shadow: 20px 10px 5px #666666;
+    }
+
+    p.image {
+      border: 30px solid transparent;
+      width: 300px;
+      height: 50px;
+      border-image: url("http://resrc.devdic.com/img/bykind/alpha/150x135_flower.png") 30 30 round;
+    }
+  </style>
+</head>
+<body>
+  <p style="border-style: none;">none</p>
+  <p style="border-style: dotted;">dotted</p>
+  <p style="border-style: dashed;">dashed</p>
+  <p style="border-style: solid;">solid</p>
+  <p style="border-style: double;">double</p>
+  <p style="border-style: groove;">groove</p>
+  <p style="border-style: ridge;">ridge</p>
+  <p style="border-style: inset;">inset</p>
+  <p style="border-style: outset;">outset</p>
+  <p style="border-top-style: dotted; border-bottom-style: double; 
+    border-right-style: solid; border-left-style: dashed;">
+    4개의 경계선이 모두 다르게 설정됨
+  </p> 
+  <p class="thick">thick</p>
+  <p class="medium">medium</p>
+  <p class="thin">thin</p>
+  <p class="green">green</p>
+  <p class="radius">radius</p>
+  <p class="shadow">shadow</p>
+  <p class="image">image</p>
+</body>
+</html>
