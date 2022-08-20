@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #container1 {
+      display: flex;
+      background-color: darkgreen;
+      height: 50px;
+    }
+
+    #container2 {
+      display: inline-flex;
+      background-color: darkgreen;
+      height: 50px;
+    }
+
+    #container3 {
+      display: flex;
+      flex-direction: row-reverse;
+      background-color: darkgreen;
+      height: 50px;
+    }
+
+    #container4 {
+      display: flex;
+      flex-direction: column;
+      background-color: darkgreen;
+    }
+
+    #container5 {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: darkgreen;
+      width: 100px;
+    }
+
+    #container6 {
+      display: flex;
+      flex-flow: column wrap;
+      background-color: darkgreen;
+      width: 100px;
+    }
+
+    .item {
+      background-color: green;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h3>display: flex</h2>
+  <div id="container1">
+    <div class="item">item1</div>
+    <div class="item">item2</div>
+    <div class="item">item3</div>
+  </div>
+
+  <h3>display: inline-flex</h2>
+  <div id="container2">
+    <div class="item">item1</div>
+    <div class="item">item2</div>
+    <div class="item">item3</div>
+  </div>
+
+  <h3>flex-direction: row-reverse</h2>
+  <div id="container3">
+    <div class="item">item1</div>
+    <div class="item">item2</div>
+    <div class="item">item3</div>
+  </div>
+
+  <h3>flex-direction: column</h2>
+  <div id="container4">
+    <div class="item">item1</div>
+    <div class="item">item2</div>
+    <div class="item">item3</div>
+  </div>
+
+  <h3>flex-wrap: wrap</h2>
+  <div id="container5">
+    <div class="item">item1</div>
+    <div class="item">item2</div>
+    <div class="item">item3</div>
+  </div>
+
+  <h3>flex-flow: column wrap</h2>
+  <div id="container6">
+    <div class="item">item1</div>
+    <div class="item">item2</div>
+    <div class="item">item3</div>
+  </div>
+</body>
+</html>
