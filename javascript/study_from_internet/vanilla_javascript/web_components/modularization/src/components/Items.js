@@ -8,54 +8,17 @@ export default class Items extends Component {
   template() {
     const { items } = this.$state;
     return `
-      <button class="addBtn">추가</button>
+      <button>추가</button>
       <ul>
-        ${items.map((item, key) => `
-          <li>
-            ${item}
-            <button class="deleteBtn" data-index="${key}">삭제</button>
-          </li>
-        `).join('')}
+        ${items.map(item => `<li>${item}</li>`).join('')}
       </ul>
     `
   }
 
   setEvent() {
-    // this.$target.querySelector('.addBtn').addEventListener('click', () => {
-    //   const { items } = this.$state;
-    //   this.setState({ items: [ ...items, `${items.length + 1}` ] });
-    // });
-
-    // this.$target.querySelectorAll('.deleteBtn').forEach(deleteBtn => 
-    //   deleteBtn.addEventListener('click', event => {
-    //     const items = [ ...this.$state.items ];
-    //     items.splice(event.target.dataset.index, 1);
-    //     this.setState({ items });
-    //   })
-    // );
-    
-    // this.$target.addEventListener('click', event => {
-    //   const items = this.$state.items;
-
-    //   if (event.target.classList.contains('addBtn')) {
-    //     this.setState({ items: [ ...items, `${items.length + 1}` ] });
-    //   }
-
-    //   if (event.target.classList.contains('deleteBtn')) {
-    //     items.splice(event.target.dataset.index, 1);
-    //     this.setState({ items });
-    //   }
-    // });
-  
-    this.addEvent('click', '.addBtn', () => {
+    this.$target.querySelector('button').addEventListener('click', () => {
       const { items } = this.$state;
       this.setState({ items: [ ...items, `${items.length + 1}` ] });
     });
-
-    this.addEvent('click', '.deleteBtn', ({ target }) => {
-      const items = this.$state.items;
-      items.splice(target.dataset.index, 1);
-      this.setState({ items });
-    }); 
   }
 }
