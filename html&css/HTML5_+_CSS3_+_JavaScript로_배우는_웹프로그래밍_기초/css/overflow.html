@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    p {
+      background-color: lightgreen;
+      width: 200px;
+      height: 50px;
+    }
+
+    #target1 {
+      border: 1px solid black;
+      width: 300px;
+      height: 100px;
+      margin: 10px;
+      overflow: scroll;
+    }
+
+    #target2 {
+      border: 1px solid black;
+      width: 300px;
+      height: 100px;
+      margin: 10px;
+      overflow: hidden;
+    }
+
+    #target3 {
+      border: 1px solid black;
+      width: 300px;
+      height: 100px;
+      margin: 10px;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <h2>overflow: scroll</h2>
+  <div id="target1">
+    <p>block</p>
+    <p>block</p>
+    <p>block</p>
+    <p>block</p>
+    <p>block</p>
+  </div>
+
+  <h2>overflow: hidden</h2>
+  <div id="target2">
+    <p>block</p>
+    <p>block</p>
+    <p>block</p>
+    <p>block</p>
+    <p>block</p>
+  </div>
+
+  <h2>overflow: auto</h2>
+  <div id="target3">
+    <p>block</p>
+    <p>block</p>
+    <p>block</p>
+    <p>block</p>
+    <p>block</p>
+  </div>
+</body>
+</html>
