@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Blog Page</title>
+  <style>
+    body {
+      background-color: #efe5d0;
+      font-family: Arial, "Trebuchet MS", sans-serif;
+      margin: 0px;
+    }
+
+    header {
+      background-color: #e3afed;
+      color: #000000;
+      margin: 0px;
+      text-align: center;
+      padding: 5px;
+    }
+
+    h1 {
+      margin: 0px;
+    }
+
+    section#main {
+      display: table-cell;
+      background-color: yellow;
+      padding: 15px;
+    }
+
+    nav {
+      display: table-cell;
+      background-color: #ffd800;
+      padding: 15px;
+    }
+
+    footer {
+      background-color: #954b4b;
+      color: #efe5d0;
+      text-align: center;
+      padding: 10px;
+      margin: 0px; 
+      font-size: 90%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Blog Page</h1>
+  </header>
+  <nav>
+    <h1>Links</h1>
+    <ul>
+      <li><a href="https://www.google.com/">Google</a></li>
+      <li><a href="https://www.naver.com/">Naver</a></li>
+    </ul>
+    <figure>
+      <img src="http://resrc.devdic.com/img/bykind/alpha/150x135_flower.png" />
+      <figcaption>flower</figcaption>
+    </figure>
+  </nav>
+  <section id="main">
+    <article>
+      <h1>Semantic Tags</h1>
+      <p>
+        시맨틱 요소는 브라우저에게 요소의 의미나 목적을 명확하게 알려주는 요소이다.
+      </p>
+    </article>
+    <article>
+      <h1>figure와 aside</h1>
+      <p>
+        figure는 그림이나 도표에 사용되는 태그이다.
+        aside는 사이드 바와 같이 옆에 위치하는 내용입니다.
+      </p>
+    </article>
+  </section>
+  <nav>
+    <h3>테이블을 사용해 레이아웃 작성시 장점</h3>
+    <ul>
+      <li>테이블 형태로 레이아웃하는 데 float나 절대 위치 설정이 필요하지 않다.</li>
+      <li>컬럼의 높이가 달라도 문제가 발생하지 않는다.</li>
+      <li>CSS 코딩이 간결해진다.</li>
+    </ul>
+  </nav>
+  <footer>Copyright (c) 2022 Jeong</footer>
+</body>
+</html>
