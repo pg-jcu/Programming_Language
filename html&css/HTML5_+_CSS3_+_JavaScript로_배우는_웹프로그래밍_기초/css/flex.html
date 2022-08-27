@@ -2,14 +2,17 @@
 <html>
 <head>
   <style>
-
-
     #container1 {
       display: flex;
       border: 3px solid black;
       border-radius: 10px;
       background-color: darkgreen;
       height: 50px;
+    }
+
+    #container1:hover {
+      display: block;
+      height: auto;
     }
 
     #container2 {
@@ -24,9 +27,13 @@
       display: flex;
       border: 3px solid black;
       border-radius: 10px;
-      flex-direction: row-reverse;
+      flex-direction: row;
       background-color: darkgreen;
       height: 50px;
+    }
+
+    #container3:hover {
+      flex-direction: row-reverse;
     }
 
     #container4 {
@@ -35,14 +42,23 @@
       border-radius: 10px;
       flex-direction: column;
       background-color: darkgreen;
+      height: 200px;
+    }
+
+    #container4:hover {
+      flex-direction: column-reverse;
     }
 
     #container5 {
       display: flex;
       border: 3px solid black;
       border-radius: 10px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       background-color: darkgreen;
+    }
+
+    #container5:hover {
+      flex-wrap: wrap;
     }
 
     #container5 .item {
@@ -67,7 +83,7 @@
   </style>
 </head>
 <body>
-  <h3>display: flex</h2>
+  <h3>display: flex / block</h2>
   <div id="container1">
     <div class="item">item1</div>
     <div class="item">item2</div>
@@ -81,21 +97,21 @@
     <div class="item">item3</div>
   </div>
 
-  <h3>flex-direction: row-reverse</h2>
+  <h3>flex-direction: row / row-reverse</h2>
   <div id="container3">
     <div class="item">item1</div>
     <div class="item">item2</div>
     <div class="item">item3</div>
   </div>
 
-  <h3>flex-direction: column</h2>
+  <h3>flex-direction: column / column-reverse</h2>
   <div id="container4">
     <div class="item">item1</div>
     <div class="item">item2</div>
     <div class="item">item3</div>
   </div>
 
-  <h3>flex-wrap: wrap</h2>
+  <h3>flex-wrap: nowrap / wrap</h2>
   <div id="container5">
     <div class="item">item1</div>
     <div class="item">item2</div>
