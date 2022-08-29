@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container1 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background-color: yellow;
+      border: 2px solid black;
+      height: 200px;
+      align-items: stretch;
+    }
+
+    .container1:hover {
+      align-items: start;
+    }
+
+    .container2 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background-color: yellow;
+      border: 2px solid black;
+      height: 200px;
+      align-items: center;
+    }
+
+    .container2:hover {
+      align-items: end;
+    }
+
+    .container3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background-color: yellow;
+      border: 2px solid black;
+      height: 200px;
+      justify-items: stretch;
+    }
+
+    .container3:hover {
+      justify-items: start;
+    }
+
+    .container4 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background-color: yellow;
+      border: 2px solid black;
+      height: 200px;
+      justify-items: center;
+    }
+
+    .container4:hover {
+      justify-items: end;
+    }
+
+    .container5 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background-color: yellow;
+      border: 2px solid black;
+      height: 200px;
+      align-content: start;
+    }
+
+    .container5:hover {
+      align-content: center;
+    }
+
+    .container6 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background-color: yellow;
+      border: 2px solid black;
+      height: 200px;
+      align-content: end;
+    }
+
+    .container6:hover {
+      align-content: space-between;
+    }
+
+    .container7 {
+      display: grid;
+      grid-template-columns: repeat(3, 50px);
+      background-color: yellow;
+      border: 2px solid black;
+      justify-content: start;
+    }
+
+    .container7:hover {
+      justify-content: center;
+    }
+
+    .container8 {
+      display: grid;
+      grid-template-columns: repeat(3, 50px);
+      background-color: yellow;
+      border: 2px solid black;
+      justify-content: end;
+    }
+
+    .container8:hover {
+      justify-content: space-between;
+    }
+
+    .container9 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background-color: yellow;
+      border: 2px solid black;
+      height: 200px;
+    }
+
+    .container9 .item:nth-child(2) {
+      align-self: stretch;
+    }
+
+    .container9 .item:nth-child(3) {
+      align-self: start;
+    }
+
+    .container9 .item:nth-child(4) {
+      align-self: center;
+    }
+
+    .container9 .item:nth-child(5) {
+      align-self: end;
+    }
+
+    .container9 .item:nth-child(6) {
+      justify-self: stretch;
+    }
+
+    .container9 .item:nth-child(7) {
+      justify-self: start;
+    }
+
+    .container9 .item:nth-child(8) {
+      justify-self: center;
+    }
+
+    .container9 .item:nth-child(9) {
+      justify-self: end;
+    }
+
+    .item {
+      background-color: orangered;
+      border: 2px solid black;
+      margin: 3px;
+    }
+  </style>
+</head>
+<body>
+  <h3>align-items: stretch / start</h3>
+  <div class="container1">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+    <div class="item">D</div>
+    <div class="item">E</div>
+    <div class="item">F</div>
+    <div class="item">G</div>
+    <div class="item">H</div>
+    <div class="item">I</div>
+  </div>
+
+  <h3>align-items: center / end</h3>
+  <div class="container2">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+    <div class="item">D</div>
+    <div class="item">E</div>
+    <div class="item">F</div>
+    <div class="item">G</div>
+    <div class="item">H</div>
+    <div class="item">I</div>
+  </div>
+
+  <h3>justify-items: stretch / start</h3>
+  <div class="container3">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+    <div class="item">D</div>
+    <div class="item">E</div>
+    <div class="item">F</div>
+    <div class="item">G</div>
+    <div class="item">H</div>
+    <div class="item">I</div>
+  </div>
+
+  <h3>justify-items: center / end</h3>
+  <div class="container4">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+    <div class="item">D</div>
+    <div class="item">E</div>
+    <div class="item">F</div>
+    <div class="item">G</div>
+    <div class="item">H</div>
+    <div class="item">I</div>
+  </div>
+
+  <h3>align-content: start / center</h3>
+  <div class="container5">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+    <div class="item">D</div>
+    <div class="item">E</div>
+    <div class="item">F</div>
+    <div class="item">G</div>
+    <div class="item">H</div>
+    <div class="item">I</div>
+  </div>
+
+  <h3>align-content: end / space-between</h3>
+  <div class="container6">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+    <div class="item">D</div>
+    <div class="item">E</div>
+    <div class="item">F</div>
+    <div class="item">G</div>
+    <div class="item">H</div>
+    <div class="item">I</div>
+  </div>
+
+  <h3>justify-content: start / center</h3>
+  <div class="container7">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+    <div class="item">D</div>
+    <div class="item">E</div>
+    <div class="item">F</div>
+    <div class="item">G</div>
+    <div class="item">H</div>
+    <div class="item">I</div>
+  </div>
+
+  <h3>justify-items: end / space-between</h3>
+  <div class="container8">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+    <div class="item">D</div>
+    <div class="item">E</div>
+    <div class="item">F</div>
+    <div class="item">G</div>
+    <div class="item">H</div>
+    <div class="item">I</div>
+  </div>
+
+  <h3>align-self, justify-self</h3>
+  <div class="container9">
+    <div class="item"></div>
+    <div class="item">stretch</div>
+    <div class="item">start</div>
+    <div class="item">center</div>
+    <div class="item">end</div>
+    <div class="item">stretch</div>
+    <div class="item">start</div>
+    <div class="item">center</div>
+    <div class="item">end</div>
+  </div>
+</body>
+</html>
