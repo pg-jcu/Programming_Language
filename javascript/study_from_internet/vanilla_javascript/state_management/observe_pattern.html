@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <div id="add"></div>
+  <div id="mul"></div>
+  <script>
+    let $add = document.body.querySelector('#add');
+    let $mul = document.body.querySelector('#mul');
+
+    class Publisher {
+      #state;
+      #observers = new Set();
+
+      constructor(state) {
+        this.#state = state;
+        Object.keys(state).forEach(key => Object.defineProperty(this, key, {
+          get: () => this.#state[key]
+        }));
+      }
+
+      changeState(newState) {
+        this.#state = { ...this.#state, ...newState };
+        this.notice();
+      }
+
+      register(subscriber) {
+        this.#observers.add(subscriber);
+      }
+
+      notice() {
+        this.#observers.forEach(fn => fn());
+      }
+    }
+
+    class Subscriber {
+      #fn;
+
+      constructor(changePublisher) {
+        this.#fn = changePublisher;
+      }
+
+      subscribe(publisher) {
+        publisher.register(this.#fn);
+      }
+    }
+
+    const state = new Publisher({
+      a: 10,
+      b: 20
+    });
+
+    const addCalculator = new Subscriber(() => $add.innerHTML = `a + b = ${state.a + state.b}`);
+    const mulCalculator = new Subscriber(() => $mul.innerHTML = `a * b = ${state.a * state.b}`);
+
+    addCalculator.subscribe(state);
+    mulCalculator.subscribe(state);
+
+    state.notice();
+    state.changeState({ a: 100, b: 200 });
+  </script>
+</body>
+</html>
