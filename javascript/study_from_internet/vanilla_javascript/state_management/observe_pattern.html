@@ -22,14 +22,14 @@
 
       changeState(newState) {
         this.#state = { ...this.#state, ...newState };
-        this.notice();
+        this.notify();
       }
 
       register(subscriber) {
         this.#observers.add(subscriber);
       }
 
-      notice() {
+      notify() {
         this.#observers.forEach(fn => fn());
       }
     }
@@ -51,13 +51,13 @@
       b: 20
     });
 
-    const addCalculator = new Subscriber(() => $add.innerHTML = `a + b = ${state.a + state.b}`);
-    const mulCalculator = new Subscriber(() => $mul.innerHTML = `a * b = ${state.a * state.b}`);
+    const addCalculator = new Subscriber(() => $add.innerHTML += `a + b = ${state.a + state.b}\n`);
+    const mulCalculator = new Subscriber(() => $mul.innerHTML += `a * b = ${state.a * state.b}\n`);
 
     addCalculator.subscribe(state);
     mulCalculator.subscribe(state);
 
-    state.notice();
+    state.notify();
     state.changeState({ a: 100, b: 200 });
   </script>
 </body>
