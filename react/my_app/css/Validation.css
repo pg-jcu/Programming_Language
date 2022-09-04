@@ -3,6 +3,13 @@
   margin-top: 30px;
 }
 
+.inputValidate {
+  padding: 0px;
+  margin: 5px;
+  height: 21px;
+  margin-right: -6px;
+}
+
 .success {
   background-color: lightgreen;
 }

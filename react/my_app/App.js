@@ -3,6 +3,7 @@ import Counter from './Counter';
 import Event from './Event';
 import Validation from './Validation';
 import ScrollBox from './ScrollBox';
+import Iteration from './Iteration';
 import './css/App.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Event />
       <Validation />
       <ScrollBox />
+      <Iteration />
     </div>
   );
 }

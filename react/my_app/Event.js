@@ -22,7 +22,7 @@ function Event() {
     })
   };
   const onKeyDown = event => {
-    if (event.key == 'Enter') {
+    if (event.key === 'Enter') {
       onClick();
     }
   }
@@ -33,6 +33,7 @@ function Event() {
         type="text"
         name="username"
         placeholder="username"
+        className="inputEvent"
         value={username}
         onChange={onChange}
       />
@@ -40,6 +41,7 @@ function Event() {
         type="text" 
         name="message" 
         placeholder="message"
+        className="inputEvent"
         value={message}
         onChange={onChange}
         onKeyDown={onKeyDown}

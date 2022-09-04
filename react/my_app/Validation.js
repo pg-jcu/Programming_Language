@@ -33,7 +33,8 @@ function Validation() {
         type="password"
         value={password}
         onChange={onChange}
-        className={clicked ? (validated ? 'success' : 'failure') : ''}
+        className={clicked ? (validated ? 'success inputValidate' : 
+          'failure inputValidate') : 'inputValidate'}
       />
       <button onClick={onClick}>validate</button>
     </div>
