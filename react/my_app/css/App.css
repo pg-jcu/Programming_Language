@@ -4,3 +4,18 @@
   align-items: center;
   flex-direction: column;
 }
+
+button {
+  width: 100px;
+  height: 25px;
+  margin: 5px;
+}
+
+.visible {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid black;
+  margin-top: 30px;
+  padding: 3px;
+}

@@ -26,7 +26,8 @@ function Iteration() {
   const btnStyle = {
     height: '24px',
     width: '40px',
-    marginRight: '0px'
+    marginRight: '0px',
+    marginTop: '0px'
   }
 
   const [names, setNames] = useState([
@@ -56,7 +57,7 @@ function Iteration() {
 
   return (
     <div style={style}>
-      <div>
+      <div style={{display: 'flex'}}>
         <input style={inputStyle} value={inputText} onChange={onChange} />
         <button style={btnStyle} onClick={onClick}>add</button>
       </div>

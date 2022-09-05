@@ -10,10 +10,12 @@ function Counter() {
   const onClickChangeColor = () => setColor('blue');
 
   return (
-    <div className='counter'>
+    <div className="counter">
       <div style={{ color }}>{number}</div>
-      <button onClick={onClickPlus}>+</button>
-      <button onClick={onClickMinus}>-</button>
+      <div>
+        <button className="btn" onClick={onClickPlus}>+</button>
+        <button className="btn" onClick={onClickMinus}>-</button>
+      </div>
       <button onClick={onClickChangeColor}>Change Color</button>
     </div>
   );
