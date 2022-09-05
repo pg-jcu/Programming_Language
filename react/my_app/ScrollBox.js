@@ -1,9 +1,10 @@
 import { createRef } from "react";
+import './css/ScrollBox.css';
 
 function ScrollBox() {
   const box = createRef();
   const border = {
-    border: '2px solid black',
+    border: '2px solid green',
     marginTop: '30px',
     padding: '5px',
     display: 'flex',
@@ -11,7 +12,7 @@ function ScrollBox() {
     alignItems: 'center'
   };
   const style = {
-    border: '1px solid black',
+    border: '1px solid green',
     height: '300px',
     width: '300px',
     overflow: 'auto',
@@ -20,22 +21,28 @@ function ScrollBox() {
   const innerStyle = {
     width: '100%',
     height: '650px',
-    background: 'linear-gradient(white, black)'
+    background: 'linear-gradient(green, black)'
+  };
+  const btnStyle = {
+    border: '1px solid green',
+    backgroundColor: 'black',
+    color: 'green'
   };
   const scrollToBottom = () => {
     const {scrollHeight, clientHeight} = box.current;
     box.current.scrollTop = scrollHeight - clientHeight;
-  }
+  };
   const onClick = () => scrollToBottom();
   
   return (
     <div style={border}>
       <div
+        className="scroll"
         style={style}
         ref={box}>
         <div style={innerStyle} />
       </div>
-      <button onClick={onClick}>to bottom</button>
+      <button style={btnStyle} onClick={onClick}>to bottom</button>
     </div>
   );
 }

@@ -5,7 +5,7 @@ function Iteration() {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    border: '2px solid black',
+    border: '2px solid green',
     marginTop: '20px',
     padding: '5px'
   };
@@ -58,7 +58,12 @@ function Iteration() {
   return (
     <div style={style}>
       <div style={{display: 'flex'}}>
-        <input style={inputStyle} value={inputText} onChange={onChange} />
+        <input 
+          type="text"
+          style={inputStyle} 
+          value={inputText} 
+          onChange={onChange} 
+        />
         <button style={btnStyle} onClick={onClick}>add</button>
       </div>
       <ul style={ulStyle}>{nameList}</ul>

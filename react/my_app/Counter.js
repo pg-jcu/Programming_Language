@@ -6,8 +6,8 @@ function Counter() {
   const onClickPlus = () => setNumber(number + 1);
   const onClickMinus = () => setNumber(number - 1);
 
-  const [color, setColor] = useState('black');
-  const onClickChangeColor = () => setColor('blue');
+  const [color, setColor] = useState('green');
+  const onClickChangeColor = () => setColor('yellow');
 
   return (
     <div className="counter">
