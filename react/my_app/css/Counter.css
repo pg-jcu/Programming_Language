@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 30px;
   border: 2px solid green;
   font-size: 25px;
 }

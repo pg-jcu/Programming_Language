@@ -1,6 +1,7 @@
 .my {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border: 2px solid green;
   text-align: center;
-  margin-top: 10px;
 }

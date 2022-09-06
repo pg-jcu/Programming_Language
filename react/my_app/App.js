@@ -13,18 +13,21 @@ function App() {
   const onClick = () => setVisible(!visible);
 
   return (
-    <div className='base'>
-      <MyComponent name='Jeong' number={1}>children</MyComponent>
-      <Counter className='counter' />
-      <Event />
-      <Validation />
-      <ScrollBox />
-      <Iteration />
-      <div className='visible'>
-        <button onClick={onClick}>{visible ? 'hidden' : 'visible'}</button>
-        {visible && <Info />}
+    <>
+      <h2 style={{textAlign: 'center', color: 'green'}}>My App</h2>
+      <div className='app'>
+        <MyComponent name='Jeong' number={1}>children</MyComponent>
+        <Counter />
+        <Event />
+        <Validation />
+        <ScrollBox />
+        <Iteration />
+        <div className='visible'>
+          <button onClick={onClick}>{visible ? 'hidden' : 'visible'}</button>
+          {visible && <Info />}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

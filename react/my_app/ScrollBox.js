@@ -5,7 +5,6 @@ function ScrollBox() {
   const box = createRef();
   const border = {
     border: '2px solid green',
-    marginTop: '30px',
     padding: '5px',
     display: 'flex',
     flexDirection: 'column',

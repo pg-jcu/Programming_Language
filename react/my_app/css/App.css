@@ -1,8 +1,8 @@
-.base {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.app {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto-fit, minmax(20%, auto));
+  gap: 10px;
   color: green;
 }
 
@@ -30,6 +30,5 @@ button {
   flex-direction: column;
   align-items: center;
   border: 2px solid green;
-  margin-top: 30px;
   padding: 3px;
 }

@@ -6,7 +6,6 @@ function Iteration() {
     flexDirection: 'column',
     alignItems: 'center',
     border: '2px solid green',
-    marginTop: '20px',
     padding: '5px'
   };
 
