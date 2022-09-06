@@ -8,7 +8,8 @@ function ScrollBox() {
     padding: '5px',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center'
   };
   const style = {
     border: '1px solid green',

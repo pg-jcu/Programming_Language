@@ -14,20 +14,20 @@ function Iteration() {
     textAlign: 'center',
     margin: '0px',
     padding: '0px'
-  }
+  };
 
   const inputStyle = {
     padding: '0px',
     height: '20px',
     marginRight: '-6px'
-  }
+  };
 
   const btnStyle = {
     height: '24px',
     width: '40px',
     marginRight: '0px',
     marginTop: '0px'
-  }
+  };
 
   const [names, setNames] = useState([
     {id: 1, text: 'Jeong'},
@@ -49,7 +49,7 @@ function Iteration() {
   const onRemove = id => {
     const nextNames = names.filter(name => name.id !== id);
     setNames(nextNames);
-  }
+  };
   const nameList = names.map(name => 
     <li key={name.id} onDoubleClick={() => onRemove(name.id)}>{name.text}</li>
   );
