@@ -1,0 +1,18 @@
+.say {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid green;
+  padding: 10px;
+}
+
+.sayBtn {
+  width: 80px;
+  margin: 0px;
+}
+
+.colorBtn {
+  width: 60px;
+  margin: 0px;
+}
