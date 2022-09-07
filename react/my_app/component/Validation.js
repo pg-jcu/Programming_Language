@@ -1,5 +1,5 @@
 import { createRef, useState } from "react";
-import './css/Validation.css'
+import '../style/Validation.css'
 
 function Validation() {
   const [form, setForm] = useState({
@@ -27,14 +27,14 @@ function Validation() {
   };
 
   return (
-    <div className="validate">
+    <div className="validation">
       <input
         ref={input}
         type="password"
         value={password}
         onChange={onChange}
-        className={clicked ? (validated ? 'success inputValidate' : 
-          'failure inputValidate') : 'inputValidate'}
+        className={clicked ? (validated ? 'success validationInput' : 
+          'failure validationInput') : 'validationInput'}
       />
       <button onClick={onClick}>validate</button>
     </div>

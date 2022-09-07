@@ -1,4 +1,4 @@
-import './css/Counter.css';
+import '../style/Counter.css';
 import { useState } from 'react';
 
 function Counter() {
@@ -13,8 +13,8 @@ function Counter() {
     <div className="counter">
       <div style={{ color }}>{number}</div>
       <div>
-        <button className="btn" onClick={onClickPlus}>+</button>
-        <button className="btn" onClick={onClickMinus}>-</button>
+        <button className="counterBtn" onClick={onClickPlus}>+</button>
+        <button className="counterBtn" onClick={onClickMinus}>-</button>
       </div>
       <button onClick={onClickChangeColor}>Change Color</button>
     </div>

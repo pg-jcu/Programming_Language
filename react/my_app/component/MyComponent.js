@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import './css/MyComponent.css';
+import '../style/MyComponent.css';
 
 function MyComponent({name, children, number}) {
   return (
-    <div className='my'>
+    <div className='myComponent'>
       <div>My Component</div>
       <div>{name}</div>
       <div>{children}</div>

@@ -1,16 +1,8 @@
 import { createRef } from "react";
-import './css/ScrollBox.css';
+import '../style/ScrollBox.css';
 
 function ScrollBox() {
   const box = createRef();
-  const border = {
-    border: '2px solid green',
-    padding: '5px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center'
-  };
   const style = {
     border: '1px solid green',
     height: '300px',
@@ -35,7 +27,7 @@ function ScrollBox() {
   const onClick = () => scrollToBottom();
   
   return (
-    <div style={border}>
+    <div className="scrollBox">
       <div
         className="scroll"
         style={style}

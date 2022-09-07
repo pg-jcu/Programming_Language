@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './css/Event.css';
+import '../style/Event.css';
 
 function Event() {
   const [form, setForm] = useState({
@@ -33,7 +33,7 @@ function Event() {
         type="text"
         name="username"
         placeholder="username"
-        className="inputEvent"
+        className="eventInput"
         value={username}
         onChange={onChange}
       />
@@ -41,7 +41,7 @@ function Event() {
         type="text" 
         name="message" 
         placeholder="message"
-        className="inputEvent"
+        className="eventInput"
         value={message}
         onChange={onChange}
         onKeyDown={onKeyDown}

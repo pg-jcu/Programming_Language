@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import './css/Info.css';
+import '../style/Info.css';
 
 function Info() {
   const [name, setName] = useState('');
