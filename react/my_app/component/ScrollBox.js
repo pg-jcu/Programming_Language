@@ -15,11 +15,6 @@ function ScrollBox() {
     height: '650px',
     background: 'linear-gradient(green, black)'
   };
-  const btnStyle = {
-    border: '1px solid green',
-    backgroundColor: 'black',
-    color: 'green'
-  };
   const scrollToBottom = () => {
     const {scrollHeight, clientHeight} = box.current;
     box.current.scrollTop = scrollHeight - clientHeight;
@@ -34,7 +29,7 @@ function ScrollBox() {
         ref={box}>
         <div style={innerStyle} />
       </div>
-      <button style={btnStyle} onClick={onClick}>to bottom</button>
+      <button onClick={onClick}>to bottom</button>
     </div>
   );
 }

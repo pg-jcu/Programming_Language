@@ -1,11 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer } from "react";
 import '../style/Info.css';
 
+function reducer(state, action) {
+  return {
+    ...state,
+    [action.name]: action.value
+  };
+}
+
 function Info() {
-  const [name, setName] = useState('');
-  const [nickname, setNickname] = useState('');
-  const onChangeName = event => setName(event.target.value);
-  const onChangeNickname = event => setNickname(event.target.value);
+  const [state, dispatch] = useReducer(reducer, {
+    name: '',
+    nickname: ''
+  });
+  const {name, nickname} = state;
+  const onChange = event => {
+    dispatch(event.target);
+  };
 
   useEffect(() => console.log('mount'), []);
   useEffect(() => console.log(name), [name]);
@@ -21,16 +32,18 @@ function Info() {
       <input 
         type="text"
         placeholder="name"
+        name="name"
         value={name}
         className="infoInput" 
-        onChange={onChangeName} 
+        onChange={onChange} 
       />
       <input 
         type="text"
         placeholder="nickname"
+        name="nickname"
         value={nickname}
         className="infoInput" 
-        onChange={onChangeNickname} 
+        onChange={onChange} 
       />
       <p>
         <b>name:</b> {name} <br />

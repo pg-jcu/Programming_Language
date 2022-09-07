@@ -25,6 +25,11 @@ button {
   color: green;
 }
 
+button:hover {
+  background-color: green;
+  color: black;
+}
+
 .visible {
   display: flex;
   flex-direction: column;

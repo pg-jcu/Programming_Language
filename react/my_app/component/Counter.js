@@ -1,22 +1,31 @@
 import '../style/Counter.css';
-import { useState } from 'react';
+import { useReducer } from 'react';
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'INCREMENT':
+      return {value: state.value + 1};
+    case 'DECREMENT':
+      return {value: state.value - 1};
+    default:
+      return state;
+  }
+}
 
 function Counter() {
-  const [number, setNumber] = useState(0);
-  const onClickPlus = () => setNumber(number + 1);
-  const onClickMinus = () => setNumber(number - 1);
-
-  const [color, setColor] = useState('green');
-  const onClickChangeColor = () => setColor('yellow');
+  const [state, dispatch] = useReducer(reducer, {value: 0});
 
   return (
     <div className="counter">
-      <div style={{ color }}>{number}</div>
+      <div>{state.value}</div>
       <div>
-        <button className="counterBtn" onClick={onClickPlus}>+</button>
-        <button className="counterBtn" onClick={onClickMinus}>-</button>
+        <button className="counterBtn" onClick={() => dispatch({type: 'INCREMENT'})}>
+          +
+        </button>
+        <button className="counterBtn" onClick={() => dispatch({type: 'DECREMENT'})}>
+          -
+        </button>
       </div>
-      <button onClick={onClickChangeColor}>Change Color</button>
     </div>
   );
 }

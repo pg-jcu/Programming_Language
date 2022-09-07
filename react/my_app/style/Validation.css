@@ -13,9 +13,9 @@
 }
 
 .success {
-  background-color: lightgreen;
+  background-color: lightgreen !important;
 }
 
 .failure {
-  background-color: lightcoral;
+  background-color: lightcoral !important;
 }
