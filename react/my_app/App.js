@@ -1,11 +1,11 @@
-import MyComponent from './MyComponent';
-import Counter from './Counter';
-import Event from './Event';
-import Validation from './Validation';
-import ScrollBox from './ScrollBox';
-import Iteration from './Iteration';
-import Info from './Info';
-import './css/App.css';
+import MyComponent from './component/MyComponent';
+import Counter from './component/Counter';
+import Event from './component/Event';
+import Validation from './component/Validation';
+import ScrollBox from './component/ScrollBox';
+import Iteration from './component/Iteration';
+import Info from './component/Info';
+import './style/App.css'
 import { useState } from 'react';
 
 function App() {
