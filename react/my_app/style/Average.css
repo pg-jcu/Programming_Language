@@ -1,0 +1,22 @@
+.average {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border: 2px solid green;
+}
+
+.averageInput {
+  margin: 0px;
+  padding: 0px;
+  height: 25px;
+}
+
+.averageBtn {
+  margin: 0px;
+  margin-left: -1px;
+  padding: 0px;
+  height: 29px;
+  width: 50px;
+}
