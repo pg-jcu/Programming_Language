@@ -6,6 +6,7 @@ import Validation from './component/Validation';
 import ScrollBox from './component/ScrollBox';
 import Iteration from './component/Iteration';
 import Info from './component/Info';
+import Average from './component/Average';
 import './style/App.css'
 import { useState } from 'react';
 
@@ -28,6 +29,7 @@ function App() {
           <button onClick={onClick}>{visible ? 'hidden' : 'visible'}</button>
           {visible && <Info />}
         </div>
+        <Average />
       </div>
     </>
   );
