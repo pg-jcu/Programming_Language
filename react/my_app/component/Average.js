@@ -16,10 +16,16 @@ function Average() {
   const [number, setNumber] = useState('');
 
   const onChange = event => {
-    setNumber(event.target.value);
+    let value = event.target.value;
+
+    if (!isFinite(value)) return;
+
+    setNumber(value);
   };
   const onInsert = () => {
-    if (isFinite(number)) {
+    if (number === '') return;
+
+    if (!number.match(/[^0-9]/g)) {
       const nextList = list.concat(parseInt(number));
       setList(nextList);
     }
@@ -32,15 +38,13 @@ function Average() {
   return (
     <div className="average">
       <div>
+        <b>Average:</b> {avg} <br />
         <input className="averageInput" value={number} onChange={onChange} />
         <button className="averageBtn" onClick={onInsert}>insert</button>
       </div>
-      <ul>
+      <ul className="averageList">
         {list.map((value, index) => <li key={index}>{value}</li>)}
       </ul>
-      <div>
-        <b>Average:</b> {avg}
-      </div>
     </div>
   );
 }
