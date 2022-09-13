@@ -5,9 +5,9 @@
 <body>
   <h1>AJAX</h1>
   <ul>
-    <li><a class="list">one</a></li>
-    <li><a class="list">two</a></li>
-    <li><a class="list">three</a></li>
+    <li><a class="list" href="#!one" data-list="one">one</a></li>
+    <li><a class="list" href="#!two" data-list="two">two</a></li>
+    <li><a class="list" href="#!three" data-list="three">three</a></li>
   </ul>
   <article>
 
@@ -17,13 +17,23 @@
 
     list.forEach(value => {
       value.addEventListener('click', () => {
-        fetch(value.textContent).then(response => {
-          response.text().then(text => {
-            document.querySelector('article').innerHTML = text;
-          });
-        });
+        fetchPage(value.dataset.list);
       });
     });
+
+    if (location.hash) {
+      fetchPage(location.hash.slice(2));
+    } else {
+      fetchPage('ajax');
+    }
+
+    function fetchPage(name) {
+      fetch(name).then(response => {
+        response.text().then(text => {
+          document.querySelector('article').innerHTML = text;
+        });
+      });
+    }
   </script>
 </body>
 </html>
