@@ -4,22 +4,25 @@
 </head>
 <body>
   <h1>AJAX</h1>
-  <ul>
-    <li><a class="list" href="#!one" data-list="one">one</a></li>
-    <li><a class="list" href="#!two" data-list="two">two</a></li>
-    <li><a class="list" href="#!three" data-list="three">three</a></li>
+  <ul id="nav">
+    
   </ul>
+  <hr />
   <article>
 
   </article>
   <script>
-    let list = document.querySelectorAll('.list');
+    function fetchPage(name) {
+      fetch(name).then(response => {
+        if (response.status === '404') {
+          alert('Not found');
+        }
 
-    list.forEach(value => {
-      value.addEventListener('click', () => {
-        fetchPage(value.dataset.list);
+        response.text().then(text => {
+          document.querySelector('article').innerHTML = text;
+        });
       });
-    });
+    }
 
     if (location.hash) {
       fetchPage(location.hash.slice(2));
@@ -27,13 +30,19 @@
       fetchPage('ajax');
     }
 
-    function fetchPage(name) {
-      fetch(name).then(response => {
-        response.text().then(text => {
-          document.querySelector('article').innerHTML = text;
+    fetch('list').then(response => {
+      response.text().then(text => {
+        let items = text.split(',');
+        let tags = '';
+        
+        items.forEach(item => {
+          let tag = `<li><a href="#!${item}" onclick="fetchPage('${item}')">${item}</a></li>`;
+          tags += tag;
         });
-      });
-    }
+
+        document.querySelector('#nav').innerHTML = tags;
+      })
+    })
   </script>
 </body>
 </html>
