@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mission 1</title>
+  <meata charset="utf-8" />
+</head>
+<body>
+  <div id="todo-list"></div>
+  <div id="want-todo"></div>
+  <div id="not-todo"></div>
+  <script>
+    const data = [
+      {
+        text: 'JS 공부하기',
+        isCompleted: true
+      },
+      {
+        text: 'JS 복습하기',
+        isCompleted: true
+      }
+    ];
+
+    const wantData = [
+      {
+        text: '잠자기',
+        isCompleted: true
+      },
+      {
+        text: '쉬기',
+        isCompleted: false
+      }
+    ];
+
+    const notData = [
+      {
+        text: '운동하기',
+        isCompleted: true
+      },
+      {
+        text: '돈벌기',
+        isCompleted: false
+      }
+    ];
+
+    function TodoList(data, targetId) {
+      if (!new.target) {
+        throw new Error("Not used new keyword!!");
+      }
+
+      if (data === null || data === undefined) {
+        throw new Error("data is null or undefined");
+      }
+
+      if (!Array.isArray(data)) {
+        throw new Error("Not array type!!");
+      }
+
+      // if (!data.text) {
+      //   throw new Error("Incomplete data: no text!!");
+      // }
+
+      this.state = data;
+
+      this.render = () => {
+        const list = this.state.map(({ text, isCompleted }) => {
+          if (isCompleted) {
+            return (
+              `<div><s>${text}</s></div>`
+            );
+          }
+
+          return (
+            `<div>${text}</div>`
+          );
+        }).join('');
+
+        document.querySelector(`#${targetId}`).innerHTML = list;
+      }
+
+      this.setState = (nextData) => {
+        this.state = [ ...this.state, ...nextData ];
+        this.render();
+      } 
+    }
+
+    const todo = new TodoList(data, 'todo-list');
+    const wantTodo = new TodoList(wantData, 'want-todo');
+    const notTodo = new TodoList(notData, 'not-todo');
+
+    todo.render();
+    wantTodo.render();
+    notTodo.render();
+
+    todo.setState(data);
+  </script>
+</body>
+</html>
