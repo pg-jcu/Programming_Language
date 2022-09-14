@@ -1,21 +1,25 @@
 import http from 'http';
 import fs from 'fs';
+import path from 'path';
+import url from 'url';
 
 let app = http.createServer((request, response) => {
-  let url = request.url;
+  let _url = request.url;
+  const __dirname = path.resolve();
+  let queryData = url.parse(_url, true).query;
 
-  if (request.url == '/') {
+  if (_url == '/') {
     url = '/index.html';
   }
 
-  if (request.url == '/favicon.ico') {
+  if (_url == '/favicon.ico') {
     response.writeHead(404);
     response.end();
     return;
   }
 
   response.writeHead(200);
-  response.end(fs.readFileSync('C:/Users/jeong/Desktop/Folder/coding/programming_language/nodejs/' + url));
+  response.end(queryData.id);
 });
 
-app.listen(3030);
+app.listen(3000);
