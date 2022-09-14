@@ -62,17 +62,11 @@
       this.state = data;
 
       this.render = () => {
-        const list = this.state.map(({ text, isCompleted }) => {
-          if (isCompleted) {
-            return (
-              `<div><s>${text}</s></div>`
-            );
-          }
-
-          return (
+        const list = this.state.map(({ text, isCompleted }) => 
+          isCompleted ? 
+            `<div><s>${text}</s></div>` :
             `<div>${text}</div>`
-          );
-        }).join('');
+        ).join('');
 
         document.querySelector(`#${targetId}`).innerHTML = list;
       }
