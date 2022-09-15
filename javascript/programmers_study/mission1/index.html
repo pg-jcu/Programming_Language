@@ -42,11 +42,7 @@
       }
     ];
 
-    function TodoList(data, targetId) {
-      if (!new.target) {
-        throw new Error("Not used new keyword!!");
-      }
-
+    const checkData = data => {
       if (data === null || data === undefined) {
         throw new Error("data is null or undefined");
       }
@@ -58,21 +54,30 @@
       // if (!data.text) {
       //   throw new Error("Incomplete data: no text!!");
       // }
+    };
 
-      this.state = data;
+    function TodoList(data, targetId) {
+      if (!new.target) {
+        throw new Error("Not used new keyword!!");
+      }
+
+      checkData(data);
+
+      let _state = data;
 
       this.render = () => {
-        const list = this.state.map(({ text, isCompleted }) => 
+        const list = _state.map(({ text, isCompleted }) => 
           isCompleted ? 
             `<div><s>${text}</s></div>` :
             `<div>${text}</div>`
         ).join('');
 
-        document.querySelector(`#${targetId}`).innerHTML = list;
+        document.querySelector(`#${targetId}`).innerHTML = list + '<hr />';
       }
 
       this.setState = (nextData) => {
-        this.state = [ ...this.state, ...nextData ];
+        checkData(nextData);
+        _state = [ ..._state, ...nextData ];
         this.render();
       } 
     }
@@ -85,7 +90,7 @@
     wantTodo.render();
     notTodo.render();
 
-    todo.setState(data);
+    todo.setState([{ text: '독서하기', isCompleted: true }]);
   </script>
 </body>
 </html>
