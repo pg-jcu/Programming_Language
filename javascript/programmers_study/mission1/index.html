@@ -43,17 +43,20 @@
     ];
 
     const checkData = data => {
-      if (data === null || data === undefined) {
-        throw new Error("data is null or undefined");
-      }
-
       if (!Array.isArray(data)) {
-        throw new Error("Not array type!!");
+        throw new Error("Not array type!");
       }
 
-      // if (!data.text) {
-      //   throw new Error("Incomplete data: no text!!");
-      // }
+      if (data === null || data === undefined) {
+        throw new Error("Data is null or undefined!");
+      }
+
+      data.forEach(value => {
+        const keys = Object.keys(value);
+        if (!keys.includes('text') || !keys.includes('isCompleted')) {
+          throw new Error("Incomplete data: no text or isCompleted!");
+        }
+      });
     };
 
     function TodoList(data, targetId) {
