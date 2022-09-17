@@ -51,12 +51,10 @@
         throw new Error("Data is null or undefined!");
       }
 
-      data.forEach(value => {
-        const keys = Object.keys(value);
-        if (!keys.includes('text') || !keys.includes('isCompleted')) {
-          throw new Error("Incomplete data: no text or isCompleted!");
-        }
-      });
+      if (data.filter(item => 
+        item.text && typeof item.isCompleted === "boolean").length !== data.length) {
+        throw new Error("Incomplete data: no text or isCompleted!");
+      }
     };
 
     function TodoList(data, targetId) {
