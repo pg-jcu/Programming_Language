@@ -27,7 +27,7 @@
             <li>
               <a href="${content.id}" onclick="
                 event.preventDefault();
-                const action = { type: 'SELECT', id: ${content.id} }
+                const action = { type: 'SELECT', id: ${content.id}, mode: 'read' };
                 store.dispatch(action);
               ">
                 ${content.title}
@@ -48,27 +48,75 @@
       function control() {
         document.querySelector('#control').innerHTML = `
         <ul>
-          <li><a href="/create">create</a></li>
-          <li><input type="button" value="delete"></li>
+          <li>
+            <a href="/create" onclick="
+              event.preventDefault();
+              store.dispatch({ type: 'CHANGE', mode: 'create' });
+              ">
+              create
+            </a>
+          </li>
+          <li>
+            <input type="button" value="delete" onclick="
+              store.dispatch({ type: 'DELETE' });">
+          </li>
         </ul>
         `;
       }
 
       function article() {
         const state = store.getState();
-        const content = state.contents.find(content => content.id === state.selectedId);
+
+        if (state.mode === 'read') {
+          const content = state.contents.find(content => content.id === state.selectedId);
         
-        document.querySelector('#content').innerHTML = `
-        <article>
-          <h2>${content.title}</h2>
-          ${content.desc}
-        </article>
-        `;
+          document.querySelector('#content').innerHTML = `
+            <article>
+              <h2>${content.title}</h2>
+              ${content.desc}
+            </article>
+          `;
+        } else if (state.mode === 'create') {
+          document.querySelector('#content').innerHTML = `
+            <article>
+              <form onsubmit="
+                event.preventDefault();
+                const _title = this.title.value;
+                const _desc = this.desc.value;
+                store.dispatch({
+                  type: 'CREATE',
+                  title: _title,
+                  desc: _desc
+                });
+              ">
+                <p>
+                  <input type="text" name="title" placeholder="title" />
+                </p>
+                <p>
+                  <textarea name="desc" placeholder="description"></textarea>
+                </p>
+                <p>
+                  <input type="submit" />
+                </p>
+              </form>
+            </article>
+          `;
+        } else if (state.mode === 'welcome') {
+          document.querySelector('#content').innerHTML = `
+            <article>
+              <h2>Welcome</h2>
+              Hello, Redux!!!
+            </article>
+          `;
+        }
+        
       }
 
       function reducer(state, action) {
         if (state === undefined) {
           return {
+            maxId: 2,
+            mode: 'welcome',
             selectedId: 1,
             contents: [
               { id: 1, title: 'HTML', desc: 'HTML is ..' },
@@ -77,15 +125,36 @@
           };
         }
 
+        let newState;
+
         if (action.type === 'SELECT') {
-          const newState = { ...state, selectedId: action.id };
-          return newState;
+          newState = { ...state, selectedId: action.id, mode: action.mode };
+        } else if (action.type === 'CREATE') {
+          const newMaxId = state.maxId + 1;
+          const newContents = state.contents.concat();
+          newContents.push({ 
+            id: newMaxId, 
+            title: action.title,
+            desc: action.desc
+          });
+          newState = { ...state, maxId: newMaxId, contents: newContents, mode: 'read' };
+        } else if (action.type === 'CHANGE') {
+          newState = { ...state, mode: action.mode };
+        } else if (action.type === 'DELETE') {
+          const newContents = state.contents.filter(content => {
+            return state.selectedId !== content.id;
+          });
+
+          newState = { ...state, contents: newContents, mode: 'welcome'};
         }
+
+        return newState;
       }
 
       const store = Redux.createStore(reducer);
 
       store.subscribe(article);
+      store.subscribe(TOC);
 
       subject();
       TOC();
