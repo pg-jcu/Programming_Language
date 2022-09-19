@@ -43,16 +43,16 @@
     ];
 
     const checkData = data => {
+      if (data == null) {
+        throw new Error("Data is null or undefined!");
+      }
+
       if (!Array.isArray(data)) {
         throw new Error("Not array type!");
       }
 
-      if (data === null || data === undefined) {
-        throw new Error("Data is null or undefined!");
-      }
-
-      if (data.filter(item => 
-        item.text && typeof item.isCompleted === "boolean").length !== data.length) {
+      if (!data.every(value => Object.hasOwn(value, 'text') && 
+        Object.hasOwn(value, 'isCompleted'))) {
         throw new Error("Incomplete data: no text or isCompleted!");
       }
     };
@@ -65,15 +65,16 @@
       checkData(data);
 
       let _state = data;
+      this.target = targetId;
 
       this.render = () => {
         const list = _state.map(({ text, isCompleted }) => 
           isCompleted ? 
-            `<div><s>${text}</s></div>` :
-            `<div>${text}</div>`
+            `<li><s>${text}</s></li>` :
+            `<li>${text}</li>`
         ).join('');
 
-        document.querySelector(`#${targetId}`).innerHTML = list + '<hr />';
+        document.querySelector(`#${this.target}`).innerHTML = `<ul>${list}</ul><hr />`;
       }
 
       this.setState = (nextData) => {
