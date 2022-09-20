@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState, useRef } from "react";
 import '../style/Average.css';
 
 const getAverage = numbers => {
@@ -14,15 +14,16 @@ const getAverage = numbers => {
 function Average() {
   const [list , setList] = useState([]);
   const [number, setNumber] = useState('');
+  const inputEl = useRef(null);
 
-  const onChange = event => {
+  const onChange = useCallback(event => {
     let value = event.target.value;
 
     if (!isFinite(value)) return;
 
     setNumber(value);
-  };
-  const onInsert = () => {
+  }, []);
+  const onInsert = useCallback(() => {
     if (number === '') return;
 
     if (!number.match(/[^0-9]/g)) {
@@ -31,7 +32,8 @@ function Average() {
     }
     
     setNumber('');
-  };
+    inputEl.current.focus();
+  }, [number, list]);
 
   const avg = useMemo(() => getAverage(list), [list]);
 
@@ -39,7 +41,7 @@ function Average() {
     <div className="average">
       <div>
         <b>Average:</b> {avg} <br />
-        <input className="averageInput" value={number} onChange={onChange} />
+        <input className="averageInput" value={number} onChange={onChange} ref={inputEl}/>
         <button className="averageBtn" onClick={onInsert}>insert</button>
       </div>
       <ul className="averageList">

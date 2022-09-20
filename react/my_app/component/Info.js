@@ -1,22 +1,13 @@
-import { useEffect, useReducer } from "react";
+import { useEffect } from "react";
+import useInputs from "../useInputs";
 import '../style/Info.css';
 
-function reducer(state, action) {
-  return {
-    ...state,
-    [action.name]: action.value
-  };
-}
-
 function Info() {
-  const [state, dispatch] = useReducer(reducer, {
+  const [state, onChange] = useInputs({
     name: '',
     nickname: ''
   });
   const {name, nickname} = state;
-  const onChange = event => {
-    dispatch(event.target);
-  };
 
   useEffect(() => console.log('mount'), []);
   useEffect(() => console.log(name), [name]);
