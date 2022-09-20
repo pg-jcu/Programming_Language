@@ -1,4 +1,4 @@
-.say {
+.Say {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,12 +7,12 @@
   padding: 10px;
 }
 
-.sayBtn {
+.Say .enter button {
   width: 80px;
   margin: 0px;
 }
 
-.colorBtn {
+.Say .color button {
   width: 60px;
   margin: 0px;
 }

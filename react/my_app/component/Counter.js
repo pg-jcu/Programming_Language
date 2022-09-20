@@ -16,13 +16,13 @@ function Counter() {
   const [state, dispatch] = useReducer(reducer, {value: 0});
 
   return (
-    <div className="counter">
+    <div className="Counter">
       <div>{state.value}</div>
       <div>
-        <button className="counterBtn" onClick={() => dispatch({type: 'INCREMENT'})}>
+        <button onClick={() => dispatch({type: 'INCREMENT'})}>
           +
         </button>
-        <button className="counterBtn" onClick={() => dispatch({type: 'DECREMENT'})}>
+        <button onClick={() => dispatch({type: 'DECREMENT'})}>
           -
         </button>
       </div>

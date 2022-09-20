@@ -38,13 +38,13 @@ function Average() {
   const avg = useMemo(() => getAverage(list), [list]);
 
   return (
-    <div className="average">
+    <div className="Average">
       <div>
         <b>Average:</b> {avg} <br />
-        <input className="averageInput" value={number} onChange={onChange} ref={inputEl}/>
-        <button className="averageBtn" onClick={onInsert}>insert</button>
+        <input value={number} onChange={onChange} ref={inputEl}/>
+        <button onClick={onInsert}>insert</button>
       </div>
-      <ul className="averageList">
+      <ul>
         {list.map((value, index) => <li key={index}>{value}</li>)}
       </ul>
     </div>

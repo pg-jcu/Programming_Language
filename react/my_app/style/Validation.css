@@ -1,11 +1,11 @@
-.validation {
+.Validation {
   display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid green;
 }
 
-.validationInput {
+.Validation input {
   padding: 0px;
   margin: 5px;
   height: 21px;

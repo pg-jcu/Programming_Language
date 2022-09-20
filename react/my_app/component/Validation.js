@@ -27,14 +27,14 @@ function Validation() {
   };
 
   return (
-    <div className="validation">
+    <div className="Validation">
       <input
         ref={input}
         type="password"
         value={password}
         onChange={onChange}
-        className={clicked ? (validated ? 'success validationInput' : 
-          'failure validationInput') : 'validationInput'}
+        className={clicked ? (validated ? 'success' : 
+          'failure') : ''}
       />
       <button onClick={onClick}>validate</button>
     </div>

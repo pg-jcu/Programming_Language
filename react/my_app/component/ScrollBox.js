@@ -22,7 +22,7 @@ function ScrollBox() {
   const onClick = () => scrollToBottom();
   
   return (
-    <div className="scrollBox">
+    <div className="ScrollBox">
       <div
         className="scroll"
         style={style}

@@ -28,12 +28,11 @@ function Event() {
   }
 
   return (
-    <div className="event">
+    <div className="Event">
       <input
         type="text"
         name="username"
         placeholder="username"
-        className="eventInput"
         value={username}
         onChange={onChange}
       />
@@ -41,7 +40,6 @@ function Event() {
         type="text" 
         name="message" 
         placeholder="message"
-        className="eventInput"
         value={message}
         onChange={onChange}
         onKeyDown={onKeyDown}

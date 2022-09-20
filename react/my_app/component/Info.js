@@ -19,21 +19,19 @@ function Info() {
   }, []);
 
   return (
-    <div className="info">
+    <div className="Info">
       <input 
         type="text"
         placeholder="name"
         name="name"
-        value={name}
-        className="infoInput" 
+        value={name} 
         onChange={onChange} 
       />
       <input 
         type="text"
         placeholder="nickname"
         name="nickname"
-        value={nickname}
-        className="infoInput" 
+        value={nickname} 
         onChange={onChange} 
       />
       <p>

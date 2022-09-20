@@ -9,20 +9,20 @@ function Say() {
   const [color, setColor] = useState('green');
 
   return (
-    <div className="say">
-      <div>
-        <button className="sayBtn" onClick={onClickEnter}>enter</button>
-        <button className="sayBtn" onClick={onClickLeave}>leave</button>
+    <div className="Say">
+      <div className="enter">
+        <button onClick={onClickEnter}>enter</button>
+        <button onClick={onClickLeave}>leave</button>
       </div>
       <h2 style={{color}}>{message}</h2>
-      <div>
-        <button className="colorBtn" onClick={() => setColor('red')}>
+      <div className="color">
+        <button onClick={() => setColor('red')}>
           red
         </button>
-        <button className="colorBtn" onClick={() => setColor('yellow')}>
+        <button onClick={() => setColor('yellow')}>
           yellow
         </button>
-        <button className="colorBtn" onClick={() => setColor('blue')}>
+        <button onClick={() => setColor('blue')}>
           blue
         </button>
       </div>

@@ -3,7 +3,7 @@ import '../style/MyComponent.css';
 
 function MyComponent({name, children, number}) {
   return (
-    <div className='myComponent'>
+    <div className='MyComponent'>
       <div>My Component</div>
       <div>{name}</div>
       <div>{children}</div>

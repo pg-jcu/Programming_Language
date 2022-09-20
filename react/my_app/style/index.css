@@ -27,3 +27,27 @@ code {
 .scrollIndex::-webkit-scrollbar-thumb {
   background-color: green;
 }
+
+input {
+  color: green;
+  border-color: green;
+  background-color: black;
+}
+
+input::placeholder {
+  color: green;
+}
+
+button {
+  width: 100px;
+  height: 25px;
+  margin: 5px;
+  border: 1px solid green;
+  background-color: black;
+  color: green;
+}
+
+button:hover {
+  background-color: green;
+  color: black;
+}

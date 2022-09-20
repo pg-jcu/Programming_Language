@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       <h2 style={{textAlign: 'center', color: 'green', marginTop: '0px'}}>My App</h2>
-      <div className='app'>
+      <div className='App'>
         <MyComponent name='Jeong' number={1}>children</MyComponent>
         <Counter />
         <Say />

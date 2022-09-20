@@ -1,4 +1,4 @@
-.counter {
+.Counter {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@
   font-size: 25px;
 }
 
-.counterBtn {
+.Counter button {
   width: 50px;
   margin-right: 0px;
   margin-left: 0px;
