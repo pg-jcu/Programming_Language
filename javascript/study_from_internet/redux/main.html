@@ -27,7 +27,7 @@
             <li>
               <a href="${content.id}" onclick="
                 event.preventDefault();
-                const action = { type: 'SELECT', id: ${content.id}, mode: 'read' };
+                const action = { type: 'SELECT', id: ${content.id} };
                 store.dispatch(action);
               ">
                 ${content.title}
@@ -128,7 +128,7 @@
         let newState;
 
         if (action.type === 'SELECT') {
-          newState = { ...state, selectedId: action.id, mode: action.mode };
+          newState = { ...state, selectedId: action.id, mode: 'read' };
         } else if (action.type === 'CREATE') {
           const newMaxId = state.maxId + 1;
           const newContents = state.contents.concat();
@@ -137,7 +137,7 @@
             title: action.title,
             desc: action.desc
           });
-          newState = { ...state, maxId: newMaxId, contents: newContents, mode: 'read' };
+          newState = { ...state, maxId: newMaxId, contents: newContents, mode: 'welcome' };
         } else if (action.type === 'CHANGE') {
           newState = { ...state, mode: action.mode };
         } else if (action.type === 'DELETE') {
@@ -145,7 +145,7 @@
             return state.selectedId !== content.id;
           });
 
-          newState = { ...state, contents: newContents, mode: 'welcome'};
+          newState = { ...state, contents: newContents, mode: 'welcome' };
         }
 
         return newState;
