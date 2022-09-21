@@ -7,6 +7,7 @@ import ScrollBox from './component/ScrollBox';
 import Iteration from './component/Iteration';
 import Info from './component/Info';
 import Average from './component/Average';
+import SassComponent from './component/SassComponent';
 import './style/App.css'
 import { useState } from 'react';
 
@@ -16,8 +17,10 @@ function App() {
 
   return (
     <>
-      <h2 style={{textAlign: 'center', color: 'green', marginTop: '0px'}}>My App</h2>
       <div className='App'>
+        <div className='header'>
+          <h2>My App</h2>
+        </div>
         <MyComponent name='Jeong' number={1}>children</MyComponent>
         <Counter />
         <Say />
@@ -30,6 +33,7 @@ function App() {
           {visible && <Info />}
         </div>
         <Average />
+        <SassComponent />
       </div>
     </>
   );
