@@ -12,6 +12,6 @@ export default function App($target, data) {
 
   checkData(this.state);
 
-  new TodoInput(this.$target);
-  new TodoList(this.$target, this.state);
+  const todoList = new TodoList(this.$target, this.state);
+  new TodoInput(this.$target, todoList);
 }
