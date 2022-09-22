@@ -1,16 +1,18 @@
-export default function TodoInput($target, list) {
+export default function TodoInput($target, addTodo) {
+  if (!new.target) {
+    throw new Error("Not used new keyword!!");
+  }
+
   this.$element = document.createElement('div');
-  this.$target = $target;
+  $target.prepend(this.$element);
 
   this.render = () => {
     this.$element.innerHTML = `
-      <form>
-        <input type="text" placeholder="할 일을 입력해주세요."/>
-        <button>추가</button>
+      <form name="todoInputForm">
+        <input type="text" placeholder="할 일을 입력해주세요." name="todoInput"/>
+        <button name="todoInputButton">추가</button>
       </from>
     `;
-
-    this.$target.prepend(this.$element);
   }
 
   this.render();
@@ -18,9 +20,11 @@ export default function TodoInput($target, list) {
   this.$element.addEventListener('submit', event => {
     event.preventDefault();
 
-    const $input = event.target.querySelector('input');
+    const $form = document.forms.todoInputForm;
+    const $input = $form.elements.todoInput;
+    const nextData = [{ text: $input.value, isCompleted: false }];
 
-    list.setState([{ text: $input.value, isCompleted: false }]);
+    addTodo(nextData);
 
     $input.value = '';
     $input.focus();

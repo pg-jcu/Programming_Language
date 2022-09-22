@@ -1,13 +1,11 @@
-import checkData from "../utils/checkData.js";
-
-export default function TodoList($target, data) {
+export default function TodoList($target, initialState) {
   if (!new.target) {
     throw new Error("Not used new keyword!!");
   }
 
   this.$element = document.createElement('div');
-  this.state = data;
-  this.$target = $target;
+  $target.append(this.$element);
+  this.state = initialState;
 
   this.render = () => {
     const list = this.state.map(({ text, isCompleted }) => 
@@ -17,14 +15,12 @@ export default function TodoList($target, data) {
     ).join('');
 
     this.$element.innerHTML = `<ul>${list}</ul>`;
-    this.$target.append(this.$element);
   }
 
-  this.setState = (nextData) => {
-    checkData(nextData);
-    this.state = [ ...this.state, ...nextData ];
+  this.setState = nextState => {
+    this.state = nextState;
     this.render();
-  } 
+  }
 
   this.render();
 }
