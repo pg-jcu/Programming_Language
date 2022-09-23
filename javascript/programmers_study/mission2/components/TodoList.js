@@ -1,4 +1,4 @@
-export default function TodoList($target, initialState) {
+export default function TodoList($target, initialState, removeTodo, completeTodo) {
   if (!new.target) {
     throw new Error("Not used new keyword!!");
   }
@@ -8,10 +8,12 @@ export default function TodoList($target, initialState) {
   this.state = initialState;
 
   this.render = () => {
-    const list = this.state.map(({ text, isCompleted }) => 
-      isCompleted ? 
-        `<li><s>${text}</s></li>` :
-        `<li>${text}</li>`
+    const list = this.state.map(({ text, isCompleted }, index) => `
+        <li id="${index}">
+          <span>${isCompleted ? `<s>${text}</s>` : `${text}`}</span>
+          <button>삭제</button>
+        </li>
+      `
     ).join('');
 
     this.$element.innerHTML = `<ul>${list}</ul>`;
@@ -23,4 +25,16 @@ export default function TodoList($target, initialState) {
   }
 
   this.render();
+
+  this.$element.addEventListener('click', event => {
+    const $li = event.target.closest('li');
+
+    if (event.target.closest('button')) {
+      removeTodo($li.id);
+    }
+
+    if (event.target.closest('span')) {
+      completeTodo($li.id);
+    }
+  });
 }

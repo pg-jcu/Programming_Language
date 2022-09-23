@@ -20,11 +20,27 @@ export default function App($target, initialState) {
   }
 
   const addTodo = nextData => {
-    this.state = [ ...this.state, ...nextData ];
-    this.setState(this.state);
+    const list = [ ...this.state, ...nextData ];
+    this.setState(list);
+  }
+
+  const removeTodo = index => {
+    const list = this.state.filter((_, idx) => index != idx);
+    this.setState(list);
+  }
+
+  const completeTodo = index => {
+    const list = this.state.map(({ text, isCompleted }, idx) => {
+      if (index == idx) {
+        return { text, isCompleted: !isCompleted };
+      } else {
+        return { text, isCompleted: isCompleted };
+      }
+    });
+    this.setState(list);
   }
 
   new TodoInput(this.$target, addTodo);
-  const todoList = new TodoList(this.$target, this.state);
+  const todoList = new TodoList(this.$target, this.state, removeTodo, completeTodo);
   const todoCount = new TodoCount(this.$target, this.state);
 }
