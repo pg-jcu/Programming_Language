@@ -9,7 +9,9 @@ export default function TodoInput($target, addTodo) {
   this.render = () => {
     this.$element.innerHTML = `
       <form name="todoInputForm">
-        <input type="text" placeholder="할 일을 입력해주세요." name="todoInput"/>
+        <label>할 일
+          <input type="text" placeholder="할 일을 입력해주세요." name="todoInput"/>
+        </label>
         <button name="todoInputButton">추가</button>
       </form>
     `;
