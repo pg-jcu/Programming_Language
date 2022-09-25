@@ -1,15 +1,12 @@
 import App from "./App.js";
 
-const data = [
-  {
-    text: 'JS 공부하기',
-    isCompleted: true
-  },
-  {
-    text: 'JS 복습하기',
-    isCompleted: true
-  }
-];
+let data = localStorage.getItem('data');
+
+if (!data) {
+  data = [];
+} else {
+  data = JSON.parse(localStorage.getItem('data'));
+};
 
 const $target = document.querySelector('#App');
 new App($target, data);

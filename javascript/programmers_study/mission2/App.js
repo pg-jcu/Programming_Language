@@ -17,6 +17,8 @@ export default function App($target, initialState) {
     this.state = nextState;
     todoList.setState(nextState);
     todoCount.setState(nextState);
+
+    localStorage.setItem('data', JSON.stringify(nextState));
   }
 
   const addTodo = nextData => {
