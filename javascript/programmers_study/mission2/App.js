@@ -40,6 +40,10 @@ export default function App($target, initialState) {
     this.setState(list);
   }
 
+  document.addEventListener('removeAll', () => {
+    this.setState([]);
+  });
+
   new TodoInput(this.$target, addTodo);
   const todoList = new TodoList(this.$target, this.state, removeTodo, completeTodo);
   const todoCount = new TodoCount(this.$target, this.state);

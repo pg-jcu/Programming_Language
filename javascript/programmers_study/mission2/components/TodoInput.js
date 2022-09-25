@@ -14,6 +14,7 @@ export default function TodoInput($target, addTodo) {
         </label>
         <button name="todoInputButton">추가</button>
       </form>
+      <button id="removeAllButton">전체 삭제</button>
     `;
   }
 
@@ -35,5 +36,11 @@ export default function TodoInput($target, addTodo) {
 
     $input.value = '';
     $input.focus();
+  });
+
+  const removeAllButton = document.querySelector('#removeAllButton');
+
+  removeAllButton.addEventListener('click', () => {
+    document.dispatchEvent(new CustomEvent('removeAll'));
   });
 }
