@@ -36,7 +36,7 @@ export default function App($target, initialState) {
       if (index == idx) {
         return { text, isCompleted: !isCompleted };
       } else {
-        return { text, isCompleted: isCompleted };
+        return { text, isCompleted };
       }
     });
     this.setState(list);
