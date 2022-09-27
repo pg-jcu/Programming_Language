@@ -102,7 +102,7 @@ const app = http.createServer((request, response) => {
       const description = post.description;
 
       fs.writeFile(`data/${title}`, description, 'utf8', err => {
-        response.writeHead(302, { Location: `/?id=${title}`});
+        response.writeHead(302, { Location: `/?id=${title}` });
         response.end();
       });
     });
@@ -145,9 +145,25 @@ const app = http.createServer((request, response) => {
 
       fs.rename(`data/${id}`, `data/${title}`, err => {
         fs.writeFile(`data/${title}`, description, 'utf8', err => {
-          response.writeHead(302, { Location: `/?id=${title}`});
+          response.writeHead(302, { Location: `/?id=${title}` });
           response.end();
         });
+      });
+    });
+  } else if (pathname === '/delete_process') {
+    let body = '';
+
+    request.on('data', data => {
+      body += data;
+    });
+
+    request.on('end', () => {
+      const post = qs.parse(body);
+      const id = post.id;
+
+      fs.unlink(`data/${id}`, err => {
+        response.writeHead(302, { Location: `/` });
+        response.end();
       });
     });
   } else {
