@@ -14,6 +14,7 @@ function templateHTML(title, list, body) {
     <body>
       <h1><a href="/">WEB</a></h1>
       ${list}
+      <a href="/create">create</a>
       ${body}
     </body>
     </html>
@@ -28,7 +29,7 @@ function templateList(filelist) {
   return list;
 }
 
-let app = http.createServer((request, response) => {
+const app = http.createServer((request, response) => {
   const _url = request.url;
   const __dirname = path.resolve();
   const queryData = url.parse(_url, true).query;
@@ -40,7 +41,9 @@ let app = http.createServer((request, response) => {
         const title = 'Welcome';
         const description = 'Hello, Node.js';
         const list = templateList(filelist);
-        const template = templateHTML(title, list, `<h2>${title}</h2><p>${description}</p>`);
+        const template = templateHTML(title, list, `
+          <h2>${title}</h2><p>${description}</p>
+        `);
     
         response.writeHead(200);
         response.end(template);
@@ -50,13 +53,34 @@ let app = http.createServer((request, response) => {
         fs.readFile(`data/${queryData.id}`, 'utf8', (err, description) => {
           const title = queryData.id;
           const list = templateList(filelist);
-          const template = templateHTML(title, list, `<h2>${title}</h2><p>${description}</p>`);
+          const template = templateHTML(title, list, `
+            <h2>${title}</h2><p>${description}</p>
+          `);
       
           response.writeHead(200);
           response.end(template);
         });
       });
     }
+  } else if (pathname === '/create') {
+    fs.readdir('./data', (err, filelist) => {
+      const title = 'create';
+      const list = templateList(filelist);
+      const template = templateHTML(title, list, `
+        <form action="http://localhost:3000/process_create" method="post">
+          <p><input type="text" name="title" placeholder="title" /></p>
+          <p>
+            <textarea name="description" placeholder="description"></textarea>
+          </p>
+          <p>
+            <input type="submit" />
+          </p>
+        </form>
+      `);
+  
+      response.writeHead(200);
+      response.end(template);
+    });
   } else {
     response.writeHead(404);
     response.end('Not found');
