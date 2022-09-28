@@ -9,7 +9,7 @@ export default function TodoList($target, initialState, removeTodo, completeTodo
 
   this.render = () => {
     const list = this.state.map(({ text, isCompleted }, index) => `
-        <li id="${index}">
+        <li data-id="${index}">
           <span>${isCompleted ? `<s>${text}</s>` : `${text}`}</span>
           <button>삭제</button>
         </li>
@@ -30,11 +30,11 @@ export default function TodoList($target, initialState, removeTodo, completeTodo
     const $li = event.target.closest('li');
 
     if (event.target.closest('button')) {
-      removeTodo($li.id);
+      removeTodo($li.dataset.id);
     }
 
     if (event.target.closest('span')) {
-      completeTodo($li.id);
+      completeTodo($li.dataset.id);
     }
   });
 }
