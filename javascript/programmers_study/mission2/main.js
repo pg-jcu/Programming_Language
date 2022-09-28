@@ -1,5 +1,6 @@
 import App from "./App.js";
-import data from "./utils/storage.js";
+import { getItem } from "./utils/storage.js";
+import { STORAGE_KEY } from "./constants.js";
 
 const $target = document.querySelector('#App');
-new App($target, data);
+new App($target, getItem(STORAGE_KEY, []));

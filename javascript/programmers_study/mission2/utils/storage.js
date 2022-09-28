@@ -1,9 +1,23 @@
-let data = localStorage.getItem('data');
+export const getItem = (key, defaultValue) => {
+  try {
+    const storedValue = localStorage.getItem(key);
 
-if (!data) {
-  data = [];
-} else {
-  data = JSON.parse(localStorage.getItem('data'));
+    if (storedValue) {
+      return JSON.parse(storedValue);
+    }
+
+    return defaultValue;
+  } catch (e) {
+    alert('Data load failed!');
+
+    return defaultValue;
+  }
 };
 
-export default data;
+export const setItem = (key, value) => {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (e) {
+    alert('There is a problem with the data!');
+  }
+}

@@ -2,6 +2,8 @@ import TodoList from "./components/TodoList.js";
 import TodoInput from "./components/TodoInput.js";
 import TodoCount from "./components/TodoCount.js";
 import checkData from "./utils/checkData.js";
+import { setItem } from "./utils/storage.js";
+import { STORAGE_KEY } from "./constants.js";
 
 export default function App($target, initialState) {
   if (!new.target) {
@@ -18,7 +20,7 @@ export default function App($target, initialState) {
     todoList.setState(nextState);
     todoCount.setState(nextState);
 
-    localStorage.setItem('data', JSON.stringify(nextState));
+    setItem(STORAGE_KEY, nextState);
   }
 
   const addTodo = nextData => {
