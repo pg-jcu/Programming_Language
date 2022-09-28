@@ -7,7 +7,6 @@ import template from './lib/template.js';
 
 const app = http.createServer((request, response) => {
   const _url = request.url;
-  const __dirname = path.resolve();
   const queryData = url.parse(_url, true).query;
   const pathname = url.parse(_url, true).pathname;
 
@@ -27,7 +26,8 @@ const app = http.createServer((request, response) => {
       });
     } else {
       fs.readdir('./data', (err, filelist) => {
-        fs.readFile(`data/${queryData.id}`, 'utf8', (err, description) => {
+        const filterId = path.parse(queryData.id).base;
+        fs.readFile(`data/${filterId}`, 'utf8', (err, description) => {
           const title = queryData.id;
           const list = template.list(filelist);
           const html = template.html(title, list, 
@@ -83,7 +83,8 @@ const app = http.createServer((request, response) => {
     });
   } else if (pathname === '/update') {
     fs.readdir('./data', (err, filelist) => {
-      fs.readFile(`data/${queryData.id}`, 'utf8', (err, description) => {
+      const filterId = path.parse(queryData.id).base;
+      fs.readFile(`data/${filterId}`, 'utf8', (err, description) => {
         const title = queryData.id;
         const list = template.list(filelist);
         const html = template.html(title, list, `
@@ -135,8 +136,9 @@ const app = http.createServer((request, response) => {
     request.on('end', () => {
       const post = qs.parse(body);
       const id = post.id;
+      const filterId = path.parse(id).base;
 
-      fs.unlink(`data/${id}`, err => {
+      fs.unlink(`data/${filterId}`, err => {
         response.writeHead(302, { Location: `/` });
         response.end();
       });
