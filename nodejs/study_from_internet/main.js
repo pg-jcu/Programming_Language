@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import url from 'url';
 import qs from 'querystring';
+import sanitizeHtml from 'sanitize-html';
 import template from './lib/template.js';
 
 const app = http.createServer((request, response) => {
@@ -29,13 +30,15 @@ const app = http.createServer((request, response) => {
         const filterId = path.parse(queryData.id).base;
         fs.readFile(`data/${filterId}`, 'utf8', (err, description) => {
           const title = queryData.id;
+          const sanitizedTitle = sanitizeHtml(title);
+          const sanitizedDescription = sanitizeHtml(description);
           const list = template.list(filelist);
-          const html = template.html(title, list, 
-            `<h2>${title}</h2><p>${description}</p>`,
+          const html = template.html(sanitizedTitle, list, 
+            `<h2>${sanitizedTitle}</h2><p>${sanitizedDescription}</p>`,
             `<a href="/create">create</a> 
-             <a href="/update?id=${title}">update</a>
+             <a href="/update?id=${sanitizedTitle}">update</a>
              <form action="/delete_process" method="post">
-              <input type="hidden" name="id" value="${title}" />
+              <input type="hidden" name="id" value="${sanitizedTitle}" />
               <input type="submit" value="delete" />
              </form>`
           );
