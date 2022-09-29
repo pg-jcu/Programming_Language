@@ -1,14 +1,13 @@
-export default function SearchInput({ $target, getData }) {
+export default function SearchInput({ $target, setResult, setHistory }) {
   if (!new.target) {
     throw new Error('Not used new keyword!!');
   }
-  
+
   this.$element = document.createElement('div');
   $target.prepend(this.$element);
   this.$element.innerHTML = '<input id="search-keyword" />';
 
   this.render = () => {};
-
   this.setState = () => {};
 
   const searchKeyword = document.querySelector('#search-keyword');
@@ -24,7 +23,8 @@ export default function SearchInput({ $target, getData }) {
       const response = await fetch(url);
       const data = await response.json();
 
-      getData(data);
+      setResult(data);
+      setHistory(e.target.value);
     }, 500);
   });
 }
