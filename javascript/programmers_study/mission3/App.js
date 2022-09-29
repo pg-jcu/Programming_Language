@@ -1,6 +1,7 @@
 import SearchInput from "./components/SearchInput.js";
 import SearchResult from "./components/SearchResult.js";
 import SearchHistory from "./components/SearchHistory.js";
+import { setItem, getItem } from "./utils/historyStorage.js";
 
 export default function App($target, initialState) {
   if (!new.target) {
@@ -9,12 +10,11 @@ export default function App($target, initialState) {
 
   this.state = initialState;
 
-  const historyArr = [];
+  const historyArr = getItem('history', []);
 
   this.setState = nextState => {
     this.state = nextState;
     searchResult.setState(nextState);
-    // searchHistory.setState(nextState);
   }
 
   const setResult = nextData => {
@@ -22,12 +22,16 @@ export default function App($target, initialState) {
   };
 
   const setHistory = nextData => {
+    if (!historyArr.includes(nextData)) {
+      historyArr.push(nextData);
+    }
+
     if (historyArr.length > 5) {
       historyArr.shift();
     }
 
-    historyArr.push(nextData);
     searchHistory.render();
+    setItem('history', historyArr);
   };
 
   new SearchInput({ $target, setResult, setHistory });

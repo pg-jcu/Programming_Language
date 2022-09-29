@@ -19,10 +19,7 @@ export default function SearchHistory({ $target, initialState, setResult }) {
     this.$element.innerHTML = history;
   };
 
-  this.setState = nextData => {
-    this.setState(nextData);
-    this.render();
-  };
+  this.setState = () => {};
 
   this.render();
 

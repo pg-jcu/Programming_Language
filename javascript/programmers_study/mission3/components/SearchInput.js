@@ -19,6 +19,10 @@ export default function SearchInput({ $target, setResult, setHistory }) {
     }
 
     timer = setTimeout(async () => {
+      if (e.target.value === '') {
+        return;
+      }
+
       const url = `https://api.idiots.band/api/search?keyword=${e.target.value}`;
       const response = await fetch(url);
       const data = await response.json();
