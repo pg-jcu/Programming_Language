@@ -21,17 +21,17 @@ export default function App($target, initialState) {
     todoCount.setState(nextState);
 
     setItem(STORAGE_KEY, nextState);
-  }
+  };
 
   const addTodo = nextData => {
     const list = [ ...this.state, ...nextData ];
     this.setState(list);
-  }
+  };
 
   const removeTodo = index => {
     const list = this.state.filter((_, idx) => index != idx);
     this.setState(list);
-  }
+  };
 
   const completeTodo = index => {
     const list = this.state.map(({ text, isCompleted }, idx) => {
@@ -42,7 +42,7 @@ export default function App($target, initialState) {
       }
     });
     this.setState(list);
-  }
+  };
 
   document.addEventListener('removeAll', () => {
     this.setState([]);

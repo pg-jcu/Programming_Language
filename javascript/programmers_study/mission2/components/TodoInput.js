@@ -16,7 +16,7 @@ export default function TodoInput($target, addTodo) {
       </form>
       <button id="removeAllButton">전체 삭제</button>
     `;
-  }
+  };
 
   this.render();
 

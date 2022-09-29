@@ -12,12 +12,12 @@ export default function TodoCount($target, initialState) {
       Total: ${this.state.length} / 
       Completed: ${this.state.filter(({ isCompleted }) => isCompleted).length}
     `;
-  }
+  };
 
   this.setState = nextState => {
     this.state = nextState;
     this.render();
-  }
+  };
 
   this.render();
 }

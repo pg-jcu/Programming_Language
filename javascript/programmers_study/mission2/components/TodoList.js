@@ -17,12 +17,12 @@ export default function TodoList($target, initialState, removeTodo, completeTodo
     ).join('');
 
     this.$element.innerHTML = `<ul>${list}</ul>`;
-  }
+  };
 
   this.setState = nextState => {
     this.state = nextState;
     this.render();
-  }
+  };
 
   this.render();
 
