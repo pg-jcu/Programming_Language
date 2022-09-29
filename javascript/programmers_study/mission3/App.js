@@ -2,6 +2,9 @@ import SearchInput from "./components/SearchInput.js";
 import SearchResult from "./components/SearchResult.js";
 
 export default function App($target, initialState) {
+  if (!new.target) {
+    throw new Error('Not used new keyword!!');
+  }
 
   this.state = initialState;
 

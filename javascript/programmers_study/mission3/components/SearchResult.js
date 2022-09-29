@@ -1,4 +1,8 @@
 export default function SearchResult({ $target, initialState }) {
+  if (!new.target) {
+    throw new Error('Not used new keyword!!');
+  }
+  
   this.$element = document.createElement('div');
   this.$element.id = 'search-result';
   $target.append(this.$element);
