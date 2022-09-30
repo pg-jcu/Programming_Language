@@ -23,12 +23,12 @@ export default function App($target, initialState) {
   };
 
   const setHistory = nextData => {
-    if (!historyArr.includes(nextData)) {
-      historyArr.push(nextData);
+    if (!historyData.includes(nextData)) {
+      historyData.push(nextData);
     }
 
-    if (historyArr.length > 5) {
-      historyArr.shift();
+    if (historyData.length > 5) {
+      historyData.shift();
     }
 
     searchHistory.render();
