@@ -1,4 +1,4 @@
-export default function SearchResult({ $target, initialState }) {
+export default function SearchResult({ $target, initialState, setResult }) {
   if (!new.target) {
     throw new Error('Not used new keyword!!');
   }
@@ -10,10 +10,18 @@ export default function SearchResult({ $target, initialState }) {
   this.state = initialState;
 
   this.render = () => {
-    const htmlString = `${this.state.map(d => 
+    const htmlString = `${this.state.map(data => 
       `
         <div style="display: inline-block; width: 33%">
-          <img src="${d.poster}" style="object-fit: cover; width: 100%;">
+          <img src="${data.poster}" style="object-fit: cover; width: 100%;">
+          <ul style="list-style: none; padding: 0px;">${data.musicians.map(musician => 
+            `
+              <li data-word="${musician}" style="border: 2px solid black; margin-bottom: 2px;">
+                ${musician}
+              </li>
+            `
+            ).join('')}
+          </ul>
         </div>
       ` 
     ).join('')}`;
@@ -27,4 +35,16 @@ export default function SearchResult({ $target, initialState }) {
   };
 
   this.render();
+
+  this.$element.addEventListener('click', async (e) => {
+    const $li = e.target.closest('li');
+
+    if ($li) {
+      const url = `https://api.idiots.band/api/search?keyword=${$li.dataset.word}`;
+      const response = await fetch(url);
+      const data = await response.json();
+
+      setResult(data);
+    }
+  });
 }

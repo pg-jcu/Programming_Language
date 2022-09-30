@@ -10,11 +10,15 @@ export default function SearchHistory({ $target, initialState, setResult }) {
   this.state = initialState;
 
   this.render = () => {
-    const history = `<ul>${this.state.map(value => 
-      `
-        <li data-word="${value}">${value}</li>
-      `
-    ).join('')}</ul>`;
+    const history = `
+      <ul style="list-style: none; padding: 0px;">${this.state.map(value => 
+        `
+          <li style="display: inline;" data-word="${value}">
+            ${value}
+          </li>
+        `
+      ).join('')}</ul>
+    `;
 
     this.$element.innerHTML = history;
   };
