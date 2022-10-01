@@ -1,13 +1,15 @@
-import MyComponent from './component/MyComponent';
-import Counter from './component/Counter';
-import Say from './component/Say'
-import Event from './component/Event';
-import Validation from './component/Validation';
-import ScrollBox from './component/ScrollBox';
-import Iteration from './component/Iteration';
-import Info from './component/Info';
-import Average from './component/Average';
-import SassComponent from './component/SassComponent';
+import MyComponent from './components/MyComponent';
+import Counter from './components/Counter';
+import Say from './components/Say'
+import Event from './components/Event';
+import Validation from './components/Validation';
+import ScrollBox from './components/ScrollBox';
+import Iteration from './components/Iteration';
+import Info from './components/Info';
+import Average from './components/Average';
+import SassComponent from './components/SassComponent';
+import Todo from './components/Todo';
+import TodoInsert from './components/TodoInsert';
 import './style/App.css'
 import { useState } from 'react';
 
@@ -34,6 +36,9 @@ function App() {
         </div>
         <Average />
         <SassComponent />
+        <Todo>
+          <TodoInsert />
+        </Todo>
       </div>
     </>
   );
