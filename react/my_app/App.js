@@ -1,3 +1,4 @@
+import Header from './components/Header';
 import MyComponent from './components/MyComponent';
 import Counter from './components/Counter';
 import Say from './components/Say'
@@ -9,7 +10,6 @@ import Info from './components/Info';
 import Average from './components/Average';
 import SassComponent from './components/SassComponent';
 import Todo from './components/Todo';
-import TodoInsert from './components/TodoInsert';
 import './style/App.css'
 import { useState } from 'react';
 
@@ -20,9 +20,7 @@ function App() {
   return (
     <>
       <div className='App'>
-        <div className='header'>
-          <h2>My App</h2>
-        </div>
+        <Header />
         <MyComponent name='Jeong' number={1}>children</MyComponent>
         <Counter />
         <Say />
@@ -36,9 +34,7 @@ function App() {
         </div>
         <Average />
         <SassComponent />
-        <Todo>
-          <TodoInsert />
-        </Todo>
+        <Todo />
       </div>
     </>
   );

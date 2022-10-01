@@ -1,12 +1,15 @@
+import TodoTemplate from './TodoTemplate';
+import TodoInsert from './TodoInsert';
+import TodoList from './TodoList';
 import '../style/Todo.scss';
 
-function Todo({ children }) {
+function Todo() {
   return (
     <div className="Todo">
-      <div className="template">
-        <div className="title">Todo Title</div>
-        <div className="content">{children}</div>
-      </div>
+      <TodoTemplate>
+        <TodoInsert />
+        <TodoList />
+      </TodoTemplate>
     </div>
   );
 }
