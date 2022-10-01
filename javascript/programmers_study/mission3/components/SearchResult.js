@@ -10,7 +10,7 @@ export default function SearchResult({ $target, initialState, setResult }) {
   this.state = initialState;
 
   this.render = () => {
-    const htmlString = `${this.state.map(data => 
+    const htmlString = `${this.state.result.map(data => 
       `
         <div style="display: inline-block; width: 33%">
           <img src="${data.poster}" style="object-fit: cover; width: 100%;">

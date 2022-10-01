@@ -11,7 +11,7 @@ export default function SearchHistory({ $target, initialState, setResult }) {
 
   this.render = () => {
     const history = `
-      <ul style="list-style: none; padding: 0px;">${this.state.map(value => 
+      <ul style="list-style: none; padding: 0px;">${this.state.history.map(value => 
         `
           <li style="display: inline;" data-word="${value}">
             ${value}
@@ -23,7 +23,10 @@ export default function SearchHistory({ $target, initialState, setResult }) {
     this.$element.innerHTML = history;
   };
 
-  this.setState = () => {};
+  this.setState = nextState => {
+    this.state = nextState;
+    this.render();
+  };
 
   this.render();
 
