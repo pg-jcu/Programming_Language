@@ -44,6 +44,7 @@ button {
   border: 1px solid green;
   background-color: black;
   color: green;
+  font-size: 12px;
 }
 
 button:hover {

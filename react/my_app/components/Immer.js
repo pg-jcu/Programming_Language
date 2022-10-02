@@ -1,5 +1,6 @@
 import produce from "immer";
 import { useCallback, useRef, useState } from "react";
+import '../style/Immer.scss';
 
 function Immer() {
   const nextId = useRef(1);
@@ -60,7 +61,7 @@ function Immer() {
           value={form.name}
           onChange={onChange}
         /> 
-        <button type="submit">등록</button>
+        <button type="submit">sign up</button>
       </form>
       <div>
         <ul>

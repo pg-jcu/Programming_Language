@@ -9,4 +9,5 @@
 .Event input {
   margin: 5px;
   height: 25px;
+  border: 1px solid green;
 }

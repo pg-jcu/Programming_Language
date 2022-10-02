@@ -18,8 +18,9 @@ function Iteration() {
 
   const inputStyle = {
     padding: '0px',
-    height: '20px',
-    marginRight: '-6px'
+    height: '22px',
+    marginRight: '-6px',
+    border: '1px solid green'
   };
 
   const btnStyle = {

@@ -8,8 +8,10 @@
 .Validation input {
   padding: 0px;
   margin: 5px;
-  height: 21px;
+  height: 23px;
   margin-right: -6px;
+  outline: none;
+  border: 1px solid green;
 }
 
 .success {

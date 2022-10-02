@@ -9,7 +9,8 @@
 .Average input {
   margin-top: 10px;
   padding: 0px;
-  height: 23px;
+  height: 25px;
+  border: 1px solid green;
 }
 
 .Average button {
