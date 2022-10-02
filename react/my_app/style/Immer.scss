@@ -1,0 +1,29 @@
+.Immer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid green;
+  padding: 5px;
+
+  input {
+    padding: 5px;
+    margin: 0px;
+    width: 80px;
+    height: 13px;
+    outline: none;
+    border: 1px solid green;
+  }
+
+  button {
+    padding: 0px;
+    margin: 0px;
+    width: 80px;
+    height: 25px;
+    font-size: 12px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0px;
+  }
+}
