@@ -10,6 +10,7 @@ import Info from './components/Info';
 import Average from './components/Average';
 import SassComponent from './components/SassComponent';
 import Todo from './components/Todo';
+import Immer from './components/Immer';
 import './style/App.css'
 import { useState } from 'react';
 
@@ -35,6 +36,7 @@ function App() {
         <Average />
         <SassComponent />
         <Todo />
+        <Immer />
       </div>
     </>
   );
