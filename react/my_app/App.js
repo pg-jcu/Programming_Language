@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import Nav from './components/Nav';
+import Home from './components/Home';
 import Practice from './components/Practice';
 import Todo from './components/Todo';
 import Immer from './components/Immer';
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Nav />
       <Routes>
+        <Route path='/' element={<Home />} />
         <Route path='/practice' element={<Practice />} />
         <Route path='/todo' element={<Todo />} />
         <Route path='/immer' element={<Immer />} />
