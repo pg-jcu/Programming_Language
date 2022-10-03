@@ -48,9 +48,15 @@ app.get('/create', (req, res) => {
     const list = template.list(filelist);
     const html = template.html(title, list, `
       <form action="/create" method="post">
-        <p><input type="text" name="title" placeholder="title" /></p>
-        <p><textarea name="description" placeholder="description"></textarea></p>
-        <p><input type="submit"></p>
+        <p>
+          <input type="text" name="title" placeholder="title" />
+        </p>
+        <p>
+          <textarea name="description" placeholder="description"></textarea>
+        </p>
+        <p>
+          <input type="submit">
+        </p>
       </form>
     `, '');
     res.send(html); 
@@ -71,6 +77,52 @@ app.post('/create', (req, res) => {
 
     fs.writeFile(`data/${title}`, description, 'utf8', err => {
       res.redirect(`/page/${title}`);
+    });
+  });
+});
+
+app.get('/update/:pageId', (req, res) => {
+  fs.readdir('./data', (err, filelist) => {
+    const filteredId = path.parse(req.params.pageId).base;
+    fs.readFile(`data/${filteredId}`, 'utf8', (err, description) => {
+      const title = req.params.pageId;
+      const list = template.list(filelist);
+      const html = template.html(title, list, `
+        <form action="/update" method="post">
+          <input type="hidden" name="id" value="${title}" />
+          <p>
+            <input type="text" name="title" placeholder="title" value="${title}" />
+          </p>
+          <p>
+            <textarea name="description" placeholder="description">${description}</textarea>
+          </p>
+          <p>
+            <input type="submit" />
+          </p>
+        </form>
+      `, '');
+      res.send(html);
+    });
+  });
+});
+
+app.post('/update', (req, res) => {
+  let body = '';
+
+  req.on('data', data => {
+    body += data;
+  });
+
+  req.on('end', () => {
+    const post = qs.parse(body);
+    const id = post.id;
+    const title = post.title;
+    const description = post.description;
+
+    fs.rename(`data/${id}`, `data/${title}`, err => {
+      fs.writeFile(`data/${title}`, description, 'utf8', err => {
+        res.redirect(`page/${title}`);
+      });
     });
   });
 });
