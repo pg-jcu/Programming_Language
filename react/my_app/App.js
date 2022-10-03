@@ -1,44 +1,22 @@
 import Header from './components/Header';
-import MyComponent from './components/MyComponent';
-import Counter from './components/Counter';
-import Say from './components/Say'
-import Event from './components/Event';
-import Validation from './components/Validation';
-import ScrollBox from './components/ScrollBox';
-import Iteration from './components/Iteration';
-import Info from './components/Info';
-import Average from './components/Average';
-import SassComponent from './components/SassComponent';
+import Nav from './components/Nav';
+import Practice from './components/Practice';
 import Todo from './components/Todo';
 import Immer from './components/Immer';
 import './style/App.css'
-import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
-  const [visible, setVisible] = useState(false);
-  const onClick = () => setVisible(!visible);
-
   return (
-    <>
-      <div className='App'>
-        <Header />
-        <MyComponent name='Jeong' number={1}>children</MyComponent>
-        <Counter />
-        <Say />
-        <Event />
-        <Validation />
-        <ScrollBox />
-        <Iteration />
-        <div className='visible'>
-          <button onClick={onClick}>{visible ? 'hidden' : 'visible'}</button>
-          {visible && <Info />}
-        </div>
-        <Average />
-        <SassComponent />
-        <Todo />
-        <Immer />
-      </div>
-    </>
+    <div className='App'>
+      <Header />
+      <Nav />
+      <Routes>
+        <Route path='/practice' element={<Practice />} />
+        <Route path='/todo' element={<Todo />} />
+        <Route path='/immer' element={<Immer />} />
+      </Routes>
+    </div>
   );
 }
 
