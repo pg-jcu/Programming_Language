@@ -5,7 +5,13 @@ export default function SearchInput({ $target, setResult, setHistory }) {
 
   this.$element = document.createElement('div');
   $target.prepend(this.$element);
-  this.$element.innerHTML = '<input id="search-keyword" />';
+  this.$element.innerHTML = `
+    <form>
+      <label> 검색
+      <input type="search" id="search-keyword" />
+      </label>
+    </form>
+  `;
 
   this.render = () => {};
   this.setState = () => {};
@@ -25,6 +31,11 @@ export default function SearchInput({ $target, setResult, setHistory }) {
 
       const url = `https://api.idiots.band/api/search?keyword=${e.target.value}`;
       const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      
       const data = await response.json();
 
       setResult(data);

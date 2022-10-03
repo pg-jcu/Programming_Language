@@ -18,16 +18,23 @@ export default function App($target, initialState) {
   }
 
   const setResult = nextData => {
-    const nextState = { history: [ ...this.state.history ], result: nextData };
+    const nextState = { 
+      ...this.state, 
+      result: nextData 
+    };
+    
     this.setState(nextState);
   };
 
   const setHistory = nextData => {
-    const nextState = { history: [ ...this.state.history ], result: [ ...this.state.result ]}
-
-    if (!nextState.history.includes(nextData)) {
-      nextState.history = nextState.history.concat(nextData);
+    if (this.state.history.includes(nextData)) {
+      return;
     }
+
+    const nextState = { 
+      ...this.state,
+      history: this.state.history.concat(nextData)
+    };
 
     if (nextState.history.length > 5) {
       nextState.history = nextState.history.slice(1);

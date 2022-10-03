@@ -36,6 +36,11 @@ export default function SearchHistory({ $target, initialState, setResult }) {
     if ($li) {
       const url = `https://api.idiots.band/api/search?keyword=${$li.dataset.word}`;
       const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      
       const data = await response.json();
 
       setResult(data);

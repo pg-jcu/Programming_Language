@@ -13,7 +13,7 @@ export default function SearchResult({ $target, initialState, setResult }) {
     const htmlString = `${this.state.result.map(data => 
       `
         <div style="display: inline-block; width: 33%">
-          <img src="${data.poster}" style="object-fit: cover; width: 100%;">
+          <img src="${data.poster}" style="object-fit: cover; width: 100%;" alt="${data.title}">
           <ul style="list-style: none; padding: 0px;">${data.musicians.map(musician => 
             `
               <li data-word="${musician}" style="border: 2px solid black; margin-bottom: 2px;">
@@ -42,6 +42,11 @@ export default function SearchResult({ $target, initialState, setResult }) {
     if ($li) {
       const url = `https://api.idiots.band/api/search?keyword=${$li.dataset.word}`;
       const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      
       const data = await response.json();
 
       setResult(data);
