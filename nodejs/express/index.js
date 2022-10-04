@@ -2,12 +2,14 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
+const compression = require('compression');
 const template = require('./lib/template.js');
 
 const app = express();
 const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(compression());
 
 app.get('/', (req, res) => {
   fs.readdir('./data', (err, filelist) => {
