@@ -8,7 +8,7 @@ const app = express();
 const port = 3000;
 
 app.get('/', (req, res) => {
-  fs.readdir('./data', (error, filelist) => {
+  fs.readdir('./data', (err, filelist) => {
     const title = 'Welcome';
     const description = 'Hello, Express!';
     const list = template.list(filelist);
@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/page/:pageId', (req, res) => {
-  fs.readdir('./data', (error, filelist) => {
+  fs.readdir('./data', (err, filelist) => {
     const filteredId = path.parse(req.params.pageId).base;
     fs.readFile(`data/${filteredId}`, 'utf8', (err, description) => {
       const title = req.params.pageId;
@@ -31,7 +31,7 @@ app.get('/page/:pageId', (req, res) => {
         `
           <a href="/create">create</a>
           <a href="/update/${title}">update</a>
-          <form action="delete_process" method="post">
+          <form action="/delete" method="post">
             <input type="hidden" name="id" value="${title}" />
             <input type="submit" value="delete" />
           </form>
@@ -43,7 +43,7 @@ app.get('/page/:pageId', (req, res) => {
 });
 
 app.get('/create', (req, res) => {
-  fs.readdir('./data', (error, filelist) => {
+  fs.readdir('./data', (err, filelist) => {
     const title = 'WEB - create';
     const list = template.list(filelist);
     const html = template.html(title, list, `
@@ -123,6 +123,24 @@ app.post('/update', (req, res) => {
       fs.writeFile(`data/${title}`, description, 'utf8', err => {
         res.redirect(`page/${title}`);
       });
+    });
+  });
+});
+
+app.post('/delete', (req, res) => {
+  let body = '';
+
+  req.on('data', data => {
+    body += data;
+  });
+
+  req.on('end', () => {
+    const post = qs.parse(body);
+    const id = post.id;
+    const filteredId = path.parse(id).base;
+
+    fs.unlink(`data/${filteredId}`, err => {
+      res.redirect('/');
     });
   });
 });
