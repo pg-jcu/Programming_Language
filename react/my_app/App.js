@@ -3,6 +3,7 @@ import Nav from './components/Nav';
 import Home from './components/Home';
 import Practice from './components/Practice';
 import Todo from './components/Todo';
+import Profiles from './components/Profiles';
 import './style/App.css'
 import { Routes, Route } from 'react-router-dom';
 
@@ -13,7 +14,9 @@ function App() {
       <Nav />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/practice' element={<Practice />} />
+        <Route path='/practice' element={<Practice />}>
+          <Route path='jeong' element={<Profiles />} />
+        </Route>
         <Route path='/todo' element={<Todo />} />
       </Routes>
     </div>
