@@ -1,9 +1,29 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import TodoListItem from "./TodoListItem";
 import '../style/TodoList.scss';
 import { List } from "react-virtualized";
+import { debounce } from "lodash";
 
 function TodoList({ todos, onRemove, onToggle }) {
+  const [todoWidth, setTodoWidth] = useState(512);
+
+  const onResize = debounce(() => {
+    const width = document.documentElement.clientWidth; 
+
+    if (width < 555) {
+      setTodoWidth(350);
+    } else {
+      setTodoWidth(512);
+    }
+  }, 500);
+
+  useEffect(() => {
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.addEventListener('resize', onResize);
+    }
+  }, [onResize]);
+
   const rowRenderer = useCallback(({ index, key, style }) => {
     const todo = todos[index];
 
@@ -21,7 +41,7 @@ function TodoList({ todos, onRemove, onToggle }) {
   return (
     <List
       className="TodoList"
-      width={512}
+      width={todoWidth}
       height={513}
       rowCount={todos.length}
       rowHeight={57}

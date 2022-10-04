@@ -8,6 +8,7 @@ import Iteration from './Iteration';
 import Info from './Info';
 import Average from './Average';
 import SassComponent from './SassComponent';
+import Immer from './Immer';
 import { useState } from 'react';
 import '../style/Practice.scss';
 
@@ -30,6 +31,7 @@ function Practice() {
       </div>
       <Average />
       <SassComponent />
+      <Immer />
     </div>
   );
 }

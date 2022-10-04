@@ -14,10 +14,6 @@
   align-items: center;
   color: black;
 
-  @media (max-width: 400) {
-    background-color: red;
-  }
-
   .checkbox {
     cursor: pointer;
     flex: 1;
