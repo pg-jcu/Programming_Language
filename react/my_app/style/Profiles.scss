@@ -1,6 +1,12 @@
-.Profile {
+.Profiles {
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 2px solid green;
+
+  ul {
+    list-style: none;
+    padding: 0px;
+    text-align: center;
+  }
 }

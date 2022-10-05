@@ -6,13 +6,13 @@ function Nav() {
     <div className="Nav">
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to=".">Home</Link>
         </li>
         <li>
-          <Link to="/practice">Practice</Link>
+          <Link to="practice">Practice</Link>
         </li>
         <li>
-          <Link to="/todo">Todo</Link>
+          <Link to="todo">Todo</Link>
         </li>
       </ul>
     </div>

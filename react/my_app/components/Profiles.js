@@ -1,18 +1,22 @@
+import Profile from "./Profile";
 import { Link, Route, Routes } from "react-router-dom";
 import '../style/Profiles.scss';
 
 function Profiles() {
   return (
-    <div className="Profile">
+    <div className="Profiles">
       <h3>user list</h3>
       <ul>
         <li>
-          <Link to="/practice/jeong">jeong</Link>
+          <Link to="profile/jeong">jeong profile</Link>
+        </li>
+        <li>
+          <Link to="profile/gildong">gildong profile</Link>
         </li>
       </ul>
 
       <Routes>
-        <Route path="/practice" render={() => <div>test</div>} />
+        <Route path="profile/:username" element={<Profile />} />
       </Routes>
     </div>
   );
