@@ -10,6 +10,7 @@ import Average from './Average';
 import SassComponent from './SassComponent';
 import Immer from './Immer';
 import Profiles from './Profiles';
+import History from './History';
 import { useState } from 'react';
 import '../style/Practice.scss';
 
@@ -34,6 +35,7 @@ function Practice() {
       <SassComponent />
       <Immer />
       <Profiles />
+      <History />
     </div>
   );
 }
