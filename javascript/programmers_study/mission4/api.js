@@ -28,8 +28,14 @@ export const addTodo = async (userId, todoContent) => {
   }
 };
 
-export const deleteTodo = () => {
-
+export const deleteTodo = async (userId, id) => {
+  try {
+    await fetch(`${API_END_POINT}${userId}/${id}`, {
+      method: 'DELETE'
+    })
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 export const deleteAllTodo = () => {

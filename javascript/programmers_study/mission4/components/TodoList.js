@@ -1,4 +1,4 @@
-export default function TodoList({ $target, initialState }) {
+export default function TodoList({ $target, initialState, onDelete }) {
   if (!new.target) {
     throw new Error("Not used new keyword!!");
   }
@@ -26,15 +26,15 @@ export default function TodoList({ $target, initialState }) {
 
   this.render();
 
-  // this.$element.addEventListener('click', event => {
-  //   const $li = event.target.closest('li');
+  this.$element.addEventListener('click', event => {
+    const $li = event.target.closest('li');
 
-  //   if (event.target.closest('button')) {
-  //     removeTodo($li.dataset.id);
-  //   }
+    if (event.target.closest('button')) {
+      onDelete($li.dataset.id);
+    }
 
-  //   if (event.target.closest('span')) {
-  //     completeTodo($li.dataset.id);
-  //   }
-  // });
+    // if (event.target.closest('span')) {
+    //   completeTodo($li.dataset.id);
+    // }
+  });
 }

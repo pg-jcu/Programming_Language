@@ -2,7 +2,7 @@ import TodoList from "./components/TodoList.js";
 import TodoInput from "./components/TodoInput.js";
 import TodoCount from "./components/TodoCount.js";
 import checkData from "./utils/checkData.js";
-import { getTodo, addTodo } from "./api.js";
+import { getTodo, addTodo, deleteTodo } from "./api.js";
 
 export default function App({ $target, userId }) {
   if (!new.target) {
@@ -13,30 +13,27 @@ export default function App({ $target, userId }) {
 
   checkData(this.state);
 
-  this.render = async () => {
-    const todo = await getTodo(userId);
-    this.setState(todo);
-  }
+  this.setState = async () => {
+    const nextState = await getTodo(userId);
 
-  this.setState = (nextState) => {
     this.state = nextState;
     todoList.setState(nextState);
     todoCount.setState(nextState);
   };
 
-  this.render();
+  this.setState();
 
   const onSubmit = async (nextData) => {
     await addTodo(userId, nextData);
 
-    const todo = await getTodo(userId);
-    this.setState(todo);
+    this.setState();
   }
 
-  // const removeTodo = index => {
-  //   const list = this.state.filter((_, idx) => index != idx);
-  //   this.setState(list);
-  // };
+  const onDelete = async (id) => {
+    await deleteTodo(userId, id);
+
+    this.setState();
+  };
 
   // const completeTodo = index => {
   //   const list = this.state.map(({ text, isCompleted }, idx) => {
@@ -54,6 +51,6 @@ export default function App({ $target, userId }) {
   // });
 
   new TodoInput({ $target, onSubmit });
-  const todoList = new TodoList({ $target, initialState: this.state });
+  const todoList = new TodoList({ $target, initialState: this.state, onDelete });
   const todoCount = new TodoCount({ $target, initialState: this.state });
 }
