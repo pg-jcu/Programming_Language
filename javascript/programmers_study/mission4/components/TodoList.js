@@ -4,6 +4,7 @@ export default function TodoList({ $target, initialState, onDelete, onToggle }) 
   }
 
   this.$element = document.createElement('div');
+  this.$element.id = 'TodoList';
   $target.append(this.$element);
   this.state = initialState;
 

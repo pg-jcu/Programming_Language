@@ -4,6 +4,7 @@ export default function TodoCount({ $target, initialState }) {
   }
   
   this.$element = document.createElement('div');
+  this.$element.id = 'TodoCount';
   $target.append(this.$element);
   this.state = initialState;
 

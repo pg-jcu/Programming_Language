@@ -4,6 +4,7 @@ export default function TodoInput({ $target, onSubmit }) {
   }
 
   this.$element = document.createElement('div');
+  this.$element.id = 'TodoInput';
   $target.prepend(this.$element);
 
   this.render = () => {
