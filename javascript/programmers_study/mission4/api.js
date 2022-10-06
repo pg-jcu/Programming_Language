@@ -1,4 +1,4 @@
-import { API_END_POINT } from "./constants.js";
+import { API_END_POINT } from "./utils/constants.js";
 
 const request = async (url, option) => {
   try {
