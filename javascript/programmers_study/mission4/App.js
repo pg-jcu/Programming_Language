@@ -2,7 +2,7 @@ import TodoList from "./components/TodoList.js";
 import TodoInput from "./components/TodoInput.js";
 import TodoCount from "./components/TodoCount.js";
 import checkData from "./utils/checkData.js";
-import { getTodo, addTodo, deleteTodo } from "./api.js";
+import { getTodo, addTodo, deleteTodo, deleteAllTodo } from "./api.js";
 
 export default function App({ $target, userId }) {
   if (!new.target) {
@@ -35,6 +35,12 @@ export default function App({ $target, userId }) {
     this.setState();
   };
 
+  const onDeleteAll = async () => {
+    await deleteAllTodo(userId);
+
+    this.setState();
+  }
+
   // const completeTodo = index => {
   //   const list = this.state.map(({ text, isCompleted }, idx) => {
   //     if (index == idx) {
@@ -46,9 +52,9 @@ export default function App({ $target, userId }) {
   //   this.setState(list);
   // };
 
-  // document.addEventListener('removeAll', () => {
-  //   this.setState([]);
-  // });
+  document.addEventListener('removeAll', () => {
+    onDeleteAll();
+  });
 
   new TodoInput({ $target, onSubmit });
   const todoList = new TodoList({ $target, initialState: this.state, onDelete });

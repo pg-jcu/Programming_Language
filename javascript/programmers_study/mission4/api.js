@@ -32,14 +32,20 @@ export const deleteTodo = async (userId, id) => {
   try {
     await fetch(`${API_END_POINT}${userId}/${id}`, {
       method: 'DELETE'
-    })
+    });
   } catch (e) {
     console.log(e);
   }
 };
 
-export const deleteAllTodo = () => {
-
+export const deleteAllTodo = async (userId) => {
+  try {
+    await fetch(`${API_END_POINT}${userId}/all`, {
+      method: 'DELETE'
+    }); 
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 export const toggleTodo = () => {
