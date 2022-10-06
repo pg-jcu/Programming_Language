@@ -1,4 +1,4 @@
-export default function TodoList({ $target, initialState, onDelete }) {
+export default function TodoList({ $target, initialState, onDelete, onToggle }) {
   if (!new.target) {
     throw new Error("Not used new keyword!!");
   }
@@ -33,8 +33,8 @@ export default function TodoList({ $target, initialState, onDelete }) {
       onDelete($li.dataset.id);
     }
 
-    // if (event.target.closest('span')) {
-    //   completeTodo($li.dataset.id);
-    // }
+    if (event.target.closest('span')) {
+      onToggle($li.dataset.id);
+    }
   });
 }

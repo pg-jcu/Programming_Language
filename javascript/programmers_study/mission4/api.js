@@ -28,9 +28,9 @@ export const addTodo = async (userId, todoContent) => {
   }
 };
 
-export const deleteTodo = async (userId, id) => {
+export const deleteTodo = async (userId, todoId) => {
   try {
-    await fetch(`${API_END_POINT}${userId}/${id}`, {
+    await fetch(`${API_END_POINT}${userId}/${todoId}`, {
       method: 'DELETE'
     });
   } catch (e) {
@@ -48,6 +48,12 @@ export const deleteAllTodo = async (userId) => {
   }
 };
 
-export const toggleTodo = () => {
-
+export const toggleTodo = async (userId, todoId) => {
+  try {
+    await fetch(`${API_END_POINT}${userId}/${todoId}/toggle`, {
+      method: 'PUT'
+    });
+  } catch (e) {
+    console.log(e);
+  }
 };
