@@ -1,3 +1,48 @@
+#TodoList ul {
+  list-style: none;
+  padding: 0px;
+}
+
+#TodoList li {
+  border: 1px solid black;
+  padding: 3px;
+  margin-bottom: 2px;
+  text-align: center;
+}
+
+#TodoList button {
+  border: none;
+  background-color: white;
+  float: right;
+}
+
+#TodoInput {
+  display: flex;
+  justify-content: center;
+}
+
+#TodoInput input {
+  padding: 2px;
+  height: 19px;
+  outline: none;
+}
+
+#TodoInput button {
+  border: 1px solid black;
+  background-color: white;
+  padding: 2px;
+  margin-left: -7px;
+  margin-right: 10px;
+  height: 27px;
+  outline: none;
+  font-size: 11px;
+}
+
+#TodoCount {
+  display: flex;
+  flex-flow: row-reverse;
+}
+
 #UsersList ul {
   list-style: none;
   padding: 0px;
@@ -10,4 +55,20 @@
   font-size: 12px;
   padding: 4px;
   margin: 2px 2px 2px 0px;
+}
+
+#UsersTodo h3{
+  text-align: center;
+}
+
+#UsersTodo ul {
+  list-style: none;
+  padding: 0px;
+}
+
+#UsersTodo li {
+  border: 1px solid black;
+  padding: 3px;
+  margin-bottom: 2px;
+  text-align: center;
 }

@@ -13,7 +13,7 @@ export default function TodoInput({ $target, onSubmit }) {
         <label>할 일
           <input type="text" placeholder="할 일을 입력해주세요." name="todoInput"/>
         </label>
-        <button name="todoInputButton">추가</button>
+        <button name="todoInputButton">➕</button>
       </form>
       <button id="removeAllButton">전체 삭제</button>
     `;

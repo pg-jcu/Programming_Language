@@ -12,7 +12,7 @@ export default function TodoList({ $target, initialState, onDelete, onToggle }) 
     const list = this.state.map(({ _id ,content, isCompleted }) => `
         <li data-id="${_id}">
           <span>${isCompleted ? `<s>${content}</s>` : `${content}`}</span>
-          <button>삭제</button>
+          <button>❌</button>
         </li>
       `
     ).join('');
