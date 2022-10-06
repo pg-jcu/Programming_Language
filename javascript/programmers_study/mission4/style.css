@@ -1,0 +1,13 @@
+#Users ul {
+  list-style: none;
+  padding: 0px;
+}
+
+#Users li {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 4px;
+  margin: 2px 2px 2px 0px;
+}
