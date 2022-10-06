@@ -57,7 +57,7 @@ export default function App({ $target, userId }) {
 
   const onShow = async (userId) => {
     const todos = await getTodo(userId);
-    usersTodo.setState(todos);
+    usersTodo.setState(userId, todos);
   }
 
   document.addEventListener('removeAll', () => {

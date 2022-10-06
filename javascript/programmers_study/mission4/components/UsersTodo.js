@@ -6,6 +6,7 @@ export default function UsersTodo({ $target }) {
   this.$element = document.createElement('div');
   this.$element.id = 'UsersTodo';
   $target.append(this.$element);
+  this.userId = '';
   this.state = [];
 
   this.render = () => {
@@ -16,14 +17,16 @@ export default function UsersTodo({ $target }) {
       `
     ).join('');
 
-    this.$element.innerHTML = `<ul>${list}</ul>`;
+    this.$element.innerHTML = `
+      <h3>${this.userId !== '' ? `${this.userId} 님의 할 일` : ''}</h3>
+      <ul>${list}</ul>
+    `;
   };
 
-  this.setState = (nextState) => {
+  this.setState = (userId, nextState) => {
+    this.userId = userId;
     this.state = nextState;
     this.render();
-
-    console.log(nextState);
   };
 
   this.render();
