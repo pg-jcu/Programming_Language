@@ -7,7 +7,7 @@ export default function checkData(data) {
     throw new Error("Not array type!");
   }
 
-  if (!data.every(value => Object.hasOwn(value, 'text') && 
+  if (!data.every((value) => Object.hasOwn(value, 'text') && 
     Object.hasOwn(value, 'isCompleted'))) {
     throw new Error("Incomplete data: no text or isCompleted!");
   }

@@ -20,7 +20,7 @@ export default function TodoInput({ $target, onSubmit }) {
 
   this.render();
 
-  this.$element.addEventListener('submit', event => {
+  this.$element.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const $form = document.forms.todoInputForm;

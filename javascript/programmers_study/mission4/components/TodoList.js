@@ -19,14 +19,14 @@ export default function TodoList({ $target, initialState, onDelete, onToggle }) 
     this.$element.innerHTML = `<ul>${list}</ul>`;
   };
 
-  this.setState = nextState => {
+  this.setState = (nextState) => {
     this.state = nextState;
     this.render();
   };
 
   this.render();
 
-  this.$element.addEventListener('click', event => {
+  this.$element.addEventListener('click', (event) => {
     const $li = event.target.closest('li');
 
     if (event.target.closest('button')) {

@@ -14,7 +14,7 @@ export default function TodoCount({ $target, initialState }) {
     `;
   };
 
-  this.setState = nextState => {
+  this.setState = (nextState) => {
     this.state = nextState;
     this.render();
   };

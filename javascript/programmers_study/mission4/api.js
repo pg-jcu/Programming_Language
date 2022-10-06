@@ -57,3 +57,17 @@ export const toggleTodo = async (userId, todoId) => {
     console.log(e);
   }
 };
+
+export const getUsers = async () => {
+  try {
+    const response = await fetch(`${API_END_POINT}users`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (e) {
+    console.log(e);
+  }
+}
