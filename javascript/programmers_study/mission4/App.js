@@ -1,7 +1,8 @@
 import TodoList from "./components/TodoList.js";
 import TodoInput from "./components/TodoInput.js";
 import TodoCount from "./components/TodoCount.js";
-import Users from "./components/Users.js";
+import UsersList from "./components/UsersList.js";
+import UsersTodo from "./components/UsersTodo.js";
 import checkData from "./utils/checkData.js";
 import { 
   getTodo, 
@@ -54,6 +55,11 @@ export default function App({ $target, userId }) {
     this.setState();
   };
 
+  const onShow = async (userId) => {
+    const todos = await getTodo(userId);
+    usersTodo.setState(todos);
+  }
+
   document.addEventListener('removeAll', () => {
     onDeleteAll();
   });
@@ -66,5 +72,6 @@ export default function App({ $target, userId }) {
     onToggle 
   });
   const todoCount = new TodoCount({ $target, initialState: this.state.userTodo });
-  const usersList = new Users({ $target, initialState: this.state.users });
+  const usersList = new UsersList({ $target, initialState: this.state.users, onShow });
+  const usersTodo = new UsersTodo({ $target });
 }
