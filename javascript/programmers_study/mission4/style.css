@@ -1,16 +1,27 @@
-#TodoList ul {
+.TodoList {
+  border: 2px solid black;
+  padding: 0px 10px 0px 10px;
+  margin-top: 10px;
+}
+
+.TodoList p {
+  font-size: 14px;
+}
+
+.TodoList ul {
   list-style: none;
   padding: 0px;
 }
 
-#TodoList li {
+.TodoList li {
   border: 1px solid black;
   padding: 3px;
   margin-bottom: 2px;
   text-align: center;
+  font-size: 14px;
 }
 
-#TodoList button {
+.TodoList button {
   border: none;
   background-color: white;
   float: right;

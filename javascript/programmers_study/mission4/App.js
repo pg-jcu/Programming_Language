@@ -5,6 +5,7 @@ import UsersList from "./components/UsersList.js";
 import UsersTodo from "./components/UsersTodo.js";
 import Loading from "./components/Loading.js";
 import checkData from "./utils/checkData.js";
+import filterIsCompleted from "./utils/filterIsCompleted.js";
 import { 
   getTodo, 
   addTodo, 
@@ -31,7 +32,8 @@ export default function App({ $target, userId }) {
     const nextState = { userTodo, users };
 
     this.state = nextState;
-    todoList.setState(nextState.userTodo);
+    todoList.setState(filterIsCompleted(nextState.userTodo, true));
+    notTodoList.setState(filterIsCompleted(nextState.userTodo, false));
     todoCount.setState(nextState.userTodo);
     usersList.setState(nextState.users);
   };
@@ -78,11 +80,19 @@ export default function App({ $target, userId }) {
   });
 
   new TodoInput({ $target, onSubmit });
-  const todoList = new TodoList({ 
+  const notTodoList = new TodoList({
     $target, 
     initialState: this.state.userTodo, 
+    isCompletedList: false,
     onDelete, 
-    onToggle 
+    onToggle,
+  });
+  const todoList = new TodoList({ 
+    $target, 
+    initialState: this.state.userTodo,
+    isCompletedList: true, 
+    onDelete, 
+    onToggle,
   });
   const todoCount = new TodoCount({ $target, initialState: this.state.userTodo });
   const usersList = new UsersList({ $target, initialState: this.state.users, onShow });
