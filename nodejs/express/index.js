@@ -32,24 +32,28 @@ app.get('/', (req, res) => {
   res.send(html);
 });
 
-app.get('/page/:pageId', (req, res) => {
+app.get('/page/:pageId', (req, res, next) => {
   const filteredId = path.parse(req.params.pageId).base;
 
   fs.readFile(`data/${filteredId}`, 'utf8', (err, description) => {
-    const title = req.params.pageId;
-    const list = template.list(req.list);
-    const html = template.html(title, list,
-      `<h2>${title}</h2>${description}`,
-      `
-        <a href="/create">create</a>
-        <a href="/update/${title}">update</a>
-        <form action="/delete" method="post">
-          <input type="hidden" name="id" value="${title}" />
-          <input type="submit" value="delete" />
-        </form>
-      `
-    );
-    res.send(html);
+    if (!err) {
+      const title = req.params.pageId;
+      const list = template.list(req.list);
+      const html = template.html(title, list,
+        `<h2>${title}</h2>${description}`,
+        `
+          <a href="/create">create</a>
+          <a href="/update/${title}">update</a>
+          <form action="/delete" method="post">
+            <input type="hidden" name="id" value="${title}" />
+            <input type="submit" value="delete" />
+          </form>
+        `
+      );
+      res.send(html);
+    } else {
+      next(err);
+    }
   });
 });
 
@@ -127,6 +131,15 @@ app.post('/delete', (req, res) => {
   fs.unlink(`data/${filteredId}`, err => {
     res.redirect('/');
   });
+});
+
+app.use((req, res, next) => {
+  res.status(404).send('Sorry can not find that!');
+});
+
+app.use((err, req, res, next) => {
+  console.log(err.stack);
+  res.status(500).send('Something broke!');
 });
 
 app.listen(port, () => {
