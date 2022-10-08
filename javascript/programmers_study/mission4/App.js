@@ -20,9 +20,6 @@ export default function App({ $target, userId }) {
   }
 
   this.state = { userTodo: [], users: [] };
-
-  checkData(this.state.userTodo);
-
   const loading = new Loading({ $target });
 
   this.setState = async () => {
@@ -30,6 +27,7 @@ export default function App({ $target, userId }) {
     const userTodo = await getTodo(userId);
     const users = await getUsers();
     loading.off();
+    checkData(userTodo);
     const nextState = { userTodo, users };
 
     this.state = nextState;
