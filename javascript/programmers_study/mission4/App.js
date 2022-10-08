@@ -3,6 +3,7 @@ import TodoInput from "./components/TodoInput.js";
 import TodoCount from "./components/TodoCount.js";
 import UsersList from "./components/UsersList.js";
 import UsersTodo from "./components/UsersTodo.js";
+import Loading from "./components/Loading.js";
 import checkData from "./utils/checkData.js";
 import { 
   getTodo, 
@@ -18,45 +19,59 @@ export default function App({ $target, userId }) {
     throw new Error("Not used new keyword!!");
   }
 
-  this.state = { userTodo: [], users: []};
+  this.state = { userTodo: [], users: [] };
 
   checkData(this.state.userTodo);
 
+  const loading = new Loading({ $target });
+
   this.setState = async () => {
+    loading.on();
     const userTodo = await getTodo(userId);
     const users = await getUsers();
+    loading.off();
     const nextState = { userTodo, users };
 
     this.state = nextState;
     todoList.setState(nextState.userTodo);
     todoCount.setState(nextState.userTodo);
-    usersList.setState(nextState.users)
+    usersList.setState(nextState.users);
   };
 
   this.setState();
 
   const onSubmit = async (nextData) => {
+    loading.on();
     await addTodo(userId, nextData);
+    loading.off();
     this.setState();
   };
 
   const onDelete = async (todoId) => {
+    loading.on();
     await deleteTodo(userId, todoId);
+    loading.off();
     this.setState();
   };
 
   const onDeleteAll = async () => {
+    loading.on();
     await deleteAllTodo(userId);
+    loading.off();
     this.setState();
   };
 
   const onToggle = async (todoId) => {
+    loading.on();
     await toggleTodo(userId, todoId);
+    loading.off();
     this.setState();
   };
 
   const onShow = async (userId) => {
+    loading.on();
     const todos = await getTodo(userId);
+    loading.off();
     usersTodo.setState(userId, todos);
   }
 
