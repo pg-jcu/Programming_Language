@@ -14,6 +14,8 @@ import {
   toggleTodo, 
   getUsers 
 } from "./api.js";
+import { getItem, setItem } from "./utils/storage.js";
+import { LOCAL_STORAGE_KEY } from "./utils/constants.js";
 
 export default function App({ $target, userId }) {
   if (!new.target) {
@@ -21,6 +23,7 @@ export default function App({ $target, userId }) {
   }
 
   this.state = { userTodo: [], users: [] };
+  this.like = getItem(LOCAL_STORAGE_KEY, {});
   const loading = new Loading({ $target });
 
   this.setState = async () => {
@@ -35,7 +38,13 @@ export default function App({ $target, userId }) {
     todoList.setState(filterIsCompleted(nextState.userTodo, true));
     notTodoList.setState(filterIsCompleted(nextState.userTodo, false));
     todoCount.setState(nextState.userTodo);
-    usersList.setState(nextState.users);
+    usersList.setState(nextState.users, this.like);
+  };
+
+  this.likeState = (nextState) => {
+    this.like = nextState;
+    usersList.setState(this.state.users, this.like);
+    setItem(LOCAL_STORAGE_KEY, nextState);
   };
 
   this.setState();
@@ -73,7 +82,28 @@ export default function App({ $target, userId }) {
     const todos = await getTodo(userId);
     loading.off();
     usersTodo.setState(userId, todos);
-  }
+  };
+
+  const onLike = (userId) => {
+    const likes = { ...this.like };
+
+    if (userId in likes) {
+      likes[userId] = !likes[userId];
+    } else {
+      likes[userId] = true;
+    }
+
+    this.likeState(likes);
+  };
+
+  const onUsersShow = (checked) => {
+    if (checked) {
+      const list = this.state.users.filter(user => user in this.like);
+      usersList.setState(list, this.like);
+    } else {
+      usersList.setState(this.state.users, this.like);
+    }
+  };
 
   document.addEventListener('removeAll', () => {
     onDeleteAll();
@@ -94,7 +124,17 @@ export default function App({ $target, userId }) {
     onDelete, 
     onToggle,
   });
-  const todoCount = new TodoCount({ $target, initialState: this.state.userTodo });
-  const usersList = new UsersList({ $target, initialState: this.state.users, onShow });
+  const todoCount = new TodoCount({ 
+    $target, 
+    initialState: this.state.userTodo 
+  });
+  const usersList = new UsersList({ 
+    $target, 
+    initialState: this.state.users,
+    initialLike: this.like, 
+    onShow,
+    onLike,
+    onUsersShow 
+  });
   const usersTodo = new UsersTodo({ $target });
 }

@@ -68,6 +68,20 @@
   margin: 2px 2px 2px 0px;
 }
 
+#UsersList button {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  outline: none;
+  background-color: white;
+}
+
+#UsersTodo {
+  border: 2px solid black;
+  padding: 0px 10px 0px 10px;
+  margin-top: 10px;
+}
+
 #UsersTodo h3{
   text-align: center;
 }
@@ -75,6 +89,7 @@
 #UsersTodo ul {
   list-style: none;
   padding: 0px;
+  font-size: 14px;
 }
 
 #UsersTodo li {
@@ -112,7 +127,6 @@
     transform: rotate(360deg);
   }
 } 
-
 
 .Loading {
   display: none;
