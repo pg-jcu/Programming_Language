@@ -41,7 +41,7 @@ export default function App({ $target, userId }) {
     usersList.setState(nextState.users, this.likedUsers);
   };
 
-  this.likeState = (nextState) => {
+  this.setlikeState = (nextState) => {
     this.likedUsers = nextState;
     usersList.setState(this.state.users, this.likedUsers);
     setItem(LOCAL_STORAGE_KEY, nextState);
@@ -93,7 +93,7 @@ export default function App({ $target, userId }) {
       likedUsers[userId] = true;
     }
 
-    this.likeState(likedUsers);
+    this.setlikeState(likedUsers);
   };
 
   const onUsersLikedShow = (checked) => {
