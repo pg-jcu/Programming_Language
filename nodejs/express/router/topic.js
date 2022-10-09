@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const fs = require('fs');
+const sanitizeHtml = require('sanitize-html');
 const template = require('../lib/template.js');
 
 router.get('/create', (req, res) => {
@@ -86,14 +87,16 @@ router.get('/:pageId', (req, res, next) => {
   fs.readFile(`data/${filteredId}`, 'utf8', (err, description) => {
     if (!err) {
       const title = req.params.pageId;
+      const sanitizedTitle = sanitizeHtml(title);
+      const sanitizedDescription = sanitizeHtml(description);
       const list = template.list(req.list);
-      const html = template.html(title, list,
-        `<h2>${title}</h2>${description}`,
+      const html = template.html(sanitizedTitle, list,
+        `<h2>${sanitizedTitle}</h2>${sanitizedDescription}`,
         `
           <a href="/topic/create">create</a>
-          <a href="/topic/update/${title}">update</a>
+          <a href="/topic/update/${sanitizedTitle}">update</a>
           <form action="/topic/delete" method="post">
-            <input type="hidden" name="id" value="${title}" />
+            <input type="hidden" name="id" value="${sanitizedTitle}" />
             <input type="submit" value="delete" />
           </form>
         `

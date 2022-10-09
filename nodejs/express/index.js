@@ -2,12 +2,14 @@ const express = require('express');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const compression = require('compression');
-const topicRouter = require('./router/topic.js');
+const helmet = require('helmet');
 const homeRouter = require('./router/home.js');
+const topicRouter = require('./router/topic.js');
 
 const app = express();
 const port = 3000;
 
+app.use(helmet());
 app.use(express.static('static'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(compression());
