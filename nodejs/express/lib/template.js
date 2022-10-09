@@ -18,7 +18,7 @@ module.exports = {
   },
   list(filelist) {
     const list = `<ul>${filelist.map(file => {
-      return `<li><a href="/page/${file}">${file}</a></li>`;
+      return `<li><a href="/topic/${file}">${file}</a></li>`;
     }).join('')}</ul>`;
   
     return list;
