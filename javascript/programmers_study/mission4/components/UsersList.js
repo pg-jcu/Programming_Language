@@ -4,7 +4,7 @@ export default function UsersList({
   initialLike, 
   onShow, 
   onLike,
-  onUsersShow
+  onUsersLikedShow
  }) {
   if (!new.target) {
     throw new Error('Not used new keyword!!');
@@ -14,26 +14,32 @@ export default function UsersList({
   this.$element.id = 'UsersList';
   $target.prepend(this.$element);
   this.state = initialState;
-  this.like = initialLike;
+  this.likedUsers = initialLike;
 
   this.render = () => {
     const list = this.state.map((user) => `
         <li data-user-id="${user}">
-          <button>${this.like[user] ? '💙' : '🤍'}</button>
+          <button>${this.likedUsers[user] ? '💙' : '🤍'}</button>
           <span>${user}</span>
         </li>
       `
     ).join('');
 
     this.$element.innerHTML = `
-      <p>좋아요만 보기<input type="checkbox" /></p>
+      <p>
+        좋아요만 보기
+        ${this.$element.classList.contains('checked') ? 
+          `<input type="button" value="🔳"/>` :
+          `<input type="button" value="🔲"/>`
+        }
+      </p>
       <ul>${list}</ul>
     `;
   }
 
   this.setState = (nextState, nextLike) => {
     this.state = nextState;
-    this.like = nextLike;
+    this.likedUsers = nextLike;
     this.render();
   }
 
@@ -47,14 +53,18 @@ export default function UsersList({
     }
 
     if (event.target.closest('button')) {
-      onLike($li.dataset.userId);
+      if (!this.$element.classList.contains('checked')) {
+        onLike($li.dataset.userId);
+      }
     }
 
     if (event.target.closest('input')) {
-      if (event.target.checked) {
-        onUsersShow(event.target.checked = true);
+      this.$element.classList.toggle('checked');
+
+      if (this.$element.classList.contains('checked')) {
+        onUsersLikedShow(true);
       } else {
-        onUsersShow(event.target.checked = false);
+        onUsersLikedShow(false);
       }
     }
   });

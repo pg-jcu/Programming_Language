@@ -23,7 +23,7 @@ export default function App({ $target, userId }) {
   }
 
   this.state = { userTodo: [], users: [] };
-  this.like = getItem(LOCAL_STORAGE_KEY, {});
+  this.likedUsers = getItem(LOCAL_STORAGE_KEY, {});
   const loading = new Loading({ $target });
 
   this.setState = async () => {
@@ -38,12 +38,12 @@ export default function App({ $target, userId }) {
     todoList.setState(filterIsCompleted(nextState.userTodo, true));
     notTodoList.setState(filterIsCompleted(nextState.userTodo, false));
     todoCount.setState(nextState.userTodo);
-    usersList.setState(nextState.users, this.like);
+    usersList.setState(nextState.users, this.likedUsers);
   };
 
   this.likeState = (nextState) => {
-    this.like = nextState;
-    usersList.setState(this.state.users, this.like);
+    this.likedUsers = nextState;
+    usersList.setState(this.state.users, this.likedUsers);
     setItem(LOCAL_STORAGE_KEY, nextState);
   };
 
@@ -85,23 +85,23 @@ export default function App({ $target, userId }) {
   };
 
   const onLike = (userId) => {
-    const likes = { ...this.like };
+    const likedUsers = { ...this.likedUsers };
 
-    if (userId in likes) {
-      likes[userId] = !likes[userId];
+    if (userId in likedUsers) {
+      likedUsers[userId] = !likedUsers[userId];
     } else {
-      likes[userId] = true;
+      likedUsers[userId] = true;
     }
 
-    this.likeState(likes);
+    this.likeState(likedUsers);
   };
 
-  const onUsersShow = (checked) => {
+  const onUsersLikedShow = (checked) => {
     if (checked) {
-      const list = this.state.users.filter(user => user in this.like);
-      usersList.setState(list, this.like);
+      const list = this.state.users.filter(user => user in this.likedUsers);
+      usersList.setState(list, this.likedUsers);
     } else {
-      usersList.setState(this.state.users, this.like);
+      usersList.setState(this.state.users, this.likedUsers);
     }
   };
 
@@ -131,10 +131,10 @@ export default function App({ $target, userId }) {
   const usersList = new UsersList({ 
     $target, 
     initialState: this.state.users,
-    initialLike: this.like, 
+    initialLike: this.likedUsers, 
     onShow,
     onLike,
-    onUsersShow 
+    onUsersLikedShow 
   });
   const usersTodo = new UsersTodo({ $target });
 }
