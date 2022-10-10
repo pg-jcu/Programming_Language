@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { usePrompt } from '../Blocker';
 import '../style/History.scss';
 
 function History() {
@@ -12,8 +11,6 @@ function History() {
   const handleGoBack = () => {
     history(-1);
   };
-
-  // usePrompt('Are you sure?', true);
   
   return (
     <div className="History">

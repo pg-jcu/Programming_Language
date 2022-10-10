@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import '../style/Profile.scss';
+import WithRouterSample from "./WithRouterSample";
 
 const data = {
   jeong: {
@@ -24,6 +25,7 @@ function Profile() {
     <div className="Profile">
       <h3>{username}({profile.name})</h3>
       <p>{profile.description}</p>
+      <WithRouterSample />
     </div>
   );
 }
