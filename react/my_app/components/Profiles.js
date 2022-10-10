@@ -1,5 +1,5 @@
 import Profile from "./Profile";
-import { Link, Route, Routes } from "react-router-dom";
+import { NavLink, Route, Routes } from "react-router-dom";
 import '../style/Profiles.scss';
 
 function Profiles() {
@@ -8,10 +8,18 @@ function Profiles() {
       <h3>user list</h3>
       <ul>
         <li>
-          <Link to="profile/jeong">jeong profile</Link>
+          <NavLink 
+            to="profile/jeong"
+            style={({ isActive }) => ({ color: isActive ? 'red' : 'green'})}>
+            jeong profile
+          </NavLink>
         </li>
         <li>
-          <Link to="profile/gildong">gildong profile</Link>
+          <NavLink 
+            to="profile/gildong"
+            style={({ isActive }) => ({ color: isActive ? 'red' : 'green'})}>
+            gildong profile
+          </NavLink>
         </li>
       </ul>
 
