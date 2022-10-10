@@ -14,6 +14,9 @@ function Nav() {
         <li>
           <Link to="todo">Todo</Link>
         </li>
+        <li>
+          <Link to="newsViewer">NewsViewer</Link>
+        </li>
       </ul>
     </div>
   );
