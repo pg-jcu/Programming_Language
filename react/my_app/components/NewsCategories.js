@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import '../style/NewsCategories.scss';
 
 const categories = [
@@ -31,17 +32,17 @@ const categories = [
   }
 ];
 
-function NewsCategories({ onSelect, category }) {
+function NewsCategories() {
   return (
     <div className="NewsCategories">
       {categories.map(c => (
-        <div 
+        <NavLink 
           className="category" 
           key={c.name}
-          onClick={() => onSelect(c.name)}
+          to={c.name === 'all' ? '.' : `${c.name}`}
         >
           {c.text}
-        </div>
+        </NavLink>
       ))}
     </div>
   );

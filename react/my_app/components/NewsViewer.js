@@ -1,16 +1,15 @@
-import NewsList from "./NewsList";
-import NewsCategories from "./NewsCategories";
+import NewsPage from './NewsPage';
 import '../style/NewsViewer.scss';
-import { useCallback, useState } from "react";
+import { Route, Routes } from 'react-router-dom';
 
 function NewsViewer() {
-  const [category, setCategory] = useState('all');
-  const onSelect = useCallback(category => setCategory(category), []);
-
   return (
     <div className="NewsViewer">
-      <NewsCategories category={category} onSelect={onSelect} />
-      <NewsList category={category} />
+      <Routes>
+        <Route path='/' element={<NewsPage />}>
+          <Route path=':category' element={<NewsPage />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
