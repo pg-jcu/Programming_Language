@@ -1,5 +1,6 @@
-.ColorBox {
+.Color {
   display: flex;
+  flex-direction: column;
   border: 2px solid green;
   padding: 10px;
 }
