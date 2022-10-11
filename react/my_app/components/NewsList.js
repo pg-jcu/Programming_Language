@@ -1,9 +1,9 @@
 import NewsItem from "./NewsItem";
 import '../style/NewsList.scss';
 import { useState, useEffect } from "react";
-import { URL } from "../constants.js";
+import { URL, API_KEY } from "../constants.js";
 
-function NewsList() {
+function NewsList({ category }) {
   const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -11,7 +11,8 @@ function NewsList() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(URL);
+        const query = category === 'all' ? '' : `&category=${category}`;
+        const response = await fetch(URL + query + API_KEY);
         const json = await response.json();
 
         setArticles(json.articles);
@@ -21,7 +22,7 @@ function NewsList() {
       setLoading(false);
     }
     fetchData();
-  }, []);
+  }, [category]);
 
   if (loading) {
     return (

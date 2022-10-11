@@ -19,6 +19,14 @@
       @media (max-width: 370px) {
         display: block;
       }
+
+      a {
+        color: #00B800;
+
+        &:hover {
+          color: #00FF00;
+        }
+      }
     }
   }
 }
