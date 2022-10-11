@@ -2,12 +2,11 @@ import React, { useCallback, useEffect, useState } from "react";
 import TodoListItem from "./TodoListItem";
 import '../style/TodoList.scss';
 import { List } from "react-virtualized";
-import { debounce } from "lodash";
 
 function TodoList({ todos, onRemove, onToggle }) {
   const [todoWidth, setTodoWidth] = useState(512);
 
-  const onResize = debounce(() => {
+  const onResize = useCallback(() => {
     const width = document.documentElement.clientWidth; 
 
     if (width < 555) {
@@ -15,7 +14,7 @@ function TodoList({ todos, onRemove, onToggle }) {
     } else {
       setTodoWidth(512);
     }
-  }, 500);
+  }, []);
 
   useEffect(() => {
     window.addEventListener('resize', onResize);
