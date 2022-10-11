@@ -37,9 +37,9 @@ function NewsCategories() {
     <div className="NewsCategories">
       {categories.map(c => (
         <NavLink 
-          className="category" 
+          className={({ isActive }) => "category" + (isActive ? " activated" : "")}
           key={c.name}
-          to={c.name === 'all' ? '.' : `${c.name}`}
+          to={c.name === 'all' ? './' : `${c.name}`}
         >
           {c.text}
         </NavLink>

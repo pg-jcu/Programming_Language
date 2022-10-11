@@ -20,11 +20,11 @@
   padding-bottom: 0.25rem;
 
   &:hover {
-    color: #00FF00;
+    color: #00EE00;
   }
 
-  &:active {
-    color: red;
+  &.activated {
+    color: #00FF00;
   }
 
   & + & {

@@ -1,27 +1,13 @@
 import NewsItem from "./NewsItem";
 import '../style/NewsList.scss';
-import { useState, useEffect } from "react";
 import { URL, API_KEY } from "../constants.js";
+import usePromise from "../lib/usePromise";
 
 function NewsList({ category }) {
-  const [articles, setArticles] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, response, error] = usePromise(() => {
+    const query = category === 'all' ? '' : `&category=${category}`;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const query = category === 'all' ? '' : `&category=${category}`;
-        const response = await fetch(URL + query + API_KEY);
-        const json = await response.json();
-
-        setArticles(json.articles);
-      } catch (e) {
-        console.log(e);
-      }
-      setLoading(false);
-    }
-    fetchData();
+    return fetch(URL + query + API_KEY);
   }, [category]);
 
   if (loading) {
@@ -30,9 +16,15 @@ function NewsList({ category }) {
     );
   }
 
-  if (!articles) {
+  if (!response) {
     return null;
   }
+
+  if (error) {
+    return <div className="NewsList">Error!</div>;
+  }
+
+  const { articles } = response;
 
   return (
     <div className="NewsList">

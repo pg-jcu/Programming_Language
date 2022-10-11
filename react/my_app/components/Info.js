@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import useInputs from "../useInputs";
+import useInputs from "../lib/useInputs.js";
 import '../style/Info.css';
 
 function Info() {
