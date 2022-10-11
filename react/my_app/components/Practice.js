@@ -11,10 +11,9 @@ import SassComponent from './SassComponent';
 import Immer from './Immer';
 import Profiles from './Profiles';
 import History from './History';
-import ColorBox from './ColorBox';
+import Color from './Color';
 import { useState } from 'react';
 import '../style/Practice.scss';
-import ColorContext from '../contexts/color';
 
 function Practice() {
   const [visible, setVisible] = useState(false);
@@ -38,9 +37,7 @@ function Practice() {
       <Immer />
       <Profiles />
       <History />
-      <ColorContext.Provider value={{ color: 'red' }}>
-        <ColorBox />
-      </ColorContext.Provider>
+      <Color />
     </div>
   );
 }
