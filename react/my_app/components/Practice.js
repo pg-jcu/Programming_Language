@@ -12,6 +12,8 @@ import Immer from './Immer';
 import Profiles from './Profiles';
 import History from './History';
 import Color from './Color';
+import ReduxCounter from './ReduxCounter';
+import ReduxTodos from './ReduxTodos';
 import { useState } from 'react';
 import '../style/Practice.scss';
 
@@ -38,6 +40,8 @@ function Practice() {
       <Profiles />
       <History />
       <Color />
+      <ReduxCounter number={0} />
+      <ReduxTodos />
     </div>
   );
 }
