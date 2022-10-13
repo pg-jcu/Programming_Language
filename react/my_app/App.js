@@ -4,8 +4,8 @@ import Home from './components/Home';
 import Practice from './components/Practice';
 import Todo from './components/Todo';
 import NewsViewer from './components/NewsViewer';
-import './style/App.css'
 import { Routes, Route } from 'react-router-dom';
+import './style/App.css';
 
 function App() {
   return (
