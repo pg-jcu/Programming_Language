@@ -4,12 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 import './style/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { legacy_createStore as createStore } from 'redux';
+import { applyMiddleware, legacy_createStore as createStore } from 'redux';
 import rootReducer from './modules';
 import { Provider } from 'react-redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import loggerMiddleware from './lib/loggerMiddleware';
 
-const store = createStore(rootReducer, composeWithDevTools());
+const store = createStore(rootReducer, applyMiddleware(loggerMiddleware));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
