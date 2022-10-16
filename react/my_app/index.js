@@ -8,10 +8,11 @@ import { applyMiddleware, legacy_createStore as createStore } from 'redux';
 import rootReducer from './modules';
 import { Provider } from 'react-redux';
 import loggerMiddleware from './lib/loggerMiddleware';
+import ReduxThunk from 'redux-thunk';
 
-const store = createStore(rootReducer, applyMiddleware(loggerMiddleware));
-
+const store = createStore(rootReducer, applyMiddleware(loggerMiddleware, ReduxThunk));
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   // <React.StrictMode>
   <BrowserRouter>
