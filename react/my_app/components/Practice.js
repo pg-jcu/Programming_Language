@@ -14,6 +14,7 @@ import History from './History';
 import Color from './Color';
 import CounterContainer from '../containers/CounterContainer';
 import TodosContainer from '../containers/TodosContainer';
+import SampleContainer from '../containers/SampleContainer';
 import { useState } from 'react';
 import '../style/Practice.scss';
 
@@ -42,6 +43,7 @@ function Practice() {
       <Color />
       <CounterContainer />
       <TodosContainer />
+      <SampleContainer />
     </div>
   );
 }
