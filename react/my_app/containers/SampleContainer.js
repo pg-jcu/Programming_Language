@@ -1,24 +1,40 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import Sample from "../components/Sample";
-import { getPost } from "../modules/sample";
+import { getPost, getUsers } from "../modules/sample";
 
-function SampleContainer({ getPost, post, loadingPost }) {
+function SampleContainer({ 
+  getPost, 
+  getUsers, 
+  post, 
+  users, 
+  loadingPost, 
+  loadingUsers 
+}) {
   useEffect(() => {
     getPost(1);
-  }, [getPost]);
+    getUsers();
+  }, [getPost, getUsers]);
 
   return (
-    <Sample post={post} loadingPost={loadingPost} />
+    <Sample 
+      post={post} 
+      users={users} 
+      loadingPost={loadingPost} 
+      loadingUsers={loadingUsers} 
+    />
   );
 }
 
 export default connect(
   ({ sample }) => ({
     post: sample.post,
-    loadingPost: sample.loading.GET_POST
+    users: sample.users,
+    loadingPost: sample.loading.GET_POST,
+    loadingUsers: sample.loading.GET_USERS
   }),
   {
-    getPost
+    getPost,
+    getUsers
   }
 )(SampleContainer);

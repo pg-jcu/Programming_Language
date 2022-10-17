@@ -9,11 +9,12 @@ const GET_USERS = 'sample/GET_USERS';
 const GET_USERS_SUCCESS = 'sample/GET_USERS_SUCCESS';
 const GET_USERS_FAILURE = 'sample/GET_USERS_FAILURE';
 
-export const getPost = id => async dispatch => {
+export const getPost = (id) => async (dispatch) => {
   dispatch({ type: GET_POST });
   try {
     const response = await api.getPost(id);
     const json = await response.json();
+    console.log(json);
 
     dispatch({
       type: GET_POST_SUCCESS,
@@ -29,16 +30,39 @@ export const getPost = id => async dispatch => {
   }
 };
 
+export const getUsers = () => async (dispatch) => {
+  dispatch({ type: GET_USERS });
+  try {
+    const response = await api.getUsers();
+    const json = await response.json();
+    console.log(json);
+
+    dispatch({
+      type: GET_USERS_SUCCESS,
+      payload: json
+    });
+  } catch (e) {
+    dispatch({
+      type: GET_USERS_FAILURE,
+      payload: e,
+      error: true
+    });
+    throw e;
+  }
+};
+
 const initialState = {
   loading: {
-    GET_POST: false
+    GET_POST: false,
+    GET_USERS: false
   },
-  post: null
+  post: null,
+  users: null
 };
 
 const sample = handleActions(
   {
-    [GET_POST]: state => ({
+    [GET_POST]: (state) => ({
       ...state,
       loading: {
         ...state.loading,
@@ -58,6 +82,28 @@ const sample = handleActions(
       loading: {
         ...state.loading,
         GET_POST: false
+      }
+    }),
+    [GET_USERS]: (state) => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_USERS: true
+      }
+    }),
+    [GET_USERS_SUCCESS]: (state, action) => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_USERS: false
+      },
+      post: action.payload
+    }),
+    [GET_USERS_FAILURE]: (state, action) => ({
+      ...state,
+      loading: {
+        ...state.loading,
+        GET_USERS: false
       }
     })
   },
