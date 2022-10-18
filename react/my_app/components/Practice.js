@@ -15,12 +15,16 @@ import Color from './Color';
 import CounterContainer from '../containers/CounterContainer';
 import TodosContainer from '../containers/TodosContainer';
 import SampleContainer from '../containers/SampleContainer';
-import { useState } from 'react';
+import { useState, Suspense, lazy } from 'react';
 import '../style/Practice.scss';
+
+const SplitMe = lazy(() => import('./SplitMe'));
 
 function Practice() {
   const [visible, setVisible] = useState(false);
-  const onClick = () => setVisible(!visible);
+  const [split, setSplit] = useState(false);
+  const onClickVisible = () => setVisible(!visible);
+  const onClickSplit = () => setSplit(true);
 
   return (
     <div className='Practice'>
@@ -32,7 +36,7 @@ function Practice() {
       <ScrollBox />
       <Iteration />
       <div className='visible'>
-        <button onClick={onClick}>{visible ? 'hidden' : 'visible'}</button>
+        <button onClick={onClickVisible}>{visible ? 'hidden' : 'visible'}</button>
         {visible && <Info />}
       </div>
       <Average />
@@ -44,6 +48,12 @@ function Practice() {
       <CounterContainer />
       <TodosContainer />
       <SampleContainer />
+      <div className='split'>
+        <p onClick={onClickSplit}>split</p>
+        <Suspense fallback={<div>loading...</div>}>
+          {split && <SplitMe />}
+        </Suspense>
+      </div>
     </div>
   );
 }

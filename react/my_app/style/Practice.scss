@@ -12,6 +12,18 @@
     padding: 3px;
   }
 
+  .split {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid green;
+
+    p {
+      border: 2px solid green;
+      padding: 5px;
+    }
+  }
+
   @media (max-width: 870px) {
     display: flex;
     flex-direction: column;
