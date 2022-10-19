@@ -4,6 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const sanitizeHtml = require('sanitize-html');
 const template = require('../lib/template.js');
+const auth = require('../lib/auth.js');
 
 router.get('/create', (req, res) => {
   const title = 'WEB - create';
@@ -17,10 +18,10 @@ router.get('/create', (req, res) => {
         <textarea name="description" placeholder="description"></textarea>
       </p>
       <p>
-        <input type="submit">
+        <input type="submit" value="submit" />
       </p>
     </form>
-  `, '');
+  `, '', auth.statusUI(req, res));
   res.send(html); 
 });
 
@@ -50,10 +51,10 @@ router.get('/update/:pageId', (req, res) => {
           <textarea name="description" placeholder="description">${description}</textarea>
         </p>
         <p>
-          <input type="submit" />
+          <input type="submit" value="submit" />
         </p>
       </form>
-    `, '');
+    `, '', auth.statusUI(req, res));
     res.send(html);
   });
 });
@@ -99,7 +100,8 @@ router.get('/:pageId', (req, res, next) => {
             <input type="hidden" name="id" value="${sanitizedTitle}" />
             <input type="submit" value="delete" />
           </form>
-        `
+        `,
+        auth.statusUI(req, res)
       );
       res.send(html);
     } else {
