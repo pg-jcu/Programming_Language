@@ -1,90 +1,46 @@
-let postId = 1;
+import Post from '../../models/post.js';
 
-const posts = [
-  {
-    id: 1,
-    title: 'title',
-    body: 'body'
+export const write = async (ctx) => {
+  const { title, body, tags } = ctx.request.body;
+  const post = new Post({
+    title,
+    body,
+    tags
+  });
+
+  try {
+    await post.save();
+    ctx.body = post;
+  } catch (e) {
+    ctx.throw(500, e);
   }
-];
-
-export const write = (ctx) => {
-  const { title, body } = ctx.request.body;
-  postId += 1;
-
-  const post = { id: postId, title, body };
-  posts.push(post);
-  ctx.body = post;
 };
 
-export const list = (ctx) => {
-  ctx.body = posts;
+export const list = async (ctx) => {
+  try {
+    const posts = await Post.find().exec();
+    ctx.body = posts;
+  } catch (e) {
+    ctx.throw(500, e);
+  }
 };
 
-export const read = (ctx) => {
+export const read = async (ctx) => {
   const { id } = ctx.params;
-  const post = posts.find((p) => p.id === +id);
+  try {
+    const post = await Post.findById(id).exec();
 
-  if (!post) {
-    ctx.status = 404;
-    ctx.body = {
-      message: 'The post does not exist.'
-    };
-    return;
+    if (!post) {
+      ctx.status = 404;
+      return;
+    }
+
+    ctx.body = post;
+  } catch (e) {
+    ctx.throw(500, e);
   }
-  ctx.body = post;
 };
 
-export const remove = (ctx) => {
-  const { id } = ctx.params;
-  const index = posts.findIndex((p) => p.id === +id);
+export const remove = (ctx) => {};
 
-  if (index === -1) {
-    ctx.status = 404;
-    ctx.body = {
-      message: 'The post does not exist.'
-    };
-    return;
-  }
-
-  posts.splice(index, 1);
-  ctx.status = 204;
-};
-
-export const replace = (ctx) => {
-  const { id } = ctx.params;
-  const index = posts.findIndex((p) => p.id === +id);
-
-  if (index === -1) {
-    ctx.status = 404;
-    ctx.body = {
-      message: 'The post does not exist.'
-    };
-    return;
-  }
-
-  posts[index] = {
-    id,
-    ...ctx.request.body,
-  };
-  ctx.body = posts[index];
-};
-
-export const update = (ctx) => {
-  const { id } = ctx.params;
-  const index = posts.findIndex((p) => p.id === +id);
-
-  if (index === -1) {
-    ctx.status = 404;
-    ctx.body = {
-      message: 'The post does not exist.'
-    };
-    return;
-  }
-
-  posts[index] = {
-    ...posts[index],
-    ...ctx.request.body
-  };
-  ctx.body = posts[index];
-};
+export const update = (ctx) => {};
