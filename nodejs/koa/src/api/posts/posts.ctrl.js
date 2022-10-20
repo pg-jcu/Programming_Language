@@ -1,6 +1,35 @@
 import Post from '../../models/post.js';
+import mongoose from 'mongoose';
+import Joi from '@hapi/joi';
+
+const { ObjectId } = mongoose.Types;
+
+export const checkObjectId = (ctx, next) => {
+  const { id } = ctx.params;
+  
+  if (!ObjectId.isValid(id)) {
+    ctx.status = 400;
+    return;
+  }
+
+  return next();
+}
 
 export const write = async (ctx) => {
+  const schema = Joi.object().keys({
+    title: Joi.string().required(),
+    body: Joi.string().required(),
+    tags: Joi.array().items(Joi.string()).required()
+  });
+
+  const result = schema.validate(ctx.request.body);
+
+  if (result.error) {
+    ctx.status = 400;
+    ctx.body = result.error;
+    return;
+  }
+
   const { title, body, tags } = ctx.request.body;
   const post = new Post({
     title,
@@ -53,6 +82,20 @@ export const remove = async (ctx) => {
 
 export const update = async (ctx) => {
   const { id } = ctx.params;
+  const schema = Joi.object().keys({
+    title: Joi.string(),
+    body: Joi.string(),
+    tags: Joi.array().items(Joi.string())
+  });
+
+  const result = schema.validate(ctx.request.body);
+
+  if (result.error) {
+    ctx.status = 400;
+    ctx.body = result.error;
+    return;
+  }
+  
   try {
     const post = await Post.findByIdAndUpdate(id, ctx.request.body, {
       new: true
