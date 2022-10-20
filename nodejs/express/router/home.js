@@ -44,8 +44,14 @@ router.post('/login', (req, res) => {
       .cookie('password', `${password}`)
       .redirect('/');
   } else {
-    res.send('Who?');
+    res.send('Who? <a href="/">Home</a>');
   }
+});
+
+router.get('/logout', (req, res) => {
+  res.cookie('email', '', { maxAge: 0 })
+    .cookie('password', '', { maxAge: 0 })
+    .redirect('/');
 });
 
 module.exports = router;
