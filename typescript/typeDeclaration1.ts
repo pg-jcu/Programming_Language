@@ -26,6 +26,10 @@ let oneToSeven: number[] = [1, 2, 3, 4, 5, 6, 7];
 let oneToSix: Array<number> = [1, 2, 3, 4, 5, 6];
 
 // Union
+let union: (string | number);
+union = 'Hello type!';
+union = 123;
+// union = false; // error
 let array1: (string | number)[] = ['Apple', 1, 2, 'Banana'];
 let array2: Array<string | number> = ['Apple', 1, 2, 'Bananan'];
 
