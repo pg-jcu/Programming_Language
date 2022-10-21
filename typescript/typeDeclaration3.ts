@@ -30,11 +30,11 @@ let userA: { name: string, age: number } = {
   age: 30
 };
 
-let userB: { name: string, age: number } = {
-  name: 'jeong',
-  age: false,
-  email: 'example@gmail.com'
-};
+// let userB: { name: string, age: number } = {
+//   name: 'jeong',
+//   age: false, // error
+//   email: 'example@gmail.com' // error
+// };
 
 interface IUser {
   name: string,
@@ -46,20 +46,20 @@ let userC: IUser = {
   age: 123
 };
 
-let userD: IUser = {
-  name: 'jeong',
-  age: false,
-  email: 'example@gmail.com'
-};
+// let userD: IUser = {
+//   name: 'jeong',
+//   age: false, // error
+//   email: 'example@gmail.com' // error
+// };
 
 // Null & Undefined
-let num1: number = undefined;
-let str1: string = null;
-let arr1: any[] = null;
-let obj1: { a: 1, b: false } = undefined;
-let und: undefined = null;
-let nul: null = undefined;
-let voi2: void = null;
+// let num1: number = undefined; // error
+// let str1: string = null; // error
+// let arr1: any[] = null; // error
+// let obj1: { a: 1, b: false } = undefined; // error
+// let und: undefined = null; // error
+// let nul: null = undefined; // error
+// let voi2: void = null; // error
 let voi1: void = undefined;
 
 // "strictNullChecks" : true
