@@ -1,4 +1,4 @@
-// Interence
+// Type inference
 let numInference = 12; // initialized variable
 // numInference = 'Hello type!'; // error
 
