@@ -1,0 +1,7 @@
+{
+  "exports": "./index.js",
+  "type": "module",
+  "dependencies": {
+    "lowdb": "^5.0.5"
+  }
+}
