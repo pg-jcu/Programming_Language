@@ -8,7 +8,22 @@ const file = join(__dirname, 'db.json');
 
 const adapter = new JSONFile(file);
 const db = new Low(adapter);
+await db.read();
+db.data ||= { topic: [], auther: []};
 
-db.data ||= {};
+const { topic, auther } = db.data;
+// topic.push({
+//   id: 2,
+//   title: 'mysql',
+//   description: 'mysql is ...',
+//   auther: 1
+// });
+// auther.push({
+//   id: 1,
+//   name: 'jeong',
+//   profile: 'developer'
+// });
 
-await db.write();
+// await db.write();
+
+console.log(topic.find(t => t.title === 'lowdb'));
