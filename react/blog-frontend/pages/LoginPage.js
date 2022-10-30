@@ -1,6 +1,11 @@
+import AuthTemplate from "../components/auth/AuthTemplate";
+import AuthForm from "../components/auth/AuthForm";
+
 function LoginPage() {
   return (
-    <div>login</div>
+    <AuthTemplate>
+      <AuthForm />
+    </AuthTemplate>
   );
 }
 
