@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Practice from './components/Practice';
 import Todo from './components/Todo';
 import NewsViewer from './components/NewsViewer';
+import Game from './components/Game/Game';
 import { Routes, Route } from 'react-router-dom';
 import './style/App.css';
 
@@ -17,6 +18,7 @@ function App() {
         <Route path='practice/*' element={<Practice />} />
         <Route path='todo' element={<Todo />} />
         <Route path='newsViewer/*' element={<NewsViewer />} />
+        <Route path='game' element={<Game />} />
       </Routes>
     </div>
   );

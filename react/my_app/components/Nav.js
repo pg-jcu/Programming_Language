@@ -17,6 +17,9 @@ function Nav() {
         <li>
           <Link to="newsViewer">NewsViewer</Link>
         </li>
+        <li>
+          <Link to="game">Game</Link>
+        </li>
       </ul>
     </div>
   );
