@@ -1,0 +1,17 @@
+.Game {
+  border: 2px solid green;
+  display: flex;
+  flex-direction: row;
+
+  ol, ul {
+    padding-left: 30px;
+  }
+  
+  .kbd-navigation .square:focus {
+    background: #ddd;
+  }
+  
+  .game-info {
+    margin-left: 20px;
+  }
+}
