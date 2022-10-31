@@ -1,9 +1,6 @@
-import { useState } from "react";
+import '../../style/Game/Square.scss';
 
-function Square() {
-  const [value, setValue] = useState(null);
-  const onClick = () => setValue('X');
-
+function Square({ value, onClick }) {
   return (
     <button 
       className="Square"
