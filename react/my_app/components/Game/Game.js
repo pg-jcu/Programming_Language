@@ -1,7 +1,6 @@
 import Board from "./Board";
 import '../../style/Game/Game.scss';
 import { useState } from "react";
-import { useEffect } from "react";
 
 function calculateWinner(squares) {
   const lines = [
@@ -75,10 +74,6 @@ function Game() {
         <button onClick={() => jumpTo(move)}>{desc}</button>
       </li>
     );
-  });
-
-  useEffect(() => {
-    console.log(moves);
   });
 
   return (
