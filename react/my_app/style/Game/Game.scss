@@ -2,6 +2,8 @@
   border: 2px solid green;
   display: flex;
   justify-content: center;
+  padding-top: 15px;
+  padding-bottom: 10px;
 
   ol, ul {
     padding-left: 30px;
@@ -13,5 +15,9 @@
   
   .game-info {
     margin-left: 20px;
+  }
+
+  .status {
+    margin-bottom: 10px;
   }
 }
