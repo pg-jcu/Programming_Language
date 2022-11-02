@@ -1,3 +1,4 @@
+// Ambient module declaration 1
 /// <reference path="./lodash.d.ts" />
 
 import * as _ from 'lodash';
