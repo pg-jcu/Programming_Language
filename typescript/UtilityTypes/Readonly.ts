@@ -10,4 +10,4 @@ const userReadonly: Readonly<IUserReadonly> = {
   age: 2
 };
 
-// userReadonly.name = 'c'; // error
+// userReadonly.name = 'c'; // ts2540

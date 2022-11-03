@@ -9,6 +9,6 @@ const userAR: IUserR = {
   name: 'A'
 };
 
-// const userBR: Required<IUserR> = { // error
+// const userBR: Required<IUserR> = { // ts2741
 //   name: 'B'
 // };

@@ -13,5 +13,5 @@ type TKeyPick = 'name' | 'email';
 const userPick: Pick<IUserPick, TKeyPick> = {
   name: 'jeong',
   email: 'aaa@test.com',
-  // isValid: true // error
+  // isValid: true // ts2322
 };

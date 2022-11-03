@@ -13,5 +13,5 @@ type TKeyOmit = 'name' | 'email';
 const userOmit: Omit<IUserOmit, TKeyOmit> = {
   age: 22,
   isValid: true,
-  // name: 'jeong' // error
+  // name: 'jeong' // ts2322
 }

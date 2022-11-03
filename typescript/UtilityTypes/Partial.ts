@@ -5,7 +5,7 @@ interface IUserP {
   age: number
 }
 
-// const userAP: IUserP = { // error
+// const userAP: IUserP = { // ts2741
 //   name: 'A'
 // };
 
