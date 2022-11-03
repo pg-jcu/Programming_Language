@@ -29,19 +29,19 @@ let oneToSix: Array<number> = [1, 2, 3, 4, 5, 6];
 let union: (string | number);
 union = 'Hello type!';
 union = 123;
-// union = false; // error
+// union = false; // ts2322
 let array1: (string | number)[] = ['Apple', 1, 2, 'Banana'];
 let array2: Array<string | number> = ['Apple', 1, 2, 'Bananan'];
 
 let anyArray: any[] = [0, 1, {}, [], false, 'str'];
 
-interface User {
+interface UserDe {
   name: string,
   age: number,
   isValid: boolean
 };
 
-let userArray: User[] = [
+let userArray: UserDe[] = [
   {
     name: 'Jeong',
     age: 28,

@@ -9,7 +9,7 @@ function error(message: string): never {
 }
 
 const never: [] = [];
-// never.push(3); // error
+// never.push(3); // ts2345
 
 // Intersection
 interface IUser {

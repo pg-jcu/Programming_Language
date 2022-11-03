@@ -3,7 +3,7 @@ let tuple: [string, number] = ['a', 1]; // only Assign
 let users: [number, string, boolean][] = [[1, 'str', true]];
 
 tuple.push(3); // can't block
-// tuple.push(true); // Error
+// tuple.push(true); // ts2345
 
 // Enum
 enum Week {

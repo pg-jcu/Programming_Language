@@ -14,7 +14,7 @@ let userObj: TUser = {
 };
 let userArr: TUser = ['1', 2, false];
 
-function someFunc(arg: MyType): YourType {
+function someFuncAliases(arg: MyType): YourType {
   switch (arg) {
     case 's':
       return arg.toString();

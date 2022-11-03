@@ -1,7 +1,7 @@
 // Type assertion
 function someFunc(val: string | number, isNumber: boolean) {
   if (isNumber) {
-    // val.toFixed(2); // error
+    // val.toFixed(2); // ts2339
     (val as number).toFixed(2);
     (<number>val).toFixed(2);
   }
