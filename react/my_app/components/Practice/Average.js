@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState, useRef } from "react";
-import '../style/Average.css';
+import '../../styles/Practice/Average.css';
 
 const getAverage = numbers => {
   console.log('calculating...');

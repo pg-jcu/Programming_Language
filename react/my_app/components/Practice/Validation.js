@@ -1,5 +1,5 @@
 import { createRef, useState } from "react";
-import '../style/Validation.css'
+import '../../styles/Practice/Validation.css'
 
 function Validation() {
   const [form, setForm] = useState({

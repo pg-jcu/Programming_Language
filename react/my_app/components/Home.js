@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import qs from 'qs';
-import '../style/Home.scss';
+import '../styles/Home.scss';
 import { Link, useLocation } from 'react-router-dom';
 
 function Home() {

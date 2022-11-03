@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import '../style/NewsCategories.scss';
+import '../styles/NewsCategories.scss';
 
 const categories = [
   {

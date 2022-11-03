@@ -1,12 +1,12 @@
 import Header from './components/Header';
 import Nav from './components/Nav';
 import Home from './components/Home';
-import Practice from './components/Practice';
+import Practice from './components/Practice/Practice';
 import Todo from './components/Todo';
 import NewsViewer from './components/NewsViewer';
 import Game from './components/Game/Game';
 import { Routes, Route } from 'react-router-dom';
-import './style/App.css';
+import './styles/App.css';
 
 function App() {
   return (

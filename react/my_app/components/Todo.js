@@ -1,7 +1,7 @@
 import TodoTemplate from './TodoTemplate';
 import TodoInsert from './TodoInsert';
 import TodoList from './TodoList';
-import '../style/Todo.scss';
+import '../styles/Todo.scss';
 import { useState, useRef, useCallback } from 'react';
 
 function createBulkTodos() {

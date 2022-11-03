@@ -1,4 +1,4 @@
-import '../style/NewsItem.scss';
+import '../styles/NewsItem.scss';
 
 function NewsItem({ article }) {
   const { title, description, url, urlToImage } = article;

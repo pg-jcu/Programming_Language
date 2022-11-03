@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import useInputs from "../lib/useInputs.js";
-import '../style/Info.css';
+import useInputs from "../../lib/useInputs.js";
+import '../../styles/Practice/Info.css';
 
 function Info() {
   const [state, onChange] = useInputs({

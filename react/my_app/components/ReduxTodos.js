@@ -1,4 +1,4 @@
-import '../style/ReduxTodos.scss';
+import '../styles/ReduxTodos.scss';
 
 function TodoItem({ todo, onToggle, onRemove }) {
   return (

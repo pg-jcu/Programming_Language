@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import '../style/History.scss';
+import '../../styles/Practice/History.scss';
 
 function History() {
   const history = useNavigate();

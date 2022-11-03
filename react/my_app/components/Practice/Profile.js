@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import '../style/Profile.scss';
+import '../../styles/Practice/Profile.scss';
 import WithRouterSample from "./WithRouterSample";
 
 const data = {

@@ -12,11 +12,11 @@ import Immer from './Immer';
 import Profiles from './Profiles';
 import History from './History';
 import Color from './Color';
-import CounterContainer from '../containers/CounterContainer';
-import TodosContainer from '../containers/TodosContainer';
-import SampleContainer from '../containers/SampleContainer';
+import CounterContainer from '../../containers/CounterContainer';
+import TodosContainer from '../../containers/TodosContainer';
+import SampleContainer from '../../containers/SampleContainer';
 import { useState, Suspense, lazy } from 'react';
-import '../style/Practice.scss';
+import '../../styles/Practice/Practice.scss';
 
 const SplitMe = lazy(() => import('./SplitMe'));
 

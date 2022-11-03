@@ -1,4 +1,4 @@
-import '../style/SplitMe.scss';
+import '../../styles/Practice/SplitMe.scss';
 
 function SplitMe() {
   return (

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../style/Event.css';
+import '../../styles/Practice/Event.css';
 
 function Event() {
   const [form, setForm] = useState({

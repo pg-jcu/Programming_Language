@@ -1,5 +1,5 @@
 import Square from "./Square";
-import '../../style/Game/Board.scss';
+import '../../styles/Game/Board.scss';
 
 function Board({ squares, onClick }) {
   const renderSquare = (i) => {

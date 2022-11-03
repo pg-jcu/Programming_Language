@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import ColorContext from '../contexts/color';
+import ColorContext from '../../contexts/color';
 
 function ColorBox() {
   const { state } = useContext(ColorContext);

@@ -1,4 +1,4 @@
-import '../style/SassComponent.scss';
+import '../../styles/Practice/SassComponent.scss';
 
 function SassComponent() {
   return (

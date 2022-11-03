@@ -1,5 +1,5 @@
 import { useState } from "react";
-import '../style/Say.css';
+import '../../styles/Practice/Say.css';
 
 function Say() {
   const [message, setMessage] = useState('');

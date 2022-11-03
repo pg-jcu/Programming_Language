@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import '../style/MyComponent.css';
+import '../../styles/Practice/MyComponent.css';
 
 function MyComponent({name, children, number}) {
   return (

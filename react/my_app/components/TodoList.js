@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import TodoListItem from "./TodoListItem";
-import '../style/TodoList.scss';
+import '../styles/TodoList.scss';
 import { List } from "react-virtualized";
 
 function TodoList({ todos, onRemove, onToggle }) {

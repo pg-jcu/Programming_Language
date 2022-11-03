@@ -1,6 +1,6 @@
 import produce from "immer";
 import { useCallback, useRef, useState } from "react";
-import '../style/Immer.scss';
+import '../../styles/Practice/Immer.scss';
 
 function Immer() {
   const nextId = useRef(1);

@@ -1,4 +1,4 @@
-import '../../style/Game/Square.scss';
+import '../../styles/Game/Square.scss';
 
 function Square({ value, onClick }) {
   return (

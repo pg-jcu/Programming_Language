@@ -1,5 +1,5 @@
 import NewsPage from './NewsPage';
-import '../style/NewsViewer.scss';
+import '../styles/NewsViewer.scss';
 import { Route, Routes } from 'react-router-dom';
 
 function NewsViewer() {

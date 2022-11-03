@@ -1,4 +1,4 @@
-import '../style/ReduxCounter.scss';
+import '../styles/ReduxCounter.scss';
 
 function ReduxCounter({ number, onIncrease, onDecrease }) {
   return (

@@ -1,6 +1,6 @@
 import Profile from "./Profile";
 import { NavLink, Route, Routes } from "react-router-dom";
-import '../style/Profiles.scss';
+import '../../styles/Practice/Profiles.scss';
 
 function Profiles() {
   return (

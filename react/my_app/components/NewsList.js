@@ -1,5 +1,5 @@
 import NewsItem from "./NewsItem";
-import '../style/NewsList.scss';
+import '../styles/NewsList.scss';
 import { URL, API_KEY } from "../constants.js";
 import usePromise from "../lib/usePromise";
 

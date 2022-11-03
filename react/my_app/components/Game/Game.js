@@ -1,5 +1,5 @@
 import Board from "./Board";
-import '../../style/Game/Game.scss';
+import '../../styles/Game/Game.scss';
 import { useState } from "react";
 
 function calculateWinner(squares) {

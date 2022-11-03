@@ -1,7 +1,7 @@
 import ColorBox from './ColorBox';
 import SelectColors from './SelectColors';
-import { ColorProvider } from '../contexts/color';
-import '../style/Color.scss';
+import { ColorProvider } from '../../contexts/color';
+import '../../styles/Practice/Color.scss';
 
 function Color() {
   return (

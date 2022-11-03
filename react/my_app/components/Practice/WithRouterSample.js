@@ -1,5 +1,5 @@
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import '../style/WithRouterSample.scss';
+import '../../styles/Practice/WithRouterSample.scss';
 
 function WithRouterSample() {
   const location = useLocation(); 

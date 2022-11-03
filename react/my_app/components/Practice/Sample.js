@@ -1,4 +1,4 @@
-import '../style/Sample.scss';
+import '../../styles/Practice/Sample.scss';
 
 function Sample({ loadingPost, loadingUsers, post, users }) {
   return (

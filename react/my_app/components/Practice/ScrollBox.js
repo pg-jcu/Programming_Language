@@ -1,5 +1,5 @@
 import { createRef } from "react";
-import '../style/ScrollBox.css';
+import '../../styles/Practice/ScrollBox.css';
 
 function ScrollBox() {
   const box = createRef();

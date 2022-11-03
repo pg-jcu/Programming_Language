@@ -1,4 +1,4 @@
-import '../style/TodoTemplate.scss';
+import '../styles/TodoTemplate.scss';
 
 function TodoTemplate({ children }) {
   return (

@@ -1,4 +1,4 @@
-import { ColorConsumer } from "../contexts/color";
+import { ColorConsumer } from "../../contexts/color";
 
 const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 
