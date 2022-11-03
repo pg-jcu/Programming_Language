@@ -1,7 +1,7 @@
 // Optional Chaining
-// function toString(str: string | undefined) {
-//   return str.toString(); // error
-// }
+function toString(str: string | undefined) {
+  // return str.toString(); // ts2532
+}
 
 // Type Assertion
 function toString(str: string | undefined) {

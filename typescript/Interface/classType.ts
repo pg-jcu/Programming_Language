@@ -56,7 +56,7 @@ function getFullName(son: IFullName) {
 // Anderson family
 class Anderson implements IFullName {
   public lastName: string;
-  constructor (public firstName: string) {
+  constructor(public firstName: string) {
     this.lastName = 'Anderson';
   }
 }
@@ -77,7 +77,7 @@ interface IFullNameConstructor1 {
 // Smith family
 class Smith implements IFullName1 {
   public lastName: string;
-  constructor (public firstName: string, public agentCode: number) {
+  constructor(public firstName: string, public agentCode: number) {
     this.lastName = `Smith ${agentCode}`;
   }
 }

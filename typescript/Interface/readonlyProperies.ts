@@ -10,7 +10,7 @@ let userROP: IUserROP = {
 };
 
 userROP.age = 10;
-// user1.name = 'chan'; // error
+// user1.name = 'chan'; // ts2522
 
 // Readonly Utility
 interface IUserROU {

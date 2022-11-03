@@ -3,7 +3,7 @@ interface IAnimal {
   name: string
 }
 
-interface ICat extends IAnimal {
+interface ICatEx extends IAnimal {
   meow(): string
 }
 
@@ -13,16 +13,16 @@ interface ICat extends IAnimal {
 //   }
 // }
 
-interface IFullName {
+interface IFullName3 {
   firstName: string,
   lastName: string
 }
 
-interface IFullName {
+interface IFullName3 {
   middleName: string
 }
 
-const fullName: IFullName = {
+const fullName: IFullName3 = {
   firstName: 'J',
   middleName: 'C',
   lastName: 'U'

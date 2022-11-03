@@ -16,7 +16,7 @@ interface IUserIndex {
 let userIndex: IUserIndex = {
   name: 'jeong',
   0: false,
-  // num: 1 // error
+  // num: 1 // ts2322
 };
 console.log(userIndex[0]);
 console.log(userIndex['0']);
@@ -30,8 +30,8 @@ interface ICountries {
 
 let country: keyof ICountries; // 'KR' | 'US' | 'JP'
 country = 'KR';
-// country = 'CH'; // error
+// country = 'CH'; // ts2322
 
 let country1: ICountries[keyof ICountries]; //  ICountries['KR' | 'US' | 'JP']
 country1 = '대한민국';
-// country1 = '러시아';
+// country1 = '러시아'; // ts2322
