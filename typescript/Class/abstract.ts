@@ -13,7 +13,7 @@ class DerivedClass extends AbstractClass {
   }
 }
 
-// new AbstractClass(); // error
+// new AbstractClass(); // ts2511
 
 const derivedclass = new DerivedClass('name');
 console.log(derivedclass.getName());

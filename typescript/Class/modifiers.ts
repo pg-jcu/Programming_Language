@@ -24,21 +24,21 @@ class DesAMClass extends AMClass {
   }
 
   // getAge(): string {
-  //   return `DesAMClass - age: ${this.age}`; // error
+  //   return `DesAMClass - age: ${this.age}`; // ts2341
   // }
 }
 
 let amclass = new AMClass('name', 'tag', 1);
 let desamclass = new DesAMClass('name', 'tag', 1);
 console.log(desamclass.getName());
-// console.log(desamclass.name); // error
+// console.log(desamclass.name); // ts2445
 
 console.log(desamclass.getTag());
 console.log(desamclass.tag);
 
-// console.log(desamclass.age); // error
+// console.log(desamclass.age); // ts2341
 console.log(amclass.getAge());
-// console.log(amclass.age); // error
+// console.log(amclass.age); // ts2341
 
 class AMClass1 {
   name: string;
@@ -47,7 +47,7 @@ class AMClass1 {
   }
 }
 
-// const amclass1 = new AMClass1('test'); // error
+// const amclass1 = new AMClass1('test'); // ts2674
 
 class AMClass2 {
   constructor(public name: string, protected age: number) {}
@@ -68,7 +68,7 @@ class StaticClass {
   static hands: number = 2;
   static legs: number;
   constructor() {
-    // this.legs = 4; // error
+    // this.legs = 4; // ts2576
     StaticClass.legs = 4;
   }
 
@@ -97,7 +97,7 @@ class ROClass {
 
 let roclass = new ROClass('test');
 console.log(roclass.name);
-// roclass.name = 'test1'; // error
+// roclass.name = 'test1'; // ts2540
 
-// console.log(ROClass.age); // error
-// console.log(ROClass.getTag()); // error
+// console.log(ROClass.age); // ts2445
+// console.log(ROClass.getTag()); // ts2341
