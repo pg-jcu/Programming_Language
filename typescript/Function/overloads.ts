@@ -5,7 +5,7 @@ function add(a: any, b: any): any { // implementation signature
   return a + b;
 }
 
-// add('hello', 2); // error
+// add('hello', 2); // ts2769
 
 interface IUserOverload {
   name: string,
@@ -26,4 +26,4 @@ let userOL: IUserOverload = {
   }
 };
 
-// userOL.getData(false); // error
+// userOL.getData(false); // ts2769

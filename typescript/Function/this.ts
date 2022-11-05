@@ -10,7 +10,7 @@ const testThis: IThis = {
 };
 
 function someFn(greeting: string) {
-  // console.log(`${greeting} ${this.name}`); // error
+  // console.log(`${greeting} ${this.name}`); // ts2683
 }
 
 function someFn1(this: IThis, greeting: string) {
