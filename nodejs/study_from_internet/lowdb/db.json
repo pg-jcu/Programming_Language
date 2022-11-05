@@ -1,12 +1,6 @@
 {
   "topic": [
     {
-      "id": 1,
-      "title": "lowdb",
-      "description": "lowdb is ...",
-      "auther": 1
-    },
-    {
       "id": 2,
       "title": "mysql",
       "description": "mysql is ...",

@@ -12,6 +12,8 @@ await db.read();
 db.data ||= { topic: [], auther: []};
 
 const { topic, auther } = db.data;
+
+// CREATE
 // topic.push({
 //   id: 2,
 //   title: 'mysql',
@@ -23,7 +25,15 @@ const { topic, auther } = db.data;
 //   name: 'jeong',
 //   profile: 'developer'
 // });
-
 // await db.write();
 
-console.log(topic.find(t => t.title === 'lowdb'));
+// READ
+// console.log(topic.find(t => t.title === 'lowdb'));
+
+// UPDATE
+// topic.find(t => t.id === 1).title = 'test1';
+// await db.write();
+
+// DELETE
+topic.splice(topic.findIndex(t => t.title === 'test1'), 1);
+await db.write();
