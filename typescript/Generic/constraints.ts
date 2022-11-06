@@ -8,7 +8,7 @@ const dataA: MyTypes<string> = {
   name: 'j',
   value: 'c'
 };
-// const dataB: MyTypes<boolean> = { ... }; // error
+// const dataB: MyTypes<boolean> = { ... }; // ts2344
 
 type U = string | number | boolean;
 

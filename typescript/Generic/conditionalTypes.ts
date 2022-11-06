@@ -34,8 +34,8 @@ const aa: MyInferType<number> = 123;
 type ReturnInferType<T extends (...args: any) => any> = 
   T extends (...args: any) => infer R ? R : any;
 
-function fn(num: number) {
+function fnInfer(num: number) {
   return num.toString();
 }
 
-const bb: ReturnInferType<typeof fn> = 'Hello';
+const bb: ReturnInferType<typeof fnInfer> = 'Hello';

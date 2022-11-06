@@ -5,9 +5,9 @@ function toArray<T>(a: T, b: T): T[] { // T: Type variable
 
 toArray<number>(1, 2);
 toArray<string | number>(1, '2');
-// toArray<number>(1, '2'); // error
+// toArray<number>(1, '2'); // ts2345
 
 // inference
 toArray(1, 2);
 toArray('1', '2');
-// toArray(1, '2'); // error
+// toArray(1, '2'); // ts2345
