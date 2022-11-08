@@ -17,7 +17,7 @@ app.use(session({
   secret: 'qweradsfcvxzcvdsf',
   resave: false,
   saveUninitialized: true,
-  store: new FileStore()
+  store: new FileStore({logFn: () => {}})
 }));
 
 app.get('*', (req, res, next) => {
