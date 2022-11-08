@@ -29,10 +29,18 @@ router.post('/login', (req, res) => {
   const password = post.password;
 
   if (email === authData.email && password === authData.password) {
-    res.send('Welcome');
+    req.session.is_logined = true;
+    req.session.nickname = authData.nickname;
+    res.redirect('/');
   } else {
     res.send('Who?');
   }
+});
+
+router.get('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    res.redirect('/');
+  });
 });
 
 module.exports = router;

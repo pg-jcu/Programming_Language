@@ -1,5 +1,5 @@
 module.exports = {
-  html(title, list, body, control) {
+  html(title, list, body, control, authStatusUI = '<a href="/auth/login">login</a>') {
     return `
       <!DOCTYPE html>
       <html>
@@ -8,7 +8,7 @@ module.exports = {
         <meta charset="utf-8">
       </head>
       <body>
-        <a href="/auth/login">login</a>
+        ${authStatusUI}
         <h1><a href="/">HOME</a></h1>
         ${list}
         ${control}
