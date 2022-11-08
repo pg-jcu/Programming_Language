@@ -3,11 +3,9 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const helmet = require('helmet');
-const homeRouter = require('./router/home.js');
-const topicRouter = require('./router/topic.js');
 
 const app = express();
-const port = 3000;
+const PORT = 3000;
 
 app.use(helmet());
 app.use(express.static('static'));
@@ -20,8 +18,13 @@ app.get('*', (req, res, next) => {
   });
 });
 
+const homeRouter = require('./router/home.js');
+const topicRouter = require('./router/topic.js');
+const authRouter = require('./router/auth.js');
+
 app.use('/', homeRouter);
 app.use('/topic', topicRouter);
+app.use('/auth', authRouter);
 
 app.use((req, res, next) => {
   res.status(404).send('Sorry can not find that!');
@@ -32,6 +35,6 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!');
 });
 
-app.listen(port, () => {
-  console.log(port);
+app.listen(PORT, () => {
+  console.log(PORT);
 });

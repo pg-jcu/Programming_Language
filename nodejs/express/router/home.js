@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
       <img src="/image/nodejs.jpg" style="width: 300px; display: block;" />
     `,
     `<a href="/topic/create">create</a>`,
-    auth.statusUI(req, res)
+    auth.statusUI(req, res), req, res
   );
   res.send(html);
 });
