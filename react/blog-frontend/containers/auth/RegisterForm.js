@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeField, initializeForm, register } from "../../modules/auth";
 import AuthFrom from "../../components/auth/AuthForm";
@@ -6,6 +6,7 @@ import { check } from "../../modules/user";
 import { useNavigate } from "react-router-dom";
 
 function RegisterForm() {
+  const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { form, auth, authError, user } = useSelector(({ auth, user }) => ({
@@ -28,7 +29,15 @@ function RegisterForm() {
     e.preventDefault();
     const { username, password, passwordConfirm } = form;
 
+    if ([username, password, passwordConfirm].includes('')) {
+      setError('Please fill out all the blank spaces.');
+      return;
+    }
+
     if (password !== passwordConfirm) {
+      setError('The password is incorrect.');
+      dispatch(changeField({ form: 'register', key: 'password', value: '' }));
+      dispatch(changeField({ form: 'register', key: 'passwordConfirm', value: '' }));
       return;
     }
 
@@ -41,12 +50,17 @@ function RegisterForm() {
 
   useEffect(() => {
     if (authError) {
-      console.log('auth error');
-      console.log(authError);
+      if (authError.response.status === 409) {
+        setError('Id already exists.');
+        return;
+      }
+
+      console.log('Sign up failed');
       return;
     }
+
     if (auth) {
-      console.log('login success');
+      console.log('Sign up success');
       console.log(auth);
       dispatch(check());
     }
@@ -54,6 +68,8 @@ function RegisterForm() {
 
   useEffect(() => {
     if (user) {
+      console.log('check API success');
+      console.log(user);
       navigate('/');
     }
   }, [user, navigate]);
@@ -64,6 +80,7 @@ function RegisterForm() {
       form={form}
       onChange={onChange}
       onSubmit={onSubmit}
+      error={error}
     />
   );
 }
