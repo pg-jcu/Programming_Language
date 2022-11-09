@@ -5,6 +5,7 @@ const compression = require('compression');
 const helmet = require('helmet');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+// const flash = require('connect-flash');
 
 const app = express();
 const PORT = 3000;
@@ -19,6 +20,7 @@ app.use(session({
   saveUninitialized: true,
   store: new FileStore({logFn: () => {}})
 }));
+// app.use(flash());
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
@@ -54,7 +56,6 @@ passport.use(new LocalStrategy(
         });
       }
     } else {
-      console.log('incorrect');
       return done(null, false, {
         message: 'Incorrect username.'
       });
@@ -65,7 +66,7 @@ passport.use(new LocalStrategy(
 app.post('/auth/login',
   passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/auth/login'
+    failureRedirect: '/auth/login',
   })
 );
 

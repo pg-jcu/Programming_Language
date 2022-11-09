@@ -1,6 +1,6 @@
 module.exports = {
   isOwner(req, res) {
-    if (req.session.is_logined) {
+    if (req.user) {
       return true;
     } else {
       return false;
@@ -10,7 +10,7 @@ module.exports = {
     let authStatusUI = '<a href="/auth/login">login</a>';
   
     if (this.isOwner(req, res)) {
-      authStatusUI = `${req.session.nickname} | <a href="/auth/logout">logout</a>`;
+      authStatusUI = `${req.user.nickname} | <a href="/auth/logout">logout</a>`;
     }
   
     return authStatusUI;
