@@ -28,6 +28,17 @@ const authData = {
   nickname: 'jeong'
 };
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser((user, done) => {
+  done(null, user.email);
+});
+
+passport.deserializeUser((id, done) => {
+  done(null, authData);
+});
+
 passport.use(new LocalStrategy(
   {
     usernameField: 'email',
