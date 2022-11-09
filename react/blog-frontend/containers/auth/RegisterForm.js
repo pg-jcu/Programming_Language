@@ -41,7 +41,7 @@ function RegisterForm() {
 
   useEffect(() => {
     if (authError) {
-      console.log('error');
+      console.log('auth error');
       console.log(authError);
       return;
     }
