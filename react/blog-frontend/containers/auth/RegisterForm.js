@@ -2,13 +2,17 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeField, initializeForm, register } from "../../modules/auth";
 import AuthFrom from "../../components/auth/AuthForm";
+import { check } from "../../modules/user";
+import { useNavigate } from "react-router-dom";
 
 function RegisterForm() {
   const dispatch = useDispatch();
-  const { form, auth, authError } = useSelector(({ auth }) => ({
+  const navigate = useNavigate();
+  const { form, auth, authError, user } = useSelector(({ auth, user }) => ({
     form: auth.register,
     auth: auth.auth,
-    authError: auth.authError
+    authError: auth.authError,
+    user: user.user
   }));
   const onChange = (e) => {
     const { value, name } = e.target;
@@ -44,8 +48,15 @@ function RegisterForm() {
     if (auth) {
       console.log('login success');
       console.log(auth);
+      dispatch(check());
     }
-  }, [auth, authError]);
+  }, [auth, authError, dispatch]);
+
+  useEffect(() => {
+    if (user) {
+      navigate('/');
+    }
+  }, [user, navigate]);
   
   return (
     <AuthFrom
