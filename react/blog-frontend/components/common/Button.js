@@ -11,6 +11,7 @@ const buttonStyle = css`
   color: white;
   outline: none;
   cursor: pointer;
+  text-align: center;
 
   background: ${palette.gray[8]};
   &:hover {

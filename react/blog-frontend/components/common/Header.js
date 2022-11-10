@@ -32,7 +32,12 @@ const Spacer = styled.div`
   height: 4rem;
 `;
 
-function Header() {
+const UserInfo = styled.div`
+  font-weight: 800;
+  margin-right: 1rem;
+`;
+
+function Header( { user }) {
   return (
     <>
       <HeaderBlock>
@@ -40,11 +45,16 @@ function Header() {
           <Link to="/" className="logo">
             REACTERS
           </Link>
-          <div className="right">
-            <Button to="/login">
-              Login
-            </Button>
-          </div>
+          { user ? (
+            <div className="right">
+              <UserInfo>{user.username}</UserInfo>
+              <Button>Logout</Button>
+            </div>
+          ) : (
+            <div className="right">
+              <Button to="/login">Login</Button>
+            </div>
+          )}
         </Wrapper>
       </HeaderBlock>
       <Spacer />
