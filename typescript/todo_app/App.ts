@@ -1,7 +1,7 @@
-import TodoList from "./components/TodoList.js";
-import TodoInput from "./components/TodoInput.js";
-import TodoCount from "./components/TodoCount.js";
-import checkData from "./utils/checkData.js";
+import TodoList from "./components/TodoList";
+import TodoInput from "./components/TodoInput";
+import TodoCount from "./components/TodoCount";
+import checkData from "./utils/checkData";
 import { setItem } from "./utils/storage";
 import { STORAGE_KEY } from "./constants";
 

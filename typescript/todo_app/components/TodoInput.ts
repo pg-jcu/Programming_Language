@@ -23,7 +23,6 @@ export default function TodoInput($target, addTodo) {
   this.$element.addEventListener('submit', event => {
     event.preventDefault();
 
-    // const $form = document.forms.todoInputForm;
     const $input = document.querySelector('input') as HTMLInputElement;
 
     if ($input.value === '') {
