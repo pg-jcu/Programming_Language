@@ -1,6 +1,11 @@
+import Editor from "../components/write/Editor";
+import Responsive from "../components/common/Responsive";
+
 function WritePage() {
   return (
-    <div>write</div>
+    <Responsive>
+      <Editor />
+    </Responsive>
   );
 }
 
