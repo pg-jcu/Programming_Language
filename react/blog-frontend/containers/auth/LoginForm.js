@@ -52,6 +52,12 @@ function LoginForm() {
   useEffect(() => {
     if (user) {
       navigate('/');
+
+      try {
+        localStorage.setItem('user', JSON.stringify(user));
+      } catch (e) {
+        console.log('localStorage is not working');
+      }
     }
   }, [user, navigate]);
 
