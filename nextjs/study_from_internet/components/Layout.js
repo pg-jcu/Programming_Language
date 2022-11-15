@@ -8,7 +8,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Title title={titleList[router.pathname]} />
-      <Navbar />
+      <Navbar pathname={router.pathname}/>
       <div>{children}</div>
       <style jsx global>{`
         a:hover {
