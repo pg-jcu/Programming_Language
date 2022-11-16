@@ -1,8 +1,26 @@
+import { useRouter } from "next/router";
+
 export default function SSRpage({ results }) {
+  const router = useRouter();
+  const onClick = (id, title) => {
+    router.push(
+      {
+        pathname: `/movies/${id}`,
+        query: {
+          title
+        }
+      },
+      `/movies/${id}`
+    );
+  };
   return (
     <div className="container">
       {results?.map((movie) => (
-        <div className="movie" key={movie.id}>
+        <div 
+          className="movie" 
+          key={movie.id}
+          onClick={() => onClick(movie.id, movie.original_title)}
+        >
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
           <h4>{movie.original_title}</h4>
         </div>

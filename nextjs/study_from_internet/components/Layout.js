@@ -18,6 +18,9 @@ export default function Layout({ children }) {
         a:hover {
           color: orange;
         }
+        a div:hover {
+          color: black;
+        }
       `}</style>
     </>
   );
