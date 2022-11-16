@@ -8,6 +8,9 @@ export default function Navbar({ pathname }) {
           <Link href="/" legacyBehavior>
             <a className={pathname === "/" ? "active" : ""}>Home</a>
           </Link>
+          <Link href="/ssr" legacyBehavior>
+            <a className={pathname === "/ssr" ? "active" : ""}>SSR</a>
+          </Link>
           <Link href="/about" legacyBehavior>
             <a className={pathname === "/about" ? "active" : ""}>About</a>  
           </Link>

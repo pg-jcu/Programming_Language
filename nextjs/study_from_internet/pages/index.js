@@ -7,13 +7,19 @@ export default function Home() {
       const { results } = await (await fetch(`/api/movies`)).json();
       setMovies(results);
     })();
+
+    let tmp = 0;
+    for (let i = 0; i < 1e9; i++) {
+      tmp++;
+    }
+    console.log('done');
   }, []);
   return (
     <div className="container">
       {!movies && <h4>Loading...</h4>}
       {movies?.map((movie) => (
         <div className="movie" key={movie.id}>
-          <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
+          <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
           <h4>{movie.original_title}</h4>
         </div>
       ))}
@@ -23,6 +29,9 @@ export default function Home() {
           grid-template-columns: 1fr 1fr;
           padding: 20px;
           gap: 20px;
+        }
+        .movie {
+          cursor: pointer;
         }
         .movie img {
           max-width: 100%;
