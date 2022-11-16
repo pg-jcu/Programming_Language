@@ -4,7 +4,7 @@ import Title from "./Title";
 
 export default function Layout({ children }) {
   const router = useRouter();
-  const titleList = {'/': 'Home', '/about': 'About'};
+  const titleList = {'/': 'Home | Next Movies', '/about': 'About | Next Movies'};
   return (
     <>
       <Title title={titleList[router.pathname]} />
