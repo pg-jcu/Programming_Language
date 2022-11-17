@@ -7,7 +7,7 @@ function NewsList({ category }) {
   const [loading, response, error] = usePromise(() => {
     const query = category === 'all' ? '' : `&category=${category}`;
 
-    return fetch(URL + query + API_KEY);
+    return fetch(URL + query + '&apiKey=' + API_KEY);
   }, [category]);
 
   if (loading) {
