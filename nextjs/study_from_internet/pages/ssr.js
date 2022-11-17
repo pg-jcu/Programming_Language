@@ -3,15 +3,16 @@ import { useRouter } from "next/router";
 export default function SSRpage({ results }) {
   const router = useRouter();
   const onClick = (id, title) => {
-    router.push(
-      {
-        pathname: `/movies/${id}`,
-        query: {
-          title
-        }
-      },
-      `/movies/${id}`
-    );
+    // router.push(
+    //   {
+    //     pathname: `/movies/${id}`,
+    //     query: {
+    //       title
+    //     }
+    //   },
+    //   `/movies/${id}`
+    // );
+    router.push(`/movies/${title}/${id}`);
   };
   return (
     <div className="container">

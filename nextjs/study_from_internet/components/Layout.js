@@ -5,9 +5,9 @@ import Title from "./Title";
 export default function Layout({ children }) {
   const router = useRouter();
   const titleList = {
-    '/': 'Home | Next Movies', 
-    '/ssr': 'SSR | Next Movies',
-    '/about': 'About | Next Movies'
+    '/': 'Home', 
+    '/ssr': 'SSR',
+    '/about': 'About'
   };
   return (
     <>
