@@ -22,39 +22,39 @@
     <section class="preview"></section>
 
     <canvas width="480" height="320" tabindex="0"></canvas>
-  <script>
-    const canvas = document.querySelector('canvas');
-    const ctx = canvas.getContext('2d');
+    <script>
+      const canvas = document.querySelector('canvas');
+      const ctx = canvas.getContext('2d');
 
-    function drawCircle(x, y, size) {
-      ctx.fillStyle = 'white';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      function drawCircle(x, y, size) {
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.beginPath();
-      ctx.fillStyle = 'black';
-      ctx.arc(x, y, size, 0, 2 * Math.PI);
-      ctx.fill();
-    }
-
-    let x = 50;
-    let y = 50;
-    const size = 30;
-
-    drawCircle(x, y, size);
-
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'w' && y > 30) {
-        y -= 10;
-      } else if (e.key === 's' && y < 290) {
-        y += 10;
-      } else if (e.key === 'a' && x > 30) {
-        x -= 10;
-      } else if (e.key === 'd' && x < 450) {
-        x += 10;
+        ctx.beginPath();
+        ctx.fillStyle = 'black';
+        ctx.arc(x, y, size, 0, 2 * Math.PI);
+        ctx.fill();
       }
 
+      let x = 50;
+      let y = 50;
+      const size = 30;
+
       drawCircle(x, y, size);
-    });
-  </script>
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'w' && y > 30) {
+          y -= 10;
+        } else if (e.key === 's' && y < 290) {
+          y += 10;
+        } else if (e.key === 'a' && x > 30) {
+          x -= 10;
+        } else if (e.key === 'd' && x < 450) {
+          x += 10;
+        }
+
+        drawCircle(x, y, size);
+      });
+    </script>
   </body>
 </html>

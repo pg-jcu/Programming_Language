@@ -23,16 +23,16 @@
     <section class="preview"></section>
 
     <button class="off">Machine is off</button>
-  <script>
-    const btn = document.querySelector('.off');
+    <script>
+      const btn = document.querySelector('.off');
 
-    btn.addEventListener('click', (e) => {
-      if (e.target.textContent === 'Machine is off') {
-        e.target.textContent = 'Machine is on';
-      } else {
-        e.target.textContent = 'Machine is off';
-      }
-    });
-  </script>
+      btn.addEventListener('click', (e) => {
+        if (e.target.textContent === 'Machine is off') {
+          e.target.textContent = 'Machine is on';
+        } else {
+          e.target.textContent = 'Machine is off';
+        }
+      });
+    </script>
   </body>
 </html>
