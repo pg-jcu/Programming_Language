@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>event mouse</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mouse {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      font-size: 10rem;
+      line-height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="mouse"></div>
+
+  <script>
+    const $mouse = document.querySelector('.mouse');
+    $mouse.textContent = 0;
+
+    $mouse.addEventListener('mouseenter', (e) => {
+      console.log('enter');
+    });
+
+    $mouse.addEventListener('mouseover', (e) => {
+      $mouse.style.backgroundColor = 'red';
+    });
+
+    $mouse.addEventListener('mouseout', (e) => {
+      $mouse.style.backgroundColor = '';
+    });
+
+    $mouse.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      e.target.textContent++;
+      e.target.style.color = 'yellow';
+    });
+
+    $mouse.addEventListener('mouseup', (e) => {
+      e.target.style.color = '';
+    });
+  </script>
+</body>
+</html>
