@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>coordinates</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 2000px;
+    }
+    .box {
+      background-color: black;
+      width: 100px;
+      height: 100px;
+    }
+    dt, dd {
+      text-align: center;
+      margin: 0px;
+    }
+
+    dt {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <dl>
+    <dt>client: browser screen criteria (scroll X)</dt>  
+    <dd class="client"></dd>
+    <br />
+    <dt>page: document criteria (scroll O)</dt>
+    <dd class="page"></dd>
+    <br />
+    <dt>offset: event target criteria</dt>
+    <dd class="offset"></dd>
+    <br />
+    <dt>screen: monitor screen criteria</dt>
+    <dd class="screen"></dd>
+  </dl>
+  <script>
+    const $client = document.querySelector('.client');
+    const $page = document.querySelector('.page');
+    const $offset = document.querySelector('.offset');
+    const $screen = document.querySelector('.screen');
+
+    document.addEventListener('mousemove', (e) => {
+      $client.textContent = `clientX: ${e.clientX} / clientY: ${e.clientY}`;
+      $page.textContent = `pageX: ${e.pageX} / pageY: ${e.pageY}`;
+      $offset.textContent = `eventTarget: ${e.target.tagName} / offsetX: ${e.offsetX} / offsetY: ${e.offsetY}`;
+      $screen.textContent = `screenX: ${e.screenX} / screenY: ${e.screenY}`;
+    });
+  </script>
+</body>
+</html>
