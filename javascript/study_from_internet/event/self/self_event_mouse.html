@@ -6,33 +6,74 @@
   <style>
     body {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      font-size: 2rem;
     }
 
     .mouse {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       width: 200px;
-      font-size: 10rem;
-      line-height: 300px;
+      height: 150px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 1.75rem;
+    }
+
+    .mouse:hover {
+      box-shadow: 10px 5px 20px 5px red;
+    }
+
+    .descendant {
+      display: flex;
+      align-items: center;
+      background-color: rgb(128, 128, 128, 0.5);
+      border-radius: 20px;
+      height: 100px;
+      font-size: 1.5rem;
+    }
+
+    .move {
+      font-size: 3rem;
+    }
+
+    .before {
+      font-size: 1.25rem;
     }
   </style>
 </head>
-<body>
-  <div class="mouse"></div>
+<body class="body">
+  body
+  <div class="mouse">
+    mouse
+    <div class="descendant"></div>
+  </div>
+  <div class="move"></div>
+  <div class="before"></div>
 
   <script>
     const $mouse = document.querySelector('.mouse');
-    $mouse.textContent = 0;
+    const $move = document.querySelector('.move');
+    const $des = document.querySelector('.descendant');
+    const $before = document.querySelector('.before');
+    $move.textContent = 0;
+    $des.textContent = 'descendant';
 
     $mouse.addEventListener('mouseenter', (e) => {
       console.log('enter');
     });
 
+    $mouse.addEventListener('mouseleave', (e) => {
+      console.log('leave');
+    });
+
     $mouse.addEventListener('mouseover', (e) => {
       $mouse.style.backgroundColor = 'red';
+      $before.textContent = e.relatedTarget.className;
     });
 
     $mouse.addEventListener('mouseout', (e) => {
@@ -41,12 +82,15 @@
 
     $mouse.addEventListener('mousedown', (e) => {
       e.preventDefault();
-      e.target.textContent++;
-      e.target.style.color = 'yellow';
+      e.target.style.backgroundColor = 'yellow';
     });
 
     $mouse.addEventListener('mouseup', (e) => {
-      e.target.style.color = '';
+      e.target.style.backgroundColor = '';
+    });
+
+    $mouse.addEventListener('mousemove', (e) => {
+      $move.textContent++;
     });
   </script>
 </body>
