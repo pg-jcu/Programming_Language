@@ -15,4 +15,13 @@
 
 .ProductTable {
   border: 1px solid black;
+  width: 100%;
+}
+
+.ProductTable td {
+  padding-left: 10px;
+}
+
+.ProductTable th {
+  padding-left: 10px;
 }

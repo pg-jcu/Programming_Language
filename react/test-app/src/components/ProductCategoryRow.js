@@ -1,10 +1,11 @@
-function ProductCategoryRow() {
+function ProductCategoryRow({ category }) {
   return (
-    <div className="ProductCategoryRow">
-      ProductCategoryRow
-    </div>
-  )
-
+    <tr>
+      <th colSpan="2">
+        {category}
+      </th>
+    </tr>
+  );
 }
 
 export default ProductCategoryRow;

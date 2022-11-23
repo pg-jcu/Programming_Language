@@ -13,12 +13,38 @@ const products = [
 ];
 
 function FilterableProductTable() {
-  const [data, setData] = useState(products);
+  const [state, setState] = useState({
+    filterText: '',
+    inStockOnly: false
+  });
+
+  const handleFilterTextChange = (filterText) => {
+    setState({
+      ...state,
+      filterText: filterText
+    });
+  };
+
+  const handleInStockChange = (inStockOnly) => {
+    setState({
+      ...state,
+      inStockOnly: inStockOnly
+    });
+  };
+
   return (
     <div className="FilterableProductTable">
-      FilterableProductTable
-      <SearchBar />
-      <ProductTable data={data} />
+      <SearchBar 
+        filterText={state.filterText}
+        inStockOnly={state.inStockOnly}
+        onFilterTextChange={handleFilterTextChange}
+        onInStockChange={handleInStockChange}
+      />
+      <ProductTable  
+        products={products}
+        filterText={state.filterText}
+        inStockOnly={state.inStockOnly}
+      />
     </div>
   );
 }
