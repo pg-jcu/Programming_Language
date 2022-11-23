@@ -13,15 +13,26 @@
   padding: 10px;
 }
 
+.SearchBar input[type=checkbox] {
+  vertical-align: middle;
+}
+
+.SearchBar label {
+  font-size: 0.8rem;
+}
+
 .ProductTable {
-  border: 1px solid black;
+  border-collapse: collapse;
   width: 100%;
 }
 
 .ProductTable td {
+  border: 1px solid black;
   padding-left: 10px;
 }
 
 .ProductTable th {
+  border: 1px solid black;
+  text-align: left;
   padding-left: 10px;
 }
