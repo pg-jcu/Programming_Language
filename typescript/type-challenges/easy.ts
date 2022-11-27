@@ -42,3 +42,6 @@ type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y
 type Includes<T extends readonly any[], U> = T extends [infer First, ...infer Rest]
   ? Equal<First, U> extends true ? true : Includes<Rest, U>
   : false;
+
+// 3057 - Push
+type Push<T extends any[], U> = [...T, U];
