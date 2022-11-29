@@ -45,3 +45,6 @@ type Includes<T extends readonly any[], U> = T extends [infer First, ...infer Re
 
 // 3057 - Push
 type Push<T extends any[], U> = [...T, U];
+
+// 3060 - Unshift
+type Unshift<T extends any[], U> = [U, ...T];
