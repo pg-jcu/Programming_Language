@@ -48,3 +48,6 @@ type Push<T extends any[], U> = [...T, U];
 
 // 3060 - Unshift
 type Unshift<T extends any[], U> = [U, ...T];
+
+// 3312 - Parameters
+type MyParameters<T extends (...args: any[]) => any> = T extends (...args: infer U) => any ? [...U] : any;
