@@ -12,3 +12,19 @@ type MyReadonly2<T, K extends keyof T = keyof T> = {
 } & {
   readonly [P in K]: T[P]
 };
+
+// 9 - Deep Readonly
+type DeepReadonly<T> = T extends Function ? 
+  T : { readonly [key in keyof T]: DeepReadonly<T[key]> };
+
+// 10 - Tuple to Union
+type TupleToUnion<T extends unknown[]> = T[number];
+
+// 12 - Chainable Options
+type Chainable<R = {}> = {
+  option<K extends string, V>(
+    key: K extends keyof R ? never : K, 
+    value: V)
+    : Chainable<Omit<R, K> & { [key in K]: V }>,
+  get(): R
+};
