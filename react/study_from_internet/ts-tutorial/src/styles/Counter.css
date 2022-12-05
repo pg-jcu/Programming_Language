@@ -1,3 +1,8 @@
 .Counter {
   text-align: center;
 }
+
+.Counter h2 {
+  margin-top: 0px;
+  margin-bottom: 5px;
+}

@@ -1,3 +1,7 @@
 .Greetings {
   text-align: center;
 }
+
+.Greetings p {
+  margin-bottom: 0px;
+}
