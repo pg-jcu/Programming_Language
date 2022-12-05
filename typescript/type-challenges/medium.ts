@@ -28,3 +28,7 @@ type Chainable<R = {}> = {
     : Chainable<Omit<R, K> & { [key in K]: V }>,
   get(): R
 };
+
+// 15 - Last of Array
+type Last<T extends any[]> = T extends [...infer _, infer L] ? L : never;
+// type Last<T extends any[]> = [any, ...T][T['length']];
