@@ -1,0 +1,9 @@
+.ReducerSample {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ReducerSample p {
+  margin: 8px 0px;
+}
