@@ -1,4 +1,5 @@
-// Type
+export {};
+
 let count = 0;
 count += 1;
 // count = 'text'; // ts2322
