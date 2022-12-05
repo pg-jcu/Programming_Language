@@ -14,7 +14,7 @@ function App() {
       <hr />
       <Greetings name="jeong" onClick={onClick} />
       <hr />
-      <Counter />
+      <Counter initialCount={0} />
       <hr />
       <MyForm />
       <hr />
