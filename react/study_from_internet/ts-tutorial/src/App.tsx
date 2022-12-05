@@ -1,5 +1,6 @@
-import './App.css';
+import './styles/App.css';
 import Greetings from './Greetings';
+import Counter from './Counter';
 
 function App() {
   const onClick = (name: string) => {
@@ -7,7 +8,11 @@ function App() {
   };
   return (
     <div className="App">
+      <h1>React TypeScript</h1>
+      <hr />
       <Greetings name="jeong" onClick={onClick} />
+      <hr />
+      <Counter />
     </div>
   );
 }

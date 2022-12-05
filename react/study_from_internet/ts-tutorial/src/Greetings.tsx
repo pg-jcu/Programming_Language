@@ -1,3 +1,5 @@
+import "./styles/Greetings.css";
+
 interface GreetingsProps {
   name: string;
   mark: string;
@@ -8,7 +10,7 @@ interface GreetingsProps {
 function Greetings({ name, mark, optional, onClick }: GreetingsProps) {
   const handleClick = () => onClick(name);
   return (
-    <div>
+    <div className="Greetings">
       Hello, {name} {mark}
       {optional && <p>{optional}</p>}
       <p>
