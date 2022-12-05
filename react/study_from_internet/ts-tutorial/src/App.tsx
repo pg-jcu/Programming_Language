@@ -1,6 +1,7 @@
 import './styles/App.css';
 import Greetings from './Greetings';
 import Counter from './Counter';
+import MyForm from './MyForm';
 
 function App() {
   const onClick = (name: string) => {
@@ -13,6 +14,9 @@ function App() {
       <Greetings name="jeong" onClick={onClick} />
       <hr />
       <Counter />
+      <hr />
+      <MyForm />
+      <hr />
     </div>
   );
 }
