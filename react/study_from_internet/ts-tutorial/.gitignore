@@ -1,0 +1,5 @@
+/node_modules
+/public/*.ico
+/public/*.png
+/public/*.json
+/public/*.txt
