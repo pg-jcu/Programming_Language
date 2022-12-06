@@ -4,6 +4,7 @@ import Counter from './components/Counter';
 import MyForm from './components/MyForm';
 import ReducerSample from './components/ReducerSample';
 import TodoForm from './components/todo/TodoForm';
+import TodoList from './components/todo/TodoList';
 
 function App() {
   const onClick = (name: string) => {
@@ -22,6 +23,7 @@ function App() {
       <ReducerSample />
       <hr />
       <TodoForm />
+      <TodoList />
     </div>
   );
 }
