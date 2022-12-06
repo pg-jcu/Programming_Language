@@ -11,7 +11,7 @@ function Greetings({ name, mark, optional, onClick }: GreetingsProps) {
   const handleClick = () => onClick(name);
   return (
     <div className="Greetings">
-      Hello, {name} {mark}
+      Hello, {name}{mark}
       {optional && <p>{optional}</p>}
       <p>
         <button onClick={handleClick}>click</button>

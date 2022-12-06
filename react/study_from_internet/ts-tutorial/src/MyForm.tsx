@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./styles/MyForm.css";
 
 interface Form {
@@ -7,6 +7,7 @@ interface Form {
 }
 
 function MyForm() {
+  const inputRef = useRef<HTMLInputElement>(null);
   const [form, setForm] = useState<Form>({
     name: '',
     description: '',
@@ -26,12 +27,16 @@ function MyForm() {
       name: '',
       description: '',
     });
+    if (!inputRef.current) {
+      return;
+    }
+    inputRef.current.focus();
   };
 
   return (
     <div className="MyForm">
       <form onSubmit={onSubmit}>
-        <input name="name" value={name} onChange={onChange} />
+        <input name="name" value={name} onChange={onChange} ref={inputRef} />
         <input name="description" value={description} onChange={onChange} />
         <button type="submit">submit</button>
       </form>
