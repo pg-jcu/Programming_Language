@@ -32,3 +32,6 @@ type Chainable<R = {}> = {
 // 15 - Last of Array
 type Last<T extends any[]> = T extends [...infer _, infer L] ? L : never;
 // type Last<T extends any[]> = [any, ...T][T['length']];
+
+// 16 - Pop
+type Pop<T extends any[]> = T extends [...infer R, infer _] ? R : [];
