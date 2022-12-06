@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import "./styles/Counter.css";
+import "../styles/Counter.css";
 
 interface State {
   count: number;

@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import "./styles/MyForm.css";
+import "../styles/MyForm.css";
 
 interface Form {
   name: string;

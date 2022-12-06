@@ -1,4 +1,4 @@
-import "./styles/Greetings.css";
+import "../styles/Greetings.css";
 
 interface GreetingsProps {
   name: string;

@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import "./styles/ReducerSample.css";
+import "../styles/ReducerSample.css";
 
 type Color = 'red' | 'orange' | 'yellow';
 
