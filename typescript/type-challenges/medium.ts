@@ -35,3 +35,13 @@ type Last<T extends any[]> = T extends [...infer _, infer L] ? L : never;
 
 // 16 - Pop
 type Pop<T extends any[]> = T extends [...infer R, infer _] ? R : [];
+
+// 20 - Promise.all
+type MyAwaited<T> = T extends Promise<infer R> ? R : T;
+
+type UnPromise<T extends readonly unknown[]> = T['length'] extends 0 ? 
+  [] : T extends readonly [infer F, ...infer R] ? 
+  [MyAwaited<F>, ...UnPromise<R>] : T extends (infer U | Promise<infer P>)[] ? 
+  (U | P)[] : T;
+
+declare function PromiseAll<T extends unknown[]>(values: readonly [...T]): Promise<UnPromise<T>>;
