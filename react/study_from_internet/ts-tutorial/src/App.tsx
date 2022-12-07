@@ -5,6 +5,7 @@ import MyForm from './components/MyForm';
 import ReducerSample from './components/ReducerSample';
 import TodoForm from './components/todo/TodoForm';
 import TodoList from './components/todo/TodoList';
+import { TodosContextProvider } from './contexts/TodosContext';
 
 function App() {
   const onClick = (name: string) => {
@@ -22,8 +23,10 @@ function App() {
       <hr />
       <ReducerSample />
       <hr />
-      <TodoForm />
-      <TodoList />
+      <TodosContextProvider>
+        <TodoForm />
+        <TodoList />
+      </TodosContextProvider>
     </div>
   );
 }

@@ -1,13 +1,8 @@
 import TodoItem from "./TodoItem";
+import { useTodosState } from '../../contexts/TodosContext';
 
 function TodoList() {
-  const todos = [
-    {
-      id: 1,
-      text: 'React',
-      done: true,
-    },
-  ];
+  const todos = useTodosState();
   return (
     <ul style={{ padding: '0px' }}>
       {todos.map(todo => (
