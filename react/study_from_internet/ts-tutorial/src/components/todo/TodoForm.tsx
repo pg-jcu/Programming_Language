@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTodosDispatch } from '../../contexts/TodosContext';
 
 function TodoForm() {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState<string>('');
   const dispatch = useTodosDispatch();
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
