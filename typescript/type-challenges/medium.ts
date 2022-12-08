@@ -45,3 +45,7 @@ type UnPromise<T extends readonly unknown[]> = T['length'] extends 0 ?
   (U | P)[] : T;
 
 declare function PromiseAll<T extends unknown[]>(values: readonly [...T]): Promise<UnPromise<T>>;
+
+// 62 - Type Lookup
+type LookUp<U, T> = U extends { type: T } ? U : never;
+// type LookUp<U, T> = Extract<U, { type: T }>
