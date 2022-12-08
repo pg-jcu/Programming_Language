@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Perspective</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .scene--red--blue {
+      display: flex;
+    }
+
+    .scene--red {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #CCC;
+      margin: 40px;
+    }
+
+    .panel--red {
+      width: 100%;
+      height: 100%;
+      background-color: red;
+      transform: perspective(600px) rotateY(45deg);
+    }
+
+    .panel--red--sperate {
+      width: 55px;
+      height: 55px;
+      float: left;
+      margin: 5px;
+      background-color: red;
+      transform: perspective(600px) rotateY(45deg);
+    }
+
+    .scene--blue {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #CCC;
+      margin: 40px;
+      perspective: 600px;
+    }
+
+    .panel--blue {
+      width: 100%;
+      height: 100%;
+      background-color: blue;
+      transform: rotateY(45deg);
+    }
+
+    .panel--blue--sperate {
+      width: 55px;
+      height: 55px;
+      float: left;
+      margin: 5px;
+      background-color: blue;
+      transform: rotateY(45deg);
+    }
+
+    hr {
+      width: 90%;
+    }
+
+    .scene--cube--total {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .scene--cube {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #CCC;
+      margin: 80px;
+      perspective: 400px;
+    }
+
+    .cube {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      transform-style: preserve-3d;
+      transform: translateZ(-100px);
+    }
+
+    .cube.is-spinning {
+      animation: spinCube 8s infinite ease-in-out;
+    }
+
+    @keyframes spinCube {
+        0% { transform: translateZ(-100px) rotateX(0deg) rotateY(0deg); }
+      100% { transform: translateZ(-100px) rotateX(360deg) rotateY(360deg); }
+    }
+
+    .cube__face {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border: 2px solid black;
+      line-height: 200px;
+      font-size: 40px;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+    }
+
+    .cube__face--front { 
+      background: hsla(0, 100%, 50%, 0.7); 
+      transform: rotateY(0deg) translateZ(100px); 
+    }
+    .cube__face--right { 
+      background: hsla(60, 100%, 50%, 0.7); 
+      transform: rotateY(90deg) translateZ(100px); 
+    }
+    .cube__face--back { 
+      background: hsla(120, 100%, 50%, 0.7); 
+      transform: rotateY(180deg) translateZ(100px); 
+    }
+    .cube__face--left { 
+      background: hsla(180, 100%, 50%, 0.7); 
+      transform: rotateY(-90deg) translateZ(100px); 
+    }
+    .cube__face--top { 
+      background: hsla(240, 100%, 50%, 0.7); 
+      transform: rotateX( 90deg) translateZ(100px); 
+    }
+    .cube__face--bottom { 
+      background: hsla(300, 100%, 50%, 0.7); 
+      transform: rotateX(-90deg) translateZ(100px);
+    }
+
+    .cube.is-backface-hidden .cube__face {
+      backface-visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="scene--red--blue">
+    <div class="scene--red">
+      <div class="panel--red"></div>
+    </div>
+    <div class="scene--red">
+      <div class="panel--red--sperate"></div>
+      <div class="panel--red--sperate"></div>
+      <div class="panel--red--sperate"></div>
+      <div class="panel--red--sperate"></div>
+      <div class="panel--red--sperate"></div>
+      <div class="panel--red--sperate"></div>
+      <div class="panel--red--sperate"></div>
+      <div class="panel--red--sperate"></div>
+      <div class="panel--red--sperate"></div>
+    </div>
+    <div class="scene--blue">
+      <div class="panel--blue"></div>
+    </div>
+    <div class="scene--blue">
+      <div class="panel--blue--sperate"></div>
+      <div class="panel--blue--sperate"></div>
+      <div class="panel--blue--sperate"></div>
+      <div class="panel--blue--sperate"></div>
+      <div class="panel--blue--sperate"></div>
+      <div class="panel--blue--sperate"></div>
+      <div class="panel--blue--sperate"></div>
+      <div class="panel--blue--sperate"></div>
+      <div class="panel--blue--sperate"></div>
+    </div>
+  </div>
+  <hr />
+  <div class="scene--cube--total">
+    <div class="scene--cube">
+      <div class="cube">
+        <div class="cube__face cube__face--front">front</div>
+        <div class="cube__face cube__face--back">back</div>
+        <div class="cube__face cube__face--right">right</div>
+        <div class="cube__face cube__face--left">left</div>
+        <div class="cube__face cube__face--top">top</div>
+        <div class="cube__face cube__face--bottom">bottom</div>
+      </div>
+    </div>
+    <p>
+      <label>
+        perspective
+        <input class="perspective-range" type="range" min="1" max="1000" value="400" data-units="px" />
+      </label>
+    </p>
+    <p>
+      <label>
+        perspective-origin x
+        <input class="origin-x-range" type="range" min="0" max="100" value="50" data-units="%" />
+      </label>
+    </p>
+    <p>
+      <label>
+        perspective-origin y
+        <input class="origin-y-range" type="range" min="0" max="100" value="50" data-units="%" />
+      </label>
+    </p>
+    <p>
+      <label>
+        Spin cube
+        <input class="spin-cube-checkbox" type="checkbox" />
+      </label>
+    </p>
+    <p>
+      <label>
+        Backface visible
+        <input class="backface-checkbox" type="checkbox" checked />
+      </label>
+    </p>
+  </div>
+  <script>
+    function RangeDisplay(input) {
+      this.input = input;
+      this.output = document.createElement('span');
+      this.output.className = 'range-display';
+      this.units = this.input.getAttribute('data-units') || '';
+
+      const onChange = this.update.bind(this);
+      this.input.addEventListener('change', onChange);
+      this.input.addEventListener('input', onChange);
+
+      this.update();
+      this.input.parentNode.appendChild( this.output );
+    }
+
+    RangeDisplay.prototype.update = function() {
+      this.output.textContent = this.input.value + this.units;
+    };
+
+    const ranges = document.querySelectorAll('input[type="range"]');
+    for (let i = 0; i < ranges.length; i++) {
+      new RangeDisplay(ranges[i]);
+    }
+
+    const $sceneCube = document.querySelector('.scene--cube');
+    const $cube = document.querySelector('.cube');
+    let originX = 50;
+    let originY = 50;
+
+    function updatePerspectiveOrigin() {
+      $sceneCube.style.perspectiveOrigin = originX + '% ' + originY + '%';
+    }
+
+    const $perspectiveRange = document.querySelector('.perspective-range');
+    const $perspectiveDisplay = $perspectiveRange.parentNode.querySelector('.range-display');
+
+    function handlePerspectiveRange() {
+      let value = $perspectiveRange.value + 'px';
+
+      if (value == '1000px') {
+        value = 'none';
+        $perspectiveDisplay.textContent = 'none';
+      }
+
+      $sceneCube.style.perspective = value;
+    }
+
+    $perspectiveRange.addEventListener('change', handlePerspectiveRange);
+    $perspectiveRange.addEventListener('input', handlePerspectiveRange);
+
+    const $originXRange = document.querySelector('.origin-x-range');
+
+    function handleOriginXRange() {
+      originX = $originXRange.value;
+      updatePerspectiveOrigin();
+    }
+
+    $originXRange.addEventListener('change', handleOriginXRange);
+    $originXRange.addEventListener('input', handleOriginXRange);
+
+    const $originYRange = document.querySelector('.origin-y-range');
+    
+    function handleOriginYRange() {
+      originY = $originYRange.value;
+      updatePerspectiveOrigin();
+    }
+
+    $originYRange.addEventListener('change', handleOriginYRange);
+    $originYRange.addEventListener('input', handleOriginYRange);
+
+    const $spinCubeCheckbox = document.querySelector('.spin-cube-checkbox');
+    $spinCubeCheckbox.addEventListener('change', () => {
+      $cube.classList.toggle('is-spinning', $spinCubeCheckbox.checked);
+    });
+
+    const $backfaceCheckbox = document.querySelector('.backface-checkbox');
+    $backfaceCheckbox.addEventListener('change', () => {
+      $cube.classList.toggle('is-backface-hidden', !$backfaceCheckbox.checked);
+    });
+  </script>
+</body>
+</html>
