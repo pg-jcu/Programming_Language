@@ -49,3 +49,10 @@ declare function PromiseAll<T extends unknown[]>(values: readonly [...T]): Promi
 // 62 - Type Lookup
 type LookUp<U, T> = U extends { type: T } ? U : never;
 // type LookUp<U, T> = Extract<U, { type: T }>
+
+// 106 - Trim Left
+type TrimLeft<S extends string> = S extends `${' ' | '\t' | '\n'}${infer T}` ? TrimLeft<T> : S;
+
+// 108 - Trim
+type Whitespace = ' ' | '\n' | '\t';
+type Trim<S extends string> = S extends `${Whitespace}${infer T}` | `${infer T}${Whitespace}` ? Trim<T> : S;
