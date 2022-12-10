@@ -56,3 +56,11 @@ type TrimLeft<S extends string> = S extends `${' ' | '\t' | '\n'}${infer T}` ? T
 // 108 - Trim
 type Whitespace = ' ' | '\n' | '\t';
 type Trim<S extends string> = S extends `${Whitespace}${infer T}` | `${infer T}${Whitespace}` ? Trim<T> : S;
+
+// 110 - Capitalize
+type MyCapitalize<S extends string> = S extends `${infer F}${infer R}` ? `${Uppercase<F>}${R}` : S;
+
+// 116 - Replace
+type Replace<S extends string, From extends string, To extends string> = 
+  From extends '' ? S : S extends `${infer F}${From}${infer R}` ? `${F}${To}${R}` : S;
+
