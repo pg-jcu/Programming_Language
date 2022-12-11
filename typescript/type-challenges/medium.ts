@@ -32,6 +32,7 @@ type Chainable<R = {}> = {
 // 15 - Last of Array
 type Last<T extends any[]> = T extends [...infer _, infer L] ? L : never;
 // type Last<T extends any[]> = [any, ...T][T['length']];
+export {};
 
 // 16 - Pop
 type Pop<T extends any[]> = T extends [...infer R, infer _] ? R : [];
@@ -63,4 +64,3 @@ type MyCapitalize<S extends string> = S extends `${infer F}${infer R}` ? `${Uppe
 // 116 - Replace
 type Replace<S extends string, From extends string, To extends string> = 
   From extends '' ? S : S extends `${infer F}${From}${infer R}` ? `${F}${To}${R}` : S;
-
