@@ -4,14 +4,17 @@
   <meta charset="UTF-8">
   <title>Card flip</title>
   <style>
+    body {
+      display: flex;
+      justify-content: space-around;
+      padding-top: 100px;
+    }
+
     .scene {
       width: 200px;
       height: 260px;
       perspective: 600px;
       border: 1px solid #CCC;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 300px;
     }
 
     .card {
@@ -23,13 +26,23 @@
       cursor: pointer;
     }
 
+    .card-slide-flip {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+      transform-origin: center right;
+    }
+
     .card__face {
       position: absolute;
       height: 100%;
       width: 100%;
       backface-visibility: hidden;
       color: white;
-      font-size: 40px;
+      font-size: 30px;
       text-align: center;
       line-height: 260px;
     }
@@ -46,20 +59,35 @@
     .card.is-flipped {
       transform: rotateY(180deg);
     }
+
+    .card-slide-flip.is-flipped {
+      transform: translateX(-100%) rotateY(-180deg);
+    }
   </style>
 </head>
 <body>
   <div class="scene">
     <div class="card">
-      <div class="card__face card__face--front">front</div>
-      <div class="card__face card__face--back">back</div>
+      <div class="card__face card__face--front">Card Flip front</div>
+      <div class="card__face card__face--back">Card Flip back</div>
+    </div>
+  </div>
+  <div class="scene">
+    <div class="card-slide-flip">
+      <div class="card__face card__face--front">Slide-flip front</div>
+      <div class="card__face card__face--back">Slide-flip back</div>
     </div>
   </div>
   <script>
     const $card = document.querySelector('.card');
+    const $cardSF = document.querySelector('.card-slide-flip');
 
     $card.addEventListener('click', () => {
       $card.classList.toggle('is-flipped');
+    });
+
+    $cardSF.addEventListener('click', () => {
+      $cardSF.classList.toggle('is-flipped');
     });
   </script>
 </body>
