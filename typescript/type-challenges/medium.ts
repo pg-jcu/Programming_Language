@@ -64,3 +64,12 @@ type MyCapitalize<S extends string> = S extends `${infer F}${infer R}` ? `${Uppe
 // 116 - Replace
 type Replace<S extends string, From extends string, To extends string> = 
   From extends '' ? S : S extends `${infer F}${From}${infer R}` ? `${F}${To}${R}` : S;
+
+// 119 - ReplaceAll
+type ReplaceAll<S extends string, From extends string, To extends string> = 
+  From extends '' ? S : S extends `${infer F}${From}${infer R}` ? `${F}${To}${ReplaceAll<R, From, To>}` : S;
+
+// 191 - Append Argument
+type AppendArgument<Fn extends (...args: any[]) => any, A> = 
+  Fn extends (...args: infer Args) => infer R ? (...args: [...Args, A]) => R : never;
+
