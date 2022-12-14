@@ -1,0 +1,116 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #eee;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+table {
+  width: 300px;
+  text-align: left;
+}
+
+p {
+  width: 150px;
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid #ccc;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.map {
+  width: 300px;
+}
+
+.map > div {
+  border: 1px solid;
+  padding: 4px;
+  margin-bottom: 4px;
+}
+
+.map > div > div:last-child {
+  color: #4a4;
+  text-align: right;
+}
+
+.stack table {
+  margin-top: 24px;
+}
+
+.queue > div {
+  width: 400px;
+  height: 300px;
+  padding: 4px;
+  position: relative;
+  border: 1px solid;
+}
+
+.queue aside {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+}
