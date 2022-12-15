@@ -3,6 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import MapExample from "./MapExample";
 import MapExample2 from "./MapExample2";
 import SetExample from "./SetExample";
+import StackExample from "./StackExample";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Tab>Map</Tab>
           <Tab>Map2</Tab>
           <Tab>Set</Tab>
+          <Tab>Stack</Tab>
         </TabList>
         
         <TabPanel className="map">
@@ -22,6 +24,9 @@ function App() {
         </TabPanel>
         <TabPanel>
           <SetExample />
+        </TabPanel>
+        <TabPanel className="stack">
+          <StackExample />
         </TabPanel>
       </Tabs>
     </div>
