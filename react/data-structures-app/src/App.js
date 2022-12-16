@@ -4,6 +4,7 @@ import MapExample from "./MapExample";
 import MapExample2 from "./MapExample2";
 import SetExample from "./SetExample";
 import StackExample from "./StackExample";
+import QueueExample from "./QueueExample";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Tab>Map2</Tab>
           <Tab>Set</Tab>
           <Tab>Stack</Tab>
+          <Tab>Queue</Tab>
         </TabList>
         
         <TabPanel className="map">
@@ -27,6 +29,9 @@ function App() {
         </TabPanel>
         <TabPanel className="stack">
           <StackExample />
+        </TabPanel>
+        <TabPanel className="queue">
+          <QueueExample />
         </TabPanel>
       </Tabs>
     </div>
