@@ -5,6 +5,8 @@ import MapExample2 from "./MapExample2";
 import SetExample from "./SetExample";
 import StackExample from "./StackExample";
 import QueueExample from "./QueueExample";
+import TreeExample from "./TreeExample";
+import TreeExample2 from "./TreeExample2";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Tab>Set</Tab>
           <Tab>Stack</Tab>
           <Tab>Queue</Tab>
+          <Tab>Tree</Tab>
+          <Tab>Tree2</Tab>
         </TabList>
         
         <TabPanel className="map">
@@ -32,6 +36,12 @@ function App() {
         </TabPanel>
         <TabPanel className="queue">
           <QueueExample />
+        </TabPanel>
+        <TabPanel>
+          <TreeExample />
+        </TabPanel>
+        <TabPanel>
+          <TreeExample2 />
         </TabPanel>
       </Tabs>
     </div>
