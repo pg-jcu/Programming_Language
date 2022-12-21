@@ -1,22 +1,22 @@
 fn main() {
     println!("Practice 3.1");
-    practice3_1();
+    practice_3_1();
     println!("---------------------------");
 
     println!("Practice 3.2");
-    practice3_2();
+    practice_3_2();
     println!("---------------------------");
 
     println!("Practice 3.3");
-    println!("practice3_3 return: {}", practice3_3(3));
+    println!("practice3_3 return: {}", practice_3_3(3));
     println!("---------------------------");
 
     println!("Practice 3.5");
-    practice3_5(5);
+    practice_3_5(5);
     println!("---------------------------");
 }
 
-fn practice3_1() {
+fn practice_3_1() {
     let mut x = 5;
     println!("The value of x is: {}", x);
     x = 6;
@@ -31,7 +31,7 @@ fn practice3_1() {
     println!("The value of y is: {}", y);
 }
 
-fn practice3_2() {
+fn practice_3_2() {
     let x = 2.0;
     let y: f32 = 3.0;
     let f: bool = false;
@@ -47,7 +47,7 @@ fn practice3_2() {
     println!("a[0] a[1] a[2]: {} {} {}", a[0], a[1], a[2]);
 }
 
-fn practice3_3(x: i32) -> i32 {
+fn practice_3_3(x: i32) -> i32 {
     println!("Param x: {}", x);
 
     let y = {
@@ -60,7 +60,7 @@ fn practice3_3(x: i32) -> i32 {
     5
 }
 
-fn practice3_5(number: i32) {
+fn practice_3_5(number: i32) {
     if number > 0 {
         println!("number > 0");
     } else if number < 0 {
