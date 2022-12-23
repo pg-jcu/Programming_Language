@@ -7,6 +7,9 @@ fn main() {
     practice_4_2();
     println!("---------------------------");
 
+    println!("Practice 4.3");
+    practice_4_3();
+    println!("---------------------------");
 }
 
 fn practice_4_1() {
@@ -133,4 +136,37 @@ fn practice_4_2() {
 
     //     &s
     // }
+}
+
+fn practice_4_3() {
+    let s = String::from("String slice");
+    let word = first_word(&s[..]);
+    // let word = first_word(&s);
+
+    // s.clear(); // error
+
+    println!("String first word: {}", word);
+
+    let string_literal = "string literal";
+    let word = first_word(&string_literal[..]);
+    // let word = first_word(string_literal);
+
+    println!("string literal first word: {}", word);
+
+    let a = [1, 2, 3, 4, 5];
+    let slice = &a[1..3];
+
+    println!("array slice: {:?}", slice);
+
+    fn first_word(s: &str) -> &str {
+        let bytes = s.as_bytes();
+
+        for (i, &item) in bytes.iter().enumerate() {
+            if item == b' ' {
+                return &s[0..i];
+            }
+        }
+
+        &s[..]
+    }
 }
