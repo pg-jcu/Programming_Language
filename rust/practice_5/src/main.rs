@@ -2,6 +2,10 @@ fn main() {
     println!("Practice 5.1");
     practice_5_1();
     println!("---------------------------");
+
+    println!("Practice 5.2");
+    practice_5_2();
+    println!("---------------------------");
 }
 
 fn practice_5_1() {
@@ -63,4 +67,25 @@ fn practice_5_1() {
 
     println!("black: {} {} {}", black.0, black.1, black.2);
     println!("origin: {} {} {}", origin.0, origin.1, origin.2);
+}
+
+fn practice_5_2() {
+    #[derive(Debug)]
+    struct Rectangle {
+        length: u32,
+        width: u32,
+    }
+
+    let rect1 = Rectangle { length: 50, width: 30 };
+
+    println!(
+        "The area of the rectangle is {} square pixels.",
+        area(&rect1)
+    );
+
+    fn area(rectangle: &Rectangle) -> u32 {
+        rectangle.length * rectangle.width
+    }
+
+    println!("rect1 is {:?}", rect1);
 }
