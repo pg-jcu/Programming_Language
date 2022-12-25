@@ -2,6 +2,10 @@ fn main() {
     println!("Practice 6.1");
     practice_6_1();
     println!("---------------------------");
+
+    println!("Practice 6.2");
+    practice_6_2();
+    println!("---------------------------");
 }
 
 fn practice_6_1() {
@@ -57,4 +61,58 @@ fn practice_6_1() {
     // let y: Option<i8> = Some(5);
 
     // let sum = x + y; // error
+}
+
+fn practice_6_2() {
+    enum Coin {
+        Penny,
+        Nickel,
+        Dime,
+        Quarter(String),
+    }
+
+    fn value_in_cents(coin: Coin) -> u32 {
+        match coin {
+            Coin::Penny => {
+                println!("Lucky penny!");
+                1
+            }
+            Coin::Nickel => 5,
+            Coin::Dime => 10,
+            Coin::Quarter(state) => {
+                println!("State quarter from {:?}!", state);
+                25
+            },
+        }
+    }
+
+    value_in_cents(Coin::Penny);
+    println!("Nickel: {}", value_in_cents(Coin::Nickel));
+    println!("Dime: {}", value_in_cents(Coin::Dime));
+    value_in_cents(Coin::Quarter(String::from("Alaska")));
+
+    fn plus_one(x: Option<i32>) -> Option<i32> {
+        match x {
+            None => None,
+            Some(i) => Some(i + 1),
+        }
+    }
+
+    let five = Some(5);
+    let six = plus_one(five);
+    let none = plus_one(None);
+
+    println!("five: {:?}", five);
+    println!("six: {:?}", six);
+    println!("none: {:?}", none);
+
+    let some_u8_value = 9;
+
+    match some_u8_value {
+        1 => println!("one"),
+        3 => println!("three"),
+        5 => println!("five"),
+        7 => println!("seven"),
+        _ => (),
+    }
 }
