@@ -1,0 +1,2 @@
+fn connect() { // client::connect
+}
