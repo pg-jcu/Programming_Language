@@ -1,2 +1,2 @@
-fn connect() { // client::connect
+pub fn connect() { // client::connect
 }

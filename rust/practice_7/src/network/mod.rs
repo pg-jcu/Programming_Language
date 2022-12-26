@@ -1,7 +1,7 @@
-fn connect() { // network::connect
+pub fn connect() { // network::connect
 }
 
-mod server {
-    fn connect() { // network::server::connect
+pub mod server {
+    pub fn connect() { // network::server::connect
     }
 }
