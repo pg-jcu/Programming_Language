@@ -6,6 +6,10 @@ fn main() {
     println!("Practice 6.2");
     practice_6_2();
     println!("---------------------------");
+
+    println!("Practice 6.3");
+    practice_6_3();
+    println!("---------------------------");
 }
 
 fn practice_6_1() {
@@ -114,5 +118,17 @@ fn practice_6_2() {
         5 => println!("five"),
         7 => println!("seven"),
         _ => (),
+    }
+}
+
+fn practice_6_3() {
+    let is_three = Some(3);
+
+    println!("Is three? {:?}", is_three);
+
+    if let Some(3) = is_three {
+        println!("YES");
+    } else {
+        println!("NO");
     }
 }
