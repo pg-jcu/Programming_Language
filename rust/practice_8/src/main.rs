@@ -2,6 +2,10 @@ fn main() {
     println!("Practice 8.1");
     practice_8_1();
     println!("---------------------------");
+
+    println!("Practice 8.2");
+    practice_8_2();
+    println!("---------------------------");
 }
 
 fn practice_8_1() {
@@ -65,4 +69,71 @@ fn practice_8_1() {
     ];
 
     println!("SpreadsheetCell row: {:?}", row);
+}
+
+fn practice_8_2() {
+    let s1 = String::new();
+
+    println!("s1: {}", s1);
+
+    let data = "initial contents";
+
+    println!("data: {}", data);
+
+    let s2 = data.to_string();
+
+    println!("s2: {}", s2);
+
+    let s3 = "to_string".to_string();
+
+    println!("s3: {}", s3);
+
+    let s4 = String::from("String::from");
+
+    println!("s4: {}", s4);
+
+    let mut s5 = String::from("foo");
+    s5.push_str("bar");
+
+    println!("s5.push_str(bar): {}", s5);
+
+    let s6 = "baz";
+    s5.push_str(&s6);
+
+    println!("s5.push_str(&s6): {}", s5);
+
+    let mut s7 = String::from("lo");
+    s7.push('l');
+
+    println!("s7: {}", s7);
+
+    let s8 = String::from("Hello, ");
+    let s9 = String::from("world!");
+    let s10 = s8 + &s9;
+
+    println!("s10 = s8 + &s9: {}", s10);
+
+    let tic = String::from("tic");
+    let tac = String::from("tac");
+    let toe = String::from("toe");
+
+    let tictactoe = format!("{}-{}-{}", tic, tac, toe);
+    println!("tictactoe: {}", tictactoe);
+
+    // let s11 = String::from("hello");
+    // let h = s11[0]; // error
+
+    let rust = String::from("러스트");
+    println!("러스트 length: {}", rust.len());
+
+    let rust_0_3 = &rust[0..3];
+    println!("rust[0..3]: {}", rust_0_3);
+
+    for c in "러스트".chars() {
+        println!("{}", c);
+    }
+
+    for b in "러스트".bytes() {
+        println!("{}", b);
+    }
 }
