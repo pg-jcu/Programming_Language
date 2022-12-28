@@ -29,13 +29,12 @@ pub fn try_me() {
     outermost::inside::secret_function();
 }
 
-// #[cfg(test)]
-// mod tests {
-//     use super::*;
+#[cfg(test)]
+mod tests {
+    use super::client;
 
-//     #[test]
-//     fn it_works() {
-//         let result = add(2, 2);
-//         assert_eq!(result, 4);
-//     }
-// }
+    #[test]
+    fn it_works() {
+        client::connect();
+    }
+}
