@@ -13,12 +13,12 @@ fn main() {
 }
 
 fn practice_10_0() {
-    fn largest<T>(list: &[T]) -> T 
-        where T: PartialOrd + Copy
+    fn largest<T>(list: &[T]) -> &T 
+        where T: PartialOrd
     {
-        let mut largest = list[0];
+        let mut largest = &list[0];
 
-        for &item in list.iter() {
+        for item in list {
             if item > largest {
                 largest = item;
             }
