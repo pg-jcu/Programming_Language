@@ -6,6 +6,10 @@ fn main() {
     println!("Practice 10.1");
     practice_10_1();
     println!("---------------------------");
+
+    println!("Practice 10.2");
+    practice_10_2();
+    println!("---------------------------");
 }
 
 fn practice_10_0() {
@@ -58,4 +62,55 @@ fn practice_10_1() {
     println!("&p1.x = {}", p1.x());
     println!("p1.x = {}", p1.x);
     println!("p4.y = {}", p4.y);
+}
+
+fn practice_10_2() {
+    extern crate practice_10;
+
+    use practice_10::Tweet;
+    use practice_10::NewsArticle;
+    use practice_10::Summarizable;
+
+    let tweet = Tweet {
+        username: String::from("jeong"),
+        content: String::from("jeong is ..."),
+        reply: false,
+        retweet: false,
+    };
+
+    println!("1 new tweet: {}", tweet.summary());
+
+    let article = NewsArticle {
+        headline: String::from("..."),
+        location: String::from("..."),
+        author: String::from("jeong"),
+        content: String::from("..."),
+    };
+
+    println!("New article available! {}", article.summary());
+
+    struct WeatherForecast {
+        high_temp: f64,
+        low_temp: f64,
+        chance_of_precipitation: f64,
+    }
+
+    impl Summarizable for WeatherForecast {
+        fn author_summary(&self) -> String {
+            String::from("...")
+        }
+
+        fn summary(&self) -> String {
+            format!("The high will be {}, and the low will be {}. The chance of precipitation is {}%.", 
+            self.high_temp, self.low_temp, self.chance_of_precipitation)
+        }
+    }
+
+    let wheater_forecast = WeatherForecast {
+        high_temp: 0.1,
+        low_temp: -10.2,
+        chance_of_precipitation: 40.6,
+    };
+
+    println!("{}", wheater_forecast.summary());
 }
