@@ -13,7 +13,9 @@ fn main() {
 }
 
 fn practice_10_0() {
-    fn largest(list: &[i32]) -> i32 {
+    fn largest<T>(list: &[T]) -> T 
+        where T: PartialOrd + Copy
+    {
         let mut largest = list[0];
 
         for &item in list.iter() {
