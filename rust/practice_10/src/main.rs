@@ -10,6 +10,10 @@ fn main() {
     println!("Practice 10.2");
     practice_10_2();
     println!("---------------------------");
+
+    println!("Practice 10.3");
+    practice_10_3();
+    println!("---------------------------");
 }
 
 fn practice_10_0() {
@@ -115,4 +119,51 @@ fn practice_10_2() {
     };
 
     println!("{}", wheater_forecast.summary());
+}
+
+fn practice_10_3() {
+    let string1 = String::from("abcd");
+    let string2 = "xyz";
+
+    let result = longest(string1.as_str(), string2);
+    println!("The longest string is {}", result);
+
+    fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
+        if x.len() > y.len() {
+            x
+        } else {
+            y
+        }
+    }
+
+    struct ImportantExcerpt<'a> {
+        part: &'a str,
+    }
+
+    let novel = String::from("Call me jeong. Some years ago...");
+    let first_sentence = novel.split('.').next().expect("Could not find a '.'");
+    let i = ImportantExcerpt { part: first_sentence };
+
+    println!("{}", i.part);
+
+    let s: &'static str = "I have a static lifetime.";
+
+    println!("s: {}", s);
+
+    use std::fmt::Display;
+
+    fn longest_with_an_announcement<'a, T>(x: &'a str, y: &'a str, ann: T) -> &'a str
+        where T: Display
+    {
+        println!("Announcement! {}", ann);
+        if x.len() > y.len() {
+            x
+        } else {
+            y
+        }
+    }
+
+    let test = "test";
+    let result = longest_with_an_announcement(string1.as_str(), string2, test);   
+    println!("longest_with_an_announcement result: {}", result);
 }
