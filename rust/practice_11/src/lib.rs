@@ -35,6 +35,11 @@ impl Guess {
     }
 }
 
+pub fn prints_and_returns_10(a: i32) -> i32 {
+    println!("I got the value {}", a);
+    10
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -45,10 +50,11 @@ mod tests {
         assert_eq!(result, 4);
     }
 
-    // #[test]
-    // fn another() {
-    //     panic!("Make this test fail");
-    // }
+    #[test]
+    #[ignore]
+    fn another() {
+        panic!("Make this test fail");
+    }
 
     #[test]
     fn larger_can_hold_smaller() {
@@ -79,5 +85,18 @@ mod tests {
     #[should_panic(expected = "Guess value must be less than or equal to 100")]
     fn greater_than_100() {
         Guess::new(200);
+    }
+
+    #[test]
+    fn this_test_will_pass() {
+        let value = prints_and_returns_10(4);
+        assert_eq!(10, value);
+    }
+
+    #[test]
+    #[ignore]
+    fn this_test_will_fail() {
+        let value = prints_and_returns_10(8);
+        assert_eq!(5, value);
     }
 }
