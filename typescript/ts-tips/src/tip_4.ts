@@ -22,3 +22,5 @@ const myShapes: Shape[] = getShapes();
 
 // now you get Rect[] type inferred correctly
 const rects = myShapes.filter(isRect);
+
+export {};
