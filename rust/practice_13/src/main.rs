@@ -9,6 +9,18 @@ fn main() {
         simulated_user_specified_value,
         simulated_random_number
     );
+
+    let x1 = 4;
+    let x2 = vec![1, 2, 3];
+
+    let equal_to_x1 = |z| z == x1;
+    let equal_to_x2 = move |z| z == x2;
+
+    let y1 = 4;
+    let y2 = vec![1, 2, 3];
+
+    assert!(equal_to_x1(y1));
+    assert!(equal_to_x2(y2));
 }
 
 fn generate_workout(intensity: u32, random_number: u32) {
