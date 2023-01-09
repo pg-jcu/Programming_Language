@@ -5,6 +5,10 @@ fn main() {
     println!("Practice 13.1");
     practice_13_1();
     println!("---------------------------");
+
+    println!("Practice 13.2");
+    practice_13_2();
+    println!("---------------------------");
 }
 
 fn practice_13_1() {
@@ -75,4 +79,30 @@ fn practice_13_1() {
             }
         }
     }
+}
+
+fn practice_13_2() {
+    let v1 = vec![1, 2, 3];
+    let v1_iter = v1.iter();
+
+    for val in v1_iter {
+        println!("Got: {}", val);
+    }
+
+    let v2 = vec![1, 2, 3];
+    let mut v2_iter = v2.iter();
+
+    assert_eq!(v2_iter.next(), Some(&1));
+    assert_eq!(v2_iter.next(), Some(&2));
+    assert_eq!(v2_iter.next(), Some(&3));
+    assert_eq!(v2_iter.next(), None);
+
+    let total: i32 = v2.iter().sum();
+
+    assert_eq!(total, 6);
+
+    let v3: Vec<i32> = vec![1, 2, 3];
+    let v4: Vec<_> = v3.iter().map(|x| x + 1).collect();
+
+    assert_eq!(v4, vec![2, 3, 4]);
 }
