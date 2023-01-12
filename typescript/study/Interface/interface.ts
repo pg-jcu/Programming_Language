@@ -1,7 +1,7 @@
 // Interface
 interface IUser {
-  name: string,
-  age: number
+  name: string;
+  age: number;
 }
 
 interface IUser {
@@ -10,14 +10,14 @@ interface IUser {
 }
 
 interface IUser {
-  name: string
-  age: number
+  name: string;
+  age: number;
 }
 
 interface IUser {
-  name: string,
-  age: number,
-  isAdult?: boolean // Optional property
+  name: string;
+  age: number;
+  isAdult?: boolean; // Optional property
 }
 
 let user: IUser = {

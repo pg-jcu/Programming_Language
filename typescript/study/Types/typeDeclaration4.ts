@@ -13,12 +13,12 @@ const never: [] = [];
 
 // Intersection
 interface IUser {
-  name: string,
-  age: number
+  name: string;
+  age: number;
 }
 
 interface IValidation {
-  isValid: boolean
+  isValid: boolean;
 }
 
 const heropy: IUser & IValidation = {

@@ -2,10 +2,10 @@
 // Pick<TYPE, KEY>
 
 interface IUserPick {
-  name: string,
-  age: number,
-  email: string,
-  isValid: boolean
+  name: string;
+  age: number;
+  email: string;
+  isValid: boolean;
 }
 
 type TKeyPick = 'name' | 'email';

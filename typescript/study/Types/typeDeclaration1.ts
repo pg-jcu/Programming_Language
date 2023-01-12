@@ -36,10 +36,10 @@ let array2: Array<string | number> = ['Apple', 1, 2, 'Bananan'];
 let anyArray: any[] = [0, 1, {}, [], false, 'str'];
 
 interface UserDe {
-  name: string,
-  age: number,
-  isValid: boolean
-};
+  name: string;
+  age: number;
+  isValid: boolean;
+}
 
 let userArray: UserDe[] = [
   {

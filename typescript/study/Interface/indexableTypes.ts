@@ -4,13 +4,13 @@
 // }
 
 interface IItem {
-  [itemIndex: number]: string | boolean | number[]
+  [itemIndex: number]: string | boolean | number[];
 }
 
 let item: IItem = ['Hello', false, [1, 2, 3]];
 
 interface IUserIndex {
-  [userProp: string]: string | boolean
+  [userProp: string]: string | boolean;
 }
 
 let userIndex: IUserIndex = {
@@ -23,9 +23,9 @@ console.log(userIndex['0']);
 
 // keyof
 interface ICountries {
-  KR: '대한민국',
-  US: '미국',
-  JP: '일본' 
+  KR: '대한민국';
+  US: '미국';
+  JP: '일본';
 }
 
 let country: keyof ICountries; // 'KR' | 'US' | 'JP'

@@ -1,8 +1,8 @@
 // Readonly
 
 interface IUserReadonly {
-  name: string,
-  age: number
+  name: string;
+  age: number;
 }
 
 const userReadonly: Readonly<IUserReadonly> = {

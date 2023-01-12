@@ -1,8 +1,8 @@
 // Partial
 
 interface IUserP {
-  name: string,
-  age: number
+  name: string;
+  age: number;
 }
 
 // const userAP: IUserP = { // ts2741

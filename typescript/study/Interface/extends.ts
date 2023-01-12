@@ -1,10 +1,10 @@
 // extends
 interface IAnimal {
-  name: string
+  name: string;
 }
 
 interface ICatEx extends IAnimal {
-  meow(): string
+  meow(): string;
 }
 
 // class Cats implements ICat { // error
@@ -14,12 +14,12 @@ interface ICatEx extends IAnimal {
 // }
 
 interface IFullName3 {
-  firstName: string,
-  lastName: string
+  firstName: string;
+  lastName: string;
 }
 
 interface IFullName3 {
-  middleName: string
+  middleName: string;
 }
 
 const fullName: IFullName3 = {

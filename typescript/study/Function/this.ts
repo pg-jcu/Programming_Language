@@ -2,7 +2,7 @@
 // compile option -> strict: true or strictBindCallApply: true
 
 interface IThis {
-  name: string
+  name: string;
 }
 
 const testThis: IThis = {

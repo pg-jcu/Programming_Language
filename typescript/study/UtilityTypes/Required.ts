@@ -1,8 +1,8 @@
 // Required
 
 interface IUserR {
-  name?: string,
-  age?: number
+  name?: string;
+  age?: number;
 }
 
 const userAR: IUserR = {

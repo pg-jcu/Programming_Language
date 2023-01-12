@@ -4,11 +4,11 @@
 // }
 
 interface IUser {
-  name: string
+  name: string;
 }
 
 interface IGetUser {
-  (name: string): IUser
+  (name: string): IUser;
 }
 
 const getUser: IGetUser = function(n) { // n is name: string

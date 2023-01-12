@@ -2,8 +2,8 @@
 // ThisType<TYPE>
 
 interface IUserTT {
-  name: string,
-  getName: () => string
+  name: string;
+  getName: () => string;
 }
 
 function makeJeong(methods: ThisType<IUserTT>) {

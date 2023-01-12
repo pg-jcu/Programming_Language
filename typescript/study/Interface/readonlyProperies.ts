@@ -1,7 +1,7 @@
 // Readonly properties
 interface IUserROP {
-  readonly name: string,
-  age: number
+  readonly name: string;
+  age: number;
 }
 
 let userROP: IUserROP = {
@@ -14,8 +14,8 @@ userROP.age = 10;
 
 // Readonly Utility
 interface IUserROU {
-  name: string,
-  age: number
+  name: string;
+  age: number;
 }
 
 let userROU: Readonly<IUserROU> = {

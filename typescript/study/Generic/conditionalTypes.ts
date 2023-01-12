@@ -6,14 +6,14 @@ type CT = string | number | boolean;
 type MyCType<T> = T extends CT ? string : never;
 
 interface ICTUser<T> {
-  name: string,
-  age: T extends CT ? number : never
+  name: string;
+  age: T extends CT ? number : never;
 }
 
 interface ICTUsers<T extends boolean> {
-  name: string,
-  age: T extends true ? string : number,
-  isString: T
+  name: string;
+  age: T extends true ? string : number;
+  isString: T;
 }
 
 type MyCTypes<T> = 

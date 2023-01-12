@@ -1,6 +1,6 @@
 declare module 'lodash' {
   interface ILodash {
-    camelCase(str?: string): string
+    camelCase(str?: string): string;
   }
 
   const _: ILodash;

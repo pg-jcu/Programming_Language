@@ -2,10 +2,10 @@
 // Omit<TYPE, KEY>
 
 interface IUserOmit {
-  name: string,
-  age: number,
-  email: string,
-  isValid: boolean
+  name: string;
+  age: number;
+  email: string;
+  isValid: boolean;
 }
 
 type TKeyOmit = 'name' | 'email';

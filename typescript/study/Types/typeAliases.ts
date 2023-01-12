@@ -2,9 +2,9 @@
 type MyType = string;
 type YourType = string | number | boolean;
 type TUser = {
-  name: string,
-  age: number,
-  isValid: boolean
+  name: string;
+  age: number;
+  isValid: boolean;
 } | [string, number, boolean];
 
 let userObj: TUser = {

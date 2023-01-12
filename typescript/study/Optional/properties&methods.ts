@@ -1,17 +1,17 @@
 // Properties & Methods
 interface IUserOp {
-  name: string,
-  age: number,
-  isAdult?: boolean
-  validate?(): boolean
+  name: string;
+  age: number;
+  isAdult?: boolean;
+  validate?(): boolean;
 }
 
 type TUserOp = {
-  name: string,
-  age: number,
-  isAdult?: boolean,
-  validate?(): boolean
-}
+  name: string;
+  age: number;
+  isAdult?: boolean;
+  validate?(): boolean;
+};
 
 abstract class CUserOp {
   abstract name: string;

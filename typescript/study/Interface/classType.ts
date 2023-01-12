@@ -1,7 +1,7 @@
 // Class type
 interface IUserClass {
-  name: string,
-  getName(): string
+  name: string;
+  getName(): string;
 }
 
 class User implements IUserClass {
@@ -20,7 +20,7 @@ jeong.getName();
 // }
 
 interface ICat {
-  name: string
+  name: string;
 }
 
 interface ICatConstructor {
@@ -39,8 +39,8 @@ const kitten = makeKitten(CatClass, 'Lucy');
 
 // example
 interface IFullName {
-  firstName: string,
-  lastName: string,
+  firstName: string;
+  lastName: string;
 }
 interface IFullNameConstructor {
   new(firstName: string): IFullName; // Construct signature
@@ -49,6 +49,7 @@ interface IFullNameConstructor {
 function makeSon(c: IFullNameConstructor, firstName: string) {
   return new c(firstName);
 }
+
 function getFullName(son: IFullName) {
   return `${son.firstName} ${son.lastName}`;
 }
@@ -60,16 +61,18 @@ class Anderson implements IFullName {
     this.lastName = 'Anderson';
   }
 }
+
 const tomas = makeSon(Anderson, 'Tomas');
 const jack = makeSon(Anderson, 'Jack');
 getFullName(tomas); // Tomas Anderson
 getFullName(jack); // Jack Anderson
 
 interface IFullName1 {
-  firstName: string,
-  lastName: string,
-  agentCode?: number
+  firstName: string;
+  lastName: string;
+  agentCode?: number;
 }
+
 interface IFullNameConstructor1 {
   new(firstName: string, agentCode: number): IFullName; // Construct signature
 }
@@ -85,6 +88,7 @@ class Smith implements IFullName1 {
 function makeSon1(c: IFullNameConstructor1, firstName: string, agentCode: number) {
   return new c(firstName, agentCode);
 }
+
 function getFullName1(son: IFullName1) {
   return `${son.firstName} ${son.lastName}`;
 }

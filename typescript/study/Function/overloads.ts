@@ -8,8 +8,8 @@ function add(a: any, b: any): any { // implementation signature
 // add('hello', 2); // ts2769
 
 interface IUserOverload {
-  name: string,
-  age: number,
+  name: string;
+  age: number;
   getData(x: string): string[];
   getData(x: number): string;
 }

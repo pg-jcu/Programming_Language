@@ -1,7 +1,7 @@
 // Constraints
 interface MyTypes<T extends string | number> {
-  name: string,
-  value: T
+  name: string;
+  value: T;
 }
 
 const dataA: MyTypes<string> = {
@@ -15,6 +15,6 @@ type U = string | number | boolean;
 type TMyType<T extends U> = string | T;
 
 interface IUserConst<T extends U> {
-  name: string,
-  age: T
+  name: string;
+  age: T;
 }
