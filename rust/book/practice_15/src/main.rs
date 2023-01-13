@@ -6,6 +6,10 @@ fn main() {
     println!("Practice 15.2");
     practice_15_2();
     println!("---------------------------");
+
+    println!("Practice 15.3");
+    practice_15_3();
+    println!("---------------------------");
 }
 
 fn practice_15_1() {
@@ -61,4 +65,22 @@ fn practice_15_2() {
     let m = MyBox::new(String::from("Rust"));
     hello(&m);
     hello(&(*m)[..]);
+}
+
+fn practice_15_3() {
+    struct CustomSmartPointer {
+        data: String,
+    }
+
+    impl Drop for CustomSmartPointer {
+        fn drop(&mut self) {
+            println!("Dropping CustomSmartPointer with data `{}`!", self.data);
+        }
+    }
+
+    let a = CustomSmartPointer { data: String::from("A") };
+    let b = CustomSmartPointer { data: String::from("B") };
+    let c = CustomSmartPointer { data: String::from("C") };
+    println!("CustomSmartPointers created.");
+    drop(a);
 }
