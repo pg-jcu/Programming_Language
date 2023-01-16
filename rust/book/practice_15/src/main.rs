@@ -14,6 +14,10 @@ fn main() {
     println!("Practice 15.4");
     practice_15_4();
     println!("---------------------------");
+
+    println!("Practice 15.5");
+    practice_15_5();
+    println!("---------------------------");
 }
 
 fn practice_15_1() {
@@ -107,4 +111,28 @@ fn practice_15_4() {
         println!("count after creating c = {}", Rc::strong_count(&a));
     }
     println!("count after c goes out of scope = {}", Rc::strong_count(&a));
+}
+
+fn practice_15_5() {
+    #[derive(Debug)]
+    enum List {
+        Cons(Rc<RefCell<i32>>, Rc<List>),
+        Nil,
+    }
+
+    use List::{Cons, Nil};
+    use std::rc::Rc;
+    use std::cell::RefCell;
+
+    let value = Rc::new(RefCell::new(5));
+
+    let a = Rc::new(Cons(Rc::clone(&value), Rc::new(Nil)));
+    let b = Cons(Rc::new(RefCell::new(6)), Rc::clone(&a));
+    let c = Cons(Rc::new(RefCell::new(10)), Rc::clone(&a));
+
+    *value.borrow_mut() += 10;
+
+    println!("a after = {:?}", a);
+    println!("b after = {:?}", b);
+    println!("c after = {:?}", c);
 }
