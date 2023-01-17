@@ -33,6 +33,40 @@ impl fmt::Display for Complex {
     }
 }
 
+struct List1(Vec<i32>);
+
+impl fmt::Display for List1 {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        let vec = &self.0;
+
+        write!(f, "[")?;
+
+        for (count, v) in vec.iter().enumerate() {
+            if count != 0 { write!(f, ", ")?; }
+            write!(f, "{}", v)?;
+        }
+
+        write!(f, "]")
+    }
+}
+
+struct List2(Vec<i32>);
+
+impl fmt::Display for List2 {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        let vec = &self.0;
+
+        write!(f, "[")?;
+
+        for (count, v) in vec.iter().enumerate() {
+            if count != 0 { write!(f, ", ")?; }
+            write!(f, "{}: {}", count, v)?;
+        }
+
+        write!(f, "]")
+    }
+}
+
 fn main() {
     let minmax = MinMax(0, 14);
 
@@ -58,4 +92,10 @@ fn main() {
     println!("Compare complexs:");
     println!("Display: {}", complex);
     println!("Debug: {:?}", complex);
+
+    let v1 = List1(vec![1, 2, 3]);
+    println!("{}", v1);
+
+    let v2 = List2(vec![1, 2, 3]);
+    println!("{}", v2);
 }
