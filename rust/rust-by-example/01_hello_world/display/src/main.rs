@@ -92,4 +92,11 @@ fn main() {
     println!("Compare complexs:");
     println!("Display: {}", complex);
     println!("Debug: {:?}", complex);
+
+    let v1 = List1(vec![1, 2, 3]);
+    let v2 = List2(vec![1, 2, 3]);
+
+    println!("Testcase: List");
+    println!("{}", v1);
+    println!("{}", v2);
 }
