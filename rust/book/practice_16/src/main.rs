@@ -21,4 +21,12 @@ fn practice_16_1() {
     }
 
     handle.join().unwrap();
+
+    let v = vec![1, 2, 3];
+
+    let handle_v = thread::spawn(move || {
+        println!("Here's a vector: {:?}", v);
+    });
+
+    handle_v.join().unwrap();
 }
