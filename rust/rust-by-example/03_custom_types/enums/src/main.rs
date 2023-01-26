@@ -18,6 +18,23 @@ fn inspect(event: WebEvent) {
     }
 }
 
+enum VeryVerboseEnumOfThingsToDoWithNumbers {
+    Add,
+    Subtract,
+}
+
+// Creates a type alias
+type Operations = VeryVerboseEnumOfThingsToDoWithNumbers;
+
+impl VeryVerboseEnumOfThingsToDoWithNumbers {
+    fn run(&self, x: i32, y: i32) -> i32 {
+        match self {
+            Self::Add => x + y,
+            Self::Subtract => x - y,
+        }
+    }
+}
+
 fn main() {
     let pressed = WebEvent::KeyPress('x');
     let pasted = WebEvent::Paste("my text".to_owned());
@@ -30,4 +47,10 @@ fn main() {
     inspect(click);
     inspect(load);
     inspect(unload);
+
+    let add = Operations::Add.run(1, 2);
+    let sub = Operations::Subtract.run(1, 2);
+
+    println!("Operations::Add -> 1 + 2 = {}", add);
+    println!("Operations::Subtract -> 1 - 2 = {}", sub);
 }
