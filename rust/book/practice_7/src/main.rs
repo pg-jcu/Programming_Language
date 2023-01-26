@@ -1,4 +1,6 @@
-extern crate practice_7;
+// extern crate practice_7;
+#![allow(dead_code)]
+#![allow(unused_imports)]
 
 enum TrafficLight {
   Red,
