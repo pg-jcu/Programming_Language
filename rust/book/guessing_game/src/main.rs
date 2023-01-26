@@ -1,4 +1,5 @@
-extern crate rand;
+// No more extern crate after 2018
+// extern crate rand;
 
 use std::io;
 use std::cmp::Ordering;
