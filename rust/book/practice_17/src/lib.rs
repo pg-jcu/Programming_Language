@@ -38,3 +38,32 @@ impl AveragedCollection {
         self.average = total as f64 / self.list.len() as f64;
     }
 }
+
+pub trait Draw {
+    fn draw(&self);
+}
+
+pub struct Screen {
+    pub components: Vec<Box<dyn Draw>>,
+}
+
+impl Screen {
+    pub fn run(&self) {
+        for component in self.components.iter() {
+            component.draw();
+        }
+    }
+}
+
+pub struct Button {
+    pub width: u32,
+    pub height: u32,
+    pub label: String,
+}
+
+impl Draw for Button {
+    fn draw(&self) {
+        println!("Button draw");
+        println!("width: {}, height: {}, label: {}", self.width, self.height, self.label);
+    }
+}
