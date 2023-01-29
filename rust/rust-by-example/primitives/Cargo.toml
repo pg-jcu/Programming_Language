@@ -1,5 +1,5 @@
 [package]
-name = "arrays_and_slices"
+name = "primitives"
 version = "0.1.0"
 edition = "2021"
 
