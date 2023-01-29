@@ -8,6 +8,10 @@ fn main() {
     println!("Practice 17.2");
     practice_17_2();
     println!("---------------------------");
+
+    println!("Practice 17.3");
+    practice_17_3();
+    println!("---------------------------");
 }
 
 fn practice_17_1() {
@@ -55,4 +59,19 @@ fn practice_17_2() {
     };
 
     screen.run();
+}
+
+fn practice_17_3() {
+    let mut post = Post::new();
+
+    post.add_text("I ate a salad for lunch today");
+    assert_eq!("", post.content());
+
+    post.request_review();
+    assert_eq!("", post.content());
+
+    post.approve();
+    assert_eq!("I ate a salad for lunch today", post.content());
+
+    println!("post content: {}", post.content());
 }
