@@ -2,6 +2,10 @@ fn main() {
     println!("Practice 18.1");
     practice_18_1();
     println!("---------------------------");
+
+    println!("Practice 18.2");
+    practice_18_2();
+    println!("---------------------------");
 }
 
 fn practice_18_1() {
@@ -47,3 +51,18 @@ fn practice_18_1() {
     print_coordinates(&point);
 }
 
+fn practice_18_2() {
+    let some_option_value: Option<i32> = Some(5);
+
+    // error: refutable pattern in local binding: `None` not covered
+    // let Some(x) = some_option_value;
+
+    if let Some(x) = some_option_value {
+        println!("{}", x);
+    }
+
+    // irrefutable `if let` pattern
+    // if let x = 5 {
+    //     println!("{}", x);
+    // }
+}
