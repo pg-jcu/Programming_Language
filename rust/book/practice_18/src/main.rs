@@ -172,4 +172,118 @@ fn practice_18_3() {
         .sum();
 
     println!("some of squares: {}", sum_of_squares);
+
+    let ((feet, inches), Point { x, y }) = ((3, 10), Point { x: 3, y: -10 });
+
+    println!("feat: {}, inches: {}, Point x, y: {}, {}", feet, inches, x, y);
+
+    fn foo(_: i32, y: i32) {
+        println!("This code only uses the y parameter: {}", y);
+    }
+
+    foo(3, 4);
+
+    let mut setting_value = Some(5);
+    let new_setting_value = Some(10);
+
+    match (setting_value, new_setting_value) {
+        (Some(_), Some(_)) => {
+            println!("Can't overwrite an existing customized value");
+        }
+        _ => {
+            setting_value = new_setting_value;
+        }
+    }
+
+    println!("setting is {:?}", setting_value);
+
+    let numbers = (2, 4, 8, 16, 32);
+
+    match numbers {
+        (first, _, third, _, fifth) => {
+            println!("Some numbers: {}, {}, {}", first, third, fifth)
+        },
+    }
+
+    let s = Some(String::from("Hello!"));
+
+    // Error
+    // if let Some(_s) = s {
+    //     println!("found a string");
+    // }
+
+    if let Some(_) = s {
+        println!("found a string");
+    }
+
+    println!("{:?}", s);
+
+    match numbers {
+        (first, .., last) => {
+            println!("Some numbers: {}, {}", first, last);
+        },
+    }
+
+    let robot_name = Some(String::from("Bors"));
+
+    match robot_name {
+        Some(ref name) => println!("Found a name: {}", name),
+        None => (),
+    }
+
+    println!("robot_name is: {:?}", robot_name);
+
+    let mut mut_robot_name = Some(String::from("Bors"));
+
+    match mut_robot_name {
+        Some(ref mut name) => *name = String::from("Another name"),
+        None => (),
+    }
+
+    println!("mut_robot_name is: {:?}", mut_robot_name);
+
+    let num = Some(4);
+
+    match num {
+        Some(x) if x < 5 => println!("less than five: {}", x),
+        Some(x) => println!("{}", x),
+        None => (),
+    }
+
+    let x = Some(5);
+    let y = 10;
+
+    match x {
+        Some(50) => println!("Got 50"),
+        Some(n) if n == y => println!("Matched, n = {:?}", n),
+        _ => println!("Default case, x = {:?}", x),
+    }
+
+    println!("at the end: x = {:?}, y = {:?}", x, y);
+
+    let x = 4;
+    let y = false;
+
+    match x {
+        4 | 5 | 6 if y => println!("yes"),
+        _ => println!("no"),
+    }
+
+    enum Msg {
+        Hello { id: i32 },
+    }
+
+    let msg = Msg::Hello { id: 5 };
+
+    match msg {
+        Msg::Hello { id: id_variable @ 3..=7 } => {
+            println!("Found an id in range: {}", id_variable)
+        },
+        Msg::Hello { id: 10..=12 } => {
+            println!("Found an id in another range")
+        },
+        Msg::Hello { id } => {
+            println!("Found some other id: {}", id)
+        },
+    }
 }
