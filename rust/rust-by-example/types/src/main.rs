@@ -8,6 +8,10 @@ fn main() {
     println!("literals");
     literals();
     println!("-------------------------");
+
+    println!("inference");
+    inference();
+    println!("-------------------------");
 }
 
 fn casting() {
@@ -96,4 +100,15 @@ fn literals() {
     println!("size of `z` in bytes: {}", mem::size_of_val(&z));
     println!("size of `i` in bytes: {}", mem::size_of_val(&i));
     println!("size of `f` in bytes: {}", mem::size_of_val(&f));
+}
+
+fn inference() {
+    let elem = 5u8;
+    // it just knows that it's a vector of something ('Vec<_>').
+    let mut vec = Vec::new();
+
+    // Now the compiler knows that 'vec' is a vector of 'u8's ('Vec<u8>').
+    vec.push(elem);
+
+    println!("vec: {:?}", vec);
 }
