@@ -12,6 +12,10 @@ fn main() {
     println!("inference");
     inference();
     println!("-------------------------");
+
+    println!("aliasing");
+    aliasing();
+    println!("-------------------------");
 }
 
 fn casting() {
@@ -111,4 +115,17 @@ fn inference() {
     vec.push(elem);
 
     println!("vec: {:?}", vec);
+}
+
+fn aliasing() {
+    // types must has UpperCamelCase names, or the compiler will raise a warning.
+    type NanoSecond = u64;
+    type Inch = u64;
+    type U64 = u64;
+
+    let nanoseconds: NanoSecond = 5 as U64;
+    let inches: Inch = 2 as U64;
+
+    println!("{} nanoseconds + {} inches = {} unit?",
+             nanoseconds, inches, nanoseconds + inches);
 }
