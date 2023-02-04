@@ -4,6 +4,10 @@ fn main() {
     println!("casting");
     casting();
     println!("-------------------------");
+
+    println!("literals");
+    literals();
+    println!("-------------------------");
 }
 
 fn casting() {
@@ -73,4 +77,23 @@ fn casting() {
         // nan as u8 is 0
         println!("   nan as u8 is : {}", f32::NAN.to_int_unchecked::<u8>());
     }
+}
+
+fn literals() {
+    use std::mem;
+
+    let x = 1u8;
+    let y = 2u32;
+    let z = 3f32;
+
+    // unsuffixed literals
+    // if no constraint exists, the compiler will use i32 for int, and f64 for float.
+    let i = 1;
+    let f = 1.0;
+
+    println!("size of 'x' in bytes: {}", mem::size_of_val(&x));
+    println!("size of `y` in bytes: {}", mem::size_of_val(&y));
+    println!("size of `z` in bytes: {}", mem::size_of_val(&z));
+    println!("size of `i` in bytes: {}", mem::size_of_val(&i));
+    println!("size of `f` in bytes: {}", mem::size_of_val(&f));
 }
