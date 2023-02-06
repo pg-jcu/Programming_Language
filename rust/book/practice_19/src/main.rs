@@ -63,4 +63,22 @@ fn practice_19_1() {
     unsafe {
         println!("Absolute value of -3 according to C: {}", abs(-3));
     }
+
+    static HELLO_WORLD: &str = "Hello, world!";
+
+    println!("name is: {}", HELLO_WORLD);
+
+    static mut COUNTER: u32 = 0;
+
+    fn add_to_count(inc: u32) {
+        unsafe {
+            COUNTER += inc;
+        }
+    }
+
+    add_to_count(3);
+
+    unsafe {
+        println!("COUNTER: {}", COUNTER);
+    }
 }
