@@ -1,0 +1,19 @@
+{
+  "name": "hello-wasm-npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "NODE_OPTIONS=--openssl-legacy-provider webpack-dev-server"
+  },
+  "dependencies": {
+    "@seeyoujeong/hello-wasm": "../hello-wasm/pkg"
+  },
+  "devDependencies": {
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "author": "",
+  "license": "ISC"
+}
