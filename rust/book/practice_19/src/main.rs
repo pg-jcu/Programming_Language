@@ -2,6 +2,10 @@ fn main() {
     println!("Practice 19.1");
     practice_19_1();
     println!("---------------------------");
+
+    println!("Practice 19.2");
+    practice_19_2();
+    println!("---------------------------");
 }
 
 fn practice_19_1() {
@@ -80,5 +84,20 @@ fn practice_19_1() {
 
     unsafe {
         println!("COUNTER: {}", COUNTER);
+    }
+}
+
+fn practice_19_2() {
+    #![allow(dead_code)]
+    struct Context<'a>(&'a str);
+
+    struct Parser<'a> {
+        context: &'a Context<'a>,
+    }
+
+    impl<'a> Parser<'a> {
+        fn parse(&self) -> Result<(), &str> {
+            Err(&self.context.0[1..])
+        }
     }
 }
