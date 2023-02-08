@@ -8,6 +8,10 @@ fn main() {
     println!("TryFrom and TryInto");
     tryfrom_and_tryinto();
     println!("-------------------------");
+
+    println!("to and from Strings");
+    to_and_from_strings();
+    println!("-------------------------");
 }
 
 fn from_and_into() {
@@ -62,4 +66,27 @@ fn tryfrom_and_tryinto() {
     let result: Result<EvenNumber, ()> = 5i32.try_into();
     assert_eq!(result, Err(()));
     println!("try_into: {:?}", result);
+}
+
+fn to_and_from_strings() {
+    use std::fmt;
+
+    struct Circle {
+        radius: i32,
+    }
+
+    impl fmt::Display for Circle {
+        fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+            write!(f, "Circle of radius {}", self.radius)
+        }
+    }
+
+    let circle = Circle { radius: 6 };
+    println!("{}", circle.to_string());
+
+    let parsed: i32 = "5".parse().unwrap();
+    let turbo_parsed = "10".parse::<i32>().unwrap();
+
+    let sum = parsed + turbo_parsed;
+    println!("Sum: {:?}", sum);
 }
