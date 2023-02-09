@@ -88,7 +88,10 @@ fn practice_19_1() {
 }
 
 fn practice_19_2() {
-    #![allow(dead_code)]
+    #![allow(dead_code, unused_variables)]
+
+    println!("lifetime subtyping");
+
     struct Context<'s>(&'s str);
 
     struct Parser<'c, 's: 'c> {
@@ -104,4 +107,24 @@ fn practice_19_2() {
     fn parse_context(context: Context) -> Result<(), &str> {
         Parser { context: &context }.parse()
     }
+
+    println!("lifetime bound");
+
+    struct Ref<'a, T: 'a>(&'a T);
+
+    struct StaticRef<T: 'static>(&'static T);
+
+    println!("lifetime inference");
+
+    trait Red { }
+
+    struct Ball<'a> {
+        diameter: &'a i32,
+    }
+
+    impl<'a> Red for Ball<'a> { }
+
+    let num = 5;
+
+    let obj = Box::new(Ball { diameter: &num }) as Box<dyn Red>;
 }
