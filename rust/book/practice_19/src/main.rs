@@ -6,6 +6,10 @@ fn main() {
     println!("Practice 19.2");
     practice_19_2();
     println!("---------------------------");
+
+    println!("Practice 19.3");
+    practice_19_3();
+    println!("---------------------------");
 }
 
 fn practice_19_1() {
@@ -127,4 +131,44 @@ fn practice_19_2() {
     let num = 5;
 
     let obj = Box::new(Ball { diameter: &num }) as Box<dyn Red>;
+}
+
+fn practice_19_3() {
+    use std::ops::Add;
+
+    #[derive(Debug, PartialEq)]
+    struct Point {
+        x: i32,
+        y: i32,
+    }
+
+    impl Add for Point {
+        type Output = Point;
+
+        fn add(self, other: Point) -> Point {
+            Point {
+                x: self.x + other.x,
+                y: self.y + other.y,
+            }
+        }
+    }
+
+    let point = Point { x: 1, y: 0 } + Point { x: 2, y: 3 };
+
+    assert_eq!(Point { x: 1, y: 0 } + Point { x: 2, y: 3 }, Point { x: 3, y: 3});
+    println!("Point {{ x: 1, y: 0 }} + Point {{ x: 2, y: 3 }} = {:?}", point);
+
+    #[derive(Debug)]
+    struct Millimeters(u32);
+    struct Meters(u32);
+
+    impl Add<Meters> for Millimeters {
+        type Output = Millimeters;
+
+        fn add(self, other: Meters) -> Millimeters {
+            Millimeters(self.0 + (other.0 * 1000))
+        }
+    }
+
+    println!("Millimeters(10) + Meters(1) = {:?}", Millimeters(10) + Meters(1));
 }
