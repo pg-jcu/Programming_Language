@@ -10,6 +10,10 @@ fn main() {
     println!("Practice 19.3");
     practice_19_3();
     println!("---------------------------");
+
+    println!("Practice 19.4");
+    practice_19_4();
+    println!("---------------------------");
 }
 
 fn practice_19_1() {
@@ -261,4 +265,45 @@ fn practice_19_3() {
 
     let w = Wrapper(vec![String::from("hello"), String::from("world")]);
     println!("w = {}", w);
+}
+
+#[allow(dead_code, unused_variables)]
+fn practice_19_4() {
+    println!("Type Aliases");
+    type Kilometers = i32;
+
+    let x: i32 = 5;
+    let y: Kilometers = 5;
+
+    println!("x + y = {}", x + y);
+
+    type Thunk = Box<dyn Fn() + Send + 'static>;
+
+    let f: Thunk = Box::new(|| println!("hi"));
+
+    fn takes_long_type(f: Thunk) {}
+
+    fn returns_long_type() -> Thunk {
+        Box::new(|| ())
+    }
+
+    use std::io::Result;
+    use std::fmt;
+
+    pub trait Write {
+        fn write(&mut self, buf: &[u8]) -> Result<usize>;
+        fn flush(&mut self) -> Result<()>;
+
+        fn write_all(&mut self, buf: &[u8]) -> Result<()>;
+        fn write_fmt(&mut self, fmt: fmt::Arguments) -> Result<()>;
+    }
+
+    println!("The Never Type '!'");
+    fn bar() -> ! {
+        panic!();
+    }
+
+    println!("Dynamically Sized Types and the Sized Trait");
+    fn generic1<T: Sized>(t: T) {}
+    fn generic2<T: ?Sized>(t: &T) {}
 }
