@@ -14,6 +14,10 @@ fn main() {
     println!("Practice 19.4");
     practice_19_4();
     println!("---------------------------");
+
+    println!("Practice 19.5");
+    practice_19_5();
+    println!("---------------------------");
 }
 
 fn practice_19_1() {
@@ -306,4 +310,31 @@ fn practice_19_4() {
     println!("Dynamically Sized Types and the Sized Trait");
     fn generic1<T: Sized>(t: T) {}
     fn generic2<T: ?Sized>(t: &T) {}
+}
+
+fn practice_19_5() {
+    fn add_one(x: i32) -> i32 {
+        x + 1
+    }
+
+    fn do_twice(f: fn(i32) -> i32, arg: i32) -> i32 {
+        f(arg) + f(arg)
+    }
+
+    let answer = do_twice(add_one, 5);
+
+    println!("The answer is: {}", answer);
+
+    let list_of_numbers = vec![1, 2, 3];
+    let list_of_strings: Vec<String> = list_of_numbers
+        .iter()
+        .map(|i| i.to_string())
+        .collect();
+
+    println!("list of strings: {:?}", list_of_strings);
+
+    #[allow(dead_code)]
+    fn return_closure() -> Box<dyn Fn(i32) -> i32> {
+        Box::new(|x| x + 1)
+    }
 }
