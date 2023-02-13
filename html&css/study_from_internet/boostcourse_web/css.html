@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>css</title>
+  <style>
+    p[class~="color"] {
+      font-style: italic;
+    }
+    p[class^="color"] {
+      color: red;
+    }
+    p[class$="color"] {
+      font-weight: 100;
+    }
+    p[class*="color"] {
+      background-color: green;
+    }
+
+    a:focus {
+      background-color: yellow;
+    }
+    a:hover {
+      font-weight: bold;
+    }
+    a:active {
+      color: red;
+    }
+
+    #lorem::before {
+      content: "before!";
+    }
+    #lorem::after {
+      content: "!after";
+    }
+    #lorem::first-line { 
+      color: red;
+    }
+    #lorem::first-letter {
+      font-size: 30px;
+    }
+
+    div * {
+      color: red;
+    }
+    div h1#page {
+      color: gray;
+    }
+
+    #background {
+      height: 500px;
+      background-color: yellow;
+      background-image: url(https://www.w3schools.com/CSSref/img_tree.gif);
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-attachment: scroll;
+    }
+  </style>
+</head>
+<body>
+  <p class="color hot">color hot</p>
+  <p class="cool color">cool color</p>
+  <p class="colorful nature">colorful nature</p>
+  <a href="https://www.naver.com" target="_blank" rel="noopener noreferrer">naver</a>
+  <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">google</a>
+  <p id="lorem">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, ipsa ut! Illo a dolores esse tempora alias, rem maxime animi iure quae nulla officia voluptatibus aspernatur, perferendis atque, itaque corrupti?
+  </p>
+  <div>
+    <h1 id="page">Hello, <em>CSS</em></h1>
+  </div>
+  <div id="background">css background</div>
+</body>
+</html>
