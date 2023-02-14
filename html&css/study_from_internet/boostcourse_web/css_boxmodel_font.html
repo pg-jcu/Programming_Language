@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>css, boxmodel, font</title>
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+  <style>
+    p[class~="color"] {
+      font-style: italic;
+    }
+    p[class^="color"] {
+      color: red;
+    }
+    p[class$="color"] {
+      font-weight: 100;
+    }
+    p[class*="color"] {
+      background-color: green;
+    }
+
+    a:focus {
+      background-color: yellow;
+    }
+    a:hover {
+      font-weight: bold;
+    }
+    a:active {
+      color: red;
+    }
+
+    #lorem::before {
+      content: "before!";
+    }
+    #lorem::after {
+      content: "!after";
+    }
+    #lorem::first-line { 
+      color: red;
+    }
+    #lorem::first-letter {
+      font-size: 30px;
+    }
+
+    div * {
+      color: red;
+    }
+    div h1#page {
+      color: gray;
+    }
+
+    #background {
+      height: 500px;
+      background-color: yellow;
+      background-image: url(https://www.w3schools.com/CSSref/img_tree.gif);
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-attachment: scroll;
+    }
+
+    #test h1.test {
+      margin: 0 0 20px 0;
+    }
+    #test div.test {
+      margin-top: 40px;
+    }
+    #test p.test {
+      margin-top: 30px;
+    }
+
+    .height #parent {
+      width: 200px;
+      height: 100px;
+      border: 10px solid black;
+    }
+    .height #child {
+      height: 50%;
+      background-color: blue;
+    }
+
+    .parent {
+      width: 200px;
+      font-size: 10px;
+      line-height: normal;
+      line-height: 20px; 
+      line-height: 2;
+      line-height: 200%;
+    }
+    .child {
+      font-size: 20px;
+    }
+
+    body { 
+      padding: 0 20px;    
+      font-family: 'Open Sans';
+    }
+    .w100 { font-weight: 100; }
+    .w200 { font-weight: 200; }
+    .w300 { font-weight: 300; }
+    .w400 { font-weight: 400; }
+    .w500 { font-weight: 500; }
+    .w600 { font-weight: 600; }
+    .w700 { font-weight: 700; }
+    .w800 { font-weight: 800; }
+    .w900 { font-weight: 900; }
+
+    .wrap { width: 200px; height: 100px; border: 5px solid red; } 
+    .box { width: 300px; text-indent: 10%; border: 10px solid black; }
+  </style>
+</head>
+<body>
+  <p class="color hot">color hot</p>
+  <p class="cool color">cool color</p>
+  <p class="colorful nature">colorful nature</p>
+  <a href="https://www.naver.com" target="_blank" rel="noopener noreferrer">naver</a>
+  <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">google</a>
+
+  <p id="lorem">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, ipsa ut! Illo a dolores esse tempora alias, rem maxime animi iure quae nulla officia voluptatibus aspernatur, perferendis atque, itaque corrupti?
+  </p>
+
+  <div>
+    <h1 id="page">Hello, <em>CSS</em></h1>
+  </div>
+
+  <div id="background">css background</div>
+
+  <div id="test">
+    <h1 class="test">Margin Collapse</h1>
+    <div class="test"><p class="test">What do you think? 40px</p></div>
+  </div>
+
+  <div class="height">
+    <div id="parent">
+      <div id="child">child</div>
+    </div>
+  </div>
+
+  <div class="parent">
+    <div class="child">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+      Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
+      harum eaque natus perferendis ducimus saepe libero, voluptatibus voluptates possimus.
+      Adipisci, delectus.
+    </div>
+  </div>
+
+  <p class="w100">This is 100 weight</p>
+  <p class="w200">This is 200 weight</p>
+  <p class="w300">This is 300 weight (available)</p>
+  <p class="w400">This is 400 weight (available)</p>
+  <p class="w500">This is 500 weight</p>
+  <p class="w600">This is 600 weight (available)</p>
+  <p class="w700">This is 700 weight (available)</p>
+  <p class="w800">This is 800 weight (available)</p>
+  <p class="w900">This is 900 weight</p>
+
+  <div class="wrap">
+    <div class="box">Text-Indent ~ !</div>
+  </div> 
+</body>
+</html>
