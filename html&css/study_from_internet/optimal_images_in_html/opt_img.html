@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Opt img</title>
+  <style>
+    .container {
+      position: relative;
+      height: 400px;
+    }
+
+    .container .bg-image {
+      position: absolute;
+      inset: 0;
+    }
+
+    .bg-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      position: relative;
+      padding-top: 100px;
+      text-align: center;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- background -->
+    <picture class="bg-image">
+      <img src="https://images.pexels.com/photos/13586955/pexels-photo-13586955.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" >
+    </picture>
+    
+    <!-- foreground -->
+    <h1>Hello world!</h1>
+  </div>
+  <img loading="lazy" src="./tsg4.jpg" />
+  <picture>
+    <source
+      type="image/webp"
+      srcset="
+      ./tsg4.jpg?width=100 100w,
+      ./tsg4.jpg?width=200 200w,
+      ./tsg4.jpg?width=400 400w,
+      ./tsg4.jpg?width=800 800w
+      "
+    />
+    <img src="./tsg4.jpg" alt="tsg4" />
+  </picture>
+  <img width="500" height="300" style="height: auto" src="./tsg4.jpg" />
+  <img 
+    style="aspect-ratio: 16 / 9; width: 100%; object-fit: cover;" 
+    src="./tsg4.jpg" 
+    alt="tsg4" 
+  />
+  <img
+    sizes="(max-width: 400px) 200px, (max-width: 800px) 100vw, 50vw"
+    src="./tsg4.jpg"
+  />
+  <picture>
+    <!-- <source
+      type="image/avif"
+      srcset="
+        ./tsg4.avif?width=100 100w,
+        ./tsg4.avif?width=200 200w,
+        ./tsg4.avif?width=400 400w,
+        ./tsg4.avif?width=800 800w
+      "
+    />
+    <source
+      type="image/webp"
+      srcset="
+        ./tsg4.webp?width=100 100w,
+        ./tsg4.webp?width=200 200w,
+        ./tsg4.webp?width=400 400w,
+        ./tsg4.webp?width=800 800w
+      "
+    /> -->
+    <img
+      src="./tsg4.jpg"
+      srcset="
+        ./tsg4.jpg?width=100 100w,
+        ./tsg4.jpg?width=200 200w,
+        ./tsg4.jpg?width=400 400w,
+        ./tsg4.jpg?width=800 800w
+      "
+      sizes="(max-width: 800px) 100vw, 50vw"
+      style="width: 100%; aspect-ratio: 16/9"
+      loading="lazy"
+      decoding="async"
+      alt="tsg4"
+    />
+  </picture>
+</body>
+</html>
