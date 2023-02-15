@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>layout</title>
+  <style>
+    body>div {
+      padding: 5px;
+      border: 1px dashed #aaa;
+    }
+
+    .box {
+      padding: 15px;
+      background-color: #eee;
+      border: 1px solid #aaa;
+    }
+
+    .none .box {
+      display: none;
+    }
+
+    .inline .box {
+      display: inline;
+    }
+
+    .block .box {
+      display: block;
+    }
+
+    .inline-block .box {
+      display: inline-block;
+    }
+
+    .list-item .box {
+      display: list-item;
+    }
+
+    .container {
+      border: 1px dashed #aaa;
+      padding: 15px;
+      clear: both;
+    }
+    .container div, .container span {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #aaa;
+      color: #fff;
+    }
+    .container :nth-child(1) {
+      background-color: green;
+    }
+    .container :nth-child(2) {
+      background-color: skyblue;
+    }
+
+    .sibling {
+      padding: 5px;
+      background-color: #eee;
+      text-align: center;
+    }
+
+    .parent {
+      border: 1px dashed #aaa;
+      padding: 10px;
+    }
+
+    .child,
+    .child_offset {
+      width: 60px;
+      height: 60px;
+      padding: 20px;
+      background-color: #dc3636;
+      text-align: center;
+      color: #fff;
+      font-weight: bold;
+      border: 1px solid #333;
+    }
+
+    .child_offset {
+      background-color: #3677dc;
+    }
+
+    .static {
+      position: static;
+    }
+
+    .relative {
+      position: relative;
+    }
+
+    .static {
+      position: static;
+    }
+
+    .absolute {
+      position: absolute;
+    }
+
+    .fixed {
+      position: fixed;
+    }
+  </style>
+</head>
+<body>
+  <h1>display</h1>
+  <h2>none</h2>
+  <div class="none">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
+  <h2>inline</h2>
+  <div class="inline">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+    <div class="box">box4</div>
+    <div class="box">box5</div>
+    <div class="box">box6</div>
+    <div class="box">box7</div>
+    <div class="box">box8</div>
+    <div class="box">box9</div>
+    <div class="box">box10</div>
+  </div>
+  <h2>block</h2>
+  <div class="block">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
+  <h2>inline-block</h2>
+  <div class="inline-block">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
+  <h2>list-item</h2>
+  <div class="list-item">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
+
+  <h2>요소를 보통의 흐름에서 벗어나 띄워지게 함</h2>
+
+  <div class="container" style="width:400px;">
+    <div style="float:left;">Box1</div>
+    <div style="float:left;">Box2</div>
+  </div>
+
+  <h2 style="margin-top:100px;">주변 텍스트나 인라인요소가 주위를 감싸는 특징이 있음.</h2>
+  <div class="container" style="width:400px;">
+    <div style="float:left;">Box1</div>
+    <div style="float:right;">Box2</div>
+    <p>CSS 속성(property) float 은 한 요소(element)가 보통 흐름(normal flow)으로부터 빠져 텍스트 및 인라인(inline) 요소가 그 주위를 감싸는 자기 컨테이너의 좌우측을 따라 배치되어야 함을 지정합니다. 부동(floating) 요소 는 float 의 계산값(computed value)이 none이 아닌 요소입니다.</p>
+  </div>
+
+  <h2>대부분의 요소에 display 값을 block으로 변경함.</h2>
+  <div class="container" style="width:400px;">
+    <span style="float:left;">inline1</span>
+    <span>inline2</span>
+  </div>
+
+  <h1>position (Offset 미지정)</h1>
+  <h2>static (기본)</h2>
+  <div class="parent">
+    <div class="sibling">Sibling 1</div>
+    <div class="child static">static</div>
+    <div class="sibling">Sibling 2</div>
+  </div>
+
+  <h2>relative</h2>
+  <div class="parent">
+    <div class="sibling">Sibling 1</div>
+    <div class="child relative">relative</div>
+    <div class="sibling">Sibling 2</div>
+  </div>
+
+  <h2>absolute</h2>
+  <div class="parent">
+    <div class="sibling">Sibling 1</div>
+    <span class="child absolute">absolute</span>
+    <div class="sibling">Sibling 2</div>
+  </div>
+
+  <h2>fixed</h2>
+  <div class="parent">
+    <div class="sibling">Sibling 1</div>
+    <div class="child fixed">fixed</div>
+    <div class="sibling">Sibling 2</div>
+  </div>
+
+
+  <h1>position (Offset 지정)</h1>
+  <h2>static - </h2>
+  <div class="parent">
+    <div class="sibling">Sibling 1</div>
+    <div class="child_offset static" style="top: 40px; right: 40px;">static <br>top: 40, left: 40</div>
+    <div class="sibling">Sibling 2</div>
+  </div>
+
+  <h2>relative</h2>
+  <div class="parent">
+    <div class="sibling">Sibling 1</div>
+    <div class="child_offset relative" style="top: 40px; left: 40px;">relative <br>top: 40, left: 40</div>
+    <div class="sibling">Sibling 2</div>
+  </div>
+
+  <h2>absolute - parent relative</h2>
+  <div class="parent relative">
+    <div class="sibling">Sibling 1</div>
+    <div class="child_offset absolute" style="top: 40px; left: 80px;">absolute<br>top: 40, left: 80</div>
+    <div class="sibling">Sibling 2</div>
+  </div>
+
+  <h2>fixed</h2>
+  <div class="parent">
+    <div class="sibling">Sibling 1</div>
+    <div class="child_offset fixed" style="top:100px;left:80%;">fixed<br>top:100, left:80%</div>
+    <div class="sibling">Sibling 2</div>
+  </div>
+</body>
+</html>
