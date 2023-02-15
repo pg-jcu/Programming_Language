@@ -10,6 +10,10 @@ fn main() {
     println!("while");
     while_keyword();
     println!("-------------------------");
+
+    println!("for and range");
+    for_and_range();
+    println!("-------------------------");
 }
 
 fn if_else() {
@@ -106,4 +110,55 @@ fn while_keyword() {
 
         n += 1;
     }
+}
+
+fn for_and_range() {
+    fn fizzbuzz(num: i32) {
+        if num % 15 == 0 {
+            println!("fizzbuzz");
+        } else if num % 3 == 0 {
+            println!("fizz");
+        } else if num % 5 == 0 {
+            println!("buzz");
+        } else {
+            println!("{}", num);
+        }
+    }
+
+    for n in 1..51 {
+        fizzbuzz(n);
+    }
+
+    for n in 51..=100 {
+        fizzbuzz(n);
+    }
+
+    let names = vec!["Bob", "Frank", "Ferris"];
+
+    for name in names.iter() {
+        match name {
+            &"Ferris" => println!("There is a rustacean among us!"),
+            _ => println!("Hello {}", name),
+        }
+    }
+
+    println!("names: {:?}", names);
+
+    for name in names.into_iter() { // names.into_iter() ≓ names
+        match name {
+            "Ferris" => println!("There is a rustacean among us!"),
+            _ => println!("Hello {}", name),
+        }
+    }
+
+    let mut names = vec!["Bob", "Frank", "Ferris"];
+
+    for name in names.iter_mut() {
+        *name = match name {
+            &mut "Ferris" => "There is a rustacean among us!",
+            _ => "Hello",
+        }
+    }
+
+    println!("names: {:?}", names);
 }
