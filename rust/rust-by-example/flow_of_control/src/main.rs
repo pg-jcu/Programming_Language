@@ -186,6 +186,8 @@ fn match_keyword() {
 
     println!("{} -> {}", boolean, binary);
 
+    println!("destructuring");
+
     let triple = (0, -2, 3);
 
     println!("Tell me about {:?}", triple);
@@ -293,5 +295,30 @@ fn match_keyword() {
         Foo { x: (1, b), y } => println!("First of x is 1, b = {},  y = {} ", b, y),
         Foo { y: 2, x: i } => println!("y is 2, i = {:?}", i),
         Foo { y, .. } => println!("y = {}, we don't care about x", y),
+    }
+
+    println!("guards");
+
+    #[allow(dead_code)]
+    enum Temperature {
+        Celsius(i32),
+        Fahrenheit(i32),
+    }
+
+    let temperature = Temperature::Celsius(35);
+
+    match temperature {
+        Temperature::Celsius(t) if t > 30 => println!("{}C is above 30 Celsius", t),
+        Temperature::Celsius(t) => println!("{}C is below 30 Celsius", t),
+        Temperature::Fahrenheit(t) if t > 86 => println!("{}F is above 86 Fahrenheit", t),
+        Temperature::Fahrenheit(t) => println!("{}F is below 86 Fahrenheit", t),
+    }
+
+    let number: u8 = 4;
+
+    match number {
+        i if i == 0 => println!("Zero"),
+        i if i > 0 => println!("Greater than zero"),
+        _ => unreachable!("Should never happen."),
     }
 }
