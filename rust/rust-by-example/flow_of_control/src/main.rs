@@ -18,6 +18,14 @@ fn main() {
     println!("match");
     match_keyword();
     println!("-------------------------");
+
+    println!("if let");
+    if_let();
+    println!("-------------------------");
+
+    println!("while let");
+    while_let();
+    println!("-------------------------");
 }
 
 fn if_else() {
@@ -320,5 +328,117 @@ fn match_keyword() {
         i if i == 0 => println!("Zero"),
         i if i > 0 => println!("Greater than zero"),
         _ => unreachable!("Should never happen."),
+    }
+
+    println!("binding");
+
+    fn age() -> u32 {
+        15
+    }
+
+    println!("Tell me what type of person you are");
+
+    match age() {
+        0 => println!("I haven't celebrated my first birthday yet"),
+        n @ 1 ..= 12 => println!("I'm a child of age {:?}", n),
+        n @ 13 ..= 19 => println!("I'm a teen of age {:?}", n),
+        n => println!("I'm an old person of age {:?}", n),
+    }
+
+    fn some_number() -> Option<u32> {
+        Some(42)
+    }
+
+    match some_number() {
+        Some(n @ 42) => println!("The Answer: {}!", n),
+        Some(n) => println!("Not interesting... {}", n),
+        _ => (),
+    }
+}
+
+fn if_let() {
+    let number = Some(7);
+    let letter: Option<i32> = None;
+    let emoticon: Option<i32> = None;
+
+    if let Some(i) = number {
+        println!("Matched {:?}!", i);
+    }
+
+    if let Some(i) = letter {
+        println!("Matched {:?}!", i);
+    } else {
+        println!("Didn't match a number. Let's go with a letter!");
+    }
+
+    let i_like_letters = false;
+
+    if let Some(i) = emoticon {
+        println!("Matched: {:?}!", i);
+    } else if i_like_letters {
+        println!("Didn't match a number. let's go with a letter!");
+    } else {
+        println!("I don't like letters. Let's go with an emoticon :)!");
+    }
+
+    // #[derive(PartialEq)]
+    enum Foo {
+        Bar,
+        Baz,
+        Qux(u32),
+    }
+
+    let a = Foo::Bar;
+    let b = Foo::Baz;
+    let c = Foo::Qux(100);
+
+    if let Foo::Bar = a {
+        println!("a is foobar");
+    }
+
+    // if Foo::Bar == a {
+    //     println!("a is foobar");
+    // }
+
+    if let Foo::Bar = b {
+        println!("b is foobar");
+    }
+
+    if let Foo::Qux(value) = c {
+        println!("c is {}", value);
+    }
+
+    #[allow(unused_variables)]
+    if let Foo::Qux(value @ 100) = c {
+        println!("c is one hundred");
+    }
+}
+
+fn while_let() {
+    let mut optional = Some(0);
+
+    // loop {
+    //     match optional {
+    //         Some(i) => {
+    //             if i > 9 {
+    //                 println!("Greater than 9, quit!");
+    //                 optional = None;
+    //             } else {
+    //                 println!("`i` is `{:?}`. Try again.", i);
+    //                 optional = Some(i + 1);
+    //             }
+    //         },
+    //         _ => { break; }
+    //     }
+    // }
+
+    while let Some(i) = optional {
+        if i > 9 {
+            println!("Greater than 9, quit!");
+            optional = None;
+        } else {
+            println!("'i' is '{:?}'. Try again.", i);
+            optional = Some(i + 1);
+        }
     }
 }
