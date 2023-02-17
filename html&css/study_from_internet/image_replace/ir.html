@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IR</title>
+  <style>
+    .hidden-bfc {
+      overflow: hidden;
+      border: 0;
+      position: absolute;
+      z-index: -1;
+      width: 1px;
+      height: 1px;
+      clip-path: inset(50%);
+    }
+    .hidden-ifc {
+      overflow: hidden;
+      display: inline-block;
+      position: relative;
+      z-index: -1;
+      border: 0;
+      width: 1px;
+      height: 1px;
+      clip-path: inset(50%);
+    }
+  </style>
+</head>
+<body>
+  <div>기획 문서나 디자인 시안에는 존재하지 않지만 문맥상 혹은 문서 구조 상 숨겨져 있는 제목을 넣어주어야 할 경우</div>
+  <div class="hidden-bfc">block formatting context hidden</div>
+  <div class="hidden-ifc">inline formatting context hidden</div>
+</body>
+</html>
