@@ -136,7 +136,58 @@ fn closures() {
 
     println!("closure_annotated: {}", closure_annotated(1));
     println!("closure_inferred: {}", closure_inferred(1));
+    // once closure's type has been inferred, it cannot be inferred again with another type.
 
     let one = || 1;
     println!("closure returning one: {}", one());
+
+    println!("capturing");
+
+    let color = String::from("green");
+
+    let print = || println!("'color': {}", color);
+
+    print();
+
+    let _reborrow = &color;
+    print();
+
+    let _color_moved = color;
+
+    let mut count = 0;
+
+    let mut inc = || {
+        count += 1;
+        println!("'count': {}", count);
+    };
+
+    inc();
+
+    // an attempt to reborrow will lead to an error.
+    // let _reborrow = &count;
+    inc();
+
+    let _count_reborrowed = &mut count;
+
+    use std::mem;
+
+    // a non-copy type
+    let movable = Box::new(3);
+
+    let consume = || {
+        println!("'movable': {:?}", movable);
+        mem::drop(movable);
+    };
+
+    // 'consume' consumes the variable so this can only be called once.
+    consume();
+    // consume();
+
+    let haystack = vec![1, 2, 3];
+
+    // using move before vertical pipes forces closure to take ownership of captured variables.
+    let contains = move |needle| haystack.contains(needle);
+
+    println!("haystack contains 1? {}", contains(&1));
+    println!("haystack contains 4? {}", contains(&4));
 }
