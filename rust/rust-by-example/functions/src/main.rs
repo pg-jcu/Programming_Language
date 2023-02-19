@@ -6,6 +6,10 @@ fn main() {
     println!("associated functions and methods");
     associated_functions_and_methods();
     println!("-------------------------");
+
+    println!("closures");
+    closures();
+    println!("-------------------------");
 }
 
 fn functions() {
@@ -122,4 +126,17 @@ fn associated_functions_and_methods() {
     let pair = Pair(Box::new(1), Box::new(2));
 
     pair.destroy();
+}
+
+fn closures() {
+    let outer_var = 42;
+
+    let closure_annotated = |i: i32| -> i32 { i + outer_var };
+    let closure_inferred = |i| i + outer_var;
+
+    println!("closure_annotated: {}", closure_annotated(1));
+    println!("closure_inferred: {}", closure_inferred(1));
+
+    let one = || 1;
+    println!("closure returning one: {}", one());
 }
