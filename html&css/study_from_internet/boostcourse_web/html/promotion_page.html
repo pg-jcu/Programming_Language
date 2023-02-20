@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>promotion page</title>
+  <style>
+    .wrap {
+      position: relative;
+      width: 1020px;
+      height: 643px;
+      margin: 0 auto;
+      background: url(./promotion_image.png) no-repeat 0 0;
+    }
+
+    ol {
+      list-style: none;
+    }
+
+    body, ol {
+      margin: 0;
+      padding: 0;
+    }
+
+    .blind {
+      position: absolute;
+      clip-path: inset(50%);
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .link_point {
+      position: absolute;
+      left: 107px;
+      bottom: 100px;
+      width: 121px;
+      height: 21px;
+    }
+
+    .link_join {
+      position: absolute;
+      left: 340px;
+      bottom: 0px;
+      width: 340px;
+      height: 70px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1 class="blind">BIG3 쇼핑 이벤트</h1>
+    <p class="blind">딱 세 번만 사보면 알 수 있는 네이버쇼핑 윈도시리즈의 즐거움~! 그래서 준비했습니다. 3회 구매하고 30%적립 혜택도 받으세요!</p>
+
+    <ol>
+      <li>
+        <strong class="blind">300포인트만 있으면!</strong>
+        <p class="blind">포인트 300원 이상 보유 시 신청 가능(신청 확인용으로 차감되지 않습니다.)</p>
+        <a href="#" class="link_point"><span class="blind">포인트가 부족하다면?</span></a>
+      </li>
+      <li class="blind">
+        <strong>쇼핑윈도 시리즈 즐기고~</strong>
+        <p>3회 이상 구매(쇼핑윈도 시리즈 및 스토어팜에서 구매)</p>
+      </li>
+      <li class="blind">
+        <strong>구매금액 30%적립!</strong>
+        <p>최대 1만원 네이버페이 포인트 적립</p>
+      </li>
+    </ol>
+
+    <a href="#" class="link_join"><span class="blind">신청하기</span></a>
+  </div>
+</body>
+</html>
