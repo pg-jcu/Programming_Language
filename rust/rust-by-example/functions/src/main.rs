@@ -227,4 +227,19 @@ fn closures() {
     let double = |x| 2 * x;
 
     println!("3 doubled: {}", apply_to_3(double));
+
+    println!("input functions");
+
+    fn call_me<F: Fn()>(f: F) {
+        f();
+    }
+
+    fn function() {
+        println!("I'm a function!");
+    }
+
+    let closure = || println!("I'm a closure!");
+
+    call_me(closure);
+    call_me(function);
 }
