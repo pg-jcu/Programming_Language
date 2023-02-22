@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fixed layout</title>
+  <style>
+    html, body, .wrap {
+      height: 100%;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background-color: lightgreen;
+    }
+    .container {
+      min-height: 100%; /* 콘텐츠는 스스로 높이값을 받을 수 없기 때문에 부모요소에서 부터 높이값을 상속받아야 합니다. */
+      margin-top: -100px; /* footer의 높이만큼 끌어올려주기 */
+    }
+    section {
+      height: 300px;
+      padding-top: 200px; /* 밀어주기 */
+      background-color: lightsalmon;
+    }
+    footer {
+      height: 100px;
+      background-color: lightblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>header</header>
+    <div class="container">
+      <section>content</section>
+    </div>
+    <footer>footer</footer>
+  </div>
+</body>
+</html>
