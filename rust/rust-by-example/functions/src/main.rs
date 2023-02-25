@@ -10,6 +10,14 @@ fn main() {
     println!("closures");
     closures();
     println!("-------------------------");
+
+    println!("higher order functions");
+    higher_order_functions();
+    println!("-------------------------");
+
+    println!("diverging functions");
+    diverging_functions();
+    println!("-------------------------");
 }
 
 fn functions() {
@@ -332,4 +340,58 @@ fn closures() {
 
     let index_of_first_negative_number = vec.into_iter().position(|x| x < 0);
     assert_eq!(index_of_first_negative_number, None);
+}
+
+fn higher_order_functions() {
+    fn is_odd(n: u32) -> bool {
+        n % 2 == 1
+    }
+
+    println!("Find the sum of all the squared odd numbers under 1000");
+    let upper = 1000;
+
+    let mut acc = 0;
+
+    for n in 0.. {
+        let n_squared = n * n;
+
+        if n_squared >= upper {
+            break;
+        } else if is_odd(n_squared) {
+            acc += n_squared;
+        }
+    }
+    println!("imperative style: {}", acc);
+
+    let sum_of_squared_odd_numbers: u32 = 
+        (0..).map(|n| n * n)
+             .take_while(|&n_squared| n_squared < upper)
+             .filter(|&n_squared| is_odd(n_squared))
+             .sum();
+    
+    println!("functional style: {}", sum_of_squared_odd_numbers);
+}
+
+fn diverging_functions() {
+    
+    #[allow(dead_code)]
+    fn foo() -> ! {
+        panic!("This call never returns.");
+    }
+
+    fn sum_odd_numbers(up_to: u32) -> u32 {
+        let mut acc = 0;
+
+        for i in 0..up_to {
+            let addition: u32 = match i % 2 == 1 {
+                true => i,
+                false => continue,
+            };
+            acc += addition;
+        }
+
+        acc
+    }
+
+    println!("Sum of odd numbers up to 9 (excluding): {}", sum_odd_numbers(9));
 }
