@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>fixed layout</title>
+  <title>fixed layout2</title>
   <style>
     html, body {
       margin: 0 auto;
@@ -21,21 +21,6 @@
       background-color: lightgreen;
     }
 
-    /* 상단 고정하기 */
-    .container {
-      min-height: 100%; /* 콘텐츠는 스스로 높이값을 받을 수 없기 때문에 부모요소에서 부터 높이값을 상속받아야 합니다. */
-      margin-top: -100px; /* footer의 높이만큼 끌어올려주기 */
-    }
-    section {
-      height: 300px;
-      padding-top: 200px; /* 밀어주기 */
-      background-color: lightsalmon;
-    }
-    footer {
-      height: 100px;
-      background-color: lightblue;
-    }
-
     /* 상단 고정하기 (box-sizing: border-box) */
     .container {
       min-height: 100%; /* 콘텐츠는 스스로 높이값을 받을 수 없기 때문에 부모요소에서 부터 높이값을 상속받아야 합니다. */
@@ -44,29 +29,10 @@
       box-sizing: border-box; /* padding이나 border를 컨텐츠에 부여된 높이값에 포함 */
     }
     section {
-      height: 300px;
+      height: 2000px;
       background-color: lightsalmon;
     }
     footer {
-      height: 100px;
-      background-color: lightblue;
-    }
-
-    /* 상하단 고정하기 */
-    .container {
-      min-height: 100%; 
-      padding: 100px 0; /* height, footer 뒤로 가려진 영역 노출 */
-      box-sizing: border-box; /* padding값을 높이에서 무시하도록 속성 추가 */
-    }
-    section {
-      height: 300px;
-      background-color: lightsalmon;
-    }
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
       height: 100px;
       background-color: lightblue;
     }
