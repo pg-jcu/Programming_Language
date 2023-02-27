@@ -2,6 +2,10 @@ fn main() {
     println!("visibility");
     visibility();
     println!("-------------------------");
+
+    println!("struct visibility");
+    struct_visibility();
+    println!("-------------------------");
 }
 
 fn visibility() {
@@ -118,4 +122,39 @@ fn visibility() {
 
     // Error! `private_nested` is a private module
     //my_mod::private_nested::restricted_function();
+}
+
+fn struct_visibility() {
+    mod my {
+        pub struct OpenBox<T> {
+            pub contents: T,
+        }
+
+        pub struct ClosedBox<T> {
+            _contents: T,
+        }
+
+        impl<T> ClosedBox<T> {
+            pub fn new(contents: T) -> ClosedBox<T> {
+                ClosedBox {
+                    _contents: contents,
+                }
+            }
+        }
+    }
+
+    let open_box = my::OpenBox { contents: "public information" };
+
+    println!("The open box contains: {}", open_box.contents);
+
+    // Public structs with private fields cannot be constructed using field names.
+    // Error! 'ClosedBox' has private fields
+    // let closed_box = my::ClosedBox { contents: "classified information" };
+
+    // However, structs with private fields can be created using public constructors
+    let _closed_box = my::ClosedBox::new("classified information");
+
+    // and the private fields of a public struct cannot be accessed.
+    // Error! The 'contents' field is private
+    // println!("The closed box contains: {}", _closed_box.contents);
 }
