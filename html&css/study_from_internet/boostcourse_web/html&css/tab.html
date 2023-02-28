@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tab</title>
+  <style>
+    @charset "UTF-8";
+
+    body {
+      font-size: 14px;
+      line-height: 16px;
+    }
+    body, ul, ol, li, div, a, button {
+      margin: 0;
+      padding: 0;
+    }
+    ul, ol {
+      list-style: none;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .tab_wrap {
+      width: 300px;
+      margin: 20px auto 0;
+    }
+    .tab::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+    .tab_item {
+      float: left;
+    }
+    .tab_btn {
+      width: 100px;
+      height: 50px;
+      font-size: 16px;
+      color: #999;
+      background-color: transparent;
+      border: 1px solid #eee;
+      outline: 0;
+      cursor: pointer;
+    }
+    .tab_item + .tab_item .tab_btn {
+      width: 101px;
+      margin-left: -1px;
+    }
+
+    .tab_item .tab_btn:hover,
+    .tab_item.active .tab_btn {
+      font-weight: bold;
+      color: #000;
+      border-bottom: 0;
+    }
+    .tab_panel_wrap {
+      display: none;
+    }
+    .tab_panel_wrap.active {
+      display: block;
+    }
+    .tab_panel_wrap {
+      min-height: 350px;
+      padding: 20px;
+      border: 1px solid #eee;
+      border-top: 0;
+      box-sizing: border-box;
+    }
+    .tab_panel_wrap h3 {
+      border: 0;
+      position: absolute !important;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+    .item_link {
+      display: block;
+      overflow: hidden;
+      font-size: 14px;
+      line-height: 30px;
+      color: #333;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .panel_item:hover .item_link {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="tab_wrap">
+    <ul class="tab">
+      <li class="tab_item active">
+        <button type="button" class="tab_btn">인기순</button>
+      </li>
+      <li class="tab_item">
+        <button type="button" class="tab_btn">조회순</button>
+      </li>
+      <li class="tab_item">
+        <button type="button" class="tab_btn">날짜순</button>
+      </li>
+    </ul>
+    <div class="tab_panel_wrap active">
+      <h3>인기순 콘텐츠</h3>
+      <ol class="tab_panel">
+        <li class="panel_item"><a href="#" class="item_link">1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor veniam culpa.</a></li>
+        <li class="panel_item"><a href="#" class="item_link">2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur corrupti.</a></li>
+        <li class="panel_item"><a href="#" class="item_link">3. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis iure ullam.</a></li>
+        <li class="panel_item"><a href="#" class="item_link">4. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci nihil quam?</a></li>
+        <li class="panel_item"><a href="#" class="item_link">5. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste quam aque est id.</a></li>
+        <li class="panel_item"><a href="#" class="item_link">6. Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga.</a></li>
+        <li class="panel_item"><a href="#" class="item_link">7. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, ratione.</a></li>
+        <li class="panel_item"><a href="#" class="item_link">8. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, ex?</a></li>
+        <li class="panel_item"><a href="#" class="item_link">9. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam, numquam.</a></li>
+        <li class="panel_item"><a href="#" class="item_link">10. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, ab?</a></li>
+      </ol>
+    </div>
+    <div class="tab_panel_wrap">
+      <h3>조회순 콘텐츠</h3>
+      <ol class="tab_panel">
+        <li class="panel_item"><a href="#" class="item_link">1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nam!</a></li>
+        <li class="panel_item"><a href="#" class="item_link">2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, debitis.</a></li>
+        <li class="panel_item"><a href="#" class="item_link">3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, neque!</a></li>
+        <li class="panel_item"><a href="#" class="item_link">4. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero, minima.</a></li>
+        <li class="panel_item"><a href="#" class="item_link">5. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda, inventore?</a></li>
+      </ol>
+    </div>
+    <div class="tab_panel_wrap">
+      <h3>날짜순 콘텐츠</h3>
+      <ol class="tab_panel">
+        <li class="panel_item"><a href="#" class="item_link">1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, commodi.</a></li>
+        <li class="panel_item"><a href="#" class="item_link">2. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, eligendi!</a></li>
+        <li class="panel_item"><a href="#" class="item_link">3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, neque.</a></li>
+        <li class="panel_item"><a href="#" class="item_link">4. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio, quasi.</a></li>
+        <li class="panel_item"><a href="#" class="item_link">5. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, sequi?</a></li>
+        <li class="panel_item"><a href="#" class="item_link">6. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet, recusandae.</a></li>
+        <li class="panel_item"><a href="#" class="item_link">7. Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, minima?</a></li>
+        <li class="panel_item"><a href="#" class="item_link">8. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, sapiente.</a></li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>
