@@ -6,6 +6,14 @@ fn main() {
     println!("struct visibility");
     struct_visibility();
     println!("-------------------------");
+
+    println!("the use declaration");
+    use_declaration();
+    println!("-------------------------");
+
+    println!("super and self");
+    super_and_self();
+    println!("-------------------------");
 }
 
 fn visibility() {
@@ -157,4 +165,79 @@ fn struct_visibility() {
     // and the private fields of a public struct cannot be accessed.
     // Error! The 'contents' field is private
     // println!("The closed box contains: {}", _closed_box.contents);
+}
+
+fn use_declaration() {
+    fn function() {
+        println!("called 'function()'");
+    }
+
+    mod deeply {
+        pub mod nested {
+            pub fn function() {
+                println!("called 'deeply::nested::function()");
+            }
+        }
+    }
+
+    use deeply::nested::function as other_function;
+
+    other_function();
+
+    println!("Entering block");
+    {
+        use deeply::nested::function;
+
+        function();
+
+        println!("Leaving block");
+    }
+
+    function();
+}
+
+fn super_and_self() {
+    mod root {
+        fn function() {
+            println!("called 'function()'");
+        }
+
+        mod cool {
+            pub fn function() {
+                println!("called 'cool::function()'");
+            }
+        }
+
+        pub mod my {
+            fn function() {
+                println!("called 'my::function()'");
+            }
+
+            mod cool {
+                pub fn function() {
+                    println!("called 'my::cool::function()'");
+                }
+            }
+
+            pub fn indirect_call() {
+                print!("called 'my::indirect_call()', that\n> ");
+
+                // the 'self' keyword refers to the current module scope
+                self::function();
+                function();
+
+                self::cool::function();
+
+                // the 'super' keyword refers to the parent scope
+                super::function();
+
+                {
+                    use super::cool::function as root_function;
+                    root_function();
+                }
+            }
+        }
+    }
+
+    root::my::indirect_call();
 }
