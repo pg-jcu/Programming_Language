@@ -48,20 +48,20 @@ console.log(`${myLife}`);
 console.log(myLife + '');
 
 // Symbol.asyncIterator
-// class MyAsyncIterable {
-//   async *[Symbol.asyncIterator]() {
-//     for (let i = 0; i < 5; i++) {
-//       await new Promise((resolve) => setTimeout(resolve, 1000));
-//       yield i;
-//     }
-//   }
-// }
+class MyAsyncIterable {
+  async *[Symbol.asyncIterator]() {
+    for (let i = 0; i < 5; i++) {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      yield i;
+    }
+  }
+}
 
-// (async () => {
-//   for await (const value of new MyAsyncIterable()) {
-//     console.log(value);
-//   }
-// })();
+(async () => {
+  for await (const value of new MyAsyncIterable()) {
+    console.log(value);
+  }
+})();
 
 // Symbol.hasInstance
 class MyArray {
