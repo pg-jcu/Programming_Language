@@ -8,7 +8,7 @@
   <style>
     /* 이미지 리스트 정렬 */
     html, body, ol {
-      padding: 0;
+      padding: 0 10px;
       margin: 0;
     }
     ol {
@@ -106,6 +106,36 @@
       border: 1px solid rgba(0, 0, 0, 0.3);
       background-color: rgba(0, 0, 0, 0.15);
     }
+    /* 아이콘 상태 변경 */
+    .change {
+      float: left;
+      padding: 10px;
+      text-align: center;
+    }
+    .change::after {
+      display: block;
+      width: 100px;
+      height: 100px;
+      content: "";
+      border: 1px solid gray;
+      background-color: pink;
+    }
+    .up:after {
+      background: url(https://picsum.photos/100/100) no-repeat;
+      background-size: cover;
+    }
+    .down:after {
+      background: url(https://picsum.photos/100/100) no-repeat;
+      background-size: cover;
+    }
+    .blind {
+      overflow: hidden;
+      position: absolute;
+      clip: rect(0 0 0 0);
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+    }
   </style>
 </head>
 <body>
@@ -137,5 +167,9 @@
   <div class="img_wrap">
     <img src="https://picsum.photos/200/134" alt="임시 이미지">
   </div>
+  <h3>아이콘 상태 변경</h3>
+  <div class="change"><span class="blind">첫째</span></div>
+  <div class="change up"><span class="blind">둘째</span></div>
+  <div class="change down"><span class="blind">셋째</span></div>
 </body>
 </html>
