@@ -14,6 +14,10 @@ fn main() {
     println!("super and self");
     super_and_self();
     println!("-------------------------");
+
+    println!("file hierarchy");
+    file_hierarchy();
+    println!("-------------------------");
 }
 
 fn visibility() {
@@ -240,4 +244,20 @@ fn super_and_self() {
     }
 
     root::my::indirect_call();
+}
+
+mod my;
+
+fn file_hierarchy() {
+    fn function() {
+        println!("called 'function()'");
+    }
+
+    my::function();
+
+    function();
+
+    my::indirect_access();
+
+    my::nested::function();
 }
