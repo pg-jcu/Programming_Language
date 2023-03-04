@@ -20,6 +20,14 @@
     img {
       vertical-align: top;
     }
+    .blind {
+      overflow: hidden;
+      position: absolute;
+      clip-path: inset(50%);
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+    }
 
     h1 {
       overflow: hidden;
@@ -78,13 +86,57 @@
       width: 322px;
       height: 215px;
     }
-    .main_list .info {
+    .main_list .info_wrap {
       position: absolute;
       right: 15px;
       bottom: 15px;
       left: 15px;
       color: #fff;
       overflow: hidden;
+    }
+    .main_list .info {
+      margin-left: 40px;
+    }
+    .main_list .rank {
+      position: absolute;
+      top: -3px;
+      text-align: center;
+    }
+    .main_list .rank .num {
+      display: block;
+      font-size: 40px;
+      line-height: 42px;
+    }
+    .main_list .rank .change {
+      display: block;
+      margin-top: 11px;
+    }
+    .main_list .rank .change::before {
+      display: inline-block;
+      content: "";
+      margin-right: 3px;
+    }
+    .rank .up {
+      color: #f82850;
+    }
+    .rank .down {
+      color: #1996ff;
+    }
+    .rank .up::before {
+      width: 7px;
+      height: 10px;
+      background: url(./img/rank_up.png) no-repeat;
+    }
+    .rank .down::before {
+      width: 7px;
+      height: 10px;
+      background: url(./img/rank_down.png) no-repeat;
+    }
+    .rank .keep::before {
+      width: 8px;
+      height: 2px;
+      padding-bottom: 4px;
+      background: url(./img/rank_keep.png) no-repeat;
     }
     .main_list .category {
       font-size: 14px;
@@ -96,6 +148,23 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+    .main_list .like {
+      position: relative;
+      display: block;
+      margin-top: 5px;
+      padding-left: 18px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .main_list .like::before {
+      position: absolute;
+      top: 3px;
+      left: 0;
+      content: "";
+      width: 14px;
+      height: 15px;
+      background: url(./img/like_large.png) no-repeat;
     }
 
     .sub_wrap {
@@ -172,28 +241,55 @@
         <ol class="main_list">
           <li>
             <a href="#" class="item_link">
-              <div class="img_box"><img src="https://picsum.photos/322/215" alt="임시 이미지"></div>
-              <div class="info">
-                <span class="category">임시 이미지</span>
-                <p class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quibusdam dolorum voluptate cupiditate!</p>
+              <div class="img_box">
+                <img src="https://picsum.photos/322/215" alt="임시 이미지">
+              </div>
+              <div class="info_wrap">
+                <div class="rank">
+                  <span class="num"><span class="blind">랭킹</span>1</span>
+                  <span class="change up">3<span class="blind">상승</span></span>
+                </div>
+                <div class="info">
+                  <span class="category">임시 이미지</span>
+                  <p class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quibusdam dolorum voluptate cupiditate!</p>
+                  <span class="like"><span class="blind">좋아요</span>99,999</span>
+                </div>
               </div>
             </a>
           </li>
           <li>
             <a href="#" class="item_link">
-              <div class="img_box"><img src="https://picsum.photos/322/215" alt="임시 이미지"></div>
-              <div class="info">
-                <span class="category">임시 이미지</span>
-                <p class="title">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium voluptatibus repudiandae inventore voluptate?</p>
+              <div class="img_box">
+                <img src="https://picsum.photos/322/215" alt="임시 이미지">
+              </div>
+              <div class="info_wrap">
+                <div class="rank">
+                  <span class="num"><span class="blind">랭킹</span>2</span>
+                  <span class="change down">3<span class="blind">하락</span></span>
+                </div>
+                <div class="info">
+                  <span class="category">임시 이미지</span>
+                  <p class="title">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium voluptatibus repudiandae inventore voluptate?</p>
+                  <span class="like"><span class="blind">좋아요</span>99,999</span>
+                </div>
               </div>
             </a>
           </li>
           <li>
             <a href="#" class="item_link">
-              <div class="img_box"><img src="https://picsum.photos/322/215" alt="임시 이미지"></div>
-              <div class="info">
-                <span class="category">임시 이미지</span>
-                <p class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet sit voluptatum alias fugit.</p>
+              <div class="img_box">
+                <img src="https://picsum.photos/322/215" alt="임시 이미지">
+              </div>
+              <div class="info_wrap">
+                <div class="rank">
+                  <span class="num"><span class="blind">랭킹</span>3</span>
+                  <span class="change keep">3<span class="blind">유지</span></span>
+                </div>
+                <div class="info">
+                  <span class="category">임시 이미지</span>
+                  <p class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet sit voluptatum alias fugit.</p>
+                  <span class="like"><span class="blind">좋아요</span>99,999</span>
+                </div>
               </div>
             </a>
           </li>
