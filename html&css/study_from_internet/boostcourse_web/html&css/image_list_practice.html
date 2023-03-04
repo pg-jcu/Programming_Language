@@ -136,6 +136,53 @@
       height: 1px;
       margin: -1px;
     }
+    .icon_state_change::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+    /* 마우스 오버 시 버튼 노출 */
+    .box {
+      position: relative;
+      width: 100px;
+      height: 100px;
+    }
+    .box + .box {
+      margin-top: 30px;
+    }
+    .img_link {
+      position: relative;
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+    }
+    .alert {
+      position: absolute;
+      right: 4px;
+      bottom: 4px;
+      padding: 0 10px;
+      font-size: 12px;
+      line-height: 18px;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .del_link {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 5px 10px;
+      font-size: 14px;
+      color: #fff;
+      text-decoration: none;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .test1 .img_link:hover + .del_link {
+      display: block;
+    }
+    .test2:hover > .del_link {
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -168,8 +215,26 @@
     <img src="https://picsum.photos/200/134" alt="임시 이미지">
   </div>
   <h3>아이콘 상태 변경</h3>
-  <div class="change"><span class="blind">첫째</span></div>
-  <div class="change up"><span class="blind">둘째</span></div>
-  <div class="change down"><span class="blind">셋째</span></div>
+  <div class="icon_state_change">
+    <div class="change"><span class="blind">첫째</span></div>
+    <div class="change up"><span class="blind">둘째</span></div>
+    <div class="change down"><span class="blind">셋째</span></div>
+  </div>
+  <h3>마우스 오버 시 버튼 노출</h3>
+  <div>⬇︎ 특정 a 태그의 마우스 오버 시 다른 a 태그 마우스 오버 상태가 풀리는 현상</div>
+  <div class="box test1">
+    <a href="#" class="img_link">
+      <img src="https://picsum.photos/100/100" alt="">
+      <span class="alert">99</span>
+    </a>
+    <a href="#" class="del_link">x</a>
+  </div>
+  <div class="box test2">
+    <a href="#" class="img_link">
+      <img src="https://picsum.photos/100/100" alt="">
+      <span class="alert">99</span>
+    </a>
+    <a href="#" class="del_link">x</a>
+  </div>
 </body>
 </html>
