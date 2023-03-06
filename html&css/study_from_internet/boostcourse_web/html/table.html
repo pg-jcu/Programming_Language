@@ -6,9 +6,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>table</title>
   <style>
-    table, th, td {
-      border: 1px solid black;
+    table {
+      border: 1px solid #000;
+      table-layout: fixed;
+      width: 500px;
+      height: 150px;
       border-collapse: collapse;
+    }
+    .td_relative {
+      border-color: red;
+    }
+    .tr_relative {
+      border-color: blue;
+    }
+    .table_relative {
+      border-color: green;
+    }
+
+    .wrap {
+      margin-top: 50px;
+    }
+    .relative_section {
+      position: relative;
+    }
+    .absolute_section {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      left: 0;
+      top: 0;
+      background-color: #000;
+    }
+    .td_relative .absolute_section {
+      background-color: red;
+    }
+    .tr_relative .absolute_section {
+      background-color: blue;
+    }
+    .table_relative .absolute_section {
+      background-color: green;
+    }
+    .div_relative .relative_section {
+      width: 100%;
+      height: 100%;
     }
   </style>
 </head>
@@ -70,5 +110,57 @@
       </tr>
     </tbody>
   </table>
+
+  <div class="wrap">
+    <table class="td_relative">
+      <caption>td에 relative</caption>
+      <tr>
+        <td class="relative_section">
+          <div class="absolute_section"></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="wrap">
+    <table class="tr_relative">
+      <caption>tr에 relative</caption>
+      <tr class="relative_section">
+        <td>
+          <div class="absolute_section"></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="wrap">
+    <table class="table_relative relative_section">
+    <caption>table에 relative</caption>
+      <tr>
+        <td>
+          <div class="absolute_section"></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="wrap div_relative">
+    <table>
+    <caption>div에 relative</caption>
+      <tr>
+        <td>
+          <div class="relative_section">
+            <div class="absolute_section"></div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <p>테이블은 각 요소를 배치하는 틀로 보고, 셀 안에 div를 추가하여 position 요소나 꾸미는 요소는 내부 div에 직접 선언하는 게 좋습니다.</p>
+
+  <div>
+    border-collapse: separate는 table, thead, tfoot, tbody 순으로 렌더링 됩니다. <br>
+    border-collapse: collapse는 테이블 구조와 상관없이, 선이 병합되면서 우측 하단부터 좌측 상단으로 렌더링 됩니다.
+  </div>
 </body>
 </html>
