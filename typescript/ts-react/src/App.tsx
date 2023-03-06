@@ -1,4 +1,5 @@
-import './App.css'
+import { Link, Outlet } from 'react-router-dom';
+import './App.css';
 
 function App() {
   return (
@@ -8,8 +9,12 @@ function App() {
           <img src="../public/smile.png" className="logo smile" alt="My logo" />
         </a>
       </div>
+      <Link to="/">Home</Link>
+      <br />
+      <Link to="/about">About</Link>
+      <Outlet />
     </div>
-  )
+  );
 }
 
 export default App
