@@ -190,6 +190,9 @@
     .sub_list li:nth-child(5n + 1) {
       margin-left: 0;
     }
+    .sub_list .img_wrap {
+      position: relative;
+    }
     .sub_list .item_link {
       display: block;
       position: relative;
@@ -207,10 +210,39 @@
       width: 188px;
       height: 141px;
     }
+    .sub_list .time {
+      position: absolute;
+      right: 4px;
+      bottom: 4px;
+      height: 18px;
+      padding: 0 7px;
+      font-size: 11px;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    .sub_list .watch_later_link {
+      display: none;
+      position: absolute;
+      right: 4px;
+      bottom: 4px;
+      width: 45px;
+      height: 45px;
+      background: url(./img/later_watch.png) no-repeat 0 0;
+    }
+    .sub_list .img_wrap:hover .watch_later_link {
+      display: block;
+    }
+    .sub_list .img_wrap:hover .time {
+      display: none;
+    }
+    .sub_list .info_wrap {
+      margin-top: 10px;
+      position: relative;
+    }
     .sub_list .info {
       height: 79px;
-      margin-top: 10px;
-      padding: 5px;
+      margin-left: 30px;
+      /* padding: 5px; */
     }
     .sub_list .title {
       display: -webkit-box;
@@ -229,6 +261,45 @@
       padding-top: 3px;
       font-size: 12px;
       color: #7ba7df;
+    }
+    .sub_list .rank {
+      position: absolute;
+      top: 0;
+      bottom: 1px;
+      width: 20px;
+      text-align: center;
+    }
+    .sub_list .rank .num {
+      display: block;
+      font-size: 22px;
+      line-height: 24px;
+    }
+    .sub_list .rank .change {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    .sub_list .rank .change::before {
+      display: inline-block;
+      content: "";
+      margin-right: 3px;
+    }
+    .sub_list .like {
+      position: absolute;
+      bottom: 0;
+      padding-left: 18px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .sub_list .like::before {
+      position: absolute;
+      top: 6px;
+      left: 0;
+      content: "";
+      width: 11px;
+      height: 10px;
+      background: url(./img/like.png) no-repeat;
     }
   </style>
 </head>
@@ -283,7 +354,7 @@
               <div class="info_wrap">
                 <div class="rank">
                   <span class="num"><span class="blind">랭킹</span>3</span>
-                  <span class="change keep">3<span class="blind">유지</span></span>
+                  <span class="change keep"><span class="blind">유지</span></span>
                 </div>
                 <div class="info">
                   <span class="category">임시 이미지</span>
@@ -299,93 +370,203 @@
     <div class="sub_wrap">
       <ol class="sub_list">
         <li>
-          <a href="#" class="item_link">
-            <img src="https://picsum.photos/188/141" alt="임시 이미지">
-          </a>
-          <div class="info">
-            <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
-            <a href="#" class="category_link">임시 이미지</a>
+          <div class="img_wrap">
+            <a href="#" class="item_link">
+              <img src="https://picsum.photos/188/141" alt="임시 이미지">
+              <span class="time"><span class="blind">재생시간</span>99:99</span>
+            </a>
+            <a href="#" class="watch_later_link"><span class="blind">나중에 보기</span></a>
+          </div>
+          <div class="info_wrap">
+            <div class="rank">
+              <span class="num"><span class="blind">랭킹</span>4</span>
+              <span class="change up">3<span class="blind">상승</span></span>
+            </div>
+            <div class="info">
+              <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
+              <a href="#" class="category_link">임시 이미지</a>
+              <span class="like"><span class="blind">좋아요</span>99,999</span>
+            </div>
           </div>
         </li>
         <li>
-          <a href="#" class="item_link">
-            <img src="https://picsum.photos/188/141" alt="임시 이미지">
-          </a>
-          <div class="info">
-            <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
-            <a href="#" class="category_link">임시 이미지</a>
+          <div class="img_wrap">
+            <a href="#" class="item_link">
+              <img src="https://picsum.photos/188/141" alt="임시 이미지">
+              <span class="time"><span class="blind">재생시간</span>99:99</span>
+            </a>
+            <a href="#" class="watch_later_link"><span class="blind">나중에 보기</span></a>
+          </div>
+          <div class="info_wrap">
+            <div class="rank">
+              <span class="num"><span class="blind">랭킹</span>5</span>
+              <span class="change down">2<span class="blind">하락</span></span>
+            </div>
+            <div class="info">
+              <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
+              <a href="#" class="category_link">임시 이미지</a>
+              <span class="like"><span class="blind">좋아요</span>99,999</span>
+            </div>
           </div>
         </li>
         <li>
-          <a href="#" class="item_link">
-            <img src="https://picsum.photos/188/141" alt="임시 이미지">
-          </a>
-          <div class="info">
-            <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
-            <a href="#" class="category_link">임시 이미지</a>
+          <div class="img_wrap">
+            <a href="#" class="item_link">
+              <img src="https://picsum.photos/188/141" alt="임시 이미지">
+              <span class="time"><span class="blind">재생시간</span>99:99</span>
+            </a>
+            <a href="#" class="watch_later_link"><span class="blind">나중에 보기</span></a>
+          </div>
+          <div class="info_wrap">
+            <div class="rank">
+              <span class="num"><span class="blind">랭킹</span>6</span>
+              <span class="change keep"><span class="blind">유지</span></span>
+            </div>
+            <div class="info">
+              <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
+              <a href="#" class="category_link">임시 이미지</a>
+              <span class="like"><span class="blind">좋아요</span>99,999</span>
+            </div>
           </div>
         </li>
         <li>
-          <a href="#" class="item_link">
-            <img src="https://picsum.photos/188/141" alt="임시 이미지">
-          </a>
-          <div class="info">
-            <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
-            <a href="#" class="category_link">임시 이미지</a>
-          </div>  
+          <div class="img_wrap">
+            <a href="#" class="item_link">
+              <img src="https://picsum.photos/188/141" alt="임시 이미지">
+              <span class="time"><span class="blind">재생시간</span>99:99</span>
+            </a>
+            <a href="#" class="watch_later_link"><span class="blind">나중에 보기</span></a>
+          </div>
+          <div class="info_wrap">
+            <div class="rank">
+              <span class="num"><span class="blind">랭킹</span>7</span>
+              <span class="change up">3<span class="blind">상승</span></span>
+            </div>
+            <div class="info">
+              <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
+              <a href="#" class="category_link">임시 이미지</a>
+              <span class="like"><span class="blind">좋아요</span>99,999</span>
+            </div>
+          </div> 
         </li>
         <li>
-          <a href="#" class="item_link">
-            <img src="https://picsum.photos/188/141" alt="임시 이미지">
-          </a>
-          <div class="info">
-            <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
-            <a href="#" class="category_link">임시 이미지</a>
+          <div class="img_wrap">
+            <a href="#" class="item_link">
+              <img src="https://picsum.photos/188/141" alt="임시 이미지">
+              <span class="time"><span class="blind">재생시간</span>99:99</span>
+            </a>
+            <a href="#" class="watch_later_link"><span class="blind">나중에 보기</span></a>
+          </div>
+          <div class="info_wrap">
+            <div class="rank">
+              <span class="num"><span class="blind">랭킹</span>8</span>
+              <span class="change up">3<span class="blind">상승</span></span>
+            </div>
+            <div class="info">
+              <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
+              <a href="#" class="category_link">임시 이미지</a>
+              <span class="like"><span class="blind">좋아요</span>99,999</span>
+            </div>
           </div>
         </li>
         <li>
-          <a href="#" class="item_link">
-            <img src="https://picsum.photos/188/141" alt="임시 이미지">
-          </a>
-          <div class="info">
-            <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
-            <a href="#" class="category_link">임시 이미지</a>
+          <div class="img_wrap">
+            <a href="#" class="item_link">
+              <img src="https://picsum.photos/188/141" alt="임시 이미지">
+              <span class="time"><span class="blind">재생시간</span>99:99</span>
+            </a>
+            <a href="#" class="watch_later_link"><span class="blind">나중에 보기</span></a>
+          </div>
+          <div class="info_wrap">
+            <div class="rank">
+              <span class="num"><span class="blind">랭킹</span>9</span>
+              <span class="chang up">3<span class="blind">상승</span></span>
+            </div>
+            <div class="info">
+              <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
+              <a href="#" class="category_link">임시 이미지</a>
+              <span class="like"><span class="blind">좋아요</span>99,999</span>
+            </div>
           </div>
         </li>
         <li>
-          <a href="#" class="item_link">
-            <img src="https://picsum.photos/188/141" alt="임시 이미지">
-          </a>
-          <div class="info">
-            <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
-            <a href="#" class="category_link">임시 이미지</a>
+          <div class="img_wrap">
+            <a href="#" class="item_link">
+              <img src="https://picsum.photos/188/141" alt="임시 이미지">
+              <span class="time"><span class="blind">재생시간</span>99:99</span>
+            </a>
+            <a href="#" class="watch_later_link"><span class="blind">나중에 보기</span></a>
+          </div>
+          <div class="info_wrap">
+            <div class="rank">
+              <span class="num"><span class="blind">랭킹</span>10</span>
+              <span class="change up">3<span class="blind">상승</span></span>
+            </div>
+            <div class="info">
+              <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
+              <a href="#" class="category_link">임시 이미지</a>
+              <span class="like"><span class="blind">좋아요</span>99,999</span>
+            </div>
           </div>
         </li>
         <li>
-          <a href="#" class="item_link">
-            <img src="https://picsum.photos/188/141" alt="임시 이미지">
-          </a>
-          <div class="info">
-            <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
-            <a href="#" class="category_link">임시 이미지</a>
+          <div class="img_wrap">
+            <a href="#" class="item_link">
+              <img src="https://picsum.photos/188/141" alt="임시 이미지">
+              <span class="time"><span class="blind">재생시간</span>99:99</span>
+            </a>
+            <a href="#" class="watch_later_link"><span class="blind">나중에 보기</span></a>
+          </div>
+          <div class="info_wrap">
+            <div class="rank">
+              <span class="num"><span class="blind">랭킹</span>11</span>
+              <span class="change up">3<span class="blind">상승</span></span>
+            </div>
+            <div class="info">
+              <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
+              <a href="#" class="category_link">임시 이미지</a>
+              <span class="like"><span class="blind">좋아요</span>99,999</span>
+            </div>
           </div>
         </li>
         <li>
-          <a href="#" class="item_link">
-            <img src="https://picsum.photos/188/141" alt="임시 이미지">
-          </a>
-          <div class="info">
-            <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
-            <a href="#" class="category_link">임시 이미지</a>
+          <div class="img_wrap">
+            <a href="#" class="item_link">
+              <img src="https://picsum.photos/188/141" alt="임시 이미지">
+              <span class="time"><span class="blind">재생시간</span>99:99</span>
+            </a>
+            <a href="#" class="watch_later_link"><span class="blind">나중에 보기</span></a>
+          </div>
+          <div class="info_wrap">
+            <div class="rank">
+              <span class="num"><span class="blind">랭킹</span>12</span>
+              <span class="change up">3<span class="blind">상승</span></span>
+            </div>
+            <div class="info">
+              <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
+              <a href="#" class="category_link">임시 이미지</a>
+              <span class="like"><span class="blind">좋아요</span>99,999</span>
+            </div>
           </div>
         </li>
         <li>
-          <a href="#" class="item_link">
-            <img src="https://picsum.photos/188/141" alt="임시 이미지">
-          </a>
-          <div class="info">
-            <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
-            <a href="#" class="category_link">임시 이미지</a>
+          <div class="img_wrap">
+            <a href="#" class="item_link">
+              <img src="https://picsum.photos/188/141" alt="임시 이미지">
+              <span class="time"><span class="blind">재생시간</span>99:99</span>
+            </a>
+            <a href="#" class="watch_later_link"><span class="blind">나중에 보기</span></a>
+          </div>
+          <div class="info_wrap">
+            <div class="rank">
+              <span class="num"><span class="blind">랭킹</span>13</span>
+              <span class="change up">3<span class="blind">상승</span></span>
+            </div>
+            <div class="info">
+              <a href="#" class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dicta placeat, voluptatum ullam quidem natus.</a>
+              <a href="#" class="category_link">임시 이미지</a>
+              <span class="like"><span class="blind">좋아요</span>99,999</span>
+            </div>
           </div>
         </li>
       </ol>
