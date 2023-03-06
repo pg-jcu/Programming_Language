@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>table</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <col>
+    <colgroup span="2"></colgroup>
+    <colgroup span="2"></colgroup>
+    <tr>
+      <td rowspan="2"></td>
+      <th colspan="2" scope="colgroup">Mars</th>
+      <th colspan="2" scope="colgroup">Venus</th>
+    </tr>
+    <tr>
+      <th scope="col">Produced</th>
+      <th scope="col">Sold</th>
+      <th scope="col">Produced</th>
+      <th scope="col">Sold</th>
+    </tr>
+    <tr>
+      <th scope="row">Teddy Bears</th>
+      <td>50,000</td>
+      <td>30,000</td>
+      <td>100,000</td>
+      <td>80,000</td>
+    </tr>
+    <tr>
+      <th scope="row">Teddy Bears</th>
+      <td>50,000</td>
+      <td>30,000</td>
+      <td>100,000</td>
+      <td>80,000</td>
+    </tr>
+  </table>
+  <br>
+  <table>
+    <caption>
+        Availability of holiday accommodation
+    </caption>
+    <thead>
+      <tr>
+        <td></td>
+        <th id="stud" scope="col">Studio</th>
+        <th id="apt" scope="col">Apt</th>
+        <th id="chal" scope="col">Chalet</th>
+        <th id="villa" scope="col">Villa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th id="par" colspan="5" scope="colgroup">Paris</th>
+      </tr>
+      <tr>
+        <th headers="par" id="pbed1">1 bedroom</th>
+        <td headers="par pbed1 stud">11</td>
+        <td headers="par pbed1 apt">20</td>
+        <td headers="par pbed1 chal">25</td>
+        <td headers="par pbed1 villa">23</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
