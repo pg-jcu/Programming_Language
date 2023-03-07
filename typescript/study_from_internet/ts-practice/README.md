@@ -1,0 +1,1 @@
+reference: https://velog.io/@velopert/typescript-basics
