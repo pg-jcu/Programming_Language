@@ -10,6 +10,10 @@ fn main() {
     println!("implementation");
     implementation();
     println!("-------------------------");
+
+    println!("traits");
+    traits();
+    println!("-------------------------");
 }
 
 fn generics() {
@@ -77,4 +81,22 @@ fn implementation() {
     let y = GenVal { gen_val: 3i32 };
 
     println!("{}, {}", x.value(), y.value());
+}
+
+fn traits() {
+    struct Empty;
+    struct Null;
+
+    trait DoubleDrop<T> {
+        fn double_drop(self, _: T);
+    }
+
+    impl<T, U> DoubleDrop<T> for U {
+        fn double_drop(self, _: T) {}
+    }
+
+    let empty = Empty;
+    let null = Null;
+
+    empty.double_drop(null);
 }
