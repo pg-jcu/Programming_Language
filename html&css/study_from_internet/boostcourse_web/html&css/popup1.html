@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>popup1</title>
+  <style>
+    .content {
+      height: 5000px;
+    }
+    .popup {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    .popup_layer1 {
+      position: relative;
+      width: 300px;
+      min-height: 150px;
+      padding-bottom: 50px;
+      background-color: #fff;
+      z-index: 10;
+    }
+    /* IE7 이상 대응 */
+    .popup_layer2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      height: 150px;
+      padding-bottom: 50px;
+      margin: -100px 0 0 -150px; 
+      background: #fff;
+      z-index: 10;
+    }
+    /* IE8 이상 */
+    .popup_layer2 {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 300px;
+      height: 150px;
+      padding-bottom: 50px;
+      margin: auto; 
+      background: #fff;
+      z-index: 11;
+    }
+    .text_area {
+      padding: 50px 30px 30px;
+      text-align: center;
+    }
+    .btn_area {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 50px;
+      overflow: hidden;
+    }
+    .btn {
+      float: left;
+      width: 50%;
+      height: 100%;
+      font-size: 15px;
+      font-weight: bold;
+      border: 0;
+      background: pink;
+    }
+    .btn.no {
+      background: lightblue;
+    }
+    .popup_dimmed {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: #000;
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    margin: auto;
+    <br>
+    margin의 top, left, right, bottom 모두 auto로 적용할 경우, margin: auto; 로 축약하여 사용할 수 있습니다. 하지만 경우에 따라 auto는 0으로 처리되기도 합니다.
+    <br>
+    0으로 처리되는 경우<br>
+    상하 margin<br>
+    inline, float 요소, 혹은 absolute, fixed로 위치가 고정된 요소의 모든 margin<br>
+    auto로 처리되는 경우<br>
+    width가 있는 요소의 좌우 margin<br>
+    absolute의 top + bottom + height 혹은 left + right + width 값이 함께 있는 요소의 모든 margin<br>
+  </div>
+  <div class="popup">
+    <div class="popup_layer1">
+      <div class="text_area">
+        <strong class="title">팝업 타이틀</strong>
+        <p class="text">팝업 텍스트 영역</p>
+      </div>
+      <div class="btn_area">
+        <button class="btn">예</button>
+        <button class="btn no">아니오</button>
+      </div>
+    </div>
+    <div class="popup_layer2">
+      <div class="text_area">
+        <strong class="title">팝업 타이틀</strong>
+        <p class="text">팝업 텍스트 영역</p>
+      </div>
+      <div class="btn_area">
+        <button class="btn">예</button>
+        <button class="btn no">아니오</button>
+      </div>
+    </div>
+    <div class="popup_dimmed"></div>
+  </div>
+</body>
+</html>
