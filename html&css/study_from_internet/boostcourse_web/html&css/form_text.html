@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form text</title>
+  <style>
+    input[type="text"],
+    input[type="password"] {
+      width: 198px;
+      height: 38px;
+      line-height: 38px;
+      border: 1px solid #ddd;
+      font-size: 15px;
+      text-indent: 10px;
+      color: #000;
+    }
+
+    .text_form {
+      width: 198px;
+      margin-top: 20px;
+      padding: 8px;
+      border: 1px solid #ddd;
+      cursor: text;
+    }
+    .text_form input {
+      height: 20px;
+      line-height: 20px;
+      padding: 0;
+      border: 0 none;
+      font-size: 15px;
+      outline: none;
+    }
+
+    textarea {
+      width: 280px;
+      height: 130px;
+      padding: 9px;
+      border: 1px solid #ddd;
+      font-size: 15px;
+      resize: none;
+      color: #000;
+    }
+    .textarea {
+      width: 300px;
+      height: 150px;
+      margin-top: 20px;
+      padding: 8px;
+      border: 1px solid #ddd;
+      cursor: text;
+    }
+    .textarea textarea {
+      width: 100%;
+      height: 100%;
+      border: 0 none;
+      padding: 0;
+      font-size: 15px;
+      resize: none;
+      outline: none;
+    }
+
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: red;
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+      color: red;
+    }
+    :-ms-input-placeholder { /* IE 10+ */
+      color: red;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+      color: red;
+    }
+    textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: blue;
+    }
+    textarea::-moz-placeholder { /* Firefox 19+ */
+      color: blue;
+    }
+    textarea:-ms-input-placeholder { /* IE 10+ */
+      color: blue;
+    }
+    textarea:-moz-placeholder { /* Firefox 18- */
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <p><input type="text" placeholder="이름을 입력해주세요."></p>
+  <div class="text_form">
+    <input type="text" placeholder="이름을 입력해주세요.">
+  </div>
+
+  <p><input type="password" placeholder="비밀번호를 입력해주세요."></p>
+  <div class="text_form">
+    <input type="password" placeholder="비밀번호를 입력해주세요.">
+  </div>
+
+  <p><textarea cols="30" rows="10" placeholder="문구를 입력해주세요."></textarea></p>
+  <div class="textarea">
+    <textarea cols="30" rows="10" placeholder="문구를 입력해주세요."></textarea>
+  </div>
+
+<pre>
+비표준 프리픽스가 붙은 코드들을 적용된 스타일이 같다고하여 붙여쓴다면 브라우저에서 제대로 적용이 되지 않는 것을 볼 수 있음
+이것은 브라우저의 엔진이 css의 선택자를 읽어들일때 그 엔진에서 이해할 수 없는 선택자나 문자가 들어간다면 그 선택자 자체를 무시하기 때문
+그러므로 비표준 코드를 작성할 때는 꼭 따로 사용해야 한다는 점을 주의
+</pre>
+</body>
+</html>
