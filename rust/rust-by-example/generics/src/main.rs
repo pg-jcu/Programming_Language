@@ -22,6 +22,10 @@ fn main() {
     println!("multiple bounds");
     multiple_bounds();
     println!("-------------------------");
+
+    println!("where clauses");
+    where_clauses();
+    println!("-------------------------");
 }
 
 fn generics() {
@@ -176,4 +180,23 @@ fn multiple_bounds() {
     compare_prints(&string);
 
     compare_types(&array, &vec);
+}
+
+fn where_clauses() {
+    use std::fmt::Debug;
+
+    trait PrintInOption {
+        fn print_in_option(self);
+    }
+
+    impl<T> PrintInOption for T where 
+        Option<T>: Debug {
+        fn print_in_option(self) {
+            println!("{:?}", Some(self));
+        }
+    }
+
+    let vec = vec![1, 2, 3];
+
+    vec.print_in_option();
 }
