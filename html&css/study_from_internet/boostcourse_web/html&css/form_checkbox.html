@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form checkbox</title>
+  <style>
+    input[type="checkbox"] {
+      position: absolute;
+      overflow: hidden;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      opacity: 0;
+    }
+    input[type="checkbox"] + label {
+      display: inline-block;
+      overflow: hidden;
+      position: relative;
+      width: 36px;
+      height: 21px;
+      border-radius: 10px;
+      background-color: #666;
+      vertical-align: top;
+      color: transparent;
+    }
+    input[type="checkbox"] + label::after {
+      content: "";
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: 19px;
+      height: 19px;
+      background-color: #fff;
+      border-radius: 50%;
+    }
+    input[type="checkbox"]:checked + label {
+      background-color: #62a7ee;
+    }
+    input[type="checkbox"]:checked + label::after {
+      left: auto;
+      right: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <input type="checkbox" id="check_button1">
+    <label for="check_button1">선택1</label>
+  </div>
+
+  <div>
+    <input type="checkbox" id="check_button2">
+    <label for="check_button2">선택2</label>
+  </div>
+</body>
+</html>
