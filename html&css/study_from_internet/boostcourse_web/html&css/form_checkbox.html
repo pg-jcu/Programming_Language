@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>form checkbox</title>
   <style>
-    input[type="checkbox"] {
+    .css_checkbox input[type="checkbox"] {
       position: absolute;
       overflow: hidden;
       width: 1px;
@@ -14,7 +14,7 @@
       margin: -1px;
       opacity: 0;
     }
-    input[type="checkbox"] + label {
+    .css_checkbox input[type="checkbox"] + label {
       display: inline-block;
       overflow: hidden;
       position: relative;
@@ -25,7 +25,7 @@
       vertical-align: top;
       color: transparent;
     }
-    input[type="checkbox"] + label::after {
+    .css_checkbox input[type="checkbox"] + label::after {
       content: "";
       position: absolute;
       top: 1px;
@@ -35,24 +35,103 @@
       background-color: #fff;
       border-radius: 50%;
     }
-    input[type="checkbox"]:checked + label {
+    .css_checkbox input[type="checkbox"]:checked + label {
       background-color: #62a7ee;
     }
-    input[type="checkbox"]:checked + label::after {
+    .css_checkbox input[type="checkbox"]:checked + label::after {
       left: auto;
       right: 1px;
+    }
+
+    .img_checkbox input[type="checkbox"] {
+      position: absolute;
+      overflow: hidden;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      opacity: 0;
+    }
+    .img_checkbox input[type="checkbox"] + label {
+      display: inline-block;
+      font-size: 16px;
+    }
+    .img_checkbox input[type="checkbox"] + label::before {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin: -4px 5px 0 0;
+      background: url(./img/checkbox.png) no-repeat 0 0;
+      background-size: 20px;
+      vertical-align: top;
+      content: "";
+    }
+    .img_checkbox input[type="checkbox"]:checked + label::before {
+      background-image: url(./img/checkbox_on.png);
+    }
+
+    .img_radio input[type="radio"] {
+      position: absolute;
+      overflow: hidden;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      opacity: 0;
+    }
+    .img_radio input[type="radio"] + label {
+      display: inline-block;
+      font-size: 16px;
+    }
+    .img_radio input[type="radio"] + label::before {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin: -4px 5px 0 0;
+      background: url(./img/radio.png) no-repeat 0 0;
+      background-size: 20px;
+      vertical-align: top;
+      content: "";
+    }
+    .img_radio input[type="radio"]:checked + label::before {
+      background-image: url(./img/radio_on.png);
     }
   </style>
 </head>
 <body>
-  <div>
-    <input type="checkbox" id="check_button1">
-    <label for="check_button1">선택1</label>
+  <div class="css_checkbox">
+    <div>
+      <input type="checkbox" id="check_button1">
+      <label for="check_button1">선택1</label>
+    </div>
+    <div>
+      <input type="checkbox" id="check_button2">
+      <label for="check_button2">선택2</label>
+    </div>
   </div>
-
-  <div>
-    <input type="checkbox" id="check_button2">
-    <label for="check_button2">선택2</label>
+  <br>
+  <div class="img_checkbox">
+    <div>
+      <input type="checkbox" id="check_button3">
+      <label for="check_button3">선택3</label>
+    </div>
+    <div>
+      <input type="checkbox" id="check_button4">
+      <label for="check_button4">선택4</label>
+    </div>
+  </div>
+  <br>
+  <div class="img_radio">
+    <div>
+      <input type="radio" id="radio_button1" name="radio_form">
+      <label for="radio_button1">라디오1</label>
+    </div>
+    <div>
+      <input type="radio" id="radio_button2" name="radio_form">
+      <label for="radio_button2">라디오2</label>
+    </div>
+    <div>
+      <input type="radio" id="radio_button3" name="radio_form">
+      <label for="radio_button3">라디오3</label>
+    </div>
   </div>
 </body>
 </html>
