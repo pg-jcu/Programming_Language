@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form file</title>
+  <style>
+    .file_form {
+      position: relative;
+      display: inline-block;
+      width: 198px;
+      height: 38px;
+      line-height: 38px;
+      border: 1px solid cornflowerblue;
+      font-size: 12px;
+    }
+    .file_form .text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+      padding: 0 50px 0 10px;
+      white-space: nowrap;
+    }
+    .file_form .text::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50px;
+      background-color: cornflowerblue;
+      content: "파일찾기";
+      text-align: center;
+      color: #fff;
+    }
+    .file_form input[type="file"] {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="file_form">
+    <input type="file">
+    <span class="text">filename...</span>
+  </div>
+</body>
+</html>
