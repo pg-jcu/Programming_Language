@@ -26,6 +26,10 @@ fn main() {
     println!("where clauses");
     where_clauses();
     println!("-------------------------");
+
+    println!("new type idiom");
+    new_type_idiom();
+    println!("-------------------------");
 }
 
 fn generics() {
@@ -199,4 +203,30 @@ fn where_clauses() {
     let vec = vec![1, 2, 3];
 
     vec.print_in_option();
+}
+
+fn new_type_idiom() {
+    struct Years(i64);
+    struct Days(i64);
+
+    impl Years {
+        pub fn to_days(&self) -> Days {
+            Days(self.0 * 365)
+        }
+    }
+
+    impl Days {
+        pub fn to_years(&self) -> Years {
+            Years(self.0 / 365)
+        }
+    }
+
+    fn old_enough(age: &Years) -> bool {
+        age.0 >= 18
+    }
+
+    let age = Years(5);
+    let age_days = age.to_days();
+    println!("Old enough {}", old_enough(&age));
+    println!("Old enough {}", old_enough(&age_days.to_years()));
 }
