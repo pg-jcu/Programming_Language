@@ -34,6 +34,10 @@ fn main() {
     println!("associated items");
     associated_items();
     println!("-------------------------");
+
+    println!("phantom type parameters");
+    phantom_type_parameters();
+    println!("-------------------------");
 }
 
 fn generics() {
@@ -297,4 +301,35 @@ fn associated_items() {
     println!("Last number: {}", container.last());
 
     println!("The difference is: {}", difference(&container));
+}
+
+fn phantom_type_parameters() {
+    use std::marker::PhantomData;
+
+    #[derive(PartialEq)]
+    struct PhantomTuple<A, B>(A, PhantomData<B>);
+
+    #[derive(PartialEq)]
+    struct PhantomStruct<A, B> { first: A, phantom: PhantomData<B> }
+
+    let _tuple1: PhantomTuple<char, f32> = PhantomTuple('Q', PhantomData);
+    let _tuple2: PhantomTuple<char, f64> = PhantomTuple('Q', PhantomData);
+
+    let _struct1: PhantomStruct<char, f32> = PhantomStruct {
+        first: 'Q',
+        phantom: PhantomData,
+    };
+
+    let _struct2: PhantomStruct<char, f64> = PhantomStruct {
+        first: 'Q',
+        phantom: PhantomData,
+    };
+
+    // compile time error! type mismatch so these cannot be compared
+    // println!("_tuple1 == _tuple2 yields: {}",
+    //           _tuple1 == _tuple2);
+
+    // compile time error! type mismatch so these cannot be compared
+    // println!("_struct1 == _struct2 yields: {}",
+    //           _struct1 == _struct2);
 }
