@@ -2,6 +2,10 @@ fn main() {
     println!("RAII");
     raii();
     println!("-------------------------");
+
+    println!("ownership and moves");
+    ownership_and_moves();
+    println!("-------------------------");
 }
 
 fn raii() {
@@ -30,4 +34,26 @@ fn raii() {
 
     let _x = ToDrop;
     println!("Made a ToDrop!");
+}
+
+fn ownership_and_moves() {
+    fn destroy_box(c: Box<i32>) {
+        println!("Destroying a box that contains {}", c);
+    }
+
+    let x = 5u32;
+    let y = x;
+
+    println!("x is {}, and y is {}", x, y);
+
+    let a = Box::new(5i32);
+
+    println!("a contains: {}", a);
+
+    // The pointer address of `a` is copied (not the data) into `b`.
+    // Both are now pointers to the same heap allocated data, but
+    // `b` now owns it.
+    let b = a;
+
+    destroy_box(b);
 }
