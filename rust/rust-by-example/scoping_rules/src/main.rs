@@ -70,4 +70,24 @@ fn ownership_and_moves() {
     *mutable_box = 4;
 
     println!("mutable_box new contains {}", mutable_box);
+
+    println!("partial moves");
+
+    #[derive(Debug)]
+    struct Person {
+        name: String,
+        age: Box<u8>,
+    }
+
+    let person = Person {
+        name: String::from("Jeong"),
+        age: Box::new(20),
+    };
+
+    let Person { name, ref age } = person;
+
+    println!("The person's age is {}", age);
+    println!("The person's name is {}", name);
+
+    println!("The person's age from person struct is {}", person.age);
 }
