@@ -11,23 +11,23 @@ export interface Album {
 }
 
 export interface Playlist {
-  resolve: () => Song[];
+  resolve(): Song[];
   type: "playlist";
 }
 
-export type Items = (Song | Album | Playlist)[];
+export type PlaylistItem = Album | Song | Playlist;
 
 export interface Artists {
-  [artist: string]: string[];
+  [i: string]: string[];
 }
 
-export interface ResultPlaylist {
+export interface UnrolledPlaylist {
   artists: Artists;
   songs: string[];
   time: number;
 }
 
-export function unrollPlaylist(items: Items): ResultPlaylist {
+export function unrollPlaylist(items: PlaylistItem[]): UnrolledPlaylist {
   const artists: Artists = {};
   const songs: string[] = [];
   let time = 0;
@@ -107,3 +107,41 @@ export function unrollPlaylist(items: Items): ResultPlaylist {
     time,
   };
 }
+
+// solution
+// export function unrollPlaylist(items: PlaylistItem[]): UnrolledPlaylist {
+//   const artists: Artists = {};
+//   const songs: string[] = [];
+//   let time = 0;
+
+//   function addSong(song: Song) {
+//     const songArtists =
+//       typeof song.artist === "string" ? [song.artist] : song.artist;
+
+//     for (const artist of songArtists) {
+//       artists[artist] ??= [];
+//       artists[artist].push(song.name);
+//     }
+
+//     time += song.length;
+//     songs.push(song.name);
+//   }
+
+//   for (const item of items) {
+//     switch (item.type) {
+//       case "song":
+//         addSong(item);
+//         break;
+
+//       case "album":
+//         item.songs.forEach(addSong);
+//         break;
+
+//       case "playlist":
+//         item.resolve().forEach(addSong);
+//         break;
+//     }
+//   }
+
+//   return { artists, songs, time };
+// }
