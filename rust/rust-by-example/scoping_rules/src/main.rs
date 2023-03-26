@@ -6,6 +6,10 @@ fn main() {
     println!("ownership and moves");
     ownership_and_moves();
     println!("-------------------------");
+
+    println!("borrowing");
+    borrowing();
+    println!("-------------------------");
 }
 
 fn raii() {
@@ -90,4 +94,28 @@ fn ownership_and_moves() {
     println!("The person's name is {}", name);
 
     println!("The person's age from person struct is {}", person.age);
+}
+
+fn borrowing() {
+    fn eat_box_i32(boxed_i32: Box<i32>) {
+        println!("Destroying box that contains {}", boxed_i32);
+    }
+
+    fn borrow_i32(borrowed_i32: &i32) {
+        println!("This int is: {}", borrowed_i32);
+    }
+
+    let boxed_i32 = Box::new(5_i32);
+    let stacked_i32 = 6_i32;
+
+    borrow_i32(&boxed_i32);
+    borrow_i32(&stacked_i32);
+
+    {
+        let _ref_to_i32: &i32 = &boxed_i32;
+
+        borrow_i32(_ref_to_i32);
+    }
+
+    eat_box_i32(boxed_i32);
 }
