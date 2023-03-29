@@ -189,5 +189,48 @@ fn borrowing() {
 
     let new_borrowed_point = &point;
     println!("Point now has coordinates: ({}, {}, {})",
-             new_borrowed_point.x, new_borrowed_point.y, new_borrowed_point.z);         
+             new_borrowed_point.x, new_borrowed_point.y, new_borrowed_point.z);
+                
+    println!("the ref pattern");
+
+    #[derive(Clone, Copy)]
+    struct PointXY { x: i32, y: i32 }
+
+    let c = 'Q';
+
+    let ref ref_c1 = c;
+    let ref_c2 = &c;
+
+    println!("ref_c1 equals ref_c2: {}", *ref_c1 == *ref_c2);
+
+    let point = PointXY { x: 0, y: 0 };
+
+    // 'ref' is also valid when destructuring a struct.
+    let _copy_of_x = {
+        // 'ref_to_x' is a reference to the 'x' field of 'point'.
+        let PointXY { x: ref ref_to_x, y: _ } = point;
+
+        // return a copy of the 'x' field of 'point'.
+        *ref_to_x
+    };
+
+    let mut mutable_point = point;
+
+    {
+        let PointXY { x: _, y: ref mut mut_ref_to_y } = mutable_point;
+
+        *mut_ref_to_y = 1;
+    }
+
+    println!("point is ({}, {})", point.x, point.y);
+    println!("mutable_point is ({}, {})", mutable_point.x, mutable_point.y);
+
+    let mut mutable_tuple = (Box::new(5u32), 3u32);
+    
+    {
+        let (_, ref mut last) = mutable_tuple;
+        *last = 2u32;
+    }
+    
+    println!("tuple is {:?}", mutable_tuple);
 }
