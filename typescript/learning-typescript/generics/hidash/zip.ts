@@ -1,29 +1,24 @@
 export function zip<T, U>(a: T[], b: U[]) {
   const result: (T | U)[] = [];
+  let i: number;
 
-  if (a.length === b.length) {
-    for (let i = 0; i < a.length; i++) {
-      result.push(a[i], b[i]);
-    }
-
-    return result;
+  for (i = 0; i < Math.min(a.length, b.length); i++) {
+    result.push(a[i], b[i]);
   }
 
   if (a.length < b.length) {
-    for (let i = 0; i < a.length; i++) {
-      result.push(a[i], b[i]);
+    for (; i < b.length; i++) {
+      result.push(b[i]);
     }
-
-    return [...result, ...b.slice(a.length)];
   }
 
   if (b.length < a.length) {
-    for (let i = 0; i < b.length; i++) {
-      result.push(a[i], b[i]);
+    for (; i < a.length; i++) {
+      result.push(a[i]);
     }
-
-    return [...result, ...a.slice(b.length)];
   }
+
+  return result;
 }
 
 // solution
