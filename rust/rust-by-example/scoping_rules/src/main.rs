@@ -10,6 +10,10 @@ fn main() {
     println!("borrowing");
     borrowing();
     println!("-------------------------");
+
+    println!("lifetimes");
+    lifetimes();
+    println!("-------------------------");
 }
 
 fn raii() {
@@ -233,4 +237,14 @@ fn borrowing() {
     }
     
     println!("tuple is {:?}", mutable_tuple);
+}
+
+fn lifetimes() {
+    fn print_refs<'a, 'b>(x: &'a i32, y: &'b i32) {
+        println!("x is {} and y is {}", x, y);
+    }
+
+    let (four, nine) = (4, 9);
+
+    print_refs(&four, &nine);
 }
