@@ -276,4 +276,20 @@ fn lifetimes() {
     let mut t = 3;
     add_one(&mut t);
     print_one(&t);
+
+    println!("methods");
+
+    struct Owner(i32);
+
+    impl Owner {
+        fn add_one<'a>(&'a mut self) { self.0 += 1; }
+        fn print<'a>(&'a self) {
+            println!("print: {}", self.0);
+        }
+    }
+
+    let mut owner = Owner(19);
+
+    owner.add_one();
+    owner.print();
 }
