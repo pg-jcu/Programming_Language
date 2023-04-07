@@ -322,4 +322,22 @@ fn lifetimes() {
     println!("x and y are borrowed in {:?}", double);
     println!("x is borrowed in {:?}", reference);
     println!("y is not borrowed in {:?}", number);
+
+    println!("traits");
+
+    #[derive(Debug)]
+    struct BorrowedTrait<'a> {
+        _x: &'a i32,
+    }
+
+    impl<'a> Default for BorrowedTrait<'a> {
+        fn default() -> Self {
+            Self {
+                _x: &10,
+            }
+        }
+    }
+
+    let b: BorrowedTrait = Default::default();
+    println!("b is {:?}", b);
 }
