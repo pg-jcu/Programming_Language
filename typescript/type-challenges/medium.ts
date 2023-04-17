@@ -110,3 +110,13 @@ type AppendArgument<Fn extends (...args: any[]) => any, A> = Fn extends (
 type Reverse<T extends any[]> = T extends [infer First, ...infer Rest]
   ? [...Reverse<Rest>, First]
   : T;
+
+// 4471 - Zip
+type Zip<T extends any[], U extends any[]> = T extends [
+  infer FirstT,
+  ...infer RestT
+]
+  ? U extends [infer FirstU, ...infer RestU]
+    ? [[FirstT, FirstU], ...Zip<RestT, RestU>]
+    : []
+  : [];
