@@ -1,8 +1,4 @@
 function statement(invoice, plays) {
-  let totalAmount = 0;
-  let volumeCredits = 0;
-  let result = `청구 내역 (고객명: ${invoice.customer})\n`;
-
   function usd(number) {
     return Intl.NumberFormat("en-US", {
       style: "currency",
@@ -49,13 +45,19 @@ function statement(invoice, plays) {
     return result;
   }
 
-  for (let perf of invoice.performances) {
-    volumeCredits += volumeCreditsFor(perf);
+  let totalAmount = 0;
+  let result = `청구 내역 (고객명: ${invoice.customer})\n`;
 
+  for (let perf of invoice.performances) {
     result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${
       perf.audience
     }석)\n`;
     totalAmount += amountFor(perf);
+  }
+
+  let volumeCredits = 0;
+  for (let perf of invoice.performances) {
+    volumeCredits += volumeCreditsFor(perf);
   }
 
   result += `총액: ${usd(totalAmount)}\n`;
