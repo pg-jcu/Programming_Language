@@ -1,10 +1,52 @@
 function statement(invoice, plays) {
+  let result = `청구 내역 (고객명: ${invoice.customer})\n`;
+
+  for (let perf of invoice.performances) {
+    result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${
+      perf.audience
+    }석)\n`;
+  }
+
+  result += `총액: ${usd(totalAmount())}\n`;
+  result += `적립 포인트: ${totalVolumeCredits()}점\n`;
+  return result;
+
+  function totalAmount() {
+    let result = 0;
+    for (let perf of invoice.performances) {
+      result += amountFor(perf);
+    }
+    return result;
+  }
+
+  function totalVolumeCredits() {
+    let result = 0;
+    for (let perf of invoice.performances) {
+      result += volumeCreditsFor(perf);
+    }
+    return result;
+  }
+
   function usd(number) {
     return Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
       minimumFractionDigits: 2,
     }).format(number / 100);
+  }
+
+  function volumeCreditsFor(performance) {
+    let result = 0;
+    result += Math.max(performance.audience - 30, 0);
+
+    if ("comedy" === playFor(performance).type)
+      result += Math.floor(performance.audience / 5);
+
+    return result;
+  }
+
+  function playFor(performance) {
+    return plays[performance.playID];
   }
 
   function amountFor(performance) {
@@ -30,48 +72,6 @@ function statement(invoice, plays) {
 
     return result;
   }
-
-  function playFor(performance) {
-    return plays[performance.playID];
-  }
-
-  function volumeCreditsFor(performance) {
-    let result = 0;
-    result += Math.max(performance.audience - 30, 0);
-
-    if ("comedy" === playFor(performance).type)
-      result += Math.floor(performance.audience / 5);
-
-    return result;
-  }
-
-  function totalVolumeCredits() {
-    let result = 0;
-    for (let perf of invoice.performances) {
-      result += volumeCreditsFor(perf);
-    }
-    return result;
-  }
-
-  function totalAmount() {
-    let result = 0;
-    for (let perf of invoice.performances) {
-      result += amountFor(perf);
-    }
-    return result;
-  }
-
-  let result = `청구 내역 (고객명: ${invoice.customer})\n`;
-
-  for (let perf of invoice.performances) {
-    result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${
-      perf.audience
-    }석)\n`;
-  }
-
-  result += `총액: ${usd(totalAmount())}\n`;
-  result += `적립 포인트: ${totalVolumeCredits()}점\n`;
-  return result;
 }
 
 const invoices = [
