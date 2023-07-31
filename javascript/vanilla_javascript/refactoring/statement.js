@@ -3,6 +3,11 @@ function statement(invoice, plays) {
   statementData.customer = invoice.customer;
   statementData.performances = invoice.performances;
   return renderPlainText(statementData, plays);
+
+  function enrichPerformance(performance) {
+    const result = Object.assign({}, performance);
+    return result;
+  }
 }
 
 function renderPlainText(data, plays) {
