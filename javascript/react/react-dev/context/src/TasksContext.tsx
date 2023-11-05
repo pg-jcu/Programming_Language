@@ -12,9 +12,9 @@ interface Task {
   done: boolean;
 }
 
-interface Action extends Task {
+interface Action extends Partial<Task> {
   type: "ADDED" | "CHANGED" | "DELETED";
-  task: Task;
+  task?: Task;
 }
 
 const TasksContext = createContext<Task[] | null>(null);
@@ -46,21 +46,27 @@ export const useTasksDispatch = () => {
   return useContext(TasksDispatchContext);
 };
 
-const tasksReducer = (tasks: Task[], action: Action) => {
+const tasksReducer = (tasks: Task[], action: Action): Task[] => {
   switch (action.type) {
     case "ADDED": {
+      const { id, text } = action;
+
+      if (!id || !text) {
+        throw new Error("please assign id and text.");
+      }
+
       return [
         ...tasks,
         {
-          id: action.id,
-          text: action.text,
+          id,
+          text,
           done: false,
         },
       ];
     }
     case "CHANGED": {
       return tasks.map((task) => {
-        if (task.id === action.task.id) {
+        if (task.id === action.task?.id) {
           return action.task;
         } else {
           return task;
