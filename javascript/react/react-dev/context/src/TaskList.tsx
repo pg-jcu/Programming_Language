@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Task, useTasks, useTasksDispatch } from "./TasksContext";
+import { Task as TaskType, useTasks, useTasksDispatch } from "./TasksContext";
 
 interface TaskProps {
-  task: Task;
+  task: TaskType;
 }
 
 const Task = ({ task }: TaskProps) => {

@@ -12,10 +12,21 @@ export interface Task {
   done: boolean;
 }
 
-interface Action extends Partial<Task> {
-  type: "ADDED" | "CHANGED" | "DELETED";
-  task?: Task;
+interface AddedAction extends Omit<Task, "done"> {
+  type: "ADDED";
 }
+
+interface ChangedAction {
+  type: "CHANGED";
+  task: Task;
+}
+
+interface DeletedAction {
+  type: "DELETED";
+  id: Task["id"];
+}
+
+type Action = AddedAction | ChangedAction | DeletedAction;
 
 const TasksContext = createContext<Task[] | null>(null);
 const TasksDispatchContext = createContext<Dispatch<Action> | null>(null);
