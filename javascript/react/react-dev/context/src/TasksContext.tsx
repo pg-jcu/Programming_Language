@@ -60,24 +60,18 @@ export const useTasksDispatch = () => {
 const tasksReducer = (tasks: Task[], action: Action): Task[] => {
   switch (action.type) {
     case "ADDED": {
-      const { id, text } = action;
-
-      if (!id || !text) {
-        throw new Error("please assign id and text.");
-      }
-
       return [
         ...tasks,
         {
-          id,
-          text,
+          id: action.id,
+          text: action.text,
           done: false,
         },
       ];
     }
     case "CHANGED": {
       return tasks.map((task) => {
-        if (task.id === action.task?.id) {
+        if (task.id === action.task.id) {
           return action.task;
         } else {
           return task;
