@@ -1,15 +1,7 @@
-/*
-test("테스트 설명", () => {
-  expect("검증 대상").toXxx("기대 결과");
+// toBe() -> primitive
+test("1 + 1", () => {
+  expect(1).toBe(1);
 });
-
-toXxx : Test Matcher
-
-Jest는 기본적으로 test.js로 끝나거나, __test__ 디렉터리 안에 있는 
-파일들은 모두 테스트 파일로 인식한다.
-
-특정 테스트 파일만 실행하고 싶은 경우 : npm test <파일명 및 경로>
-*/
 
 function getUser(id) {
   if (id <= 0) {
@@ -22,23 +14,18 @@ function getUser(id) {
   };
 }
 
-// toBe() -> primitive
-test("1 + 1", () => {
-  expect(1).toBe(1);
-});
-
 // toEqual() -> object
 test("return a user object", () => {
   expect(getUser(1)).toEqual({
     id: 1,
-    email: 'user1@test.com',
+    email: "user1@test.com",
   });
 });
 
 // toBeTruthy(), toBeFalsy()
 test("number 0 is falsy but string 0 is truthy", () => {
   expect(0).toBeFalsy();
-  expect('0').toBeTruthy();
+  expect("0").toBeTruthy();
 });
 
 // toHaveLength(), toContain()
